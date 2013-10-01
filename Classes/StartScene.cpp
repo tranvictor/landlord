@@ -44,7 +44,7 @@ bool StartScene::init()
 
 void StartScene::addBackground()
 {
-  CCSprite *background = CCSprite::create("Mainscene/MainsceneBackground.png");
+  CCSprite *background = CCSprite::create("Images/Game/Background/BG-start.png");
   
   CCLOG("%f %f", mScreenSize.width, mScreenSize.height);
   
@@ -70,7 +70,7 @@ void StartScene::addBackground()
 
 void StartScene::addPlayButton()
 {
-  CCSprite *play = CCSprite::create("Mainscene/buttonPlay.png");
+  CCSprite *play = CCSprite::create("Images/Game/UI/buttonPlay.png");
   
   CCMenuItemSprite *playBtn = CCMenuItemSprite::create(play, play, this,
                                                          menu_selector(StartScene::playButtonTouched));
@@ -85,7 +85,7 @@ void StartScene::addPlayButton()
 
 void StartScene::addSettingsButton()
 {
-  CCSprite *settings = CCSprite::create("Mainscene/buttonSetting.png");
+  CCSprite *settings = CCSprite::create("Images/Game/UI/buttonSetting.png");
   
   CCMenuItemSprite *settingBtn = CCMenuItemSprite::create(settings,settings,
                                                           this,

@@ -41,14 +41,14 @@ CCScene* WinScene::scene()
 
 void WinScene::addBackground()
 {
-  CCSprite *background = CCSprite::create("WinScene/background-win.png");
+  CCSprite *background = CCSprite::create("Images/Game/Background/BG-win.png");
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
 }
 
 void WinScene::addMask()
 {
-  CCSprite *mask = CCSprite::create("WinScene/mask.png");
+  CCSprite *mask = CCSprite::create("Images/Game/Background/BG-mask-winscene.png");
   mask->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   this->addChild(mask, GR_FOREGROUND);
 }
@@ -56,7 +56,7 @@ void WinScene::addMask()
 
 void WinScene::addButtonShare()
 {
-  CCSprite *share = CCSprite::create("WinScene/button-share.png");
+  CCSprite *share = CCSprite::create("Images/Game/UI/button-share.png");
   CCMenuItemSprite *shareBtn = CCMenuItemSprite::create(share,
                                                          share,
                                                          this,
@@ -68,7 +68,7 @@ void WinScene::addButtonShare()
 
 void WinScene::addButtonReplay()
 {
-  CCSprite *replay = CCSprite::create("WinScene/button-replay.png");
+  CCSprite *replay = CCSprite::create("Images/Game/UI/button-replay.png");
   CCMenuItemSprite *replayBtn = CCMenuItemSprite::create(replay,
                                                        replay,
                                                        this,
@@ -106,7 +106,7 @@ void WinScene::appearWinner()
   {
     winnerID = GameManager::getPlayerTwoID();
   }
-  CCString *winnerName = CCString::createWithFormat("WinScene/c%i.png", winnerID);
+  CCString *winnerName = CCString::createWithFormat("Images/Game/Object/c%i.png", winnerID);
   CCSprite *winner = CCSprite::create(winnerName->getCString());
   
   winner->setPosition(WINNER_START_POS);

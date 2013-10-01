@@ -60,7 +60,7 @@ bool PlayScene::init()
 
 void PlayScene::addPauseButton()
 {
-  CCSprite* btn = CCSprite::create("PlayScene/button-pause.png");
+  CCSprite* btn = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* btnPause = CCMenuItemSprite::create(btn, btn, this, menu_selector(PlayScene::pauseButtonTouched));
   CCMenu* pMenu = CCMenu::create(btnPause, NULL);
   pMenu->setPosition(BTN_PAUSE_POS);
@@ -69,7 +69,7 @@ void PlayScene::addPauseButton()
 
 void PlayScene::addPlayGroud()
 {
-  CCSprite *ground = CCSprite::create("PlayScene/background-playscene.png");
+  CCSprite *ground = CCSprite::create("Images/Game/Background/BG-play.png");
   ground->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   addChild(ground);
 }
@@ -78,7 +78,7 @@ void PlayScene::addPlayerOne()
 {
   mPlayerOneTag = GameManager::getPlayerOneID();
   CCLog("getPlayerOneID = %d", GameManager::getPlayerOneID());
-  CCSprite *playerOne = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", mPlayerOneTag))->getCString());
+  CCSprite *playerOne = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i.png", mPlayerOneTag))->getCString());
   playerOne->setScale(0.8f);
   playerOne->setPosition(PLAYER_ONE_POS);
   this->addChild(playerOne, GR_MIDDLEGROUND);
@@ -86,7 +86,7 @@ void PlayScene::addPlayerOne()
 
 void PlayScene::addPlayerOneShadow()
 {
-  mPlayerOneShadow = CCSprite::create((CCString::createWithFormat("ChooseCharacterScene/c%i-blue.png", mPlayerOneTag))->getCString());
+  mPlayerOneShadow = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i-blue.png", mPlayerOneTag))->getCString());
   mPlayerOneShadow->setScale(0.8f);
   mPlayerOneShadow->setPosition(PLAYER_ONE_POS);
   this->addChild(mPlayerOneShadow, GR_BACKGROUND);
@@ -95,7 +95,7 @@ void PlayScene::addPlayerOneShadow()
 void PlayScene::addPlayerTwo()
 {
   mPlayerTwoTag = GameManager::getPlayerTwoID();
-  CCSprite *playerTwo = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", mPlayerTwoTag))->getCString());
+  CCSprite *playerTwo = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i.png", mPlayerTwoTag))->getCString());
   playerTwo->setScale(0.8f);
   playerTwo->setPosition(PLAYER_TWO_POS);
   this->addChild(playerTwo, GR_MIDDLEGROUND);
@@ -103,7 +103,7 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::addPlayerTwoShadow()
 {
-  mPlayerTwoShadow = CCSprite::create((CCString::createWithFormat("ChooseCharacterScene/c%i-red.png", mPlayerTwoTag))->getCString());
+  mPlayerTwoShadow = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i-red.png", mPlayerTwoTag))->getCString());
   mPlayerTwoShadow->setScale(0.8f);
   mPlayerTwoShadow->setPosition(PLAYER_TWO_POS);
   this->addChild(mPlayerTwoShadow, GR_BACKGROUND);
@@ -112,7 +112,7 @@ void PlayScene::addPlayerTwoShadow()
 
 void PlayScene::makeMapScroll()
 {
-  mTileMap = CCTMXTiledMap::create("Tiled map/demo-map.tmx");
+  mTileMap = CCTMXTiledMap::create("Images/Map/map01.tmx");
 
   this->addChild(mTileMap);
 
@@ -165,7 +165,7 @@ void PlayScene::makeMapScroll()
 
 void PlayScene::addScoreLbn()
 {
-  CCSprite* scoreP1 = CCSprite::create("PlayScene/scoreP1.png");
+  CCSprite* scoreP1 = CCSprite::create("Images/Game/UI/scoreP1.png");
   scoreP1->setPosition(LBN_SCORE_PLAYER1_POS);
   mLbnScorePlayer1 = CCLabelTTF::create("0", "ordin", 50);
   mLbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
@@ -179,7 +179,7 @@ void PlayScene::addScoreLbn()
   sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(true));
   mLbnScorePlayer1->setString(mScoreBuffer);
   
-  CCSprite* scoreP2 = CCSprite::create("PlayScene/scoreP2.png");
+  CCSprite* scoreP2 = CCSprite::create("Images/Game/UI/scoreP2.png");
   scoreP2->setPosition(LBN_SCORE_PLAYER2_POS);
   mLbnScorePlayer2 = CCLabelTTF::create("0", "ordin", 50);
   mLbnScorePlayer2->setHorizontalAlignment(kCCTextAlignmentCenter);
@@ -283,7 +283,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
 {
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
-  CCSprite *edge = CCSprite::create("PlayScene/edge.png");
+  CCSprite *edge = CCSprite::create("Images/Game/Object/edge.png");
   
   TileInfo *tileInfo = mTileInfoVector.at(mCurTile);
 
@@ -396,7 +396,7 @@ void PlayScene::addGlowEffect(CCSprite* sprite,
   CCPoint pos = ccp(sprite->getPositionX(),
                     sprite->getPositionY());
 
-  CCSprite* glowSprite = CCSprite::create("PlayScene/edge.png");
+  CCSprite* glowSprite = CCSprite::create("Images/Game/Object/edge.png");
   glowSprite->setColor(colour);
   glowSprite->setPosition(pos);
   glowSprite->setRotation(sprite->getRotation());
@@ -517,7 +517,7 @@ void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 
 void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 {
-  CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
@@ -528,7 +528,7 @@ void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 
 void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 {
-  CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
@@ -539,7 +539,7 @@ void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 
 void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 {
-  CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
@@ -550,7 +550,7 @@ void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 
 void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 {
-  CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);

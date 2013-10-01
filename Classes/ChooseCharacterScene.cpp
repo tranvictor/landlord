@@ -43,7 +43,7 @@ bool ChooseCharacterScene::init()
 
 void ChooseCharacterScene::addBackground()
 {
-  CCSprite* background = CCSprite::create("ChooseCharacterScene/Background.png");
+  CCSprite* background = CCSprite::create("Images/Game/Background/BG-character.png");
   CCLOG("%f %f", mScreenSize.width, mScreenSize.height);
   background->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
@@ -58,7 +58,7 @@ void ChooseCharacterScene::addCharacter()
     for (int j = 1; j <= NUMBER_CHARACTERS_PER_SCENE; ++j)
     {
       int characterID = j + NUMBER_CHARACTERS_PER_SCENE*(i - 1);
-      CCString* characterName = (CCString::createWithFormat("ChooseCharacterScene/c%i.png", characterID));
+      CCString* characterName = (CCString::createWithFormat("Images/Game/Object/c%i.png", characterID));
       CCSprite* character = CCSprite::create(characterName->getCString());
       
       CCMenuItemSprite* characterItem = CCMenuItemSprite::create(character,
@@ -102,7 +102,7 @@ void ChooseCharacterScene::addCharacter()
   }
   mCharacterArr->retain();
   
-  mSlidingCharacterLayer = CCScrollLayer::nodeWithLayers(mCharacterArr, 0, "ChooseMapScene/greendot-08.png");
+  mSlidingCharacterLayer = CCScrollLayer::nodeWithLayers(mCharacterArr, 0, "Images/Game/UI/greendot-08.png");
   mSlidingCharacterLayer->setPagesIndicatorPosition(ccp(mScreenSize.width/2, INDICATOR_POS_Y));
   this->addChild(mSlidingCharacterLayer, GR_FOREGROUND);
 }
@@ -120,14 +120,14 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
   if (mPlayer == 1)
   {
     mCharacterChoseByPlayer1 = mCharacterTouchedID;
-    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-blue.png", mCharacterTouchedID);
+    characterName = CCString::createWithFormat("Images/Game/Object/c%i-blue.png", mCharacterTouchedID);
     checkValid = true;
     GameManager::setPlayerOneID(mCharacterTouchedID);
     CCLOG("Player 1 had chose character %i", mCharacterTouchedID);
   }
   else if (mPlayer == 2 && mCharacterTouchedID != mCharacterChoseByPlayer1)
   {
-    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-red.png", mCharacterTouchedID);
+    characterName = CCString::createWithFormat("Images/Game/Object/c%i-red.png", mCharacterTouchedID);
     checkValid = true;
     GameManager::setPlayerTwoID(mCharacterTouchedID);
     CCLOG("Player 2 had chose character %i", mCharacterTouchedID);
@@ -195,7 +195,7 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
 
 void ChooseCharacterScene::addBackButton()
 {
-  CCSprite *back = CCSprite::create("ChooseMapScene/button-back.png");
+  CCSprite *back = CCSprite::create("Images/Game/Object/button-back.png");
   CCMenuItemSprite *backBtn = CCMenuItemSprite::create(back,
                                                        back,
                                                        this,

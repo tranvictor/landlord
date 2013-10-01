@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/ChooseMapScence.cpp"
-            timestampString = "415296352.357522"
+            timestampString = "417338352.572212"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "ChooseMapScene::makeSlidingMap()"
             landmarkType = "5">
          </BreakpointContent>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/ChooseMapScence.cpp"
-            timestampString = "415296352.357522"
+            timestampString = "417338352.572212"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "ChooseMapScene::makeSlidingMap()"
             landmarkType = "5">
          </BreakpointContent>
@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/StartScene.cpp"
-            timestampString = "415280430.419081"
+            timestampString = "417336158.75245"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "StartScene::addSettingsButton()"
             landmarkType = "5">
          </BreakpointContent>

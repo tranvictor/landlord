@@ -44,7 +44,7 @@ bool SettingScene::init()
 
 void SettingScene::addBackground()
 {
-  CCSprite* background = CCSprite::create("SettingScene/backgroudSetting.png");
+  CCSprite* background = CCSprite::create("Images/Game/Background/BG-setting.png");
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   
   this->addChild(background, 0);
@@ -52,12 +52,12 @@ void SettingScene::addBackground()
 
 void SettingScene::addSoundFxButton()
 {
-  CCMenuItem* uncheckedBtn = CCMenuItemImage::create("SettingScene/buttonUncheck.png",
-                                                     "SettingScene/buttonChecked.png",
+  CCMenuItem* uncheckedBtn = CCMenuItemImage::create("Images/Game/UI/buttonUncheck.png",
+                                                     "Images/Game/UI/buttonChecked.png",
                                                      NULL,
                                                      NULL);
-  CCMenuItem* checkedBtn = CCMenuItemImage::create("SettingScene/buttonChecked.png",
-                                                   "SettingScene/buttonUncheck.png",
+  CCMenuItem* checkedBtn = CCMenuItemImage::create("Images/Game/UI/buttonChecked.png",
+                                                   "Images/Game/UI/buttonUncheck.png",
                                                    NULL,
                                                    NULL);
   
@@ -88,12 +88,12 @@ void SettingScene::addSoundFxButton()
 
 void SettingScene::addMusicButton()
 {
-  CCMenuItem* uncheckedBtn = CCMenuItemImage::create("SettingScene/buttonUncheck.png",
-                                                     "SettingScene/buttonChecked.png",
+  CCMenuItem* uncheckedBtn = CCMenuItemImage::create("Images/Game/UI/buttonUncheck.png",
+                                                     "Images/Game/UI/buttonChecked.png",
                                                      NULL,
                                                      NULL);
-  CCMenuItem* checkedBtn = CCMenuItemImage::create("SettingScene/buttonChecked.png",
-                                                   "SettingScene/buttonUncheck.png",
+  CCMenuItem* checkedBtn = CCMenuItemImage::create("Images/Game/UI/buttonChecked.png",
+                                                   "Images/Game/UI/buttonUncheck.png",
                                                    NULL,
                                                    NULL);
   
@@ -123,12 +123,12 @@ void SettingScene::addMusicButton()
 
 void SettingScene::addTreeModeButton()
 {
-  CCMenuItem* uncheckedBtn = CCMenuItemImage::create("SettingScene/buttonUncheck.png",
-                                                     "SettingScene/buttonChecked.png",
+  CCMenuItem* uncheckedBtn = CCMenuItemImage::create("Images/Game/UI/buttonUncheck.png",
+                                                     "Images/Game/UI/buttonChecked.png",
                                                      NULL,
                                                      NULL);
-  CCMenuItem* checkedBtn = CCMenuItemImage::create("SettingScene/buttonChecked.png",
-                                                   "SettingScene/buttonUncheck.png",
+  CCMenuItem* checkedBtn = CCMenuItemImage::create("Images/Game/UI/buttonChecked.png",
+                                                   "Images/Game/UI/buttonUncheck.png",
                                                    NULL,
                                                    NULL);
   
@@ -158,7 +158,7 @@ void SettingScene::addTreeModeButton()
 
 void SettingScene::addBackButton()
 {
-  CCSprite *backBtn = CCSprite::create("SettingScene/buttonBack.png");
+  CCSprite *backBtn = CCSprite::create("Images/Game/UI/buttonBack.png");
   
   CCMenuItem *back = CCMenuItemSprite::create(backBtn,
                                               backBtn,

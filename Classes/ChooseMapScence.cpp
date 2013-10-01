@@ -42,14 +42,14 @@ CCScene* ChooseMapScene::scene()
 
 void ChooseMapScene::addBackground()
 {
-  CCSprite *background = CCSprite::create("ChooseMapScene/background.png");
+  CCSprite *background = CCSprite::create("Images/Game/Background/BG-islands.png");
   background->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
 }
 
 void ChooseMapScene::addButtonRandom()
 {
-  CCSprite *random = CCSprite::create("ChooseMapScene/button-random.png");
+  CCSprite *random = CCSprite::create("Images/Game/UI/button-random.png");
   CCMenuItemSprite *randomBtn = CCMenuItemSprite::create(random,
                                                          random,
                                                          this,
@@ -61,7 +61,7 @@ void ChooseMapScene::addButtonRandom()
 
 void ChooseMapScene::addButtonBack()
 {
-  CCSprite *back = CCSprite::create("ChooseMapScene/button-back.png");
+  CCSprite *back = CCSprite::create("Images/Game/UI/button-back.png");
   CCMenuItemSprite *backBtn = CCMenuItemSprite::create(back,
                                                          back,
                                                          this,
@@ -78,7 +78,7 @@ void ChooseMapScene::makeSlidingMap()
   for (int i = 1; i <= NUMBER_MAPS; ++i)
   {
     CCMenu *menu = CCMenu::create(NULL);
-    CCString *mapName = (CCString::createWithFormat("ChooseMapScene/map-0%i.png", i));
+    CCString *mapName = (CCString::createWithFormat("Images/Map/map-0%i.png", i));
     CCMenuItemImage *map = CCMenuItemImage::create(mapName->getCString(), mapName->getCString(), this, menu_selector(ChooseMapScene::mapTouched));
     map->setTag(i);
     menu->addChild(map);
@@ -90,7 +90,7 @@ void ChooseMapScene::makeSlidingMap()
     mMapArr->addObject(mapLayer);
   }
 //  mSlidingMap = CCScrollLayer::nodeWithLayers(mMapArr, - mScreenSize.width - (NUMBER_MAPS-1)*DISTANCE_BETWEEN_MAPS, "ChooseMapScene/greendot-08.png");
-  mSlidingMap = CCScrollLayer::nodeWithLayers(mMapArr, 0, "ChooseMapScene/greendot-08.png");
+  mSlidingMap = CCScrollLayer::nodeWithLayers(mMapArr, 0, "Images/Game/UI/greendot-08.png");
   mSlidingMap->setPagesIndicatorPosition(ccp(mScreenSize.width/2, GREEN_DOT_Y));
   this->addChild(mSlidingMap, GR_FOREGROUND);
 }

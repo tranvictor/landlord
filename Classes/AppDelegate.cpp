@@ -18,22 +18,43 @@ AppDelegate::~AppDelegate()
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
-    // initialize director
-    CCDirector* pDirector = CCDirector::sharedDirector();
-    CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
-
-    pDirector->setOpenGLView(pEGLView);
+  // initialize director
+  CCDirector* pDirector = CCDirector::sharedDirector();
+  CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
+  
+  pDirector->setOpenGLView(pEGLView);
 	
-    // turn on display FPS
-    pDirector->setDisplayStats(true);
-
-    // set FPS. the default value is 1.0/60 if you don't call this
-    pDirector->setAnimationInterval(1.0 / 60);
-
-    // create a scene. it's an autorelease object
-//    CCScene *pScene = HelloWorld::scene();
-//    CCScene *pScene = PlayScene::scene();
-    CCScene *pScene = StartScene::scene();
+  // turn on display FPS
+  pDirector->setDisplayStats(true);
+//  CCSize designResolutionSize = cocos2d::CCSizeMake(480, 320);
+  std::vector<std::string> searchPaths;
+  
+//  if (pDirector->getWinSize().height == 960)
+//  {
+//    // iPhone 4/4S
+//    pDirector->setContentScaleFactor(2);
+//    searchPaths.push_back("hd");
+//  }
+//  else if (pDirector->getWinSize().height == 1136)
+//  {
+//    // iPhone 5
+//    pDirector->setContentScaleFactor(2);
+//    searchPaths.push_back("iphone-5");
+//    designResolutionSize = cocos2d::CCSizeMake(568, 320);
+//  }
+  
+  searchPaths.push_back("iphone-5");
+//  pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionNoBorder);
+  
+  CCFileUtils::sharedFileUtils()->setSearchPaths(searchPaths);
+  
+  // set FPS. the default value is 1.0/60 if you don't call this
+  pDirector->setAnimationInterval(1.0 / 60);
+  
+  // create a scene. it's an autorelease object
+  //    CCScene *pScene = HelloWorld::scene();
+  //    CCScene *pScene = PlayScene::scene();
+  CCScene *pScene = StartScene::scene();
     // run
     pDirector->runWithScene(pScene);
 
