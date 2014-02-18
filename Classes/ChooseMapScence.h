@@ -11,11 +11,13 @@
 
 #include "cocos2d.h"
 #include "Constant.h"
+#include "Maps.h"
 
 class ChooseMapScene : public cocos2d::CCLayer
 {
 private:
   cocos2d::CCSize screenSize;
+  cocos2d::CCArray *maps;
   
 public:
   virtual bool init();
@@ -24,7 +26,12 @@ public:
   
   void addBackground();
   void addButtonRandom();
+  void buttonRandomTouched(cocos2d::CCObject* pSender);
   void addButtonBack();
+  void buttonBackTouched(cocos2d::CCObject* pSender);
+  
+  void makeSlidingMap();
+  void mapTouched(cocos2d::CCObject* pSender);
 };
 
 #endif /* defined(__landlord__ChooseMapScence__) */
