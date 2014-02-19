@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "Constant.h"
 #include "Maps.h"
+#include "SlidingMenu.h"
 
 class ChooseMapScene : public cocos2d::CCLayer
 {
@@ -20,6 +21,7 @@ private:
   cocos2d::CCArray *maps;
 //  Maps* ;
   int mapTouchedID;
+  SlidingMenuGrid *slidingMap;
   
 public:
   virtual bool init();

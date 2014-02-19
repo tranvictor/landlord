@@ -200,6 +200,7 @@ void SlidingMenuGrid::ccTouchMoved(CCTouch* touch, CCEvent* event){
     touchStop = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView());// Distance between the origin of the touch and current touch point.
 	fMoveDelta = (bVerticalPaging) ? (touchStop.y - touchOrigin.y) : (touchStop.x - touchOrigin.x);// Set our position.
 	
+  
 	if(iCurrentPage == 0){
         if (fMoveDelta < threshold) {
             setPosition(GetPositionOfCurrentPageWithOffset(fMoveDelta));

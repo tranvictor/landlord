@@ -8,7 +8,6 @@
 
 #include "ChooseMapScence.h"
 #include "cocos2d.h"
-#include "SlidingMenu.h"
 
 USING_NS_CC;
 
@@ -92,10 +91,10 @@ void ChooseMapScene::makeSlidingMap()
     maps->addObject(mapItem);
   }
   
-  SlidingMenuGrid *grid = SlidingMenuGrid::menuWithArray(maps, 1, 1, MAP_CENTER_POS, ccp(444, 0)); // distance between 2 maps - not working
+  slidingMap = SlidingMenuGrid::menuWithArray(maps, 1, 1, MAP_CENTER_POS, ccp(444, 0)); // distance between 2 maps - not working
   
-  grid->SetSwipeDeadZone(30.0f);
-  this->addChild(grid);
+  slidingMap->SetSwipeDeadZone(30.0f);
+  this->addChild(slidingMap);
 }
 
 
@@ -111,12 +110,9 @@ void ChooseMapScene::mapTouched(CCObject* pSender)
 void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button random touched");
-//  int r = (int)random(3)/RAND_MAX;
-//  CCLog("r = %i");
-  for (int i = 1; i <= NUMBER_LEVELS; i++)
-  {
-    ///
-  }
+  int r = ((int)random())%10+1;
+  CCLog("r = %f");
+  slidingMap->gotoPage(r, true);
 }
 
 void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
