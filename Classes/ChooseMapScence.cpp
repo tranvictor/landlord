@@ -32,9 +32,7 @@ bool ChooseMapScene::init()
 CCScene* ChooseMapScene::scene()
 {
   CCScene *scene = CCScene::create();
-  
   ChooseMapScene *layer = ChooseMapScene::create();
-  
   scene->addChild(layer);
   
   return scene;
@@ -81,10 +79,10 @@ void ChooseMapScene::addButtonBack()
 void ChooseMapScene::makeSlidingMap()
 {
   maps = CCArray::createWithCapacity(NUMBER_LEVELS);
-  for(int i = 1; i <= NUMBER_LEVELS; i++){
+  for(int i = 1; i <= NUMBER_LEVELS; i++)
+  {
     CCString *mapName = CCString::createWithFormat("ChooseMapScene/map-0%i.png", i);
     Maps *map = Maps::create(mapName->getCString());
-    map->setMapID(i);
     CCLog("%i", map->getMapID());
     CCMenuItemSprite *mapItem = CCMenuItemSprite::create(map,
                                                          map,
@@ -103,14 +101,22 @@ void ChooseMapScene::makeSlidingMap()
 
 void ChooseMapScene::mapTouched(CCObject* pSender)
 {
-  CCMenuItem* menuItem = (CCMenuItem*)pSender;
-  CCLog("map %i choosed", menuItem->getTag());
+  CCMenuItem* mapItem = (CCMenuItem*)pSender;
+  mapTouchedID = mapItem->getTag();
+//  mapTouched->setMapID(mapTouchedID);
+  CCLog("map %i choosed", mapTouchedID);
 }
 
 
 void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button random touched");
+//  int r = (int)random(3)/RAND_MAX;
+//  CCLog("r = %i");
+  for (int i = 1; i <= NUMBER_LEVELS; i++)
+  {
+    ///
+  }
 }
 
 void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)

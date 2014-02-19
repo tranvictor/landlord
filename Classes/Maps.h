@@ -16,9 +16,10 @@ USING_NS_CC;
 class Maps : public CCSprite
 {
 private:
-  CC_SYNTHESIZE(int, mMapID, MapID);
   
 public:
+  CC_SYNTHESIZE(int, mMapID, MapID);
+  
   static Maps* create(const char* pFileName);
   virtual bool init(const char* pFileName);
 };

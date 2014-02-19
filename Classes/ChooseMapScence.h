@@ -18,6 +18,8 @@ class ChooseMapScene : public cocos2d::CCLayer
 private:
   cocos2d::CCSize screenSize;
   cocos2d::CCArray *maps;
+//  Maps* ;
+  int mapTouchedID;
   
 public:
   virtual bool init();
