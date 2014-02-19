@@ -226,6 +226,12 @@
 		379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* GUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* SceneReader.cpp */; };
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
+		6616B34B18B50793005F851D /* button-play.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616B34618B50793005F851D /* button-play.png */; };
+		6616B34C18B50793005F851D /* button-setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616B34718B50793005F851D /* button-setting.png */; };
+		6616B34D18B50793005F851D /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6616B34818B50793005F851D /* data.txt */; };
+		6616B34E18B50793005F851D /* DEMO-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6616B34918B50793005F851D /* DEMO-01.png */; };
+		661B812118B3E5AD00578534 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661B812018B3E5AD00578534 /* StartScene.cpp */; };
+		662D9D7E18B514240066F7D9 /* Mainscene_Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 662D9D7D18B514240066F7D9 /* Mainscene_Background.png */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -715,6 +721,13 @@
 		379BB99417F03F3700829B88 /* SceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneReader.h; sourceTree = "<group>"; };
 		46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITouchGroup.cpp; sourceTree = "<group>"; };
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
+		6616B34618B50793005F851D /* button-play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-play.png"; sourceTree = "<group>"; };
+		6616B34718B50793005F851D /* button-setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-setting.png"; sourceTree = "<group>"; };
+		6616B34818B50793005F851D /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
+		6616B34918B50793005F851D /* DEMO-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DEMO-01.png"; sourceTree = "<group>"; };
+		661B811F18B3E22C00578534 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
+		661B812018B3E5AD00578534 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
+		662D9D7D18B514240066F7D9 /* Mainscene_Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mainscene_Background.png; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1252,6 +1265,8 @@
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
+				661B811F18B3E22C00578534 /* StartScene.h */,
+				661B812018B3E5AD00578534 /* StartScene.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1703,9 +1718,22 @@
 			path = CocoStudio;
 			sourceTree = "<group>";
 		};
+		6616B34518B50793005F851D /* Main_scene */ = {
+			isa = PBXGroup;
+			children = (
+				6616B34618B50793005F851D /* button-play.png */,
+				6616B34718B50793005F851D /* button-setting.png */,
+				6616B34818B50793005F851D /* data.txt */,
+				6616B34918B50793005F851D /* DEMO-01.png */,
+				662D9D7D18B514240066F7D9 /* Mainscene_Background.png */,
+			);
+			path = Main_scene;
+			sourceTree = "<group>";
+		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6616B34518B50793005F851D /* Main_scene */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
 				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
@@ -1748,7 +1776,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "landlord" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1796,10 +1824,15 @@
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				6616B34B18B50793005F851D /* button-play.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
+				6616B34C18B50793005F851D /* button-setting.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
+				6616B34D18B50793005F851D /* data.txt in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				662D9D7E18B514240066F7D9 /* Mainscene_Background.png in Resources */,
+				6616B34E18B50793005F851D /* DEMO-01.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1874,6 +1907,7 @@
 				15A3D9A21682F7F9002FB0C5 /* cpArbiter.c in Sources */,
 				15A3D9A31682F7F9002FB0C5 /* cpArray.c in Sources */,
 				15A3D9A41682F7F9002FB0C5 /* cpBB.c in Sources */,
+				661B812118B3E5AD00578534 /* StartScene.cpp in Sources */,
 				15A3D9A51682F7F9002FB0C5 /* cpBBTree.c in Sources */,
 				15A3D9A61682F7F9002FB0C5 /* cpBody.c in Sources */,
 				15A3D9A71682F7F9002FB0C5 /* cpCollision.c in Sources */,
@@ -2134,11 +2168,11 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv6 armv7 i386";
 			};
@@ -2147,7 +2181,6 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

@@ -1,0 +1,31 @@
+Unit: Px
+Scene res: 640x1136
+-----------
+O . . . . .
+.
+.
+.
+. 
+     O(0,0)
+button-play
+X: 320
+Y: 860
+button-setting:
+X: 80
+Y: 1056
+------------
+see the demo, if these coordinates aint right, use these below instead. Im still working on it 
+to firgue out what is correct
+------------
+.
+.
+.
+.
+O . . . . 
+     O(0,0)
+button-play
+X: 320
+Y: 276
+button-setting:
+X: 80
+Y: 80
