@@ -39,18 +39,18 @@ bool StartScene::init()
 
 void StartScene::addBackground()
 {
-  CCSprite *background = CCSprite::create("Main_scene/Mainscene_Background.png");
+  CCSprite *background = CCSprite::create("Default.png");
   
   CCLOG("%f %f", screenSize.width, screenSize.height);
   
-  //background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+  background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   
   this->addChild(background, 0);
 }
 
 void StartScene::addPlayButton()
 {
-  CCSprite *play = CCSprite::create("Main_scene/button-play.png");
+  CCSprite *play = CCSprite::create("/Users/SCN/Desktop/Cocos2d-x-2.2.2/projects/landlord/Resources/Mainscene/buttonPlay.png");
   
   CCMenuItemSprite *playBtn = CCMenuItemSprite::create(play, play, this,
                                                          menu_selector(StartScene::playButtonTouched));
@@ -65,7 +65,7 @@ void StartScene::addPlayButton()
 
 void StartScene::addSettingsButton()
 {
-  CCSprite *settings = CCSprite::create("Main_scene/button-setting.png");
+  CCSprite *settings = CCSprite::create("/Users/SCN/Desktop/Cocos2d-x-2.2.2/projects/landlord/Resources/Mainscene/buttonSetting.png");
   
   CCMenuItemSprite *settingBtn = CCMenuItemSprite::create(settings,settings,
                                                           this,

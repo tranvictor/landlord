@@ -10,8 +10,8 @@
 #define landlord_StartScene_h
 
 //constant for StartScene
-#define BTN_PLAY ccp(320, 860)
-#define BTN_SETTINGS ccp(80, 1056)
+#define BTN_PLAY ccp(320, 276)
+#define BTN_SETTINGS ccp(80, 80)
 
 #include "cocos2d.h"
 
