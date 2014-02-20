@@ -1,0 +1,22 @@
+Unit: Px
+Scene res: 640x1136
+
+------------
+.
+.
+.
+.
+O . . . . 
+     O(0,0)
+button-check/uncheck for MUSIC
+X: 120
+Y: 371,02
+button-check/uncheck for SFX
+X: 120
+Y: 268
+button-check/uncheck for TREE MODE
+X: 120
+Y: 168
+button-setting:
+X: 565
+Y: 68

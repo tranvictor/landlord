@@ -39,7 +39,7 @@ bool StartScene::init()
 
 void StartScene::addBackground()
 {
-  CCSprite *background = CCSprite::create("Default.png");
+  CCSprite *background = CCSprite::create("Mainscene/MainsceneBackground.png");
   
   CCLOG("%f %f", screenSize.width, screenSize.height);
   
@@ -50,38 +50,43 @@ void StartScene::addBackground()
 
 void StartScene::addPlayButton()
 {
-  CCSprite *play = CCSprite::create("/Users/SCN/Desktop/Cocos2d-x-2.2.2/projects/landlord/Resources/Mainscene/buttonPlay.png");
+  CCSprite *play = CCSprite::create("Mainscene/buttonPlay.png");
   
   CCMenuItemSprite *playBtn = CCMenuItemSprite::create(play, play, this,
                                                          menu_selector(StartScene::playButtonTouched));
-  playBtn->setPosition(BTN_PLAY);
+//  playBtn->setPosition(BTN_PLAY);
   
-//  CCMenu *playMenu = CCMenu::create(playBtn);
-//  
-//  playMenu->setPosition(BTN_PLAY);
+  CCMenu *playMenu = CCMenu::create(playBtn, NULL);
   
-  this->addChild(playBtn,1);
+  playMenu->setPosition(BTN_PLAY);
+  
+  this->addChild(playMenu,1);
 }
 
 void StartScene::addSettingsButton()
 {
-  CCSprite *settings = CCSprite::create("/Users/SCN/Desktop/Cocos2d-x-2.2.2/projects/landlord/Resources/Mainscene/buttonSetting.png");
+  CCSprite *settings = CCSprite::create("Mainscene/buttonSetting.png");
   
   CCMenuItemSprite *settingBtn = CCMenuItemSprite::create(settings,settings,
                                                           this,
                                                           menu_selector(StartScene::settingsButtonTouched));
-  settingBtn->setPosition(BTN_SETTINGS);
+//  settingBtn->setPosition(BTN_SETTINGS);
   
-  this->addChild(settingBtn);
+  CCMenu *settingMenu = CCMenu::create(settingBtn, NULL);
+  
+  settingMenu->setPosition(BTN_SETTINGS);
+  
+  this->addChild(settingMenu, 2);
 }
   
 
 
 void StartScene::playButtonTouched(CCObject *pSender)
 {
-  
+  CCLOG("Play button touched");
 }
 
 void StartScene::settingsButtonTouched(CCObject *pSender)
 {
+  CCLOG("Settings button touched");
 }

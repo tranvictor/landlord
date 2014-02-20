@@ -227,11 +227,8 @@
 		379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* SceneReader.cpp */; };
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
 		661B812118B3E5AD00578534 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661B812018B3E5AD00578534 /* StartScene.cpp */; };
-		662D9D8518B5197C0066F7D9 /* buttonPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 662D9D8018B5197C0066F7D9 /* buttonPlay.png */; };
-		662D9D8618B5197C0066F7D9 /* buttonSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = 662D9D8118B5197C0066F7D9 /* buttonSetting.png */; };
-		662D9D8718B5197C0066F7D9 /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 662D9D8218B5197C0066F7D9 /* data.txt */; };
-		662D9D8818B5197C0066F7D9 /* DEMO01.png in Resources */ = {isa = PBXBuildFile; fileRef = 662D9D8318B5197C0066F7D9 /* DEMO01.png */; };
-		662D9D8918B5197C0066F7D9 /* MainsceneBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 662D9D8418B5197C0066F7D9 /* MainsceneBackground.png */; };
+		6665C60418B52B430096907A /* Mainscene in Resources */ = {isa = PBXBuildFile; fileRef = 6665C60318B52B430096907A /* Mainscene */; };
+		66F9CBC018B5F1FD0055BB63 /* SettingScene in Resources */ = {isa = PBXBuildFile; fileRef = 66F9CBBF18B5F1FD0055BB63 /* SettingScene */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -723,11 +720,8 @@
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
 		661B811F18B3E22C00578534 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
 		661B812018B3E5AD00578534 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
-		662D9D8018B5197C0066F7D9 /* buttonPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPlay.png; sourceTree = "<group>"; };
-		662D9D8118B5197C0066F7D9 /* buttonSetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSetting.png; sourceTree = "<group>"; };
-		662D9D8218B5197C0066F7D9 /* data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
-		662D9D8318B5197C0066F7D9 /* DEMO01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DEMO01.png; sourceTree = "<group>"; };
-		662D9D8418B5197C0066F7D9 /* MainsceneBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainsceneBackground.png; sourceTree = "<group>"; };
+		6665C60318B52B430096907A /* Mainscene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mainscene; sourceTree = "<group>"; };
+		66F9CBBF18B5F1FD0055BB63 /* SettingScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SettingScene; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1718,22 +1712,11 @@
 			path = CocoStudio;
 			sourceTree = "<group>";
 		};
-		662D9D7F18B5197C0066F7D9 /* Mainscene */ = {
-			isa = PBXGroup;
-			children = (
-				662D9D8018B5197C0066F7D9 /* buttonPlay.png */,
-				662D9D8118B5197C0066F7D9 /* buttonSetting.png */,
-				662D9D8218B5197C0066F7D9 /* data.txt */,
-				662D9D8318B5197C0066F7D9 /* DEMO01.png */,
-				662D9D8418B5197C0066F7D9 /* MainsceneBackground.png */,
-			);
-			path = Mainscene;
-			sourceTree = "<group>";
-		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				662D9D7F18B5197C0066F7D9 /* Mainscene */,
+				66F9CBBF18B5F1FD0055BB63 /* SettingScene */,
+				6665C60318B52B430096907A /* Mainscene */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
 				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
@@ -1821,18 +1804,15 @@
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
-				662D9D8518B5197C0066F7D9 /* buttonPlay.png in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
+				6665C60418B52B430096907A /* Mainscene in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
+				66F9CBC018B5F1FD0055BB63 /* SettingScene in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
-				662D9D8618B5197C0066F7D9 /* buttonSetting.png in Resources */,
-				662D9D8818B5197C0066F7D9 /* DEMO01.png in Resources */,
-				662D9D8918B5197C0066F7D9 /* MainsceneBackground.png in Resources */,
-				662D9D8718B5197C0066F7D9 /* data.txt in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
