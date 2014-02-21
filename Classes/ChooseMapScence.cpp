@@ -88,13 +88,6 @@ void ChooseMapScene::makeSlidingMap()
   
   slidingMap->SetSwipeDeadZone(30.0f);
   CCLabelTTF *lbnMap;
-//  int IPAD_FACTOR = 1;
-  
-//  CCLabelTTF* lbText1 = CCLabelTTF::create("You win!", "Arial", 12, CCSizeMake(180*IPAD_FACTOR, 50*IPAD_FACTOR), kCCTextAlignmentCenter, kCCVerticalTextAlignmentCenter);
-//  
-//  lbText1->setPosition(ccp(getContentSize().width/2 + 85*IPAD_FACTOR, getContentSize().height/2));
-//  addChild(lbText1, 1);
-
   
   for (int i = 1; i <= NUMBER_MAPS; ++i)
   {
