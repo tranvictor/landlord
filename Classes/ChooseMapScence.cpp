@@ -128,7 +128,6 @@ void ChooseMapScene::mapTouched(CCObject* pSender)
 {
   CCMenuItem* mapItem = (CCMenuItem*)pSender;
   mapTouchedID = mapItem->getTag();
-//  mapTouched->setMapID(mapTouchedID);
   CCLog("map %i choosed", mapTouchedID);
 }
 
