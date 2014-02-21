@@ -40,8 +40,6 @@ CCScene* ChooseMapScene::scene()
 void ChooseMapScene::addBackground()
 {
   CCSprite *background = CCSprite::create("ChooseMapScene/background.png");
-//  background->setScaleX(screenSize.width/background->getContentSize().width);
-//  background->setScaleY(screenSize.height/background->getContentSize().height);
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
 }
@@ -49,9 +47,6 @@ void ChooseMapScene::addBackground()
 void ChooseMapScene::addButtonRandom()
 {
   CCSprite *random = CCSprite::create("ChooseMapScene/button-random.png");
-//  randomBtn->setAnchorPoint(ccp(0.5,0.5));
-//  random->setPosition(BTN_RANDOM_POS);
-//  CCLog("%f %f", random->getPositionX(), random->getPositionY());
   CCMenuItemSprite *randomBtn = CCMenuItemSprite::create(random,
                                                          random,
                                                          this,
@@ -64,8 +59,6 @@ void ChooseMapScene::addButtonRandom()
 void ChooseMapScene::addButtonBack()
 {
   CCSprite *back = CCSprite::create("ChooseMapScene/button-back.png");
-//  backBtn->setPosition(BTN_BACK_POS);
-//  CCLog("%f %f", backBtn->getPositionX(), backBtn->getPositionY());
   CCMenuItemSprite *backBtn = CCMenuItemSprite::create(back,
                                                          back,
                                                          this,
@@ -77,25 +70,65 @@ void ChooseMapScene::addButtonBack()
 
 void ChooseMapScene::makeSlidingMap()
 {
-  maps = CCArray::createWithCapacity(NUMBER_LEVELS);
-  for(int i = 1; i <= NUMBER_LEVELS; i++)
+  mapArr = CCArray::createWithCapacity(NUMBER_MAPS);
+  for(int i = 1; i <= NUMBER_MAPS; i++)
   {
     CCString *mapName = CCString::createWithFormat("ChooseMapScene/map-0%i.png", i);
     Maps *map = Maps::create(mapName->getCString());
-    CCLog("%i", map->getMapID());
+//    CCLog("mapID = %i", );
     CCMenuItemSprite *mapItem = CCMenuItemSprite::create(map,
                                                          map,
                                                          this,
                                                          menu_selector(ChooseMapScene::mapTouched));
     mapItem->setTag(i);
-    maps->addObject(mapItem);
+    mapArr->addObject(mapItem);
   }
   
-  slidingMap = SlidingMenuGrid::menuWithArray(maps, 1, 1, MAP_CENTER_POS, ccp(444, 0)); // distance between 2 maps - not working
+  slidingMap = SlidingMenuGrid::menuWithArray(mapArr, 1, 1, MAP_CENTER_POS, ccp(444, 0)); // distance between 2 maps - not working
   
   slidingMap->SetSwipeDeadZone(30.0f);
+  CCLabelTTF *lbnMap;
+//  int IPAD_FACTOR = 1;
+  
+//  CCLabelTTF* lbText1 = CCLabelTTF::create("You win!", "Arial", 12, CCSizeMake(180*IPAD_FACTOR, 50*IPAD_FACTOR), kCCTextAlignmentCenter, kCCVerticalTextAlignmentCenter);
+//  
+//  lbText1->setPosition(ccp(getContentSize().width/2 + 85*IPAD_FACTOR, getContentSize().height/2));
+//  addChild(lbText1, 1);
+
+  
+  for (int i = 1; i <= NUMBER_MAPS; ++i)
+  {
+    lbnMap = CCLabelTTF::create((CCString::createWithFormat("%i/%i", i, NUMBER_MAPS))->getCString(),"Arial", 40);
+    lbnMap->setColor(ccWHITE);
+    lbnMap->setPosition(ccp(screenSize.width/2+screenSize.width*(i-1), screenSize.height/2 - 100));
+//    this->addChild(lbnMap, 10);
+//    lbnMap->setParent((CCNode*)mapArr->objectAtIndex(i+1));
+    slidingMap->setPageLabel(i, lbnMap);
+  }
   this->addChild(slidingMap);
 }
+
+// make silding maps with CCScrollView
+
+//void ChooseMapScene::makeSlidingMap()
+//{
+//  CCString *mapName;
+//  CCLayer *mapLayer = CCLayer::create();
+//
+//  for (int i = 1; i < NUMBER_MAPS; i++)
+//  {
+//    mapName = CCString::createWithFormat("ChooseMapScene/map-0%i.png", i);
+//    CCSprite *mapSprite = CCSprite::create(mapName->getCString());
+//    CCMenuItemSprite *menuItem = CCMenuItemSprite::create(mapSprite, mapSprite, this, menu_selector(ChooseMapScene::mapTouched));
+//    mapArr->addObject(menuItem);
+//    mapLayer->addChild(menuItem);
+//  }
+//  mapLayer->setContentSize(CCSize(screenSize.width + MAP_WIDTH*NUMBER_MAPS + (NUMBER_MAPS-1)*DISTANCE_BETWEEN_MAPS, screenSize.height));
+//  slidingMap = CCScrollView::create(CCSize(screenSize.width, screenSize.height), mapLayer);
+//  slidingMap->setBounceable(false);
+////  slidingMap = CCScrollView::create(CCSize(screenSize.width + MAP_WIDTH*NUMBER_MAPS + (NUMBER_MAPS-1)*DISTANCE_BETWEEN_MAPS , screenSize.height));
+//  this->addChild(slidingMap, GR_FOREGROUND);
+//}
 
 
 void ChooseMapScene::mapTouched(CCObject* pSender)
@@ -111,7 +144,7 @@ void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button random touched");
   int r = ((int)random())%10+1;
-  CCLog("r = %f");
+  CCLog("r = %i", r);
   slidingMap->gotoPage(r, true);
 }
 
@@ -119,3 +152,13 @@ void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button back touched");
 }
+
+//void ChooseMapScene::scrollViewDidScroll(CCScrollView* view)
+//{
+//  
+//}
+//
+//void ChooseMapScene::scrollViewDidZoom(CCScrollView* view)
+//{
+//  
+//}

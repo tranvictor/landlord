@@ -15,8 +15,12 @@ USING_NS_CC;
 // ChooseMapScene
 #define BTN_RANDOM_POS  ccp(320, 245)
 #define BTN_BACK_POS    ccp(49, 46)
-#define NUMBER_LEVELS   10
+#define NUMBER_MAPS   10
 #define MAP_CENTER_POS  ccp(320, 357)
+#define MAP_CENTER_X    320
+#define MAP_CENTER_Y    779
+#define MAP_WIDTH       328
+#define DISTANCE_BETWEEN_MAPS   444
 
 enum eGround
 {

@@ -357,5 +357,6 @@ void SlidingMenuGrid::setPageLabel( int iPage,CCNode * pLabel){
 		pt=CCPointMake(menuOrigin.x+labelSize.width/2,winSize.height-menuOrigin.y-winSize.height*(iSetPage-1)-iMenuRows*padding.y-labelSize.height/2);
 	else
 		pt=CCPointMake(menuOrigin.x+(iSetPage-1)*winSize.width+labelSize.width/2,winSize.height-menuOrigin.y-iMenuRows*padding.y-labelSize.height/2);
+  pt = pLabel->getPosition();
 	pLabel->setPosition(pt);
 }

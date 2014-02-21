@@ -13,18 +13,25 @@
 #include "Constant.h"
 #include "Maps.h"
 #include "SlidingMenu.h"
+//#include "cocos-ext.h"
 
-class ChooseMapScene : public cocos2d::CCLayer
+//using namespace cocos2d::extension;
+
+class ChooseMapScene : public cocos2d::CCLayer//, public CCScrollViewDelegate
 {
 private:
   cocos2d::CCSize screenSize;
-  cocos2d::CCArray *maps;
+  cocos2d::CCArray *mapArr;
 //  Maps* ;
   int mapTouchedID;
   SlidingMenuGrid *slidingMap;
+//  CCScrollView *slidingMap;
+  
   
 public:
   virtual bool init();
+//  virtual void scrollViewDidScroll(CCScrollView* view);
+//  virtual void scrollViewDidZoom(CCScrollView* view);
   static cocos2d::CCScene * scene();
   CREATE_FUNC(ChooseMapScene);
   
