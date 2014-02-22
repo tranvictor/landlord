@@ -68,8 +68,11 @@ class CCScrollLayer : 	public cocos2d::CCLayer
 		~CCScrollLayer();
 
 		static CCScrollLayer* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset);
-		
+    static CCScrollLayer* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset, float duration, float bouncePeriod);
+    static CCScrollLayer* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset, const char* pageSpriterameName);
+    
 		bool initWithLayers(cocos2d::CCArray* layers, int widthOffset);
+//    bool initWithLayers(cocos2d::CCArray* layers, int widthOffset, const char * pageSpriteFrameName);
 
 		/** Updates all pages positions & adds them as children if needed.
 		 * Can be used to update position of pages after screen reshape, or 
@@ -150,6 +153,10 @@ class CCScrollLayer : 	public cocos2d::CCLayer
 
 		/** Array of pages CCLayer's  */
 		CC_SYNTHESIZE_READONLY(cocos2d::CCArray*, m_pLayers, Pages);
+    
+    CC_SYNTHESIZE(float, actionDuration, ActionDuration);
+    CC_SYNTHESIZE(float, bouncePeriod, BouncePeriod);
+    CC_SYNTHESIZE(cocos2d::CCNode*, customPageIndicators, CustomPageIndicators);
 	protected:
 		// The x coord of initial point the user starts their swipe.
     float m_fStartSwipe;
@@ -172,6 +179,8 @@ class CCScrollLayer : 	public cocos2d::CCLayer
 		void ccTouchMoved(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 		void ccTouchEnded(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
 		void ccTouchCancelled(cocos2d::CCTouch* pTouch, cocos2d::CCEvent* pEvent);
+    
+    void updatePageIndicators();
 	};
 //}
 

@@ -63,6 +63,5 @@ public:
   int getCurrentPage(){return iCurrentPage;}
   
   void setThresholdPageLimit(float fValue);
-  void showPagesIndicator(bool isShowPagesIndicator);
 };
 #endif

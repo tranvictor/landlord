@@ -25,6 +25,7 @@ USING_NS_CC;
 	{
 		CC_SAFE_RELEASE(m_pLayers);
 		m_pDelegate = NULL;
+    this->setCustomPageIndicators(NULL);
 	}
 
 	unsigned int CCScrollLayer::getTotalScreens() const
@@ -47,7 +48,36 @@ USING_NS_CC;
 			return NULL;
 		}
 	}
-		
+
+CCScrollLayer* CCScrollLayer::nodeWithLayers(cocos2d::CCArray *layers, int widthOffset, const char * pageSpriterameName)
+{
+  CCScrollLayer* layer = CCScrollLayer::nodeWithLayers(layers, widthOffset);
+  if (layers == NULL) {
+    CCLog("null");
+  }
+    layer->setCustomPageIndicators(CCNode::create());
+    
+    // use default position
+    layer->customPageIndicators->setPosition(layer->getPagesIndicatorPosition());
+    
+    // create sprites
+    float n = (float)layer->getTotalScreens(); // << total point
+    CCLog("%f", n);
+    float d = 37.78f;    //<< distance between points
+    for (int i = 0; i < layer->getTotalScreens(); ++i)
+    {
+      CCLog("%i = i", i);
+      CCSprite *pageSprite = CCSprite::create(pageSpriterameName);
+      CCLog("%s", pageSpriterameName);
+      pageSprite->setPosition(ccp(d*((float)i - 0.5f*(n-1.0f)), 0));
+      layer->customPageIndicators->addChild(pageSprite);
+    }
+    layer->addChild(layer->getCustomPageIndicators());
+    layer->schedule(schedule_selector(CCScrollLayer::updatePageIndicators));
+
+  return layer;
+}
+
 	bool CCScrollLayer::initWithLayers(CCArray* layers, int widthOffset)
 	{
 		if (!CCLayer::init())
@@ -134,12 +164,12 @@ USING_NS_CC;
 			ccPointSize(6.0f * CC_CONTENT_SCALE_FACTOR());
 
 			// Draw Gray Points
-			ccDrawColor4B(0x96,0x96,0x96,0xFF);
-			ccDrawPoints( points, totalScreens );
+//			ccDrawColor4B(0x96,0x96,0x96,0xFF);
+//			ccDrawPoints( points, totalScreens );
       
 			// Draw White Point for Selected Page
-			ccDrawColor4B(0xFF,0xFF,0xFF,0xFF);
-			ccDrawPoint(points[m_uCurrentScreen]);
+//			ccDrawColor4B(0xFF,0xFF,0xFF,0xFF);
+//			ccDrawPoint(points[m_uCurrentScreen]);
 
 			// Restore GL Values
 			ccPointSize(3.0f);
@@ -176,7 +206,7 @@ USING_NS_CC;
 	CCPoint CCScrollLayer::positionForPageWithNumber(unsigned int pageNumber)
 	{
 		return ccp(pageNumber * -1.f * (m_obContentSize.width - m_fPagesWidthOffset), 0.0f);
-	}
+  }
 
 	void CCScrollLayer::moveToPage(unsigned int pageNumber)
 	{	
@@ -186,12 +216,31 @@ USING_NS_CC;
 			return;
 		}
 
+    // animation 1
 		CCAction* changePage = 
 			CCSequence::create(
-					CCMoveTo::create(0.3f, positionForPageWithNumber(pageNumber)),
-					CCCallFunc::create(this, callfunc_selector(CCScrollLayer::moveToPageEnded))
+					CCMoveTo::create(0.6f, positionForPageWithNumber(pageNumber)),
+//					CCCallFunc::create(this, callfunc_selector(CCScrollLayer::moveToPageEnded)),
+          NULL
 				);
-		runAction(changePage);
+    
+    // animation 2
+//    CCAction* changePage =
+//     CCSequence::create(
+//       CCEaseElasticOut::create(
+//         CCMoveTo::create(actionDuration*3, positionForPageWithNumber(pageNumber)),
+//         bouncePeriod),
+//       CCCallFunc::create(this, callfunc_selector(CCScrollLayer::moveToPageEnded)),
+//       NULL);
+    
+    // animation 3
+//    CCEaseBounce* action = CCEaseBounce::create(CCMoveTo::create(actionDuration*0.3f, positionForPageWithNumber(pageNumber)));
+//    CCAction* changePage =
+//      CCSequence::create(
+//        action,
+//        CCCallFunc::create(this, callfunc_selector(CCScrollLayer::moveToPageEnded)),
+//        NULL);
+    runAction(changePage);
 		m_uCurrentScreen = pageNumber;
 	}
 
@@ -311,7 +360,7 @@ USING_NS_CC;
 
 		m_fStartSwipe = touchPoint.x;
 		m_iState = kCCScrollLayerStateIdle;
-		
+
 		return true;
 	}
 
@@ -376,8 +425,33 @@ USING_NS_CC;
 					selectedPage--;
 			}
 		}
+//    this->setVisible(true);
 		moveToPage(selectedPage);
 	}
 //}
 
+CCScrollLayer* CCScrollLayer::nodeWithLayers(cocos2d::CCArray *layers, int widthOffset, float duration, float bouncePeriod)
+{
+  CCScrollLayer *layer = CCScrollLayer::nodeWithLayers(layers, widthOffset);
+  layer->setActionDuration(duration);
+  layer->setBouncePeriod(bouncePeriod);
+  return layer;
+}
 
+void CCScrollLayer::updatePageIndicators()
+{
+  customPageIndicators->setPosition(ccp(getPagesIndicatorPosition().x - getPosition().x, getPagesIndicatorPosition().y));
+  for (int i = 0; i < customPageIndicators->getChildren()->count(); i++)
+  {
+    CCSprite *indicator = (CCSprite*)customPageIndicators->getChildren()->objectAtIndex(i);
+    
+    // none current page are semi-transparent
+    if (i == this->getCurrentScreen())
+    {
+      indicator->setOpacity(255);
+    } else
+    {
+      indicator->setOpacity(100);
+    }
+  }
+}
