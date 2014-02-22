@@ -11,9 +11,7 @@
 
 #include "cocos2d.h"
 
-USING_NS_CC;
-
-class Maps : public CCSprite
+class Maps : public cocos2d::CCSprite
 {
 private:
   

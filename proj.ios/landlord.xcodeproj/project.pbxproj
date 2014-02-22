@@ -229,6 +229,7 @@
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */; };
 		7AA1AE2418B40DF000A5C58C /* Maps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1AE2218B40DF000A5C58C /* Maps.cpp */; };
+		7AA790B318B88E1700683E9A /* CCScrollLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA790B218B88E1700683E9A /* CCScrollLayer.cpp */; };
 		7AB41F7518B3CE8000F5177C /* ChooseMapScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */; };
 		7AB41F7718B3D79300F5177C /* ChooseMapScene in Resources */ = {isa = PBXBuildFile; fileRef = 7AB41F7618B3D79300F5177C /* ChooseMapScene */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -724,6 +725,8 @@
 		7AA1ADFC18B3F79A00A5C58C /* SlidingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenu.h; sourceTree = "<group>"; };
 		7AA1AE2218B40DF000A5C58C /* Maps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Maps.cpp; path = ../Classes/Maps.cpp; sourceTree = "<group>"; };
 		7AA1AE2318B40DF000A5C58C /* Maps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Maps.h; path = ../Classes/Maps.h; sourceTree = "<group>"; };
+		7AA790B118B88E1700683E9A /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
+		7AA790B218B88E1700683E9A /* CCScrollLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCScrollLayer.cpp; sourceTree = "<group>"; };
 		7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScence.cpp; path = ../Classes/ChooseMapScence.cpp; sourceTree = "<group>"; };
 		7AB41F7418B3CE8000F5177C /* ChooseMapScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseMapScence.h; path = ../Classes/ChooseMapScence.h; sourceTree = "<group>"; };
 		7AB41F7618B3D79300F5177C /* ChooseMapScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ChooseMapScene; sourceTree = "<group>"; };
@@ -1743,6 +1746,8 @@
 		7AA1ADFA18B3F76100A5C58C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7AA790B118B88E1700683E9A /* CCScrollLayer.h */,
+				7AA790B218B88E1700683E9A /* CCScrollLayer.cpp */,
 				7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */,
 				7AA1ADFC18B3F79A00A5C58C /* SlidingMenu.h */,
 			);
@@ -1897,6 +1902,7 @@
 				15A3D99C1682F7F9002FB0C5 /* cpPinJoint.c in Sources */,
 				15A3D99D1682F7F9002FB0C5 /* cpPivotJoint.c in Sources */,
 				15A3D99E1682F7F9002FB0C5 /* cpRatchetJoint.c in Sources */,
+				7AA790B318B88E1700683E9A /* CCScrollLayer.cpp in Sources */,
 				15A3D99F1682F7F9002FB0C5 /* cpRotaryLimitJoint.c in Sources */,
 				15A3D9A01682F7F9002FB0C5 /* cpSimpleMotor.c in Sources */,
 				15A3D9A11682F7F9002FB0C5 /* cpSlideJoint.c in Sources */,

@@ -8,6 +8,8 @@
 
 #include "Maps.h"
 
+USING_NS_CC;
+
 Maps* Maps::create(const char* pFileName)
 {
   Maps *map = new Maps();
