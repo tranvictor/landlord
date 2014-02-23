@@ -86,7 +86,8 @@ void ChooseMapScene::makeSlidingMap()
     
     mapArr->addObject(mapLayer);
   }
-  slidingMap = CCScrollLayer::nodeWithLayers(mapArr, screenSize.width + (NUMBER_MAPS-1)*DISTANCE_BETWEEN_MAPS, "ChooseMapScene/greendot-08.png");
+//  slidingMap = CCScrollLayer::nodeWithLayers(mapArr, - screenSize.width - (NUMBER_MAPS-1)*DISTANCE_BETWEEN_MAPS, "ChooseMapScene/greendot-08.png");
+  slidingMap = CCScrollLayer::nodeWithLayers(mapArr, 0, "ChooseMapScene/greendot-08.png");
   slidingMap->setPagesIndicatorPosition(ccp(screenSize.width/2, GREEN_DOT_Y));
   this->addChild(slidingMap, GR_FOREGROUND);
 }
@@ -95,7 +96,6 @@ void ChooseMapScene::mapTouched(CCObject* pSender)
 {
   CCMenuItemImage* mapSelected = (CCMenuItemImage*)pSender;
   mapTouchedID = mapSelected->getTag();
-//  mapTouchedID = slidingMap->getCurrentScreen();
   CCLog("map %i choosed", mapTouchedID);
 }
 

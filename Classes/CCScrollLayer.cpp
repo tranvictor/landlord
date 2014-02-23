@@ -39,7 +39,6 @@ CCScrollLayer* CCScrollLayer::nodeWithLayers(CCArray* layers, int widthOffset)
   if (pRet && pRet->initWithLayers(layers, widthOffset))
   {
     pRet->autorelease();
-    CCLog("pRet");
     return pRet;
   }
   else
@@ -62,13 +61,10 @@ CCScrollLayer* CCScrollLayer::nodeWithLayers(cocos2d::CCArray *layers, int width
   
   // create sprites
   float n = (float)layer->getTotalScreens(); // << total point
-  CCLog("%f", n);
   float d = 37.78f;    //<< distance between points
   for (int i = 0; i < layer->getTotalScreens(); ++i)
   {
-    CCLog("%i = i", i);
     CCSprite *pageSprite = CCSprite::create(pageSpriterameName);
-    CCLog("%s", pageSpriterameName);
     pageSprite->setPosition(ccp(d*((float)i - 0.5f*(n-1.0f)), 0));
     layer->customPageIndicators->addChild(pageSprite);
   }
@@ -231,8 +227,8 @@ void CCScrollLayer::moveToPage(unsigned int pageNumber)
   CCSequence::create(
                      
                      CCCallFunc::create(this, callfunc_selector(CCScrollLayer::moveToPageEnded)),
-                     CCEaseExponentialInOut::create(
-                                                    CCMoveTo::create(actionDuration, positionForPageWithNumber(pageNumber))),
+                     CCEaseElasticOut::create(
+                                                    CCMoveTo::create(actionDuration, positionForPageWithNumber(pageNumber)), bouncePeriod),
                      NULL);
   
   // animation 3
