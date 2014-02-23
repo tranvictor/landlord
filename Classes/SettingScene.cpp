@@ -33,6 +33,7 @@ bool SettingScene::init()
   addSoundFxButton();
 	addMusicButton();
   addTreeModeButton();
+  addBackButton();
   
   return true;
 }
@@ -103,7 +104,7 @@ void SettingScene::addTreeModeButton()
                                                    NULL);
   
   CCMenuItemToggle* treeToggle = CCMenuItemToggle::createWithTarget(this,
-                                                                     menu_selector(SettingScene::musicTouched),checkedBtn,
+                                                                     menu_selector(SettingScene::treeModeTouched),checkedBtn,
                                                                      uncheckedBtn,
                                                                      NULL);
   CCMenu* tree = CCMenu::create();
@@ -111,6 +112,22 @@ void SettingScene::addTreeModeButton()
   tree->setPosition(BTN_TREE);
   
   this->addChild(tree, 2);
+}
+
+void SettingScene::addBackButton()
+{
+  CCSprite *backBtn = CCSprite::create("SettingScene/buttonBack.png");
+  
+  CCMenuItem *back = CCMenuItemSprite::create(backBtn,
+                                             backBtn,
+                                             this,
+                                             menu_selector(SettingScene::backButtonTouched));
+  CCMenu *backButton = CCMenu::create();
+  backButton->addChild(back);
+  
+  backButton->setPosition(BTN_BACK);
+  
+  this->addChild(backButton, 3);
 }
 
 void SettingScene::soundFxTouched(CCObject *pSender)
@@ -126,4 +143,9 @@ void SettingScene::musicTouched(CCObject *pSender)
 void SettingScene::treeModeTouched(CCObject *pSender)
 {
   CCLog("Tree Touched");
+}
+
+void SettingScene::backButtonTouched(CCObject *pSender)
+{
+  CCLog("Back Button Touched");
 }
