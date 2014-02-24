@@ -7,6 +7,7 @@
 //
 
 #include "StartScene.h"
+#include "CloudAnimation.h"
 
 USING_NS_CC;
 
@@ -39,13 +40,21 @@ bool StartScene::init()
 
 void StartScene::addBackground()
 {
-  CCSprite *background = CCSprite::create("Mainscene/MainsceneBackground.png");
+//  CCSprite *background = CCSprite::create("Mainscene/MainsceneBackground.png");
+  
+  CCSprite *background = CCSprite::create("CloudAnimation/Mainscene-Background-blanksky.png");
+  
   
   CCLOG("%f %f", screenSize.width, screenSize.height);
   
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   
   this->addChild(background, 0);
+  
+  CCSprite* cloud = CloudAnimation::create();
+  cloud->setPosition(ccp(0, 800));
+  
+  this->addChild(cloud, 1);
 }
 
 void StartScene::addPlayButton()
@@ -60,7 +69,7 @@ void StartScene::addPlayButton()
   
   playMenu->setPosition(BTN_PLAY);
   
-  this->addChild(playMenu,1);
+  this->addChild(playMenu,2);
 }
 
 void StartScene::addSettingsButton()
@@ -76,7 +85,7 @@ void StartScene::addSettingsButton()
   
   settingMenu->setPosition(BTN_SETTINGS);
   
-  this->addChild(settingMenu, 2);
+  this->addChild(settingMenu, 3);
 }
   
 

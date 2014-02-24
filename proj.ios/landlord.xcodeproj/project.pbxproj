@@ -226,6 +226,8 @@
 		379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* GUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* SceneReader.cpp */; };
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
+		660DE50D18BBC24700079508 /* CloudAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660DE50C18BBC24700079508 /* CloudAnimation.cpp */; };
+		660DE50F18BBC41200079508 /* CloudAnimation in Resources */ = {isa = PBXBuildFile; fileRef = 660DE50E18BBC41200079508 /* CloudAnimation */; };
 		661B812118B3E5AD00578534 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661B812018B3E5AD00578534 /* StartScene.cpp */; };
 		6665C60418B52B430096907A /* Mainscene in Resources */ = {isa = PBXBuildFile; fileRef = 6665C60318B52B430096907A /* Mainscene */; };
 		66F9CBC018B5F1FD0055BB63 /* SettingScene in Resources */ = {isa = PBXBuildFile; fileRef = 66F9CBBF18B5F1FD0055BB63 /* SettingScene */; };
@@ -723,6 +725,9 @@
 		379BB99417F03F3700829B88 /* SceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneReader.h; sourceTree = "<group>"; };
 		46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITouchGroup.cpp; sourceTree = "<group>"; };
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
+		660DE50A18BBC22F00079508 /* CloudAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudAnimation.h; path = ../Classes/CloudAnimation.h; sourceTree = "<group>"; };
+		660DE50C18BBC24700079508 /* CloudAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CloudAnimation.cpp; path = ../Classes/CloudAnimation.cpp; sourceTree = "<group>"; };
+		660DE50E18BBC41200079508 /* CloudAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CloudAnimation; sourceTree = "<group>"; };
 		661B811F18B3E22C00578534 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
 		661B812018B3E5AD00578534 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
 		6665C60318B52B430096907A /* Mainscene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mainscene; sourceTree = "<group>"; };
@@ -1282,6 +1287,8 @@
 				7AA1AE2318B40DF000A5C58C /* Maps.h */,
 				661B811F18B3E22C00578534 /* StartScene.h */,
 				661B812018B3E5AD00578534 /* StartScene.cpp */,
+				660DE50A18BBC22F00079508 /* CloudAnimation.h */,
+				660DE50C18BBC24700079508 /* CloudAnimation.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1736,6 +1743,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				660DE50E18BBC41200079508 /* CloudAnimation */,
 				7AB41F7618B3D79300F5177C /* ChooseMapScene */,
 				66F9CBBF18B5F1FD0055BB63 /* SettingScene */,
 				6665C60318B52B430096907A /* Mainscene */,
@@ -1838,6 +1846,7 @@
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
+				660DE50F18BBC41200079508 /* CloudAnimation in Resources */,
 				6665C60418B52B430096907A /* Mainscene in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
@@ -1936,6 +1945,7 @@
 				15A3D9AF1682F7F9002FB0C5 /* cpSpaceStep.c in Sources */,
 				15A3D9B01682F7F9002FB0C5 /* cpSpatialIndex.c in Sources */,
 				15A3D9B11682F7F9002FB0C5 /* cpSweep1D.c in Sources */,
+				660DE50D18BBC24700079508 /* CloudAnimation.cpp in Sources */,
 				15A3D9B21682F7F9002FB0C5 /* cpVect.c in Sources */,
 				15A3DA311682F826002FB0C5 /* CCBAnimationManager.cpp in Sources */,
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
