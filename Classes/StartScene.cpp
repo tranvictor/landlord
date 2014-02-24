@@ -92,5 +92,6 @@ void StartScene::playButtonTouched(CCObject *pSender)
 void StartScene::settingsButtonTouched(CCObject *pSender)
 {
   CCLOG("Settings button touched");
-  CCDirector::sharedDirector()->replaceScene(SettingScene::scene());
+//  CCDirector::sharedDirector()->replaceScene(SettingScene::scene());
+  CCDirector::sharedDirector()->pushScene(SettingScene::scene());
 }
