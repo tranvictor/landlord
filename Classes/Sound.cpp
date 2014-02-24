@@ -9,8 +9,35 @@
 #include "Sound.h"
 #include "SimpleAudioEngine.h"
 
+bool sound::music = true;
+bool sound::soundFx = true;
 
 void sound::playBackgroundMusic()
 {
-  CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("background.wav", true);
+  if(music && !CocosDenshion::SimpleAudioEngine::sharedEngine()->isBackgroundMusicPlaying())
+  {
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("background.wav", true);
+  }
+}
+
+void sound::playSoundFx()
+{
+  if(soundFx)
+  {
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("button-6.wav");
+  }
+}
+
+void sound::toggleMusic()
+{
+  music = !music;
+  if(!music)
+  {
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
+  }
+}
+
+void sound::toggleSoundFx()
+{
+  soundFx = !soundFx;
 }

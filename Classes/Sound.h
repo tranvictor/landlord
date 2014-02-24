@@ -11,8 +11,15 @@
 
 class sound
 {
+private:
+  static bool music;
+  static bool soundFx;
+  
 public:
   static void playBackgroundMusic();
+  static void playSoundFx();
+  static void toggleMusic();
+  static void toggleSoundFx();
 };
 
 #endif

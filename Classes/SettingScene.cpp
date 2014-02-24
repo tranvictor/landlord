@@ -8,6 +8,7 @@
 
 #include "SettingScene.h"
 #include "StartScene.h"
+#include "Sound.h"
 
 USING_NS_CC;
 
@@ -134,20 +135,26 @@ void SettingScene::addBackButton()
 void SettingScene::soundFxTouched(CCObject *pSender)
 {
   CCLog("soundFx Touched");
+  sound::playSoundFx();
+  sound::toggleSoundFx();
 }
 
 void SettingScene::musicTouched(CCObject *pSender)
 {
   CCLog("music Touched");
+  sound::playSoundFx();
+  sound::toggleMusic();
 }
 
 void SettingScene::treeModeTouched(CCObject *pSender)
 {
   CCLog("Tree Touched");
+  sound::playSoundFx();
 }
 
 void SettingScene::backButtonTouched(CCObject *pSender)
 {
   CCLog("Back Button Touched");
+  sound::playSoundFx();
   CCDirector::sharedDirector()->replaceScene(StartScene::scene());
 }
