@@ -228,6 +228,7 @@
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
 		6616F87418BA543600F695A3 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6616F87318BA543600F695A3 /* background.wav */; };
 		6616F87618BA544600F695A3 /* button-6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6616F87518BA544600F695A3 /* button-6.wav */; };
+		66199A9718BA969300A45A99 /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66199A9618BA969300A45A99 /* Sound.cpp */; };
 		661B812118B3E5AD00578534 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661B812018B3E5AD00578534 /* StartScene.cpp */; };
 		6665C60418B52B430096907A /* Mainscene in Resources */ = {isa = PBXBuildFile; fileRef = 6665C60318B52B430096907A /* Mainscene */; };
 		66EB9FF718B65370000A1CEB /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66EB9FF518B65370000A1CEB /* SettingScene.cpp */; };
@@ -724,6 +725,7 @@
 		6616F87218BA515100F695A3 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sound.h; path = ../Classes/Sound.h; sourceTree = "<group>"; };
 		6616F87318BA543600F695A3 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
 		6616F87518BA544600F695A3 /* button-6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-6.wav"; sourceTree = "<group>"; };
+		66199A9618BA969300A45A99 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sound.cpp; path = ../Classes/Sound.cpp; sourceTree = "<group>"; };
 		661B811F18B3E22C00578534 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
 		661B812018B3E5AD00578534 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
 		6665C60318B52B430096907A /* Mainscene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mainscene; sourceTree = "<group>"; };
@@ -1272,6 +1274,7 @@
 				66EB9FF518B65370000A1CEB /* SettingScene.cpp */,
 				66EB9FF618B65370000A1CEB /* SettingScene.h */,
 				6616F87218BA515100F695A3 /* Sound.h */,
+				66199A9618BA969300A45A99 /* Sound.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2018,6 +2021,7 @@
 				379BB9A617F03F3700829B88 /* CCArmatureDataManager.cpp in Sources */,
 				379BB9A717F03F3700829B88 /* CCArmatureDefine.cpp in Sources */,
 				379BB9A817F03F3700829B88 /* CCDataReaderHelper.cpp in Sources */,
+				66199A9718BA969300A45A99 /* Sound.cpp in Sources */,
 				379BB9A917F03F3700829B88 /* CCSpriteFrameCacheHelper.cpp in Sources */,
 				379BB9AA17F03F3700829B88 /* CCTransformHelp.cpp in Sources */,
 				379BB9AB17F03F3700829B88 /* CCTweenFunction.cpp in Sources */,
