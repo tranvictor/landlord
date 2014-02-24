@@ -7,6 +7,7 @@
 //
 
 #include "SettingScene.h"
+#include "StartScene.h"
 
 USING_NS_CC;
 
@@ -148,4 +149,5 @@ void SettingScene::treeModeTouched(CCObject *pSender)
 void SettingScene::backButtonTouched(CCObject *pSender)
 {
   CCLog("Back Button Touched");
+  CCDirector::sharedDirector()->replaceScene(StartScene::scene());
 }

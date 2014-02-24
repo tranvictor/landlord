@@ -7,3 +7,10 @@
 //
 
 #include "Sound.h"
+#include "SimpleAudioEngine.h"
+
+
+void sound::playBackgroundMusic()
+{
+  CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("background.wav", true);
+}

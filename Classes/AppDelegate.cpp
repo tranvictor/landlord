@@ -29,9 +29,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // create a scene. it's an autorelease object
     //CCScene *pScene = HelloWorld::scene();
   
-    //CCScene *pScene = StartScene::scene();
+    CCScene *pScene = StartScene::scene();
   
-    CCScene *pScene = SettingScene::scene();
+    //CCScene *pScene = SettingScene::scene();
   
     // run
     pDirector->runWithScene(pScene);

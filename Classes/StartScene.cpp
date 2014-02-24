@@ -7,6 +7,8 @@
 //
 
 #include "StartScene.h"
+#include "SettingScene.h"
+#include "Sound.h"
 
 USING_NS_CC;
 
@@ -29,6 +31,7 @@ bool StartScene::init()
   }
   
   screenSize = CCDirector::sharedDirector()->getWinSize();
+  sound::playBackgroundMusic();
   
   addBackground();
   addPlayButton();
@@ -89,4 +92,5 @@ void StartScene::playButtonTouched(CCObject *pSender)
 void StartScene::settingsButtonTouched(CCObject *pSender)
 {
   CCLOG("Settings button touched");
+  CCDirector::sharedDirector()->replaceScene(SettingScene::scene());
 }
