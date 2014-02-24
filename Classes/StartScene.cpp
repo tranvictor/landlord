@@ -87,11 +87,22 @@ void StartScene::addSettingsButton()
 void StartScene::playButtonTouched(CCObject *pSender)
 {
   CCLOG("Play button touched");
+  sound::playSoundFx();
 }
 
 void StartScene::settingsButtonTouched(CCObject *pSender)
 {
   CCLOG("Settings button touched");
+  
+  sound::playSoundFx();
 //  CCDirector::sharedDirector()->replaceScene(SettingScene::scene());
-  CCDirector::sharedDirector()->pushScene(SettingScene::scene());
+  //CCDirector::sharedDirector()->pushScene(SettingScene::scene());
+  
+  // Set Transtion Scene
+//  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
+  CCScene* newScene = CCTransitionSlideInL::create(0.5, SettingScene::scene());
+//  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
+  
+  
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }

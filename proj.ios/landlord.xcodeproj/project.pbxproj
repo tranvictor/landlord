@@ -729,6 +729,7 @@
 		66199A9618BA969300A45A99 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sound.cpp; path = ../Classes/Sound.cpp; sourceTree = "<group>"; };
 		661B811F18B3E22C00578534 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
 		661B812018B3E5AD00578534 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
+		663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneTransition.h; path = ../Classes/SceneTransition.h; sourceTree = "<group>"; };
 		6665C60318B52B430096907A /* Mainscene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mainscene; sourceTree = "<group>"; };
 		6692F13418BB4E3200068D35 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameManager.h; path = ../Classes/GameManager.h; sourceTree = "<group>"; };
 		6692F13518BB4E4400068D35 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../Classes/GameManager.cpp; sourceTree = "<group>"; };
@@ -1280,6 +1281,7 @@
 				66199A9618BA969300A45A99 /* Sound.cpp */,
 				6692F13418BB4E3200068D35 /* GameManager.h */,
 				6692F13518BB4E4400068D35 /* GameManager.cpp */,
+				663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */,
 			);
 			name = Classes;
 			path = ../classes;

@@ -156,6 +156,10 @@ void SettingScene::backButtonTouched(CCObject *pSender)
 {
   CCLog("Back Button Touched");
   sound::playSoundFx();
-//  CCDirector::sharedDirector()->replaceScene(StartScene::scene());
-  CCDirector::sharedDirector()->popScene();
+  
+  //Set Scene Transition
+  CCScene* newScene = CCTransitionSlideInR::create(0.5, StartScene::scene());
+  
+  CCDirector::sharedDirector()->replaceScene(newScene);
+  //CCDirector::sharedDirector()->popScene();
 }
