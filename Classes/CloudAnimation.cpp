@@ -10,14 +10,22 @@
 
 USING_NS_CC;
 
-CCSprite *CloudAnimation::sprite()
+CloudAnimation* CloudAnimation::create(int pCloudSpeed)
 {
-  CCSprite* sprite = CloudAnimation::create();
-  
-  return sprite;
-};
+  CloudAnimation *cloud = new CloudAnimation();
+  if (cloud && cloud->init(pCloudSpeed))
+    {
+    cloud->autorelease();
+    return cloud;
+    }
+  else
+    {
+    CC_SAFE_DELETE(cloud);
+    return NULL;
+    }
+}
 
-bool CloudAnimation::init()
+bool CloudAnimation::init(int pCloudSpeed)
 {
   if(!CCSprite::init())
   {
@@ -26,9 +34,13 @@ bool CloudAnimation::init()
   
   CCSprite* sprite = CCSprite::create("CloudAnimation/cloud.png");
   
-  CCActionInterval* act1 = CCMoveBy::create(3, ccp(640,0));
+  CCActionInterval* act1 = CCMoveBy::create(pCloudSpeed, ccp(1000,0));
   
-  sprite->runAction(CCRepeatForever::create(act1));
+  CCActionInterval* act2 = CCMoveBy::create(pCloudSpeed, ccp(-1000, 0));
+  
+  CCSequence * newSequence = CCSequence::create(act1, act2);
+  
+  sprite->runAction(CCRepeatForever::create(newSequence));
   
   this->addChild(sprite);
   

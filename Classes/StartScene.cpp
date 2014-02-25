@@ -51,10 +51,18 @@ void StartScene::addBackground()
   
   this->addChild(background, 0);
   
-  CCSprite* cloud = CloudAnimation::create();
-  cloud->setPosition(ccp(0, 800));
+  CCSprite* cloud = CloudAnimation::create(cloudSpeed);
+  cloud->setPosition(ccp(-150, 800));
   
   this->addChild(cloud, 1);
+  
+  cloudSpeed = 2;
+  
+  CCSprite* cloud1 = CloudAnimation::create(cloudSpeed);
+  cloud1->setPosition(ccp(-150, 600));
+  
+  this->addChild(cloud1, 2);
+  
 }
 
 void StartScene::addPlayButton()

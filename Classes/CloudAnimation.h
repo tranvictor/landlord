@@ -14,11 +14,11 @@
 class CloudAnimation : public cocos2d::CCSprite
 {
 private:
+//  int *cloudSpeed;
 public:
-  virtual bool init();
-  static cocos2d::CCSprite* sprite();
-  
-  CREATE_FUNC(CloudAnimation);
+  virtual bool init(int pTime);
+  static CloudAnimation* create(int pCloudSpeed);
+//  CREATE_FUNC(CloudAnimation);
 };
 
 #endif
