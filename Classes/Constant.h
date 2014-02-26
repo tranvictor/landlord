@@ -23,6 +23,13 @@ USING_NS_CC;
 #define DISTANCE_BETWEEN_MAPS   444
 #define GREEN_DOT_Y     419
 
+// ChooseCharacterScene
+#define NUMBER_CHARACTERS 8
+#define C1_POS ccp(173.25, 813.45)
+#define C2_POS ccp(485.489, 798.445)
+#define C3_POS ccp(173.25, 340.866)
+#define C4_POS ccp(485.489, 341.326)
+
 enum eGround
 {
   GR_BACKGROUND,
