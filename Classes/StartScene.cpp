@@ -76,7 +76,7 @@ void StartScene::addPlayButton()
   
   playMenu->setPosition(BTN_PLAY);
   
-  this->addChild(playMenu,2);
+  this->addChild(playMenu,1);
 }
 
 void StartScene::addSettingsButton()
@@ -92,7 +92,7 @@ void StartScene::addSettingsButton()
   
   settingMenu->setPosition(BTN_SETTINGS);
   
-  this->addChild(settingMenu, 3);
+  this->addChild(settingMenu, 2);
 }
   
 
