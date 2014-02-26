@@ -31,6 +31,7 @@ bool ChooseCharacterScene::init()
   screenSize = CCDirector::sharedDirector()->getWinSize();
   addBackground();
   addCharacter();
+  addBackButton();
   
   return true;
 }
@@ -59,7 +60,7 @@ void ChooseCharacterScene::addCharacter()
                                                                  character,
                                                                  this,
                                                                  menu_selector(ChooseCharacterScene::CharacterTouched));
-      characterItem->setTag(j);
+      characterItem->setTag(characterID);
       CCMenu* menu = CCMenu::create(characterItem, NULL);
       switch (characterID) {
         case 1:
@@ -90,7 +91,7 @@ void ChooseCharacterScene::addCharacter()
           CCLOG("No character set positon");
           break;
       }
-      characterLayer->addChild(menu, GR_FOREGROUND);
+      characterLayer->addChild(menu);
     }
     characterArr->addObject(characterLayer);
   }
@@ -165,6 +166,23 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
         CCLOG("No character set positon");
         break;
     }
-    slidingCharacterLayer->addChild(character, GR_BACKGROUND);
+    this->addChild(character, GR_BACKGROUND);
   }
+}
+
+void ChooseCharacterScene::addBackButton()
+{
+  CCSprite *back = CCSprite::create("ChooseMapScene/button-back.png");
+  CCMenuItemSprite *backBtn = CCMenuItemSprite::create(back,
+                                                       back,
+                                                       this,
+                                                       menu_selector(ChooseCharacterScene::buttonBackTouched));
+  CCMenu* pMenu = CCMenu::create(backBtn, NULL);
+  pMenu->setPosition(BTN_BACK);
+  this->addChild(pMenu, GR_MIDDLEGROUND);
+}
+
+void ChooseCharacterScene::buttonBackTouched()
+{
+  CCLOG("Button back touched");
 }

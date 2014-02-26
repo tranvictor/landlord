@@ -33,6 +33,8 @@ public:
   
   void addBackground();
   void addCharacter();
+  void addBackButton();
+  void buttonBackTouched();
   
   void CharacterTouched(CCObject *pSender);
   // implement the "static node()" method manually
