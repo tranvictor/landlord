@@ -22,7 +22,7 @@ class SettingScene : public cocos2d::CCLayer
 {
 private:
   cocos2d::CCSize screenSize;
-
+  
 public:
   virtual bool init();
   static cocos2d::CCScene* scene();

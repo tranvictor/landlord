@@ -53,13 +53,13 @@ void SettingScene::addBackground()
 void SettingScene::addSoundFxButton()
 {
   CCMenuItem* uncheckedBtn = CCMenuItemImage::create("SettingScene/buttonUncheck.png",
-                                         "SettingScene/buttonChecked.png",
-                                         NULL,
-                                         NULL);
+                                                     "SettingScene/buttonChecked.png",
+                                                     NULL,
+                                                     NULL);
   CCMenuItem* checkedBtn = CCMenuItemImage::create("SettingScene/buttonChecked.png",
-                                       "SettingScene/buttonUncheck.png",
-                                       NULL,
-                                       NULL);
+                                                   "SettingScene/buttonUncheck.png",
+                                                   NULL,
+                                                   NULL);
   
   CCMenuItem* state1 = CCMenuItem::create();
   CCMenuItem* state2 = CCMenuItem::create();
@@ -68,17 +68,17 @@ void SettingScene::addSoundFxButton()
     state1 = checkedBtn;
     state2 = uncheckedBtn;
   } else
-    {
-      state1 = uncheckedBtn;
-      state2 = checkedBtn;
-    }
+  {
+    state1 = uncheckedBtn;
+    state2 = checkedBtn;
+  }
   
-
+  
   CCMenuItemToggle* soundFxToggle = CCMenuItemToggle::createWithTarget(this,
-                                                             menu_selector(SettingScene::soundFxTouched),
-                                                             state1,
-                                                             state2,
-                                                             NULL);
+                                                                       menu_selector(SettingScene::soundFxTouched),
+                                                                       state1,
+                                                                       state2,
+                                                                       NULL);
   CCMenu* soundFx = CCMenu::create();
   soundFx->addChild(soundFxToggle);
   soundFx->setPosition(BTN_SOUND);
@@ -104,11 +104,11 @@ void SettingScene::addMusicButton()
     state1 = checkedBtn;
     state2 = uncheckedBtn;
   } else
-    {
+  {
     state1 = uncheckedBtn;
     state2 = checkedBtn;
-    }
-
+  }
+  
   CCMenuItemToggle* musicToggle = CCMenuItemToggle::createWithTarget(this,
                                                                      menu_selector(SettingScene::musicTouched),
                                                                      state1,
@@ -139,10 +139,10 @@ void SettingScene::addTreeModeButton()
     state1 = checkedBtn;
     state2 = uncheckedBtn;
   } else
-    {
+  {
     state1 = uncheckedBtn;
     state2 = checkedBtn;
-    }
+  }
   
   CCMenuItemToggle* treeToggle = CCMenuItemToggle::createWithTarget(this,
                                                                     menu_selector(SettingScene::treeModeTouched),
@@ -161,9 +161,9 @@ void SettingScene::addBackButton()
   CCSprite *backBtn = CCSprite::create("SettingScene/buttonBack.png");
   
   CCMenuItem *back = CCMenuItemSprite::create(backBtn,
-                                             backBtn,
-                                             this,
-                                             menu_selector(SettingScene::backButtonTouched));
+                                              backBtn,
+                                              this,
+                                              menu_selector(SettingScene::backButtonTouched));
   CCMenu *backButton = CCMenu::create();
   backButton->addChild(back);
   
