@@ -89,7 +89,11 @@ void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 void WinScene::appearWinner()
 {
   CCSprite *winner = CCSprite::create("WinScene/c1.png");
-  winner->setPosition(WINNER_POS);
+  winner->setPosition(ccp(320, 654-400));
+  
+  CCAction * act1 = CCMoveTo::create(0.5, WINNER_POS);
+  winner->runAction(act1);
+  
   addChild(winner, GR_MIDDLEGROUND);
 }
 
