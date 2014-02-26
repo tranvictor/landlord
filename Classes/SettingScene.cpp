@@ -9,6 +9,7 @@
 #include "SettingScene.h"
 #include "StartScene.h"
 #include "Sound.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -59,11 +60,24 @@ void SettingScene::addSoundFxButton()
                                        "SettingScene/buttonUncheck.png",
                                        NULL,
                                        NULL);
+  
+  CCMenuItem* state1 = CCMenuItem::create();
+  CCMenuItem* state2 = CCMenuItem::create();
+  
+  if(GameManager::getSoundState()){
+    state1 = checkedBtn;
+    state2 = uncheckedBtn;
+  } else
+    {
+      state1 = uncheckedBtn;
+      state2 = checkedBtn;
+    }
+  
 
   CCMenuItemToggle* soundFxToggle = CCMenuItemToggle::createWithTarget(this,
                                                              menu_selector(SettingScene::soundFxTouched),
-                                                             checkedBtn,
-                                                             uncheckedBtn,
+                                                             state1,
+                                                             state2,
                                                              NULL);
   CCMenu* soundFx = CCMenu::create();
   soundFx->addChild(soundFxToggle);
@@ -82,10 +96,23 @@ void SettingScene::addMusicButton()
                                                    "SettingScene/buttonUncheck.png",
                                                    NULL,
                                                    NULL);
+  
+  CCMenuItem* state1 = CCMenuItem::create();
+  CCMenuItem* state2 = CCMenuItem::create();
+  
+  if(GameManager::getMusicState()){
+    state1 = checkedBtn;
+    state2 = uncheckedBtn;
+  } else
+    {
+    state1 = uncheckedBtn;
+    state2 = checkedBtn;
+    }
 
   CCMenuItemToggle* musicToggle = CCMenuItemToggle::createWithTarget(this,
-                                                                     menu_selector(SettingScene::musicTouched),checkedBtn,
-                                                                     uncheckedBtn,
+                                                                     menu_selector(SettingScene::musicTouched),
+                                                                     state1,
+                                                                     state2,
                                                                      NULL);
   CCMenu* music = CCMenu::create();
   music->addChild(musicToggle);
@@ -105,10 +132,23 @@ void SettingScene::addTreeModeButton()
                                                    NULL,
                                                    NULL);
   
+  CCMenuItem* state1 = CCMenuItem::create();
+  CCMenuItem* state2 = CCMenuItem::create();
+  
+  if(GameManager::getTreeModeState()){
+    state1 = checkedBtn;
+    state2 = uncheckedBtn;
+  } else
+    {
+    state1 = uncheckedBtn;
+    state2 = checkedBtn;
+    }
+  
   CCMenuItemToggle* treeToggle = CCMenuItemToggle::createWithTarget(this,
-                                                                     menu_selector(SettingScene::treeModeTouched),checkedBtn,
-                                                                     uncheckedBtn,
-                                                                     NULL);
+                                                                    menu_selector(SettingScene::treeModeTouched),
+                                                                    state1,
+                                                                    state2,
+                                                                    NULL);
   CCMenu* tree = CCMenu::create();
   tree->addChild(treeToggle);
   tree->setPosition(BTN_TREE);
@@ -137,6 +177,7 @@ void SettingScene::soundFxTouched(CCObject *pSender)
   CCLog("soundFx Touched");
   sound::playSoundFx();
   sound::toggleSoundFx();
+  GameManager::setSoundState();
 }
 
 void SettingScene::musicTouched(CCObject *pSender)
@@ -144,12 +185,14 @@ void SettingScene::musicTouched(CCObject *pSender)
   CCLog("music Touched");
   sound::playSoundFx();
   sound::toggleMusic();
+  GameManager::setMusicState();
 }
 
 void SettingScene::treeModeTouched(CCObject *pSender)
 {
   CCLog("Tree Touched");
   sound::playSoundFx();
+  GameManager::setTreeModeState();
 }
 
 void SettingScene::backButtonTouched(CCObject *pSender)
