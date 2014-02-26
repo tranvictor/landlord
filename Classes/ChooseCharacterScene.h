@@ -10,6 +10,7 @@
 #define __landlord__ChooseCharacterScene__
 
 #include "cocos2d.h"
+#include "CCScrollLayer.h"
 
 USING_NS_CC;
 
@@ -17,6 +18,9 @@ class ChooseCharacterScene : public cocos2d::CCLayer
 {
 private:
   CCSize screenSize;
+  CCArray* characterArr;
+  CCScrollLayer* slidingCharacterLayer;
+  
   int characterTouchedID;
   int player = 0;
   int characterChoseByPlayer1;

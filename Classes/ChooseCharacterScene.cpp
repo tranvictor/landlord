@@ -40,43 +40,50 @@ void ChooseCharacterScene::addBackground()
   CCSprite* background = CCSprite::create("ChooseCharacterScene/Background.png");
   CCLOG("%f %f", screenSize.width, screenSize.height);
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
-  this->addChild(background, 0);
+  this->addChild(background, GR_BACKGROUND);
 }
 
 void ChooseCharacterScene::addCharacter()
 {
-  for (int i = 1; i <= NUMBER_CHARACTERS/2; ++i)
+  characterArr = CCArray::createWithCapacity(NUMBER_CHARACTERS/4);
+  for (int i = 1; i <= NUMBER_CHARACTERS/4; ++i)
   {
-    CCString* characterName = (CCString::createWithFormat("ChooseCharacterScene/c%i.png", i));
-    CCSprite* character = CCSprite::create(characterName->getCString());
-    
-    CCMenuItemSprite* characterItem = CCMenuItemSprite::create(character,
-                                                              character,
-                                                              this,
-                                                              menu_selector(ChooseCharacterScene::CharacterTouched));
-    characterItem->setTag(i);
-    
-    CCMenu* pMenu = CCMenu::create(characterItem, NULL);
-    switch (i) {
-      case 1:
-        pMenu->setPosition(C1_POS);
-        break;
-      case 2:
-        pMenu->setPosition(C2_POS);
-        break;
-      case 3:
-        pMenu->setPosition(C3_POS);
-        break;
-      case 4:
-        pMenu->setPosition(C4_POS);
-        break;
-      default:
-        CCLOG("No character set positon");
-        break;
+    CCLayer* characterLayer = CCLayer::create();
+    for (int j = 1; j <=NUMBER_CHARACTERS/2; ++j)
+    {
+      CCString* characterName = (CCString::createWithFormat("ChooseCharacterScene/c%i.png", i));
+      CCSprite* character = CCSprite::create(characterName->getCString());
+      
+      CCMenuItemSprite* characterItem = CCMenuItemSprite::create(character,
+                                                                 character,
+                                                                 this,
+                                                                 menu_selector(ChooseCharacterScene::CharacterTouched));
+      characterItem->setTag(i);
+      CCMenu* menu = CCMenu::create(characterItem, NULL);
+      switch (i) {
+        case 1:
+          menu->setPosition(C1_POS);
+          break;
+        case 2:
+          menu->setPosition(C2_POS);
+          break;
+        case 3:
+          menu->setPosition(C3_POS);
+          break;
+        case 4:
+          menu->setPosition(C4_POS);
+          break;
+        default:
+          CCLOG("No character set positon");
+          break;
+      }
+      characterLayer->addChild(menu, GR_FOREGROUND);
     }
-    
-    this->addChild(pMenu, 2);
+    characterArr->addObject(characterLayer);
   }
+  slidingCharacterLayer = CCScrollLayer::nodeWithLayers(characterArr, 0, "ChooseCharacterScene/indicator-dot-03.png");
+  slidingCharacterLayer->setPagesIndicatorPosition(INDICATOR_POS);
+  this->addChild(slidingCharacterLayer, GR_FOREGROUND);
 }
 
 void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
@@ -92,13 +99,13 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
   if (player == 1)
   {
     characterChoseByPlayer1 = characterTouchedID;
-    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-1.png", characterTouchedID);
+    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-blue-02.png", characterTouchedID);
     checkValid = true;
     CCLOG("Player 1 had chose character %i", characterTouchedID);
   }
   else if (player == 2 && characterTouchedID != characterChoseByPlayer1)
   {
-    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-2.png", characterTouchedID);
+    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-red-02.png", characterTouchedID);
     checkValid = true;
     CCLOG("Player 2 had chose character %i", characterTouchedID);
   }
@@ -134,6 +141,6 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
         CCLOG("No character set positon");
         break;
     }
-    this->addChild(character, 1);
+    slidingCharacterLayer->addChild(character, GR_BACKGROUND);
   }
 }
