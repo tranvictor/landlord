@@ -11,7 +11,7 @@
 
 //CONSTANT
 
-#define BTN_SOUND ccp(120, 286)
+#define BTN_SOUND ccp(120, 268)
 #define BTN_MUSIC ccp(120, 371.02)
 #define BTN_TREE ccp(120, 168)
 #define BTN_BACK ccp(565, 68)
