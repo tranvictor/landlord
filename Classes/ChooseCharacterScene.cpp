@@ -51,16 +51,17 @@ void ChooseCharacterScene::addCharacter()
     CCLayer* characterLayer = CCLayer::create();
     for (int j = 1; j <=NUMBER_CHARACTERS/2; ++j)
     {
-      CCString* characterName = (CCString::createWithFormat("ChooseCharacterScene/c%i.png", i));
+      int characterID = j + 4*(i - 1);
+      CCString* characterName = (CCString::createWithFormat("ChooseCharacterScene/c%i.png", characterID));
       CCSprite* character = CCSprite::create(characterName->getCString());
       
       CCMenuItemSprite* characterItem = CCMenuItemSprite::create(character,
                                                                  character,
                                                                  this,
                                                                  menu_selector(ChooseCharacterScene::CharacterTouched));
-      characterItem->setTag(i);
+      characterItem->setTag(j);
       CCMenu* menu = CCMenu::create(characterItem, NULL);
-      switch (i) {
+      switch (characterID) {
         case 1:
           menu->setPosition(C1_POS);
           break;
@@ -72,6 +73,18 @@ void ChooseCharacterScene::addCharacter()
           break;
         case 4:
           menu->setPosition(C4_POS);
+          break;
+        case 5:
+          menu->setPosition(C5_POS);
+          break;
+        case 6:
+          menu->setPosition(C6_POS);
+          break;
+        case 7:
+          menu->setPosition(C7_POS);
+          break;
+        case 8:
+          menu->setPosition(C8_POS);
           break;
         default:
           CCLOG("No character set positon");
@@ -123,7 +136,6 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
   if (checkValid)
   {
     CCSprite* character = CCSprite::create(characterName->getCString());
-    
     switch (characterTouchedID) {
       case 1:
         character->setPosition(C1_POS);
@@ -136,6 +148,18 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
         break;
       case 4:
         character->setPosition(C4_POS);
+        break;
+      case 5:
+        character->setPosition(C5_POS);
+        break;
+      case 6:
+        character->setPosition(C6_POS);
+        break;
+      case 7:
+        character->setPosition(C7_POS);
+        break;
+      case 8:
+        character->setPosition(C8_POS);
         break;
       default:
         CCLOG("No character set positon");

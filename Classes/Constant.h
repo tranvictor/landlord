@@ -29,6 +29,10 @@ USING_NS_CC;
 #define C2_POS ccp(485.489, 798.445)
 #define C3_POS ccp(173.25, 340.866)
 #define C4_POS ccp(485.489, 341.326)
+#define C5_POS ccp(177.743, 793.243)
+#define C6_POS ccp(489.982, 333.692)
+#define C7_POS ccp(177.743, 797.344)
+#define C8_POS ccp(489.982,	313.253)
 #define INDICATOR_POS ccp(290.631, 86.738)
 
 enum eGround

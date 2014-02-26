@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2B6EFC79-26F4-43BF-9EAB-E8398B129863</string>
+	<key>IDESourceControlProjectName</key>
+	<string>landlord</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F672729C-761F-4E14-BDDE-6F78DA954578</key>
+		<string>ssh://github.com/tranvictor/landlord.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>proj.ios/landlord.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F672729C-761F-4E14-BDDE-6F78DA954578</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/tranvictor/landlord.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F672729C-761F-4E14-BDDE-6F78DA954578</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F672729C-761F-4E14-BDDE-6F78DA954578</string>
+			<key>IDESourceControlWCCName</key>
+			<string>landlord</string>
+		</dict>
+	</array>
+</dict>
+</plist>
