@@ -42,14 +42,13 @@ void StartScene::addBackground()
 {
   CCSprite *background = CCSprite::create("Mainscene/MainsceneBackground.png");
   
-  //CCSprite *background = CCSprite::create("CloudAnimation/Mainscene-Background-blanksky.png");
-  
-  
   CCLOG("%f %f", screenSize.width, screenSize.height);
   
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   
   this->addChild(background, 0);
+  
+  //CCSprite *background = CCSprite::create("CloudAnimation/Mainscene-Background-blanksky.png");
   
 //  CCSprite* cloud = CloudAnimation::create(cloudSpeed);
 //  cloud->setPosition(ccp(-150, 800));
