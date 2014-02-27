@@ -4,6 +4,7 @@
 
 
 #include <assert.h>
+#include "Constant.h"
 
 USING_NS_CC;
 
