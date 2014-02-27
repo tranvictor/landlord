@@ -12,11 +12,14 @@
 #include "cocos2d.h"
 #include "ScrollableMap.h"
 #include "Constant.h"
+#include "cocos-ext.h"
 
 class PlayScene : public cocos2d::CCLayer
 {
   int playerOneTag, playerTwoTag;
-  ScrollableMap* scrollMap;
+//  ScrollableMap* scrollMap;
+  cocos2d::extension::CCScrollView *scrollMap;
+  
   cocos2d::CCSize screenSize;
   cocos2d::CCLabelTTF *lbnScorePlayer1;
   cocos2d::CCLabelTTF *lbnScorePlayer2;
@@ -30,6 +33,7 @@ public:
   void addPLayerOne();
   void addPlayerTwo();
   void addScoreLbn();
+  void addFrameImg();
   
   void makeMapScroll();
   void pauseButtonTouched();

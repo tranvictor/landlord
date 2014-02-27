@@ -9,6 +9,7 @@
 #include "PlayScene.h"
 
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 CCScene* PlayScene::scene()
 {
@@ -38,11 +39,12 @@ bool PlayScene::init()
   screenSize = CCDirector::sharedDirector()->getWinSize();
   
   addPlayGroud();
+  makeMapScroll();
+  addFrameImg();
   addPauseButton();
   addPLayerOne();
   addPlayerTwo();
   addScoreLbn();
-  makeMapScroll();
   
   return true;
 }
@@ -83,15 +85,19 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::makeMapScroll()
 {
-  scrollMap = ScrollableMap::create();
+//  scrollMap = ScrollableMap::create();
   CCSprite* sp = CCSprite::create("PlayScene/map1.png"); // get map name from ChooseMapScene or GameManager
-  scrollMap->setContentSize(sp->getContentSize()*1.05);
-  CCLog("%.0f %.0f", sp->getContentSize().width, sp->getContentSize().height);
-  sp->setAnchorPoint(ccp(0.3, 0.5));
-  sp->setPosition(MAP_POS);
-  scrollMap->setAutoScrolling(true);
+//  scrollMap->setContentSize(sp->getContentSize()*1.05);
+//  CCLog("%.0f %.0f", sp->getContentSize().width, sp->getContentSize().height);
+//  sp->setAnchorPoint(ccp(0.3, 0.5));
+//  sp->setPosition(MAP_POS);
+//  scrollMap->setAutoScrolling(true);
+//  scrollMap->addChild(sp);
+  scrollMap = CCScrollView::create(sp->getContentSize());
+//  sp->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+
   scrollMap->addChild(sp);
-  
+  		
   this->addChild(scrollMap);
 }
 
@@ -122,4 +128,11 @@ void PlayScene::addScoreLbn()
 void PlayScene::pauseButtonTouched()
 {
   CCLog("paused touched");
+}
+
+void PlayScene::addFrameImg()
+{
+  CCSprite *frame = CCSprite::create("PlayScene/frame-01.png");
+  frame->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+  addChild(frame);
 }
