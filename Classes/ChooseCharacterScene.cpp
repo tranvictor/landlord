@@ -46,13 +46,13 @@ void ChooseCharacterScene::addBackground()
 
 void ChooseCharacterScene::addCharacter()
 {
-  characterArr = CCArray::createWithCapacity(NUMBER_CHARACTERS/4);
-  for (int i = 1; i <= NUMBER_CHARACTERS/4; ++i)
+  characterArr = CCArray::createWithCapacity(NUMBER_CHARACTERS/NUMBER_CHARACTERS_PER_SCENE);
+  for (int i = 1; i <= NUMBER_CHARACTERS/NUMBER_CHARACTERS_PER_SCENE; ++i)
   {
     CCLayer* characterLayer = CCLayer::create();
-    for (int j = 1; j <=NUMBER_CHARACTERS/2; ++j)
+    for (int j = 1; j <= NUMBER_CHARACTERS_PER_SCENE; ++j)
     {
-      int characterID = j + 4*(i - 1);
+      int characterID = j + NUMBER_CHARACTERS_PER_SCENE*(i - 1);
       CCString* characterName = (CCString::createWithFormat("ChooseCharacterScene/c%i.png", characterID));
       CCSprite* character = CCSprite::create(characterName->getCString());
       
@@ -91,13 +91,12 @@ void ChooseCharacterScene::addCharacter()
           CCLOG("No character set positon");
           break;
       }
-      characterLayer->setTag(i);
       characterLayer->addChild(menu, GR_FOREGROUND);
     }
     characterArr->addObject(characterLayer);
   }
-  slidingCharacterLayer = CCScrollLayer::nodeWithLayers(characterArr, 0, "ChooseCharacterScene/indicator-dot-03.png");
-  slidingCharacterLayer->setPagesIndicatorPosition(INDICATOR_POS);
+  slidingCharacterLayer = CCScrollLayer::nodeWithLayers(characterArr, 0, "ChooseMapScene/greendot-08.png");
+  slidingCharacterLayer->setPagesIndicatorPosition(ccp(screenSize.width/2, INDICATOR_POS_Y));
   this->addChild(slidingCharacterLayer, GR_FOREGROUND);
 }
 
@@ -167,7 +166,12 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
         CCLOG("No character set positon");
         break;
     }
-    int layerIndex = characterTouchedID/4 - 1;
+    int layerIndex = characterTouchedID/NUMBER_CHARACTERS_PER_SCENE;
+    if (characterTouchedID % NUMBER_CHARACTERS_PER_SCENE == 0)
+    {
+      layerIndex--;
+      CCLOG("characterTouchedID mod NUMBER_CHARACTERS_PER_SCENE == 0");
+    }
     ((CCLayer* )characterArr->objectAtIndex(layerIndex))->addChild(character, GR_BACKGROUND);
   }
 }

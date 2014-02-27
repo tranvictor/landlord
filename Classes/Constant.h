@@ -25,6 +25,7 @@ USING_NS_CC;
 
 // ChooseCharacterScene
 #define NUMBER_CHARACTERS 8
+#define NUMBER_CHARACTERS_PER_SCENE 4
 #define C1_POS ccp(173.25, 813.45)
 #define C2_POS ccp(485.489, 798.445)
 #define C3_POS ccp(173.25, 340.866)
@@ -34,7 +35,8 @@ USING_NS_CC;
 #define C7_POS ccp(177.743,	333.692)
 #define C8_POS ccp(489.982,	313.253)
 #define BTN_BACK ccp(75, 69.869)
-#define INDICATOR_POS ccp(290.631, 86.738)
+#define INDICATOR_POS ccp(320, 86.738)
+#define INDICATOR_POS_Y 86.738
 
 enum eGround
 {
