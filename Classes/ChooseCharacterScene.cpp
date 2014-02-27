@@ -91,7 +91,8 @@ void ChooseCharacterScene::addCharacter()
           CCLOG("No character set positon");
           break;
       }
-      characterLayer->addChild(menu);
+      characterLayer->setTag(i);
+      characterLayer->addChild(menu, GR_FOREGROUND);
     }
     characterArr->addObject(characterLayer);
   }
@@ -166,7 +167,8 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
         CCLOG("No character set positon");
         break;
     }
-    this->addChild(character, GR_BACKGROUND);
+    int layerIndex = characterTouchedID/4 - 1;
+    ((CCLayer* )characterArr->objectAtIndex(layerIndex))->addChild(character, GR_BACKGROUND);
   }
 }
 
