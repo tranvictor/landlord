@@ -7,6 +7,9 @@
 //
 
 #include "StartScene.h"
+#include "CloudAnimation.h"
+#include "SettingScene.h"
+#include "Sound.h"
 
 USING_NS_CC;
 
@@ -29,6 +32,7 @@ bool StartScene::init()
   }
   
   screenSize = CCDirector::sharedDirector()->getWinSize();
+  sound::playBackgroundMusic();
   
   addBackground();
   addPlayButton();
@@ -46,6 +50,21 @@ void StartScene::addBackground()
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   
   this->addChild(background, 0);
+  
+  //CCSprite *background = CCSprite::create("CloudAnimation/Mainscene-Background-blanksky.png");
+  
+//  CCSprite* cloud = CloudAnimation::create(cloudSpeed);
+//  cloud->setPosition(ccp(-150, 800));
+//  
+//  this->addChild(cloud, 1);
+//  
+//  cloudSpeed = 2;
+//  
+//  CCSprite* cloud1 = CloudAnimation::create(cloudSpeed);
+//  cloud1->setPosition(ccp(-150, 600));
+//  
+//  this->addChild(cloud1, 2);
+  
 }
 
 void StartScene::addPlayButton()
@@ -84,9 +103,22 @@ void StartScene::addSettingsButton()
 void StartScene::playButtonTouched(CCObject *pSender)
 {
   CCLOG("Play button touched");
+  sound::playSoundFx();
 }
 
 void StartScene::settingsButtonTouched(CCObject *pSender)
 {
   CCLOG("Settings button touched");
+  
+  sound::playSoundFx();
+//  CCDirector::sharedDirector()->replaceScene(SettingScene::scene());
+  //CCDirector::sharedDirector()->pushScene(SettingScene::scene());
+  
+  // Set Transtion Scene
+//  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
+  CCScene* newScene = CCTransitionSlideInL::create(0.5, SettingScene::scene());
+//  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
+  
+  
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }

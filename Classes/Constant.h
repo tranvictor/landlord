@@ -12,6 +12,8 @@
 #include "cocos2d.h"
 
 USING_NS_CC;
+
+#define SCREEN_SIZE     CCDirector::sharedDirector()->getWinSize()
 // ChooseMapScene
 #define BTN_RANDOM_POS  ccp(320, 245)
 #define BTN_BACK_POS    ccp(49, 46)
@@ -30,6 +32,12 @@ USING_NS_CC;
 #define PLAYER_TWO_POS  ccp(543.762, 142.551)
 #define LBN_SCORE_PLAYER1_POS   ccp(109.114, 37.093)
 #define LBN_SCORE_PLAYER2_POS   ccp(531.229, 37.093)
+
+// WinScene
+#define BTN_REPLAY_POS      ccp(84, 80)
+#define BTN_SHARE_POS       ccp(330, 236)
+#define WINNER_POS      ccp(320, 654)
+
 
 enum eGround
 {
