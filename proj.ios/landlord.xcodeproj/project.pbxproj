@@ -226,14 +226,11 @@
 		379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* GUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* SceneReader.cpp */; };
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
-<<<<<<< HEAD
 		660DE50D18BBC24700079508 /* CloudAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660DE50C18BBC24700079508 /* CloudAnimation.cpp */; };
 		660DE50F18BBC41200079508 /* CloudAnimation in Resources */ = {isa = PBXBuildFile; fileRef = 660DE50E18BBC41200079508 /* CloudAnimation */; };
-=======
 		6616F87418BA543600F695A3 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6616F87318BA543600F695A3 /* background.wav */; };
 		6616F87618BA544600F695A3 /* button-6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6616F87518BA544600F695A3 /* button-6.wav */; };
 		66199A9718BA969300A45A99 /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66199A9618BA969300A45A99 /* Sound.cpp */; };
->>>>>>> master
 		661B812118B3E5AD00578534 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661B812018B3E5AD00578534 /* StartScene.cpp */; };
 		6665C60418B52B430096907A /* Mainscene in Resources */ = {isa = PBXBuildFile; fileRef = 6665C60318B52B430096907A /* Mainscene */; };
 		6692F13618BB4E4400068D35 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6692F13518BB4E4400068D35 /* GameManager.cpp */; };
@@ -733,16 +730,13 @@
 		379BB99417F03F3700829B88 /* SceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneReader.h; sourceTree = "<group>"; };
 		46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITouchGroup.cpp; sourceTree = "<group>"; };
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		660DE50A18BBC22F00079508 /* CloudAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudAnimation.h; path = ../Classes/CloudAnimation.h; sourceTree = "<group>"; };
 		660DE50C18BBC24700079508 /* CloudAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CloudAnimation.cpp; path = ../Classes/CloudAnimation.cpp; sourceTree = "<group>"; };
 		660DE50E18BBC41200079508 /* CloudAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CloudAnimation; sourceTree = "<group>"; };
-=======
 		6616F87218BA515100F695A3 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sound.h; path = ../Classes/Sound.h; sourceTree = "<group>"; };
 		6616F87318BA543600F695A3 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
 		6616F87518BA544600F695A3 /* button-6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-6.wav"; sourceTree = "<group>"; };
 		66199A9618BA969300A45A99 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sound.cpp; path = ../Classes/Sound.cpp; sourceTree = "<group>"; };
->>>>>>> master
 		661B811F18B3E22C00578534 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
 		661B812018B3E5AD00578534 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
 		663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneTransition.h; path = ../Classes/SceneTransition.h; sourceTree = "<group>"; };
@@ -1307,10 +1301,8 @@
 				7AA1AE2318B40DF000A5C58C /* Maps.h */,
 				661B811F18B3E22C00578534 /* StartScene.h */,
 				661B812018B3E5AD00578534 /* StartScene.cpp */,
-<<<<<<< HEAD
 				660DE50A18BBC22F00079508 /* CloudAnimation.h */,
 				660DE50C18BBC24700079508 /* CloudAnimation.cpp */,
-=======
 				66EB9FF518B65370000A1CEB /* SettingScene.cpp */,
 				66EB9FF618B65370000A1CEB /* SettingScene.h */,
 				6616F87218BA515100F695A3 /* Sound.h */,
@@ -1318,7 +1310,6 @@
 				6692F13418BB4E3200068D35 /* GameManager.h */,
 				6692F13518BB4E4400068D35 /* GameManager.cpp */,
 				663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */,
->>>>>>> master
 			);
 			name = Classes;
 			path = ../classes;
@@ -1773,18 +1764,12 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				660DE50E18BBC41200079508 /* CloudAnimation */,
-=======
-<<<<<<< HEAD
 				6616F87518BA544600F695A3 /* button-6.wav */,
 				6616F87318BA543600F695A3 /* background.wav */,
 				66EB9FF918B67737000A1CEB /* SettingScene */,
-=======
->>>>>>> master
 				7AB41F7618B3D79300F5177C /* ChooseMapScene */,
 				66F9CBBF18B5F1FD0055BB63 /* SettingScene */,
->>>>>>> master
 				6665C60318B52B430096907A /* Mainscene */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
@@ -1885,12 +1870,9 @@
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
-<<<<<<< HEAD
 				660DE50F18BBC41200079508 /* CloudAnimation in Resources */,
-=======
 				6616F87618BA544600F695A3 /* button-6.wav in Resources */,
 				6616F87418BA543600F695A3 /* background.wav in Resources */,
->>>>>>> master
 				6665C60418B52B430096907A /* Mainscene in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
@@ -2106,11 +2088,8 @@
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
-<<<<<<< HEAD
 				66EB9FF718B65370000A1CEB /* SettingScene.cpp in Sources */,
-=======
 				7AA1AE2418B40DF000A5C58C /* Maps.cpp in Sources */,
->>>>>>> master
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
 				379BB9B617F03F3700829B88 /* UILayoutParameter.cpp in Sources */,
 				379BB9B717F03F3700829B88 /* UILayoutDefine.cpp in Sources */,
