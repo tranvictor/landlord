@@ -238,11 +238,10 @@
 		66EB9FFA18B67737000A1CEB /* SettingScene in Resources */ = {isa = PBXBuildFile; fileRef = 66EB9FF918B67737000A1CEB /* SettingScene */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		7A0B9E0118B93FC80004A419 /* CCScrollLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */; };
-		7AA0CCCD18BB98950097A90B /* ScrollableMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA0CCCB18BB98950097A90B /* ScrollableMap.cpp */; };
-		7AA0CCD118BB9C380097A90B /* PlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */; };
-		7AA0CCD318BBA4370097A90B /* PlayScene in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0CCD218BBA4370097A90B /* PlayScene */; };
 		7A94DC7E18BDB97E0071CDD5 /* WinScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A94DC7D18BDB97E0071CDD5 /* WinScene */; };
 		7A94DC8418BDBB2A0071CDD5 /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */; };
+		7AA0CCD118BB9C380097A90B /* PlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */; };
+		7AA0CCD318BBA4370097A90B /* PlayScene in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0CCD218BBA4370097A90B /* PlayScene */; };
 		7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */; };
 		7AA1AE2418B40DF000A5C58C /* Maps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1AE2218B40DF000A5C58C /* Maps.cpp */; };
 		7AB41F7518B3CE8000F5177C /* ChooseMapScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */; };
@@ -754,14 +753,12 @@
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCScrollLayer.cpp; sourceTree = "<group>"; };
 		7A0B9E0018B93FC80004A419 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
-		7AA0CCCB18BB98950097A90B /* ScrollableMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScrollableMap.cpp; path = ../Classes/ScrollableMap.cpp; sourceTree = "<group>"; };
-		7AA0CCCC18BB98950097A90B /* ScrollableMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollableMap.h; path = ../Classes/ScrollableMap.h; sourceTree = "<group>"; };
-		7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayScene.cpp; path = ../Classes/PlayScene.cpp; sourceTree = "<group>"; };
-		7AA0CCD018BB9C380097A90B /* PlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayScene.h; path = ../Classes/PlayScene.h; sourceTree = "<group>"; };
-		7AA0CCD218BBA4370097A90B /* PlayScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PlayScene; sourceTree = "<group>"; };
 		7A94DC7D18BDB97E0071CDD5 /* WinScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WinScene; sourceTree = "<group>"; };
 		7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinScene.cpp; path = ../Classes/WinScene.cpp; sourceTree = "<group>"; };
 		7A94DC8318BDBB2A0071CDD5 /* WinScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinScene.h; path = ../Classes/WinScene.h; sourceTree = "<group>"; };
+		7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayScene.cpp; path = ../Classes/PlayScene.cpp; sourceTree = "<group>"; };
+		7AA0CCD018BB9C380097A90B /* PlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayScene.h; path = ../Classes/PlayScene.h; sourceTree = "<group>"; };
+		7AA0CCD218BBA4370097A90B /* PlayScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PlayScene; sourceTree = "<group>"; };
 		7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SlidingMenu.cpp; sourceTree = "<group>"; };
 		7AA1ADFC18B3F79A00A5C58C /* SlidingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenu.h; sourceTree = "<group>"; };
 		7AA1AE2218B40DF000A5C58C /* Maps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Maps.cpp; path = ../Classes/Maps.cpp; sourceTree = "<group>"; };
@@ -1788,7 +1785,6 @@
 				6616F87318BA543600F695A3 /* background.wav */,
 				66EB9FF918B67737000A1CEB /* SettingScene */,
 				7AB41F7618B3D79300F5177C /* ChooseMapScene */,
-				66F9CBBF18B5F1FD0055BB63 /* SettingScene */,
 				6665C60318B52B430096907A /* Mainscene */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
@@ -1808,8 +1804,6 @@
 		7AA1ADFA18B3F76100A5C58C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7AA0CCCB18BB98950097A90B /* ScrollableMap.cpp */,
-				7AA0CCCC18BB98950097A90B /* ScrollableMap.h */,
 				7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */,
 				7A0B9E0018B93FC80004A419 /* CCScrollLayer.h */,
 				7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */,
@@ -1899,7 +1893,6 @@
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
-				66F9CBC018B5F1FD0055BB63 /* SettingScene in Resources */,
 				7AA0CCD318BBA4370097A90B /* PlayScene in Resources */,
 				66EB9FFA18B67737000A1CEB /* SettingScene in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
@@ -1931,7 +1924,6 @@
 				15A3D90A1682F7D5002FB0C5 /* b2PolygonShape.cpp in Sources */,
 				15A3D90B1682F7D5002FB0C5 /* b2BlockAllocator.cpp in Sources */,
 				15A3D90C1682F7D5002FB0C5 /* b2Draw.cpp in Sources */,
-				7AA0CCCD18BB98950097A90B /* ScrollableMap.cpp in Sources */,
 				375BD4C61868411B0024609E /* TriggerObj.cpp in Sources */,
 				375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */,
 				15A3D90D1682F7D5002FB0C5 /* b2Math.cpp in Sources */,

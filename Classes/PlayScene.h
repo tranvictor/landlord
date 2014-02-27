@@ -17,7 +17,6 @@
 class PlayScene : public cocos2d::CCLayer
 {
   int playerOneTag, playerTwoTag;
-//  ScrollableMap* scrollMap;
   cocos2d::extension::CCScrollView *scrollMap;
   
   cocos2d::CCSize screenSize;

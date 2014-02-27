@@ -85,16 +85,10 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::makeMapScroll()
 {
-//  scrollMap = ScrollableMap::create();
-  CCSprite* sp = CCSprite::create("PlayScene/map1.png"); // get map name from ChooseMapScene or GameManager
-//  scrollMap->setContentSize(sp->getContentSize()*1.05);
-//  CCLog("%.0f %.0f", sp->getContentSize().width, sp->getContentSize().height);
-//  sp->setAnchorPoint(ccp(0.3, 0.5));
-//  sp->setPosition(MAP_POS);
-//  scrollMap->setAutoScrolling(true);
-//  scrollMap->addChild(sp);
+  CCSprite *sp = CCSprite::create("PlayScene/map1.png");
   scrollMap = CCScrollView::create(sp->getContentSize());
-//  sp->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+  scrollMap->setContentSize(sp->getContentSize());
+  sp->setPosition(ccp(screenSize.width/2, screenSize.height/2));
 
   scrollMap->addChild(sp);
   		
