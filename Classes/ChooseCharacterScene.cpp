@@ -8,6 +8,8 @@
 
 #include "ChooseCharacterScene.h"
 #include "Constant.h"
+#include "StartScene.h"
+#include "ChooseMapScence.h"
 
 USING_NS_CC;
 
@@ -173,6 +175,12 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
     }
     ((CCLayer* )characterArr->objectAtIndex(layerIndex))->addChild(character, GR_MIDDLEGROUND);    
   }
+  
+  if (player == 2)
+  {
+    CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
+    CCDirector::sharedDirector()->replaceScene(newScene);
+  }
 }
 
 void ChooseCharacterScene::addBackButton()
@@ -190,4 +198,8 @@ void ChooseCharacterScene::addBackButton()
 void ChooseCharacterScene::buttonBackTouched()
 {
   CCLOG("Button back touched");
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, StartScene::scene());
+  
+  
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }

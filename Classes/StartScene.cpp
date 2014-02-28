@@ -10,6 +10,7 @@
 #include "CloudAnimation.h"
 #include "SettingScene.h"
 #include "Sound.h"
+#include "ChooseCharacterScene.h"
 
 USING_NS_CC;
 
@@ -104,6 +105,11 @@ void StartScene::playButtonTouched(CCObject *pSender)
 {
   CCLOG("Play button touched");
   sound::playSoundFx();
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseCharacterScene::scene());
+  //  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
+  
+  
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }
 
 void StartScene::settingsButtonTouched(CCObject *pSender)

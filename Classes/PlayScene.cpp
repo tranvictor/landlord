@@ -7,6 +7,7 @@
 //
 
 #include "PlayScene.h"
+#include "WinScene.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -119,6 +120,9 @@ void PlayScene::addScoreLbn()
 void PlayScene::pauseButtonTouched()
 {
   CCLog("paused touched");
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
+  CCDirector::sharedDirector()->replaceScene(newScene);
+
 }
 
 void PlayScene::addFrameImg()
