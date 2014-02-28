@@ -3,6 +3,8 @@
 #include "ChooseMapScence.h"
 #include "StartScene.h"
 #include "ChooseCharacterScene.h"
+#include "WinScene.h"
+#include "SettingScene.h"
 
 USING_NS_CC;
 
@@ -33,6 +35,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     //CCScene *pScene = HelloWorld::scene();
 //    CCScene *pScene = StartScene::scene();
   CCScene* pScene = ChooseCharacterScene::scene();
+//    CCScene *pScene = WinScene::scene();
+  
+    CCScene *pScene = StartScene::scene();
+  
+    //CCScene *pScene = SettingScene::scene();
   
     // run
     pDirector->runWithScene(pScene);

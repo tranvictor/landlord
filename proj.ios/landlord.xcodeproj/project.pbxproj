@@ -228,11 +228,20 @@
 		379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* GUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* SceneReader.cpp */; };
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
+		660DE50D18BBC24700079508 /* CloudAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660DE50C18BBC24700079508 /* CloudAnimation.cpp */; };
+		660DE50F18BBC41200079508 /* CloudAnimation in Resources */ = {isa = PBXBuildFile; fileRef = 660DE50E18BBC41200079508 /* CloudAnimation */; };
+		6616F87418BA543600F695A3 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6616F87318BA543600F695A3 /* background.wav */; };
+		6616F87618BA544600F695A3 /* button-6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6616F87518BA544600F695A3 /* button-6.wav */; };
+		66199A9718BA969300A45A99 /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66199A9618BA969300A45A99 /* Sound.cpp */; };
 		661B812118B3E5AD00578534 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661B812018B3E5AD00578534 /* StartScene.cpp */; };
 		6665C60418B52B430096907A /* Mainscene in Resources */ = {isa = PBXBuildFile; fileRef = 6665C60318B52B430096907A /* Mainscene */; };
-		66F9CBC018B5F1FD0055BB63 /* SettingScene in Resources */ = {isa = PBXBuildFile; fileRef = 66F9CBBF18B5F1FD0055BB63 /* SettingScene */; };
+		6692F13618BB4E4400068D35 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6692F13518BB4E4400068D35 /* GameManager.cpp */; };
+		66EB9FF718B65370000A1CEB /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66EB9FF518B65370000A1CEB /* SettingScene.cpp */; };
+		66EB9FFA18B67737000A1CEB /* SettingScene in Resources */ = {isa = PBXBuildFile; fileRef = 66EB9FF918B67737000A1CEB /* SettingScene */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		7A0B9E0118B93FC80004A419 /* CCScrollLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */; };
+		7A94DC7E18BDB97E0071CDD5 /* WinScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A94DC7D18BDB97E0071CDD5 /* WinScene */; };
+		7A94DC8418BDBB2A0071CDD5 /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */; };
 		7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */; };
 		7AA1AE2418B40DF000A5C58C /* Maps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1AE2218B40DF000A5C58C /* Maps.cpp */; };
 		7AB41F7518B3CE8000F5177C /* ChooseMapScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */; };
@@ -728,13 +737,28 @@
 		379BB99417F03F3700829B88 /* SceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneReader.h; sourceTree = "<group>"; };
 		46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITouchGroup.cpp; sourceTree = "<group>"; };
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
+		660DE50A18BBC22F00079508 /* CloudAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudAnimation.h; path = ../Classes/CloudAnimation.h; sourceTree = "<group>"; };
+		660DE50C18BBC24700079508 /* CloudAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CloudAnimation.cpp; path = ../Classes/CloudAnimation.cpp; sourceTree = "<group>"; };
+		660DE50E18BBC41200079508 /* CloudAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CloudAnimation; sourceTree = "<group>"; };
+		6616F87218BA515100F695A3 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sound.h; path = ../Classes/Sound.h; sourceTree = "<group>"; };
+		6616F87318BA543600F695A3 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
+		6616F87518BA544600F695A3 /* button-6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-6.wav"; sourceTree = "<group>"; };
+		66199A9618BA969300A45A99 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sound.cpp; path = ../Classes/Sound.cpp; sourceTree = "<group>"; };
 		661B811F18B3E22C00578534 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
 		661B812018B3E5AD00578534 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
+		663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneTransition.h; path = ../Classes/SceneTransition.h; sourceTree = "<group>"; };
 		6665C60318B52B430096907A /* Mainscene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mainscene; sourceTree = "<group>"; };
-		66F9CBBF18B5F1FD0055BB63 /* SettingScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SettingScene; sourceTree = "<group>"; };
+		6692F13418BB4E3200068D35 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameManager.h; path = ../Classes/GameManager.h; sourceTree = "<group>"; };
+		6692F13518BB4E4400068D35 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../Classes/GameManager.cpp; sourceTree = "<group>"; };
+		66EB9FF518B65370000A1CEB /* SettingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingScene.cpp; sourceTree = "<group>"; };
+		66EB9FF618B65370000A1CEB /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
+		66EB9FF918B67737000A1CEB /* SettingScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SettingScene; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCScrollLayer.cpp; sourceTree = "<group>"; };
 		7A0B9E0018B93FC80004A419 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
+		7A94DC7D18BDB97E0071CDD5 /* WinScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WinScene; sourceTree = "<group>"; };
+		7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinScene.cpp; path = ../Classes/WinScene.cpp; sourceTree = "<group>"; };
+		7A94DC8318BDBB2A0071CDD5 /* WinScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinScene.h; path = ../Classes/WinScene.h; sourceTree = "<group>"; };
 		7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SlidingMenu.cpp; sourceTree = "<group>"; };
 		7AA1ADFC18B3F79A00A5C58C /* SlidingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenu.h; sourceTree = "<group>"; };
 		7AA1AE2218B40DF000A5C58C /* Maps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Maps.cpp; path = ../Classes/Maps.cpp; sourceTree = "<group>"; };
@@ -1289,6 +1313,17 @@
 				661B812018B3E5AD00578534 /* StartScene.cpp */,
 				06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */,
 				06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */,
+				660DE50A18BBC22F00079508 /* CloudAnimation.h */,
+				660DE50C18BBC24700079508 /* CloudAnimation.cpp */,
+				7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */,
+				7A94DC8318BDBB2A0071CDD5 /* WinScene.h */,
+				66EB9FF518B65370000A1CEB /* SettingScene.cpp */,
+				66EB9FF618B65370000A1CEB /* SettingScene.h */,
+				6616F87218BA515100F695A3 /* Sound.h */,
+				66199A9618BA969300A45A99 /* Sound.cpp */,
+				6692F13418BB4E3200068D35 /* GameManager.h */,
+				6692F13518BB4E4400068D35 /* GameManager.cpp */,
+				663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1744,6 +1779,11 @@
 			isa = PBXGroup;
 			children = (
 				06763C1518BE552B002AEB16 /* ChooseCharacterScene */,
+				660DE50E18BBC41200079508 /* CloudAnimation */,
+				7A94DC7D18BDB97E0071CDD5 /* WinScene */,
+				6616F87518BA544600F695A3 /* button-6.wav */,
+				6616F87318BA543600F695A3 /* background.wav */,
+				66EB9FF918B67737000A1CEB /* SettingScene */,
 				7AB41F7618B3D79300F5177C /* ChooseMapScene */,
 				66F9CBBF18B5F1FD0055BB63 /* SettingScene */,
 				6665C60318B52B430096907A /* Mainscene */,
@@ -1846,12 +1886,16 @@
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				06763C1618BE552B002AEB16 /* ChooseCharacterScene in Resources */,
+				7A94DC7E18BDB97E0071CDD5 /* WinScene in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
+				660DE50F18BBC41200079508 /* CloudAnimation in Resources */,
+				6616F87618BA544600F695A3 /* button-6.wav in Resources */,
+				6616F87418BA543600F695A3 /* background.wav in Resources */,
 				6665C60418B52B430096907A /* Mainscene in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
-				66F9CBC018B5F1FD0055BB63 /* SettingScene in Resources */,
+				66EB9FFA18B67737000A1CEB /* SettingScene in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
@@ -1905,6 +1949,7 @@
 				15A3D91F1682F7D5002FB0C5 /* b2PolygonContact.cpp in Sources */,
 				15A3D9201682F7D5002FB0C5 /* b2DistanceJoint.cpp in Sources */,
 				15A3D9211682F7D5002FB0C5 /* b2FrictionJoint.cpp in Sources */,
+				7A94DC8418BDBB2A0071CDD5 /* WinScene.cpp in Sources */,
 				15A3D9221682F7D5002FB0C5 /* b2GearJoint.cpp in Sources */,
 				15A3D9231682F7D5002FB0C5 /* b2Joint.cpp in Sources */,
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
@@ -1922,6 +1967,7 @@
 				15A3D99A1682F7F9002FB0C5 /* cpGearJoint.c in Sources */,
 				15A3D99B1682F7F9002FB0C5 /* cpGrooveJoint.c in Sources */,
 				15A3D99C1682F7F9002FB0C5 /* cpPinJoint.c in Sources */,
+				6692F13618BB4E4400068D35 /* GameManager.cpp in Sources */,
 				15A3D99D1682F7F9002FB0C5 /* cpPivotJoint.c in Sources */,
 				15A3D99E1682F7F9002FB0C5 /* cpRatchetJoint.c in Sources */,
 				7A0B9E0118B93FC80004A419 /* CCScrollLayer.cpp in Sources */,
@@ -1945,6 +1991,7 @@
 				15A3D9AF1682F7F9002FB0C5 /* cpSpaceStep.c in Sources */,
 				15A3D9B01682F7F9002FB0C5 /* cpSpatialIndex.c in Sources */,
 				15A3D9B11682F7F9002FB0C5 /* cpSweep1D.c in Sources */,
+				660DE50D18BBC24700079508 /* CloudAnimation.cpp in Sources */,
 				15A3D9B21682F7F9002FB0C5 /* cpVect.c in Sources */,
 				15A3DA311682F826002FB0C5 /* CCBAnimationManager.cpp in Sources */,
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
@@ -2048,6 +2095,7 @@
 				7AB41F7518B3CE8000F5177C /* ChooseMapScence.cpp in Sources */,
 				379BB9A717F03F3700829B88 /* CCArmatureDefine.cpp in Sources */,
 				379BB9A817F03F3700829B88 /* CCDataReaderHelper.cpp in Sources */,
+				66199A9718BA969300A45A99 /* Sound.cpp in Sources */,
 				379BB9A917F03F3700829B88 /* CCSpriteFrameCacheHelper.cpp in Sources */,
 				7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */,
 				379BB9AA17F03F3700829B88 /* CCTransformHelp.cpp in Sources */,
@@ -2059,6 +2107,7 @@
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
+				66EB9FF718B65370000A1CEB /* SettingScene.cpp in Sources */,
 				7AA1AE2418B40DF000A5C58C /* Maps.cpp in Sources */,
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
 				379BB9B617F03F3700829B88 /* UILayoutParameter.cpp in Sources */,

@@ -15,6 +15,7 @@ USING_NS_CC;
 //  the gap between dot of indicator
 #define GAP_BETWEEN_DOT 37.78f
 
+#define SCREEN_SIZE     CCDirector::sharedDirector()->getWinSize()
 // ChooseMapScene
 #define BTN_RANDOM_POS  ccp(320, 245)
 #define BTN_BACK_POS    ccp(49, 46)
@@ -39,6 +40,11 @@ USING_NS_CC;
 #define C8_POS ccp(489.982,	313.253)
 #define BTN_BACK ccp(75, 69.869)
 #define INDICATOR_POS_Y 86.738
+
+// WinScene
+#define BTN_REPLAY_POS      ccp(84, 80)
+#define BTN_SHARE_POS       ccp(330, 236)
+#define WINNER_POS          ccp(320, 654)
 
 enum eGround
 {
