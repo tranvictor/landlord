@@ -12,11 +12,13 @@
 #include "cocos2d.h"
 #include "Constant.h"
 #include "cocos-ext.h"
+#include "CCLayerPanZoom.h"
 
 class PlayScene : public cocos2d::CCLayer
 {
   int playerOneTag, playerTwoTag;
-  cocos2d::extension::CCScrollView *scrollMap;
+//  cocos2d::extension::CCScrollView *scrollMap;
+  CCLayerPanZoom *scrollMap;
   
   cocos2d::CCSize screenSize;
   cocos2d::CCLabelTTF *lbnScorePlayer1;

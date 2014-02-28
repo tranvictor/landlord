@@ -85,33 +85,11 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::makeMapScroll()
 {
-  CCLayerColor *layer = CCLayerColor::create();
-  layer->setContentSize(screenSize);
-//  layer->setColor(ccRED);
-//  layer->setPosition(CCPointMake(screenSize.width/2, screenSize.height/2));
-//  addChild(layer);
-  
   CCSprite *sp = CCSprite::create("PlayScene/map1.png");
   sp->setPosition(MAP_POS);
-//
-//  //  layer->setPosition(ccp(screenSize.width/2, screenSize.height/2));
-  layer->addChild(sp);
-//  layer->setPosition(MAP_POS);
-  scrollMap = CCScrollView::create(screenSize, layer);
-  
-//  scrollMap->setDirection(kCCScrollViewDirectionBoth);
-////  scrollMap->setContentOffset(ccp(1136, 1135));
-//  scrollMap->setBounceable(true);
-////  scrollMap->setAnchorPoint(ccp(0.5, 0.5));
-//  CCLog("%.0f %.0f", sp->getContentSize().width, sp->getContentSize().height);
-//  scrollMap->setContentSize(sp->getContentSize());
-  
+  scrollMap = CCLayerPanZoom::create();
+  scrollMap->addChild(sp);
   this->addChild(scrollMap);
-//  tileMap = CCTMXTiledMap::create("PlayScene/map01.tmx");
-//  addChild(tileMap);
-//  tileMap->layerNamed("map1");
-
-  
 }
 
 void PlayScene::addScoreLbn()
