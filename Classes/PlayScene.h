@@ -10,7 +10,6 @@
 #define __PLAYSCENE_H__
 
 #include "cocos2d.h"
-#include "ScrollableMap.h"
 #include "Constant.h"
 #include "cocos-ext.h"
 
@@ -22,6 +21,9 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCSize screenSize;
   cocos2d::CCLabelTTF *lbnScorePlayer1;
   cocos2d::CCLabelTTF *lbnScorePlayer2;
+  
+  CCTMXTiledMap *tileMap;
+  CCTMXLayer    *map;
   
 public:
   virtual bool init();
