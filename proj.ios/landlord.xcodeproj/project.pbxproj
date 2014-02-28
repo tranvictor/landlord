@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06763C1618BE552B002AEB16 /* ChooseCharacterScene in Resources */ = {isa = PBXBuildFile; fileRef = 06763C1518BE552B002AEB16 /* ChooseCharacterScene */; };
+		06C2EC8818BD8C8D00917282 /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */; };
 		15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88B1682F7D5002FB0C5 /* b2BroadPhase.cpp */; };
 		15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88D1682F7D5002FB0C5 /* b2CollideCircle.cpp */; };
 		15A3D9011682F7D5002FB0C5 /* b2CollideEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88E1682F7D5002FB0C5 /* b2CollideEdge.cpp */; };
@@ -280,6 +282,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06763C1518BE552B002AEB16 /* ChooseCharacterScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ChooseCharacterScene; sourceTree = "<group>"; };
+		06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseCharacterScene.cpp; path = ../Classes/ChooseCharacterScene.cpp; sourceTree = "<group>"; };
+		06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseCharacterScene.h; path = ../Classes/ChooseCharacterScene.h; sourceTree = "<group>"; };
 		15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../../cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
 		15A3D8891682F7D5002FB0C5 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		15A3D88B1682F7D5002FB0C5 /* b2BroadPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2BroadPhase.cpp; sourceTree = "<group>"; };
@@ -1314,8 +1319,13 @@
 				7AA1AE2318B40DF000A5C58C /* Maps.h */,
 				661B811F18B3E22C00578534 /* StartScene.h */,
 				661B812018B3E5AD00578534 /* StartScene.cpp */,
+<<<<<<< HEAD
 				7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */,
 				7AA0CCD018BB9C380097A90B /* PlayScene.h */,
+=======
+				06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */,
+				06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */,
+>>>>>>> master
 				660DE50A18BBC22F00079508 /* CloudAnimation.h */,
 				660DE50C18BBC24700079508 /* CloudAnimation.cpp */,
 				7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */,
@@ -1781,7 +1791,11 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				7A9FEBB418C03308001C0489 /* PlayScene */,
+=======
+				06763C1518BE552B002AEB16 /* ChooseCharacterScene */,
+>>>>>>> master
 				660DE50E18BBC41200079508 /* CloudAnimation */,
 				7A94DC7D18BDB97E0071CDD5 /* WinScene */,
 				6616F87518BA544600F695A3 /* button-6.wav */,
@@ -1890,6 +1904,7 @@
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				7A9FEBB518C03308001C0489 /* PlayScene in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
+				06763C1618BE552B002AEB16 /* ChooseCharacterScene in Resources */,
 				7A94DC7E18BDB97E0071CDD5 /* WinScene in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				660DE50F18BBC41200079508 /* CloudAnimation in Resources */,
@@ -2120,6 +2135,7 @@
 				379BB9B717F03F3700829B88 /* UILayoutDefine.cpp in Sources */,
 				379BB9B817F03F3700829B88 /* CocosGUI.cpp in Sources */,
 				379BB9B917F03F3700829B88 /* UIHelper.cpp in Sources */,
+				06C2EC8818BD8C8D00917282 /* ChooseCharacterScene.cpp in Sources */,
 				379BB9BD17F03F3700829B88 /* UIListView.cpp in Sources */,
 				379BB9BE17F03F3700829B88 /* UIPageView.cpp in Sources */,
 				379BB9BF17F03F3700829B88 /* UIScrollView.cpp in Sources */,
