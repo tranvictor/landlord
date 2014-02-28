@@ -1319,13 +1319,10 @@
 				7AA1AE2318B40DF000A5C58C /* Maps.h */,
 				661B811F18B3E22C00578534 /* StartScene.h */,
 				661B812018B3E5AD00578534 /* StartScene.cpp */,
-<<<<<<< HEAD
 				7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */,
 				7AA0CCD018BB9C380097A90B /* PlayScene.h */,
-=======
 				06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */,
 				06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */,
->>>>>>> master
 				660DE50A18BBC22F00079508 /* CloudAnimation.h */,
 				660DE50C18BBC24700079508 /* CloudAnimation.cpp */,
 				7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */,
@@ -1791,11 +1788,8 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				7A9FEBB418C03308001C0489 /* PlayScene */,
-=======
 				06763C1518BE552B002AEB16 /* ChooseCharacterScene */,
->>>>>>> master
 				660DE50E18BBC41200079508 /* CloudAnimation */,
 				7A94DC7D18BDB97E0071CDD5 /* WinScene */,
 				6616F87518BA544600F695A3 /* button-6.wav */,
