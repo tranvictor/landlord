@@ -7,6 +7,7 @@
 //
 
 #include "WinScene.h"
+#include "ChooseMapScence.h"
 
 USING_NS_CC;
 
@@ -84,6 +85,9 @@ void WinScene::buttonShareTouched(cocos2d::CCObject *pSender)
 void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button replay touched");
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
+  CCDirector::sharedDirector()->replaceScene(newScene);
+
 }
 
 void WinScene::appearWinner()
@@ -91,7 +95,7 @@ void WinScene::appearWinner()
   CCSprite *winner = CCSprite::create("WinScene/c1.png");
   winner->setPosition(ccp(320, 654-400));
   
-  CCAction * act1 = CCMoveTo::create(0.5, WINNER_POS);
+  CCAction * act1 = CCMoveTo::create(1, WINNER_POS);
   winner->runAction(act1);
   
   addChild(winner, GR_MIDDLEGROUND);
