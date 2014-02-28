@@ -25,10 +25,19 @@ USING_NS_CC;
 #define DISTANCE_BETWEEN_MAPS   444
 #define GREEN_DOT_Y     419
 
+// PlayScene
+#define BTN_PAUSE_POS   ccp(320, 158.27)
+#define MAP_POS ccp(320.5, 657.338)
+#define PLAYER_ONE_POS  ccp(97.192, 142.551)
+#define PLAYER_TWO_POS  ccp(543.762, 142.551)
+#define LBN_SCORE_PLAYER1_POS   ccp(109.114, 37.093)
+#define LBN_SCORE_PLAYER2_POS   ccp(531.229, 37.093)
+
 // WinScene
 #define BTN_REPLAY_POS      ccp(84, 80)
 #define BTN_SHARE_POS       ccp(330, 236)
 #define WINNER_POS      ccp(320, 654)
+
 
 enum eGround
 {
