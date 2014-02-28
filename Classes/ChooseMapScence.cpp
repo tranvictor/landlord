@@ -8,6 +8,8 @@
 
 #include "ChooseMapScence.h"
 #include "cocos2d.h"
+#include "ChooseCharacterScene.h"
+#include "PlayScene.h"
 
 USING_NS_CC;
 
@@ -97,6 +99,9 @@ void ChooseMapScene::mapTouched(CCObject* pSender)
   CCMenuItemImage* mapSelected = (CCMenuItemImage*)pSender;
   mapTouchedID = mapSelected->getTag();
   CCLog("map %i choosed", mapTouchedID);
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, PlayScene::scene());
+  CCDirector::sharedDirector()->replaceScene(newScene);
+
 }
 
 
@@ -111,4 +116,7 @@ void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button back touched");
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseCharacterScene::scene());
+  CCDirector::sharedDirector()->replaceScene(newScene);
+
 }

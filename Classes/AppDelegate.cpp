@@ -2,6 +2,8 @@
 #include "HelloWorldScene.h"
 #include "ChooseMapScence.h"
 #include "StartScene.h"
+#include "PlayScene.h"
+#include "ChooseCharacterScene.h"
 #include "WinScene.h"
 #include "SettingScene.h"
 
@@ -30,14 +32,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
 //    CCScene *pScene = HelloWorld::scene();
-//    CCScene *pScene = ChooseMapScene::scene();
-    //CCScene *pScene = HelloWorld::scene();
-//    CCScene *pScene = WinScene::scene();
-  
     CCScene *pScene = StartScene::scene();
-  
-    //CCScene *pScene = SettingScene::scene();
-  
     // run
     pDirector->runWithScene(pScene);
 

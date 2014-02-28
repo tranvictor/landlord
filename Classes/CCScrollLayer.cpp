@@ -4,6 +4,7 @@
 
 
 #include <assert.h>
+#include "Constant.h"
 
 USING_NS_CC;
 
@@ -61,7 +62,7 @@ CCScrollLayer* CCScrollLayer::nodeWithLayers(cocos2d::CCArray *layers, int width
   
   // create sprites
   float n = (float)layer->getTotalScreens(); // << total point
-  float d = 37.78f;    //<< distance between points
+  float d = GAP_BETWEEN_DOT;    //<< distance between points
   for (int i = 0; i < layer->getTotalScreens(); ++i)
   {
     CCSprite *pageSprite = CCSprite::create(pageSpriterameName);
