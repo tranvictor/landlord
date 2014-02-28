@@ -12,6 +12,9 @@
 #include "cocos2d.h"
 
 USING_NS_CC;
+//  the gap between dot of indicator
+#define GAP_BETWEEN_DOT 37.78f
+
 // ChooseMapScene
 #define BTN_RANDOM_POS  ccp(320, 245)
 #define BTN_BACK_POS    ccp(49, 46)

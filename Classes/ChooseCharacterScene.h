@@ -36,12 +36,6 @@ public:
   void addBackButton();
   void buttonBackTouched();
   
-  enum layerIndex
-  {
-    layer1,
-    layer2
-  };
-  
   void CharacterTouched(CCObject *pSender);
   // implement the "static node()" method manually
   CREATE_FUNC(ChooseCharacterScene);
