@@ -166,13 +166,15 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
         CCLOG("No character set positon");
         break;
     }
-    int layerIndex = characterTouchedID/NUMBER_CHARACTERS_PER_SCENE;
-    if (characterTouchedID % NUMBER_CHARACTERS_PER_SCENE == 0)
+    if (characterTouchedID <= NUMBER_CHARACTERS_PER_SCENE)
     {
-      layerIndex--;
-      CCLOG("characterTouchedID mod NUMBER_CHARACTERS_PER_SCENE == 0");
+      ((CCLayer* )characterArr->objectAtIndex(layer1))->addChild(character, GR_BACKGROUND);
     }
-    ((CCLayer* )characterArr->objectAtIndex(layerIndex))->addChild(character, GR_BACKGROUND);
+    else
+    {
+      ((CCLayer* )characterArr->objectAtIndex(layer2))->addChild(character, GR_BACKGROUND);
+    }
+    
   }
 }
 
