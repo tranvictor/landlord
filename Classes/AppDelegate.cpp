@@ -37,7 +37,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
   CCScene* pScene = ChooseCharacterScene::scene();
 //    CCScene *pScene = WinScene::scene();
   
-    CCScene *pScene = StartScene::scene();
+//    CCScene *pScene = StartScene::scene();
   
     //CCScene *pScene = SettingScene::scene();
   
