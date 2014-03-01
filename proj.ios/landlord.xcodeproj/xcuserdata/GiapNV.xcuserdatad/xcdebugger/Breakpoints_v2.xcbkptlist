@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/ChooseMapScence.cpp"
-            timestampString = "415280981.031495"
+            timestampString = "415296352.357522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "ChooseMapScene::makeSlidingMap()"
             landmarkType = "5">
          </BreakpointContent>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/ChooseMapScence.cpp"
-            timestampString = "415280981.031495"
+            timestampString = "415296352.357522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "ChooseMapScene::makeSlidingMap()"
             landmarkType = "5">
          </BreakpointContent>
@@ -144,11 +144,57 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/PlayScene.cpp"
-            timestampString = "415281065.891373"
+            timestampString = "415296443.226061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164">
+            startingLineNumber = "166"
+            endingLineNumber = "166">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/ChooseCharacterScene.cpp"
+            timestampString = "415298008.660795"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "ChooseCharacterScene::CharacterTouched(CCObject *pSender)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChooseCharacterScene::CharacterTouched(cocos2d::CCObject*)"
+                  moduleName = "landlord"
+                  urlString = "file:///Volumes/Learning/zhaqteam/cocos2d-x-2.2.2/projects/landlord/Classes/ChooseCharacterScene.cpp"
+                  timestampString = "415298013.64056"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "557">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ChooseCharacterScene::CharacterTouched(cocos2d::CCObject*)"
+                  moduleName = "landlord"
+                  urlString = "file:///Volumes/Learning/zhaqteam/cocos2d-x-2.2.2/projects/landlord/Classes/ChooseCharacterScene.cpp"
+                  timestampString = "415298013.640898"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "572">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

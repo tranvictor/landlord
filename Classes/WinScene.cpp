@@ -8,6 +8,7 @@
 
 #include "WinScene.h"
 #include "ChooseMapScence.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -92,8 +93,14 @@ void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 
 void WinScene::appearWinner()
 {
-  CCSprite *winner = CCSprite::create("WinScene/c1.png");
-  winner->setPosition(ccp(320, 654-400));
+  // Get from manager
+  int arr[2] = {GameManager::getPlayerOneID(), GameManager::getPlayerTwoID()};
+  srand (time(NULL));
+  int i = arr[rand()%2];
+  CCString *winnerName = CCString::createWithFormat("WinScene/c%i.png", i);
+  CCSprite *winner = CCSprite::create(winnerName->getCString());
+  
+  winner->setPosition(WINNER_START_POS);
   
   CCAction * act1 = CCMoveTo::create(1, WINNER_POS);
   winner->runAction(act1);

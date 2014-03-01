@@ -10,6 +10,7 @@
 #include "Constant.h"
 #include "StartScene.h"
 #include "ChooseMapScence.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -34,6 +35,8 @@ bool ChooseCharacterScene::init()
   addBackground();
   addCharacter();
   addBackButton();
+  
+  characterArr->retain();
   
   return true;
 }
@@ -97,6 +100,8 @@ void ChooseCharacterScene::addCharacter()
     }
     characterArr->addObject(characterLayer);
   }
+  characterArr->retain();
+  
   slidingCharacterLayer = CCScrollLayer::nodeWithLayers(characterArr, 0, "ChooseMapScene/greendot-08.png");
   slidingCharacterLayer->setPagesIndicatorPosition(ccp(screenSize.width/2, INDICATOR_POS_Y));
   this->addChild(slidingCharacterLayer, GR_FOREGROUND);
@@ -117,12 +122,14 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
     characterChoseByPlayer1 = characterTouchedID;
     characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-blue-02.png", characterTouchedID);
     checkValid = true;
+    GameManager::setPlayerOneID(characterTouchedID);
     CCLOG("Player 1 had chose character %i", characterTouchedID);
   }
   else if (player == 2 && characterTouchedID != characterChoseByPlayer1)
   {
     characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-red-02.png", characterTouchedID);
     checkValid = true;
+    GameManager::setPlayerTwoID(characterTouchedID);
     CCLOG("Player 2 had chose character %i", characterTouchedID);
   }
   else if (characterTouchedID == characterChoseByPlayer1)
@@ -170,14 +177,17 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
     }
 
     int layerIndex = characterTouchedID/NUMBER_CHARACTERS_PER_SCENE;
-    if (characterTouchedID % NUMBER_CHARACTERS_PER_SCENE == 0) {
+    if (characterTouchedID % NUMBER_CHARACTERS_PER_SCENE == 0)
+    {
       layerIndex--;
     }
-    ((CCLayer* )characterArr->objectAtIndex(layerIndex))->addChild(character, GR_MIDDLEGROUND);    
+    CCLog("layerId = %d", layerIndex);
+    ((CCLayer* )characterArr->objectAtIndex(layerIndex))->addChild(character, GR_MIDDLEGROUND);
   }
   
   if (player == 2)
   {
+    characterArr->release();
     CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }

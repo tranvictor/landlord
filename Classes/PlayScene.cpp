@@ -8,6 +8,7 @@
 
 #include "PlayScene.h"
 #include "WinScene.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -68,7 +69,8 @@ void PlayScene::addPlayGroud()
 
 void PlayScene::addPLayerOne()
 {
-  playerOneTag = 1; // get from ChoosePlayerScene or GameManager
+  playerOneTag = GameManager::getPlayerOneID();
+  CCLog("getPlayerOneID = %d", GameManager::getPlayerOneID());
   CCSprite *playerOne = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", playerOneTag))->getCString());
   playerOne->setScale(0.8f);
   playerOne->setPosition(PLAYER_ONE_POS);
@@ -77,7 +79,7 @@ void PlayScene::addPLayerOne()
 
 void PlayScene::addPlayerTwo()
 {
-  playerTwoTag = 3; // get from ChoosePlayerScene or GameManager
+  playerTwoTag = GameManager::getPlayerTwoID();
   CCSprite *playerTwo = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", playerTwoTag))->getCString());
   playerTwo->setScale(0.8f);
   playerTwo->setPosition(PLAYER_TWO_POS);
@@ -86,7 +88,7 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::makeMapScroll()
 {
-  CCSprite *sp = CCSprite::create("PlayScene/map1.png");
+  CCSprite *sp = CCSprite::create("PlayScene/map1.png");  //get from GameManager
   sp->setPosition(MAP_POS);
   scrollMap = CCLayerPanZoom::create();
   scrollMap->addChild(sp);

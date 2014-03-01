@@ -10,6 +10,7 @@
 #include "cocos2d.h"
 #include "ChooseCharacterScene.h"
 #include "PlayScene.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -99,6 +100,7 @@ void ChooseMapScene::mapTouched(CCObject* pSender)
   CCMenuItemImage* mapSelected = (CCMenuItemImage*)pSender;
   mapTouchedID = mapSelected->getTag();
   CCLog("map %i choosed", mapTouchedID);
+  GameManager::setMapIDTouched(mapTouchedID);
   CCScene* newScene = CCTransitionCrossFade::create(0.5, PlayScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 
@@ -108,6 +110,7 @@ void ChooseMapScene::mapTouched(CCObject* pSender)
 void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button random touched");
+  srand (time(NULL));
   int r = ((int)random())%10+1;
   CCLog("r = %i", r);
   slidingMap->moveToPage(r-1);
