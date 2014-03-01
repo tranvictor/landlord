@@ -93,7 +93,7 @@ bool CCScrollLayer::initWithLayers(CCArray* layers, int widthOffset)
   
   // Show indicator by default.
   m_bShowPagesIndicator = true;
-  m_tPagesIndicatorPosition = ccp(0.5f * m_obContentSize.width, ceilf(m_obContentSize.height / 8.0f));
+  m_tPagesIndicatorPosition = getPagesIndicatorPosition();// ccp(0.5f * m_obContentSize.width, ceilf(m_obContentSize.height / 8.0f));
   
   // Set up the starting variables
   m_uCurrentScreen = 0;

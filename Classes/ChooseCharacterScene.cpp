@@ -43,7 +43,7 @@ bool ChooseCharacterScene::init()
 
 void ChooseCharacterScene::addBackground()
 {
-  CCSprite* background = CCSprite::create("ChooseCharacterScene/Background.png");
+  CCSprite* background = CCSprite::create("ChooseCharacterScene/background.png");
   CCLOG("%f %f", screenSize.width, screenSize.height);
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
@@ -120,14 +120,14 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
   if (player == 1)
   {
     characterChoseByPlayer1 = characterTouchedID;
-    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-blue-02.png", characterTouchedID);
+    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-blue.png", characterTouchedID);
     checkValid = true;
     GameManager::setPlayerOneID(characterTouchedID);
     CCLOG("Player 1 had chose character %i", characterTouchedID);
   }
   else if (player == 2 && characterTouchedID != characterChoseByPlayer1)
   {
-    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-red-02.png", characterTouchedID);
+    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-red.png", characterTouchedID);
     checkValid = true;
     GameManager::setPlayerTwoID(characterTouchedID);
     CCLOG("Player 2 had chose character %i", characterTouchedID);
