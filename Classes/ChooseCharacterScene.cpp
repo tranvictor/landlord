@@ -187,6 +187,7 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
   
   if (player == 2)
   {
+    characterArr->release();
     CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
