@@ -122,7 +122,7 @@ void PlayScene::addScoreLbn()
 void PlayScene::pauseButtonTouched()
 {
   CCLog("paused touched");
-  CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
+  CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 
 }

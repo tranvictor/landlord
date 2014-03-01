@@ -243,6 +243,19 @@
 		6692F13618BB4E4400068D35 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6692F13518BB4E4400068D35 /* GameManager.cpp */; };
 		66EB9FF718B65370000A1CEB /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66EB9FF518B65370000A1CEB /* SettingScene.cpp */; };
 		7A0B9E0118B93FC80004A419 /* CCScrollLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */; };
+		7A79F4D018C1CE5A00AAD4F0 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4C318C1CE5A00AAD4F0 /* background.wav */; };
+		7A79F4D118C1CE5A00AAD4F0 /* button-6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4C418C1CE5A00AAD4F0 /* button-6.wav */; };
+		7A79F4D218C1CE5A00AAD4F0 /* ChooseCharacterScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4C518C1CE5A00AAD4F0 /* ChooseCharacterScene */; };
+		7A79F4D318C1CE5A00AAD4F0 /* ChooseMapScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4C618C1CE5A00AAD4F0 /* ChooseMapScene */; };
+		7A79F4D418C1CE5A00AAD4F0 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4C718C1CE5A00AAD4F0 /* CloseNormal.png */; };
+		7A79F4D518C1CE5A00AAD4F0 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4C818C1CE5A00AAD4F0 /* CloseSelected.png */; };
+		7A79F4D618C1CE5A00AAD4F0 /* CloudAnimation in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4C918C1CE5A00AAD4F0 /* CloudAnimation */; };
+		7A79F4D718C1CE5A00AAD4F0 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4CA18C1CE5A00AAD4F0 /* fonts */; };
+		7A79F4D818C1CE5A00AAD4F0 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4CB18C1CE5A00AAD4F0 /* HelloWorld.png */; };
+		7A79F4D918C1CE5A00AAD4F0 /* Mainscene in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4CC18C1CE5A00AAD4F0 /* Mainscene */; };
+		7A79F4DA18C1CE5A00AAD4F0 /* PlayScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4CD18C1CE5A00AAD4F0 /* PlayScene */; };
+		7A79F4DB18C1CE5A00AAD4F0 /* SettingScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4CE18C1CE5A00AAD4F0 /* SettingScene */; };
+		7A79F4DC18C1CE5A00AAD4F0 /* WinScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A79F4CF18C1CE5A00AAD4F0 /* WinScene */; };
 		7A94DC8418BDBB2A0071CDD5 /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */; };
 		7A9B5CE418C0A45900C739FD /* CCLayerPanZoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */; };
 		7AA0CCD118BB9C380097A90B /* PlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */; };
@@ -756,6 +769,19 @@
 		66EB9FF618B65370000A1CEB /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
 		7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCScrollLayer.cpp; sourceTree = "<group>"; };
 		7A0B9E0018B93FC80004A419 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
+		7A79F4C318C1CE5A00AAD4F0 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
+		7A79F4C418C1CE5A00AAD4F0 /* button-6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-6.wav"; sourceTree = "<group>"; };
+		7A79F4C518C1CE5A00AAD4F0 /* ChooseCharacterScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ChooseCharacterScene; sourceTree = "<group>"; };
+		7A79F4C618C1CE5A00AAD4F0 /* ChooseMapScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ChooseMapScene; sourceTree = "<group>"; };
+		7A79F4C718C1CE5A00AAD4F0 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
+		7A79F4C818C1CE5A00AAD4F0 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
+		7A79F4C918C1CE5A00AAD4F0 /* CloudAnimation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CloudAnimation; sourceTree = "<group>"; };
+		7A79F4CA18C1CE5A00AAD4F0 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		7A79F4CB18C1CE5A00AAD4F0 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
+		7A79F4CC18C1CE5A00AAD4F0 /* Mainscene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mainscene; sourceTree = "<group>"; };
+		7A79F4CD18C1CE5A00AAD4F0 /* PlayScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PlayScene; sourceTree = "<group>"; };
+		7A79F4CE18C1CE5A00AAD4F0 /* SettingScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SettingScene; sourceTree = "<group>"; };
+		7A79F4CF18C1CE5A00AAD4F0 /* WinScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WinScene; sourceTree = "<group>"; };
 		7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinScene.cpp; path = ../Classes/WinScene.cpp; sourceTree = "<group>"; };
 		7A94DC8318BDBB2A0071CDD5 /* WinScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinScene.h; path = ../Classes/WinScene.h; sourceTree = "<group>"; };
 		7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLayerPanZoom.cpp; sourceTree = "<group>"; };
@@ -1789,6 +1815,19 @@
 				060D77A018C1D20F002FFB67 /* PlayScene */,
 				060D77A118C1D20F002FFB67 /* SettingScene */,
 				060D77A218C1D20F002FFB67 /* WinScene */,
+				7A79F4C318C1CE5A00AAD4F0 /* background.wav */,
+				7A79F4C418C1CE5A00AAD4F0 /* button-6.wav */,
+				7A79F4C518C1CE5A00AAD4F0 /* ChooseCharacterScene */,
+				7A79F4C618C1CE5A00AAD4F0 /* ChooseMapScene */,
+				7A79F4C718C1CE5A00AAD4F0 /* CloseNormal.png */,
+				7A79F4C818C1CE5A00AAD4F0 /* CloseSelected.png */,
+				7A79F4C918C1CE5A00AAD4F0 /* CloudAnimation */,
+				7A79F4CA18C1CE5A00AAD4F0 /* fonts */,
+				7A79F4CB18C1CE5A00AAD4F0 /* HelloWorld.png */,
+				7A79F4CC18C1CE5A00AAD4F0 /* Mainscene */,
+				7A79F4CD18C1CE5A00AAD4F0 /* PlayScene */,
+				7A79F4CE18C1CE5A00AAD4F0 /* SettingScene */,
+				7A79F4CF18C1CE5A00AAD4F0 /* WinScene */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -1890,6 +1929,20 @@
 				060D77AD18C1D20F002FFB67 /* PlayScene in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				060D77A818C1D20F002FFB67 /* CloseSelected.png in Resources */,
+				7A79F4D218C1CE5A00AAD4F0 /* ChooseCharacterScene in Resources */,
+				7A79F4D418C1CE5A00AAD4F0 /* CloseNormal.png in Resources */,
+				7A79F4D318C1CE5A00AAD4F0 /* ChooseMapScene in Resources */,
+				7A79F4D018C1CE5A00AAD4F0 /* background.wav in Resources */,
+				7A79F4D118C1CE5A00AAD4F0 /* button-6.wav in Resources */,
+				7A79F4D818C1CE5A00AAD4F0 /* HelloWorld.png in Resources */,
+				7A79F4D918C1CE5A00AAD4F0 /* Mainscene in Resources */,
+				7A79F4D618C1CE5A00AAD4F0 /* CloudAnimation in Resources */,
+				7A79F4DB18C1CE5A00AAD4F0 /* SettingScene in Resources */,
+				7A79F4D718C1CE5A00AAD4F0 /* fonts in Resources */,
+				7A79F4DC18C1CE5A00AAD4F0 /* WinScene in Resources */,
+				7A79F4DA18C1CE5A00AAD4F0 /* PlayScene in Resources */,
+				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
+				7A79F4D518C1CE5A00AAD4F0 /* CloseSelected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
