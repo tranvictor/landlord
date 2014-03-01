@@ -35,6 +35,8 @@ bool ChooseCharacterScene::init()
   addCharacter();
   addBackButton();
   
+  characterArr->retain();
+  
   return true;
 }
 
@@ -97,6 +99,8 @@ void ChooseCharacterScene::addCharacter()
     }
     characterArr->addObject(characterLayer);
   }
+  characterArr->retain();
+  
   slidingCharacterLayer = CCScrollLayer::nodeWithLayers(characterArr, 0, "ChooseMapScene/greendot-08.png");
   slidingCharacterLayer->setPagesIndicatorPosition(ccp(screenSize.width/2, INDICATOR_POS_Y));
   this->addChild(slidingCharacterLayer, GR_FOREGROUND);
