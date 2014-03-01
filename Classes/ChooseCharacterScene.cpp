@@ -208,7 +208,7 @@ void ChooseCharacterScene::addBackButton()
 void ChooseCharacterScene::buttonBackTouched()
 {
   CCLOG("Button back touched");
-  CCScene* newScene = CCTransitionSlideInR::create(0, StartScene::scene());
+  CCScene* newScene = CCTransitionSlideInL::create(0.5, StartScene::scene());
   
   
   CCDirector::sharedDirector()->replaceScene(newScene);
