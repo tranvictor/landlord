@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="map1" tilewidth="32" tileheight="32">
+  <image source="map1.png" width="1002" height="529"/>
+ </tileset>
+ <layer name="map" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztlklOw0AQRdsbpoMwHMNIDDvgBiCmHXAOpADHYOYaTJeADdMleJZcSdGxY1tIdAXVk57sxIpUXb/T5RC6kWchLGYdf2SQTdaw9Q/WIXmMey6Sxwv3r6mL6YDUK9c1XC8eqLUUxjmZy4taMlXzAR7ikXpWKDnFVzOUdcq1x+0JnuJZGKyvLg8r+ZzjBV7iFV7jDd7iXRisoy6Pv8pnVP+kxnt8wEd8wmdVv+SUut+j+ie1vuE7fuAnfqn64zyskav/xARO4hRO40w2nIdV4jkxy/0czuNCNnweW6W/38t+L+EyruBqRR7Wziehv9/LOndwF/dwX30vV+vzo6nP8jneZzL3N8LPuZ+Kpj7rc63N3E9F0z7X59pxCLVzP/W51rTPdR5t5r5VdB5t5r5Vus59q+j3sHGf+3HP9dyP54xV8oqeV8196/tK57HdYu5bxcp71G+x9h7lOI7jOI7jOI7jOI7jOBb5BsKoiNE=
+  </data>
+ </layer>
+</map>
