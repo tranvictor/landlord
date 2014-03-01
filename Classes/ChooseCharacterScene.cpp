@@ -43,7 +43,7 @@ bool ChooseCharacterScene::init()
 
 void ChooseCharacterScene::addBackground()
 {
-  CCSprite* background = CCSprite::create("ChooseCharacterScene/background.png");
+  CCSprite* background = CCSprite::create("ChooseCharacterScene/Background.png");
   CCLOG("%f %f", screenSize.width, screenSize.height);
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
