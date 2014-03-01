@@ -52,8 +52,8 @@ USING_NS_CC;
 // WinScene
 #define BTN_REPLAY_POS      ccp(84, 80)
 #define BTN_SHARE_POS       ccp(330, 236)
-#define WINNER_POS          ccp(320, 654)
-
+#define WINNER_START_POS    ccp(320, 654-400)
+#define WINNER_POS    ccp(320, 654)
 
 enum eGround
 {

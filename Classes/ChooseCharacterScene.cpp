@@ -10,6 +10,7 @@
 #include "Constant.h"
 #include "StartScene.h"
 #include "ChooseMapScence.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -121,12 +122,14 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
     characterChoseByPlayer1 = characterTouchedID;
     characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-blue-02.png", characterTouchedID);
     checkValid = true;
+    GameManager::setPlayerOneID(characterTouchedID);
     CCLOG("Player 1 had chose character %i", characterTouchedID);
   }
   else if (player == 2 && characterTouchedID != characterChoseByPlayer1)
   {
     characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-red-02.png", characterTouchedID);
     checkValid = true;
+    GameManager::setPlayerTwoID(characterTouchedID);
     CCLOG("Player 2 had chose character %i", characterTouchedID);
   }
   else if (characterTouchedID == characterChoseByPlayer1)
@@ -174,10 +177,12 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
     }
 
     int layerIndex = characterTouchedID/NUMBER_CHARACTERS_PER_SCENE;
-    if (characterTouchedID % NUMBER_CHARACTERS_PER_SCENE == 0) {
+    if (characterTouchedID % NUMBER_CHARACTERS_PER_SCENE == 0)
+    {
       layerIndex--;
     }
-    ((CCLayer* )characterArr->objectAtIndex(layerIndex))->addChild(character, GR_MIDDLEGROUND);    
+    CCLog("layerId = %d", layerIndex);
+    ((CCLayer* )characterArr->objectAtIndex(layerIndex))->addChild(character, GR_MIDDLEGROUND);
   }
   
   if (player == 2)
