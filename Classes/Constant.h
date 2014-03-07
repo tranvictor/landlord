@@ -62,4 +62,9 @@ enum eGround
   GR_FOREGROUND
 };
 
+enum Tag
+{
+  TG_TILE
+};
+
 #endif

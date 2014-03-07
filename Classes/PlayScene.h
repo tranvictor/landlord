@@ -24,8 +24,10 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCLabelTTF *lbnScorePlayer1;
   cocos2d::CCLabelTTF *lbnScorePlayer2;
   
+  CCPoint beginLocation;
+  
   CCTMXTiledMap *tileMap;
-  CCTMXLayer    *map;
+  CCTMXLayer    *mapLayer;
   
 public:
   virtual bool init();
@@ -40,7 +42,13 @@ public:
   
   void makeMapScroll();
   void pauseButtonTouched();
-    
+  void moveMap(float offsetX, float offsetY);
+  CCPoint getBound();
+  
+  virtual void ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+  virtual void ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+  virtual void ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+  void registerWithTouchDispatcher();
   CREATE_FUNC(PlayScene);
 };
 

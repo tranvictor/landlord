@@ -39,14 +39,15 @@ bool PlayScene::init()
   }
   
   screenSize = CCDirector::sharedDirector()->getWinSize();
+  setTouchEnabled(true);
   
-  addPlayGroud();
+//  addPlayGroud();
   makeMapScroll();
-  addFrameImg();
-  addPauseButton();
-  addPLayerOne();
-  addPlayerTwo();
-  addScoreLbn();
+//  addFrameImg();
+//  addPauseButton();
+//  addPLayerOne();
+//  addPlayerTwo();
+//  addScoreLbn();
   
   return true;
 }
@@ -88,11 +89,31 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::makeMapScroll()
 {
-  CCSprite *sp = CCSprite::create("PlayScene/map1.png");  //get from GameManager
-  sp->setPosition(MAP_POS);
-  scrollMap = CCLayerPanZoom::create();
-  scrollMap->addChild(sp);
-  this->addChild(scrollMap);
+//  CCSprite *sp = CCSprite::create("PlayScene/map1.png");  //get from GameManager
+//  sp->setPosition(MAP_POS);
+//  scrollMap = CCLayerPanZoom::create();
+//  scrollMap->addChild(sp);
+//  this->addChild(scrollMap);
+
+  tileMap = CCTMXTiledMap::create("PlayScene/map01.tmx");
+  setTouchEnabled(true);
+
+  this->addChild(tileMap, 1);
+//  CCLog("%f %f", tileMap->getContentSize().width, tileMap->getContentSize().height);
+  tileMap->setPosition(ccp(0, 0));
+  mapLayer = tileMap->layerNamed("map01");
+//  CCSize s = layer->getLayerSize();
+  
+  
+//  CCSprite* tile = mapLayer->tileAt(ccp(3, 0));
+//  tile->setColor(ccRED);
+//  tile->setZOrder(99);
+//  tile->setScale(2.0f);
+//  tile->setTag(TG_TILE);
+  
+//  CCLog("%f , %f ", tileMap->getPositionX(), tileMap->getPositionY());
+
+//  addChild(tileMap);
 }
 
 void PlayScene::addScoreLbn()
@@ -116,7 +137,6 @@ void PlayScene::addScoreLbn()
   lbnScorePlayer2->setPosition(ccp(scoreP2->getPositionX()+scoreP2->getContentSize().width/2, scoreP2->getPositionY()));
 //  scoreP2->addChild(lbnScorePlayer2);
   this->addChild(scoreP2);
-  
 }
 
 void PlayScene::pauseButtonTouched()
@@ -124,7 +144,6 @@ void PlayScene::pauseButtonTouched()
   CCLog("paused touched");
   CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
-
 }
 
 void PlayScene::addFrameImg()
@@ -132,4 +151,100 @@ void PlayScene::addFrameImg()
   CCSprite *frame = CCSprite::create("PlayScene/frame-01.png");
   frame->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   addChild(frame);
+}
+
+void PlayScene::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
+{
+//  CCTouch *touch = (CCTouch*)pTouches->anyObject();
+  CCSetIterator it = pTouches->begin();
+  CCTouch *touch = (CCTouch*)(*it);
+  
+  beginLocation = touch->getLocation();
+  beginLocation = this->convertToNodeSpace(beginLocation);
+  
+  CCSprite *sp = mapLayer->tileAt(ccp(3, 0));
+  if (sp)
+  {if (sp->boundingBox().containsPoint(beginLocation))
+  {
+    sp->runAction(CCMoveBy::create(0.5, ccp(100, 100)));
+  }
+  CCLog("%f %f", beginLocation.x, beginLocation.y);
+  }
+}
+
+void PlayScene::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
+{
+  CCSetIterator it = pTouches->begin();
+  CCTouch *touch = (CCTouch*)(*it);
+  
+  CCPoint touchLocation = touch->getLocation();
+  touchLocation = this->convertToNodeSpace(touchLocation);
+  float offsetX = touchLocation.x - beginLocation.x;
+  float offsetY = touchLocation.y - beginLocation.y;
+  moveMap(offsetX, offsetY);
+  beginLocation = touchLocation;
+}
+
+void PlayScene::ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
+{
+  
+//  touchFlag=false;
+//  CCSetIterator it = pTouches->begin();
+//  CCTouch* touch = (CCTouch*)(*it);
+//  CCPoint location = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView());
+//  CCSize tileSize = tileMap->getTileSize();
+//  CCSize mapSize = tileMap->getMapSize();
+//  CCPoint pos = ccpSub(location, tileMap->getPosition());
+//  float posX = floor(pos.x/tileSize.width);
+//  float posY = mapSize.height - floor(pos.y/tileSize.height);
+//  CCLog("pos: %f %f", posX, posY);
+  
+//  CCSprite *sp = map->tileAt(ccp(3, 0));
+//
+//  location = sp->convertToNodeSpace(location);
+//  CCRect *rect = new CCRect(sp->getOffsetPosition().x
+//                           ,sp->getOffsetPosition().y
+//                           ,sp->getTextureRect().size.width
+//                           ,sp->getTextureRect().size.height);
+//  if (rect->containsPoint(location))
+//  {
+//    CCLog("xxx");
+//  }
+//  CCPoint nodePoint = sp->convertToNodeSpace(pTouch->getLocation());
+//  CCRect rect = CCRectMake(0, 0, sp->getContentSize().width, sp->getContentSize().height);
+//  if (rect.containsPoint(nodePoint))
+//  {
+//    CCLog("xxx");
+//  }
+}
+
+void PlayScene::registerWithTouchDispatcher() {
+  CCDirector::sharedDirector()->getTouchDispatcher()->addStandardDelegate(this, 1);;
+}
+
+void PlayScene::moveMap(float offsetX, float offsetY)
+{
+  float posX = tileMap->getPosition().x + offsetX;
+  float posY = tileMap->getPosition().y + offsetY;
+  if (posX > 0)
+    posX = 0;
+  if (posX < getBound().x)
+    posX = getBound().x;
+  if (posY > 0)
+    posY = 0;
+  if (posY < getBound().y)
+  {
+    posY = getBound().y;
+  }
+  tileMap->setPosition(posX, posY);
+  CCLog("map pos: %f %f", posX, posY);
+}
+
+CCPoint PlayScene::getBound()
+{
+  float mapWidth = tileMap->getTileSize().width * tileMap->getMapSize().width;
+  float mapHeight = tileMap->getTileSize().height * tileMap->getMapSize().height;
+  
+  // should caculate the bounding of map position
+  return ccp(screenSize.width - mapWidth, screenSize.height - mapHeight);
 }
