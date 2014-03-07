@@ -100,7 +100,7 @@ void PlayScene::makeMapScroll()
 
   this->addChild(tileMap, 1);
 //  CCLog("%f %f", tileMap->getContentSize().width, tileMap->getContentSize().height);
-  tileMap->setPosition(ccp(0, 0));
+  tileMap->setPosition(ccp(100, 100));
   mapLayer = tileMap->layerNamed("map01");
 //  CCSize s = layer->getLayerSize();
   
@@ -155,21 +155,33 @@ void PlayScene::addFrameImg()
 
 void PlayScene::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
 {
-//  CCTouch *touch = (CCTouch*)pTouches->anyObject();
+  //  CCTouch *touch = (CCTouch*)pTouches->anyObject();
   CCSetIterator it = pTouches->begin();
   CCTouch *touch = (CCTouch*)(*it);
   
-  beginLocation = touch->getLocation();
-  beginLocation = this->convertToNodeSpace(beginLocation);
+  bool doubleTap = false;
+  CCLog("%d", pTouches->count());
+  if (pTouches->count() == 2)
+    doubleTap = true;
   
-  CCSprite *sp = mapLayer->tileAt(ccp(3, 0));
-  if (sp)
-  {if (sp->boundingBox().containsPoint(beginLocation))
+  beginLocation = touch->getLocation();
+  beginLocation = tileMap->convertToNodeSpace(beginLocation);
+  
+  CCSprite *sp = CCSprite::create();
+  CCSize s = mapLayer->getLayerSize();
+  for (int i = 0; i < s.width; ++i)
   {
-    sp->runAction(CCMoveBy::create(0.5, ccp(100, 100)));
+    for (int j = 0; j < s.height; ++j)
+    {
+        sp = mapLayer->tileAt(ccp(i, j));
+        if (sp && sp->boundingBox().containsPoint(beginLocation))
+        {
+          CCLog("tile At %d %d", i, j);
+        }
+      }
   }
-  CCLog("%f %f", beginLocation.x, beginLocation.y);
-  }
+  
+  CCLog("touch pos %f %f", beginLocation.x, beginLocation.y);
 }
 
 void PlayScene::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
@@ -178,7 +190,7 @@ void PlayScene::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
   CCTouch *touch = (CCTouch*)(*it);
   
   CCPoint touchLocation = touch->getLocation();
-  touchLocation = this->convertToNodeSpace(touchLocation);
+  touchLocation = tileMap->convertToNodeSpace(touchLocation);
   float offsetX = touchLocation.x - beginLocation.x;
   float offsetY = touchLocation.y - beginLocation.y;
   moveMap(offsetX, offsetY);
@@ -187,39 +199,11 @@ void PlayScene::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
 
 void PlayScene::ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
 {
-  
-//  touchFlag=false;
-//  CCSetIterator it = pTouches->begin();
-//  CCTouch* touch = (CCTouch*)(*it);
-//  CCPoint location = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView());
-//  CCSize tileSize = tileMap->getTileSize();
-//  CCSize mapSize = tileMap->getMapSize();
-//  CCPoint pos = ccpSub(location, tileMap->getPosition());
-//  float posX = floor(pos.x/tileSize.width);
-//  float posY = mapSize.height - floor(pos.y/tileSize.height);
-//  CCLog("pos: %f %f", posX, posY);
-  
-//  CCSprite *sp = map->tileAt(ccp(3, 0));
-//
-//  location = sp->convertToNodeSpace(location);
-//  CCRect *rect = new CCRect(sp->getOffsetPosition().x
-//                           ,sp->getOffsetPosition().y
-//                           ,sp->getTextureRect().size.width
-//                           ,sp->getTextureRect().size.height);
-//  if (rect->containsPoint(location))
-//  {
-//    CCLog("xxx");
-//  }
-//  CCPoint nodePoint = sp->convertToNodeSpace(pTouch->getLocation());
-//  CCRect rect = CCRectMake(0, 0, sp->getContentSize().width, sp->getContentSize().height);
-//  if (rect.containsPoint(nodePoint))
-//  {
-//    CCLog("xxx");
-//  }
+  return;
 }
 
 void PlayScene::registerWithTouchDispatcher() {
-  CCDirector::sharedDirector()->getTouchDispatcher()->addStandardDelegate(this, 1);;
+  CCDirector::sharedDirector()->getTouchDispatcher()->addStandardDelegate(this, 0);;
 }
 
 void PlayScene::moveMap(float offsetX, float offsetY)
@@ -236,7 +220,7 @@ void PlayScene::moveMap(float offsetX, float offsetY)
   {
     posY = getBound().y;
   }
-  tileMap->setPosition(posX, posY);
+  tileMap->runAction(CCMoveTo::create(0, ccp(posX, posY)));
   CCLog("map pos: %f %f", posX, posY);
 }
 

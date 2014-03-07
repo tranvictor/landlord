@@ -18,7 +18,7 @@ class PlayScene : public cocos2d::CCLayer
 {
   int playerOneTag, playerTwoTag;
 //  cocos2d::extension::CCScrollView *scrollMap;
-  CCLayerPanZoom *scrollMap;
+  CCLayerPanZoom *controller;
   
   cocos2d::CCSize screenSize;
   cocos2d::CCLabelTTF *lbnScorePlayer1;
