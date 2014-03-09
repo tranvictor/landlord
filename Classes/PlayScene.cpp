@@ -89,31 +89,15 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::makeMapScroll()
 {
-//  CCSprite *sp = CCSprite::create("PlayScene/map1.png");  //get from GameManager
-//  sp->setPosition(MAP_POS);
-//  scrollMap = CCLayerPanZoom::create();
-//  scrollMap->addChild(sp);
-//  this->addChild(scrollMap);
-
   tileMap = CCTMXTiledMap::create("PlayScene/map01.tmx");
   setTouchEnabled(true);
 
   this->addChild(tileMap, 1);
 //  CCLog("%f %f", tileMap->getContentSize().width, tileMap->getContentSize().height);
-  tileMap->setPosition(ccp(100, 100));
+  tileMap->setPosition(ccp(0, 0));
   mapLayer = tileMap->layerNamed("map01");
-//  CCSize s = layer->getLayerSize();
-  
-  
-//  CCSprite* tile = mapLayer->tileAt(ccp(3, 0));
-//  tile->setColor(ccRED);
-//  tile->setZOrder(99);
-//  tile->setScale(2.0f);
-//  tile->setTag(TG_TILE);
-  
-//  CCLog("%f , %f ", tileMap->getPositionX(), tileMap->getPositionY());
 
-//  addChild(tileMap);
+  
 }
 
 void PlayScene::addScoreLbn()
@@ -159,13 +143,9 @@ void PlayScene::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
   CCSetIterator it = pTouches->begin();
   CCTouch *touch = (CCTouch*)(*it);
   
-  bool doubleTap = false;
-  CCLog("%d", pTouches->count());
-  if (pTouches->count() == 2)
-    doubleTap = true;
-  
   beginLocation = touch->getLocation();
-  beginLocation = tileMap->convertToNodeSpace(beginLocation);
+  beginLocation = this->convertToNodeSpace(beginLocation);
+  beginLocationToMap = tileMap->convertToNodeSpace(beginLocation);
   
   CCSprite *sp = CCSprite::create();
   CCSize s = mapLayer->getLayerSize();
@@ -174,14 +154,14 @@ void PlayScene::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
     for (int j = 0; j < s.height; ++j)
     {
         sp = mapLayer->tileAt(ccp(i, j));
-        if (sp && sp->boundingBox().containsPoint(beginLocation))
+        if (sp && sp->boundingBox().containsPoint(beginLocationToMap))
         {
           CCLog("tile At %d %d", i, j);
         }
       }
   }
   
-  CCLog("touch pos %f %f", beginLocation.x, beginLocation.y);
+//  CCLog("touch pos %f %f", beginLocation.x, beginLocation.y);
 }
 
 void PlayScene::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
@@ -190,11 +170,14 @@ void PlayScene::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEven
   CCTouch *touch = (CCTouch*)(*it);
   
   CCPoint touchLocation = touch->getLocation();
-  touchLocation = tileMap->convertToNodeSpace(touchLocation);
+  touchLocation = this->convertToNodeSpace(touchLocation);
+  CCPoint touchLocationToMap = tileMap->convertToNodeSpace(touchLocation);
+  
   float offsetX = touchLocation.x - beginLocation.x;
   float offsetY = touchLocation.y - beginLocation.y;
   moveMap(offsetX, offsetY);
   beginLocation = touchLocation;
+  beginLocationToMap = touchLocationToMap;
 }
 
 void PlayScene::ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
@@ -221,7 +204,7 @@ void PlayScene::moveMap(float offsetX, float offsetY)
     posY = getBound().y;
   }
   tileMap->runAction(CCMoveTo::create(0, ccp(posX, posY)));
-  CCLog("map pos: %f %f", posX, posY);
+//  CCLog("map pos: %f %f", posX, posY);
 }
 
 CCPoint PlayScene::getBound()

@@ -25,9 +25,11 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCLabelTTF *lbnScorePlayer2;
   
   CCPoint beginLocation;
+  CCPoint beginLocationToMap; // beginLocation in tilemap co-ordinate
   
   CCTMXTiledMap *tileMap;
   CCTMXLayer    *mapLayer;
+  CCTMXObjectGroup *mTileEdges;
   
 public:
   virtual bool init();

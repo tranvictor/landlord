@@ -5,7 +5,13 @@
  </tileset>
  <layer name="map01" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJzV0EEKACAIRFG9/6XbRiA6+QP74PbBaBbn2xH95HXN07o1I0f1Mqfqqk5mE54P94hfViItxSW9TpTzypsQvWUBEN4AmQ==
+   eJxjYMANGJEwNcBQMo9SM9HNItdMXOaQah4hc4g1lxQ9xKijhnnI6gejeQxY1JNqHjY5YvxAbNySG+fUNg+fHkKAlHwxEOYNBkDteAEA7gMAmQ==
   </data>
  </layer>
+ <objectgroup name="TileEdges" width="20" height="20">
+  <object name="edge" x="703" y="267" height="53"/>
+  <object name="edge" x="188" y="710" height="51"/>
+  <object name="edge" x="200" y="706" width="53"/>
+  <object name="edge" x="260" y="717" height="44"/>
+ </objectgroup>
 </map>
