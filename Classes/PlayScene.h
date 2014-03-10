@@ -39,7 +39,7 @@ class PlayScene : public cocos2d::CCLayer
   
 //  cocos2d::CCArray *tilesArr;
   std::vector<TileInfo*> tileInfoVector;
-  
+  int curTile = 0;
 public:
   virtual bool init();
   static cocos2d::CCScene* scene();
@@ -64,7 +64,7 @@ public:
   virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
   virtual void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
   void registerWithTouchDispatcher();
-  void edgeTouchEnded(cocos2d::CCObject *pSender);
+  void chooseEdgeEnded(cocos2d::CCObject *pSender);
   CREATE_FUNC(PlayScene);
 };
 
