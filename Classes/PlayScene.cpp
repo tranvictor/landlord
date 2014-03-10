@@ -239,8 +239,9 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
   CCSprite *edge = CCSprite::create("PlayScene/edge.png");
-
-  CCSprite *sp = tileInfoVector.at(curTile)->getTile();
+  
+  TileInfo *tileInfo = tileInfoVector.at(curTile);
+  CCSprite *sp = tileInfo->getTile();
   CCLog("%d", curTile);
   
   if (pop->getTag() == TAG_EDGE_BOTTOM)
@@ -248,12 +249,14 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
     CCLog("%f %f", sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY());
     tileMap->addChild(edge, GR_FOREGROUND);
+    tileInfo->setEdgeBottomSts(STS_NOT_AVAILABLE);
   }
   else if (pop->getTag() == TAG_EDGE_TOP)
   {
     edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height));
     CCLog("%f %f", sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY());
     tileMap->addChild(edge, GR_FOREGROUND);
+    tileInfo->setEdgeTopSts(STS_NOT_AVAILABLE);
   }
   else if (pop->getTag() == TAG_EDGE_LEFT)
   {
@@ -261,6 +264,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     edge->setPosition(ccp(sp->getPositionX(), sp->getPositionY() + sp->getContentSize().height/2));
     CCLog("%f %f", sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY());
     tileMap->addChild(edge, GR_FOREGROUND);
+    tileInfo->setEdgeLeftSts(STS_NOT_AVAILABLE);
   }
   else if (pop->getTag() == TAG_EDGE_RIGHT )
   {
@@ -268,6 +272,13 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width, sp->getPositionY() + sp->getContentSize().height/2));
     CCLog("%f %f", sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY());
     tileMap->addChild(edge, GR_FOREGROUND);
+    tileInfo->setEdgeRightSts(STS_NOT_AVAILABLE);
+  }
+  tileInfo->setNumberEdgeAvailale(tileInfo->getNumberEdgeAvailale()-1);
+  
+  if (tileInfo->getNumberEdgeAvailale() == 0)
+  {
+    sp->setColor(ccGRAY);
   }
   
   pop->removeFromParent();
