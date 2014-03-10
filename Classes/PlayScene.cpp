@@ -43,6 +43,7 @@ bool PlayScene::init()
   
 //  addPlayGroud();
   makeMapScroll();
+//  tilesArr->retain();
 //  addFrameImg();
 //  addPauseButton();
 //  addPLayerOne();
@@ -96,7 +97,6 @@ void PlayScene::makeMapScroll()
   tileMap->setPosition(ccp(0, 0));
   mapLayer = tileMap->layerNamed("map01");
   
-  // add edges to tiles
   CCSize s = mapLayer->getLayerSize();
   CCSprite* tile = CCSprite::create();
   
@@ -105,33 +105,13 @@ void PlayScene::makeMapScroll()
     for (int j = 0; j < s.height; ++j)
     {
       tile = mapLayer->tileAt(ccp(i, j));
-      if (tile)
+      if (!tile)
+        CCLog("tile is null");
+      else
       {
-        CCSprite *edgeBottom = CCSprite::create("PlayScene/edge.png");
-        edgeBottom->setPosition(ccp(tile->getPositionX() + tile->getContentSize().width/2, tile->getPositionY()));
-        tileMap->addChild(edgeBottom, GR_FOREGROUND, TAG_EDGE_BOTTOM);
-        edgeBottom->setVisible(false);
-//        edgeBottom->setBelongToTile(mapLayer->tileGIDAt(ccp(i, j)));
-        
-        CCSprite *edgeTop = CCSprite::create("PlayScene/edge.png");
-        edgeTop->setPosition(ccp(tile->getPositionX() + tile->getContentSize().width/2, tile->getPositionY() + tile->getContentSize().height));
-        tileMap->addChild(edgeTop, GR_FOREGROUND, TAG_EDGE_TOP);
-        edgeTop->setVisible(false);
-//        edgeTop->setBelongToTile(mapLayer->tileGIDAt(ccp(i, j)));
-        
-        CCSprite *edgeLeft = CCSprite::create("PlayScene/edge.png");
-        edgeLeft->setRotation(90);
-        edgeLeft->setPosition((ccp(tile->getPositionX(), tile->getPositionY() + tile->getContentSize().height/2)));
-        tileMap->addChild(edgeLeft, GR_FOREGROUND, TAG_EDGE_LEFT);
-        edgeLeft->setVisible(false);
-//        edgeLeft->setBelongToTile(mapLayer->tileGIDAt(ccp(i, j)));
-        
-        CCSprite *edgeRight = CCSprite::create("PlayScene/edge.png");
-        edgeRight->setRotation(90);
-        edgeRight->setPosition(ccp(tile->getPositionX() + tile->getContentSize().height, tile->getPositionY() + tile->getContentSize().height/2));
-        tileMap->addChild(edgeRight, GR_FOREGROUND, TAG_EDGE_RIGHT);
-        edgeRight->setVisible(false);
-//        edgeRight->setBelongToTile(mapLayer->tileGIDAt(ccp(i, j)));
+        TileInfo *tileInfo = new TileInfo();
+        tileInfo->setTile(tile);
+        tileInfoVector.push_back(tileInfo);
       }
     }
   }
@@ -183,8 +163,6 @@ bool PlayScene::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
   beginLocationToMap = tileMap->convertToNodeSpace(beginLocation);
   
   return true;
-  
-//  CCLog("touch pos %f %f", beginLocation.x, beginLocation.y);
 }
 
 void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
@@ -205,24 +183,35 @@ void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 
 void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-  TileInfo *sp = TileInfo::create();
-  CCSize s = mapLayer->getLayerSize();
-  for (int i = 0; i < s.width; ++i)
+  TileInfo *tileInfo = new TileInfo();
+  CCSprite *sp = CCSprite::create();
+//  CCSize s = mapLayer->getLayerSize();
+  for (int i = 0; i < tileInfoVector.size(); ++i)
   {
-    for (int j = 0; j < s.height; ++j)
+    tileInfo = tileInfoVector.at(i);
+    sp = tileInfo->getTile();
+    if (sp == NULL)
+      CCLog("sp's null");
+    
+    if (!mIsScrolling && sp && sp->boundingBox().containsPoint(beginLocationToMap))
     {
-      sp = (TileInfo*)mapLayer->tileAt(ccp(i, j));
-      
-      if (!mIsScrolling && sp && sp->boundingBox().containsPoint(beginLocationToMap))
+      if (tileInfo->getEdgeBottomSts() == STS_AVAILABLE)
       {
-        CCLog("tile At %d %d", i, j);
-        if (sp->getEdgeBottom() == STS_NOT_AVAILABLE)
-        {
-          
-        }
+        CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
+        CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::edgeTouchEnded));
+        CCMenu *edgePop = CCMenu::create(item, NULL);
+        edgePop->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() - pop->getContentSize().height/2));
+        tileMap->addChild(edgePop);
       }
     }
   }
+}
+
+void PlayScene::edgeTouchEnded(cocos2d::CCObject *pSender)
+{
+//  CCLog("xxx");
+  CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
+  pop->setVisible(false);
 }
 
 void PlayScene::registerWithTouchDispatcher() {

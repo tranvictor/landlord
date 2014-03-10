@@ -36,7 +36,9 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCArray *mEdgeArrBottom;
   cocos2d::CCArray *mEdgeArrLeft;
   cocos2d::CCArray *mEdgeArrRight;
-  cocos2d::CCArray *tiles;
+  
+//  cocos2d::CCArray *tilesArr;
+  std::vector<TileInfo*> tileInfoVector;
   
 public:
   virtual bool init();
@@ -62,6 +64,7 @@ public:
   virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
   virtual void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
   void registerWithTouchDispatcher();
+  void edgeTouchEnded(cocos2d::CCObject *pSender);
   CREATE_FUNC(PlayScene);
 };
 

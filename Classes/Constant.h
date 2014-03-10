@@ -34,6 +34,7 @@ USING_NS_CC;
 #define PLAYER_TWO_POS  ccp(543.762, 142.551)
 #define LBN_SCORE_PLAYER1_POS   ccp(109.114, 37.093)
 #define LBN_SCORE_PLAYER2_POS   ccp(531.229, 37.093)
+#define NUMBER_EDGE_AVAILABLE 4
 
 // ChooseCharacterScene
 #define NUMBER_CHARACTERS 8
