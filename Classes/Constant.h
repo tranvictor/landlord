@@ -62,9 +62,26 @@ enum eGround
   GR_FOREGROUND
 };
 
-enum Tag
+enum eTag
 {
   TG_TILE
 };
+
+enum eTagEdge
+{
+  TAG_EDGE_TOP,
+  TAG_EDGE_BOTTOM,
+  TAG_EDGE_LEFT,
+  TAG_EDGE_RIGHT
+};
+
+enum eEdgeStatus
+{
+  STS_AVAILABLE,
+  STS_NOT_AVAILABLE,
+  STS_APPEAR,
+  STS_NOT_APPEAR
+};
+
 
 #endif

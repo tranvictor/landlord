@@ -13,6 +13,7 @@
 #include "Constant.h"
 #include "cocos-ext.h"
 #include "CCLayerPanZoom.h"
+#include "TileInfo.h"
 
 class PlayScene : public cocos2d::CCLayer
 {
@@ -31,6 +32,11 @@ class PlayScene : public cocos2d::CCLayer
   CCTMXLayer    *mapLayer;
   CCTMXObjectGroup *mTileEdges;
   bool mIsScrolling = false;
+  cocos2d::CCArray *mEdgeArrTop;
+  cocos2d::CCArray *mEdgeArrBottom;
+  cocos2d::CCArray *mEdgeArrLeft;
+  cocos2d::CCArray *mEdgeArrRight;
+  cocos2d::CCArray *tiles;
   
 public:
   virtual bool init();

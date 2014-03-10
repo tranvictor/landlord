@@ -89,16 +89,52 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::makeMapScroll()
 {
-//  mIsScrolling = false;
   tileMap = CCTMXTiledMap::create("PlayScene/map01.tmx");
-//  setTouchEnabled(true);
-CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+
   this->addChild(tileMap);
-//  CCLog("%f %f", tileMap->getContentSize().width, tileMap->getContentSize().height);
+
   tileMap->setPosition(ccp(0, 0));
   mapLayer = tileMap->layerNamed("map01");
-
   
+  // add edges to tiles
+  CCSize s = mapLayer->getLayerSize();
+  CCSprite* tile = CCSprite::create();
+  
+  for (int i = 0; i < s.width; ++i)
+  {
+    for (int j = 0; j < s.height; ++j)
+    {
+      tile = mapLayer->tileAt(ccp(i, j));
+      if (tile)
+      {
+        CCSprite *edgeBottom = CCSprite::create("PlayScene/edge.png");
+        edgeBottom->setPosition(ccp(tile->getPositionX() + tile->getContentSize().width/2, tile->getPositionY()));
+        tileMap->addChild(edgeBottom, GR_FOREGROUND, TAG_EDGE_BOTTOM);
+        edgeBottom->setVisible(false);
+//        edgeBottom->setBelongToTile(mapLayer->tileGIDAt(ccp(i, j)));
+        
+        CCSprite *edgeTop = CCSprite::create("PlayScene/edge.png");
+        edgeTop->setPosition(ccp(tile->getPositionX() + tile->getContentSize().width/2, tile->getPositionY() + tile->getContentSize().height));
+        tileMap->addChild(edgeTop, GR_FOREGROUND, TAG_EDGE_TOP);
+        edgeTop->setVisible(false);
+//        edgeTop->setBelongToTile(mapLayer->tileGIDAt(ccp(i, j)));
+        
+        CCSprite *edgeLeft = CCSprite::create("PlayScene/edge.png");
+        edgeLeft->setRotation(90);
+        edgeLeft->setPosition((ccp(tile->getPositionX(), tile->getPositionY() + tile->getContentSize().height/2)));
+        tileMap->addChild(edgeLeft, GR_FOREGROUND, TAG_EDGE_LEFT);
+        edgeLeft->setVisible(false);
+//        edgeLeft->setBelongToTile(mapLayer->tileGIDAt(ccp(i, j)));
+        
+        CCSprite *edgeRight = CCSprite::create("PlayScene/edge.png");
+        edgeRight->setRotation(90);
+        edgeRight->setPosition(ccp(tile->getPositionX() + tile->getContentSize().height, tile->getPositionY() + tile->getContentSize().height/2));
+        tileMap->addChild(edgeRight, GR_FOREGROUND, TAG_EDGE_RIGHT);
+        edgeRight->setVisible(false);
+//        edgeRight->setBelongToTile(mapLayer->tileGIDAt(ccp(i, j)));
+      }
+    }
+  }
 }
 
 void PlayScene::addScoreLbn()
@@ -140,10 +176,7 @@ void PlayScene::addFrameImg()
 
 bool PlayScene::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-  //  CCTouch *touch = (CCTouch*)pTouches->anyObject();
   mIsScrolling = false;
-//  CCSetIterator it = pTouches->begin();
-//  CCTouch *touch = (CCTouch*)(*it);
   
   beginLocation = pTouch->getLocation();
   beginLocation = this->convertToNodeSpace(beginLocation);
@@ -157,8 +190,6 @@ bool PlayScene::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
   mIsScrolling = true;
-//  CCSetIterator it = pTouches->begin();
-//  CCTouch *touch = (CCTouch*)(*it);
   
   CCPoint touchLocation = pTouch->getLocation();
   touchLocation = this->convertToNodeSpace(touchLocation);
@@ -174,25 +205,28 @@ void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 
 void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-  CCSprite *sp = CCSprite::create();
+  TileInfo *sp = TileInfo::create();
   CCSize s = mapLayer->getLayerSize();
   for (int i = 0; i < s.width; ++i)
   {
     for (int j = 0; j < s.height; ++j)
     {
-      sp = mapLayer->tileAt(ccp(i, j));
+      sp = (TileInfo*)mapLayer->tileAt(ccp(i, j));
+      
       if (!mIsScrolling && sp && sp->boundingBox().containsPoint(beginLocationToMap))
       {
         CCLog("tile At %d %d", i, j);
-        sp->setColor(ccRED);
+        if (sp->getEdgeBottom() == STS_NOT_AVAILABLE)
+        {
+          
+        }
       }
     }
   }
 }
 
 void PlayScene::registerWithTouchDispatcher() {
-//  CCDirector::sharedDirector()->getTouchDispatcher()->addStandardDelegate(this, -128);
-//  CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+  CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
 }
 
 void PlayScene::moveMap(float offsetX, float offsetY)

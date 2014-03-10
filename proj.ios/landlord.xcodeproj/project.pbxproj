@@ -239,6 +239,7 @@
 		7A08F1DF18C6CC4900BB75AA /* SettingScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A08F1D218C6CC4900BB75AA /* SettingScene */; };
 		7A08F1E018C6CC4900BB75AA /* WinScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A08F1D318C6CC4900BB75AA /* WinScene */; };
 		7A0B9E0118B93FC80004A419 /* CCScrollLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */; };
+		7A18DB7118CD91F100C95A32 /* TileInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */; };
 		7A94DC8418BDBB2A0071CDD5 /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */; };
 		7A9B5CE418C0A45900C739FD /* CCLayerPanZoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */; };
 		7A9DCF3418CA2AEC00AA4A1D /* PlayScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A9DCF3318CA2AEC00AA4A1D /* PlayScene */; };
@@ -751,6 +752,8 @@
 		7A08F1D318C6CC4900BB75AA /* WinScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WinScene; sourceTree = "<group>"; };
 		7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCScrollLayer.cpp; sourceTree = "<group>"; };
 		7A0B9E0018B93FC80004A419 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
+		7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileInfo.cpp; path = ../Classes/TileInfo.cpp; sourceTree = "<group>"; };
+		7A18DB7018CD91F100C95A32 /* TileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileInfo.h; path = ../Classes/TileInfo.h; sourceTree = "<group>"; };
 		7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinScene.cpp; path = ../Classes/WinScene.cpp; sourceTree = "<group>"; };
 		7A94DC8318BDBB2A0071CDD5 /* WinScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinScene.h; path = ../Classes/WinScene.h; sourceTree = "<group>"; };
 		7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLayerPanZoom.cpp; sourceTree = "<group>"; };
@@ -1319,6 +1322,8 @@
 				6692F13418BB4E3200068D35 /* GameManager.h */,
 				6692F13518BB4E4400068D35 /* GameManager.cpp */,
 				663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */,
+				7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */,
+				7A18DB7018CD91F100C95A32 /* TileInfo.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1987,6 +1992,7 @@
 				15A3DA381682F826002FB0C5 /* CCControlButtonLoader.cpp in Sources */,
 				15A3DA391682F826002FB0C5 /* CCControlLoader.cpp in Sources */,
 				15A3DA3A1682F826002FB0C5 /* CCData.cpp in Sources */,
+				7A18DB7118CD91F100C95A32 /* TileInfo.cpp in Sources */,
 				15A3DA3B1682F826002FB0C5 /* CCLabelBMFontLoader.cpp in Sources */,
 				15A3DA3C1682F826002FB0C5 /* CCLabelTTFLoader.cpp in Sources */,
 				15A3DA3D1682F826002FB0C5 /* CCLayerColorLoader.cpp in Sources */,
