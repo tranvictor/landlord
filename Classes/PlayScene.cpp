@@ -89,10 +89,11 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::makeMapScroll()
 {
+//  mIsScrolling = false;
   tileMap = CCTMXTiledMap::create("PlayScene/map01.tmx");
-  setTouchEnabled(true);
-
-  this->addChild(tileMap, 1);
+//  setTouchEnabled(true);
+CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+  this->addChild(tileMap);
 //  CCLog("%f %f", tileMap->getContentSize().width, tileMap->getContentSize().height);
   tileMap->setPosition(ccp(0, 0));
   mapLayer = tileMap->layerNamed("map01");
@@ -137,56 +138,61 @@ void PlayScene::addFrameImg()
   addChild(frame);
 }
 
-void PlayScene::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
+bool PlayScene::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
   //  CCTouch *touch = (CCTouch*)pTouches->anyObject();
-  CCSetIterator it = pTouches->begin();
-  CCTouch *touch = (CCTouch*)(*it);
+  mIsScrolling = false;
+//  CCSetIterator it = pTouches->begin();
+//  CCTouch *touch = (CCTouch*)(*it);
   
-  beginLocation = touch->getLocation();
+  beginLocation = pTouch->getLocation();
   beginLocation = this->convertToNodeSpace(beginLocation);
   beginLocationToMap = tileMap->convertToNodeSpace(beginLocation);
   
-  CCSprite *sp = CCSprite::create();
-  CCSize s = mapLayer->getLayerSize();
-  for (int i = 0; i < s.width; ++i)
-  {
-    for (int j = 0; j < s.height; ++j)
-    {
-        sp = mapLayer->tileAt(ccp(i, j));
-        if (sp && sp->boundingBox().containsPoint(beginLocationToMap))
-        {
-          CCLog("tile At %d %d", i, j);
-        }
-      }
-  }
+  return true;
   
 //  CCLog("touch pos %f %f", beginLocation.x, beginLocation.y);
 }
 
-void PlayScene::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
+void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-  CCSetIterator it = pTouches->begin();
-  CCTouch *touch = (CCTouch*)(*it);
+  mIsScrolling = true;
+//  CCSetIterator it = pTouches->begin();
+//  CCTouch *touch = (CCTouch*)(*it);
   
-  CCPoint touchLocation = touch->getLocation();
+  CCPoint touchLocation = pTouch->getLocation();
   touchLocation = this->convertToNodeSpace(touchLocation);
   CCPoint touchLocationToMap = tileMap->convertToNodeSpace(touchLocation);
   
   float offsetX = touchLocation.x - beginLocation.x;
   float offsetY = touchLocation.y - beginLocation.y;
   moveMap(offsetX, offsetY);
+
   beginLocation = touchLocation;
   beginLocationToMap = touchLocationToMap;
 }
 
-void PlayScene::ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
+void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-  return;
+  CCSprite *sp = CCSprite::create();
+  CCSize s = mapLayer->getLayerSize();
+  for (int i = 0; i < s.width; ++i)
+  {
+    for (int j = 0; j < s.height; ++j)
+    {
+      sp = mapLayer->tileAt(ccp(i, j));
+      if (!mIsScrolling && sp && sp->boundingBox().containsPoint(beginLocationToMap))
+      {
+        CCLog("tile At %d %d", i, j);
+        sp->setColor(ccRED);
+      }
+    }
+  }
 }
 
 void PlayScene::registerWithTouchDispatcher() {
-  CCDirector::sharedDirector()->getTouchDispatcher()->addStandardDelegate(this, 0);;
+//  CCDirector::sharedDirector()->getTouchDispatcher()->addStandardDelegate(this, -128);
+//  CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
 }
 
 void PlayScene::moveMap(float offsetX, float offsetY)
@@ -203,7 +209,7 @@ void PlayScene::moveMap(float offsetX, float offsetY)
   {
     posY = getBound().y;
   }
-  tileMap->runAction(CCMoveTo::create(0, ccp(posX, posY)));
+  tileMap->setPosition(ccp(posX, posY));
 //  CCLog("map pos: %f %f", posX, posY);
 }
 
@@ -214,4 +220,30 @@ CCPoint PlayScene::getBound()
   
   // should caculate the bounding of map position
   return ccp(screenSize.width - mapWidth, screenSize.height - mapHeight);
+}
+
+void PlayScene::addGlowEffect(CCSprite* sprite,
+                   const ccColor3B& colour,
+                   const CCSize& size)
+{
+  CCPoint pos = ccp(sprite->getPositionX(),
+                    sprite->getPositionY());
+
+  CCSprite* glowSprite = CCSprite::create("PlayScene/edge.png");
+  glowSprite->setColor(colour);
+  glowSprite->setPosition(pos);
+  glowSprite->setRotation(sprite->getRotation());
+  _ccBlendFunc f = {GL_ONE, GL_ONE};
+  glowSprite->setBlendFunc(f);
+  addChild(glowSprite, GR_FOREGROUND);
+  // Run some animation which scales a bit the glow
+  
+  CCSequence* s1 =
+    CCSequence::create(
+      CCScaleTo::create(0.9f, size.width, size.height),
+      CCScaleTo::create(0.9f, size.width*0.75f, size.height*0.75f),
+      NULL);
+  
+  CCRepeatForever* r = CCRepeatForever::create(s1);
+  glowSprite->runAction(r);
 }

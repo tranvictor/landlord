@@ -30,6 +30,7 @@ class PlayScene : public cocos2d::CCLayer
   CCTMXTiledMap *tileMap;
   CCTMXLayer    *mapLayer;
   CCTMXObjectGroup *mTileEdges;
+  bool mIsScrolling = false;
   
 public:
   virtual bool init();
@@ -45,11 +46,15 @@ public:
   void makeMapScroll();
   void pauseButtonTouched();
   void moveMap(float offsetX, float offsetY);
+  void addGlowEffect(CCSprite* sprite,
+                                const ccColor3B& colour,
+                     const CCSize& size);
+  
   CCPoint getBound();
   
-  virtual void ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
-  virtual void ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
-  virtual void ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+  virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+  virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+  virtual void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
   void registerWithTouchDispatcher();
   CREATE_FUNC(PlayScene);
 };
