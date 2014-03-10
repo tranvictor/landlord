@@ -33,6 +33,14 @@ public:
   CC_SYNTHESIZE(cocos2d::CCSprite*, mTile, Tile);
   CC_SYNTHESIZE(bool, mHasEdgeTouched, HasEdgeTouched);
   
+  CC_SYNTHESIZE(int, mGIDTileUp, GIDTileUp);
+  CC_SYNTHESIZE(int, mGIDTileDown, GIDTileDown);
+  CC_SYNTHESIZE(int, mGIDTileLeft, GIDTileLeft);
+  CC_SYNTHESIZE(int, mGIDTileRight, GIDTileRight);
+  CC_SYNTHESIZE(int, mGID, GID);
+//  CC_SYNTHESIZE(float, mGridX, GridX);
+//  CC_SYNTHESIZE(int, mGridY, GridY);
+  
   TileInfo();
   
 //  static TileInfo* create(const char* pFileName);

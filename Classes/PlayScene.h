@@ -39,6 +39,7 @@ class PlayScene : public cocos2d::CCLayer
   
   cocos2d::CCArray *popsArr;
   std::vector<TileInfo*> tileInfoVector;
+  
   int curTile = 0;
   int numPop = NUMBER_EDGE_AVAILABLE;
   
@@ -69,6 +70,7 @@ public:
   void registerWithTouchDispatcher();
   void chooseEdgeEnded(cocos2d::CCObject *pSender);
   CREATE_FUNC(PlayScene);
+  void update(float pdT);
 };
 
 #endif /* defined(__landlord__PlayScene__) */

@@ -49,5 +49,7 @@ TileInfo::TileInfo()
   mNumberEdgeAvailale = NUMBER_EDGE_AVAILABLE;
   mHasBottomPop = mHasLeftPop = mHasRightPop = mHasTopPop = false;
   mHasEdgeTouched = false;
+  mGIDTileDown = mGIDTileLeft = mGIDTileRight = mGIDTileUp = -1;
+  mGID = 0;
 }
 

@@ -35,6 +35,7 @@ USING_NS_CC;
 #define LBN_SCORE_PLAYER1_POS   ccp(109.114, 37.093)
 #define LBN_SCORE_PLAYER2_POS   ccp(531.229, 37.093)
 #define NUMBER_EDGE_AVAILABLE 4
+#define PAIR_FUNC(a,b)    (int)(0.5*(a+b)*(a+b+1)+b)  // return the unique number from a, b
 
 // ChooseCharacterScene
 #define NUMBER_CHARACTERS 8

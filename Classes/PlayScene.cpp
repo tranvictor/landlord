@@ -49,6 +49,7 @@ bool PlayScene::init()
 //  addPLayerOne();
 //  addPlayerTwo();
 //  addScoreLbn();
+  schedule(schedule_selector(PlayScene::update));
   
   return true;
 }
@@ -101,19 +102,41 @@ void PlayScene::makeMapScroll()
   CCSprite* tile = CCSprite::create();
   popsArr = CCArray::createWithCapacity(NUMBER_EDGE_AVAILABLE);
   popsArr->retain();
-  
+
   for (int i = 0; i < s.width; ++i)
   {
     for (int j = 0; j < s.height; ++j)
     {
       tile = mapLayer->tileAt(ccp(i, j));
-      if (!tile)
-        CCLog("tile is null");
+      if (!tile);
+//        CCLog("tile is null");
       else
       {
         TileInfo *tileInfo = new TileInfo();
         tileInfo->setTile(tile);
+        tileInfo->setGID(PAIR_FUNC(i, j));
+        CCLog("gid %d", PAIR_FUNC(i, j));
         tileInfoVector.push_back(tileInfo);
+        
+        if (j > 0 && mapLayer->tileAt(ccp(i, j-1)))
+        {
+          tileInfo->setGIDTileUp(PAIR_FUNC(i, j-1));
+        }
+        
+        if (j < s.height-1 && mapLayer->tileAt(ccp(i, j+1)))
+        {
+          tileInfo->setGIDTileDown(PAIR_FUNC(i, j+1));
+        }
+
+        if (i > 0 && mapLayer->tileAt(ccp(i-1, j)))
+        {
+          tileInfo->setGIDTileLeft(PAIR_FUNC(i-1, j));
+        }
+
+        if (i < s.width-1 && mapLayer->tileAt(ccp(i+1, j)))
+        {
+          tileInfo->setGIDTileRight(PAIR_FUNC(i+1, j));
+        }
       }
     }
   }
@@ -248,49 +271,94 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   CCSprite *edge = CCSprite::create("PlayScene/edge.png");
   
   TileInfo *tileInfo = tileInfoVector.at(curTile);
+
   CCSprite *sp = tileInfo->getTile();
   CCLog("curTile = %d", curTile);
   
   if (pop->getTag() == TAG_EDGE_BOTTOM)
   {
     tileInfo->setHasBottomPop(true);
+    
     edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
-    CCLog("%f %f", sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY());
+
     tileMap->addChild(edge, GR_FOREGROUND);
     tileInfo->setEdgeBottomSts(STS_NOT_AVAILABLE);
+    
+    for (int i = 0; i < tileInfoVector.size(); ++i)
+    {
+      if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileDown())
+      {
+        tileInfoVector.at(i)->setHasTopPop(true);
+        tileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
+        tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+    }
   }
   else if (pop->getTag() == TAG_EDGE_TOP)
   {
     tileInfo->setHasTopPop(true);
+    
     edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height));
-    CCLog("%f %f", sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY());
+
     tileMap->addChild(edge, GR_FOREGROUND);
     tileInfo->setEdgeTopSts(STS_NOT_AVAILABLE);
+    for (int i = 0; i < tileInfoVector.size(); ++i)
+    {
+      if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileUp())
+      {
+        tileInfoVector.at(i)->setHasBottomPop(true);
+        tileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
+        tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+    }
   }
   else if (pop->getTag() == TAG_EDGE_LEFT)
   {
     tileInfo->setHasLeftPop(true);
+    
     edge->setRotation(90);
     edge->setPosition(ccp(sp->getPositionX(), sp->getPositionY() + sp->getContentSize().height/2));
-    CCLog("%f %f", sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY());
+
     tileMap->addChild(edge, GR_FOREGROUND);
     tileInfo->setEdgeLeftSts(STS_NOT_AVAILABLE);
+    
+    for (int i = 0; i < tileInfoVector.size(); ++i)
+    {
+      if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileLeft())
+      {
+        tileInfoVector.at(i)->setHasRightPop(true);
+        tileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
+        tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+    }
   }
   else if (pop->getTag() == TAG_EDGE_RIGHT )
   {
     tileInfo->setHasRightPop(true);
+    
     edge->setRotation(90);
     edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width, sp->getPositionY() + sp->getContentSize().height/2));
-    CCLog("%f %f", sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY());
+
     tileMap->addChild(edge, GR_FOREGROUND);
     tileInfo->setEdgeRightSts(STS_NOT_AVAILABLE);
+    
+    for (int i = 0; i < tileInfoVector.size(); ++i)
+    {
+      if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileRight())
+      {
+        tileInfoVector.at(i)->setHasLeftPop(true);
+        tileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
+        tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+    }
   }
   tileInfo->setNumberEdgeAvailale(tileInfo->getNumberEdgeAvailale()-1);
+  CCLog("tileInfo->getNumberEdgeAvailale() = %d", tileInfo->getNumberEdgeAvailale());
   
-  if (tileInfo->getNumberEdgeAvailale() == 0)
-  {
-    sp->setColor(ccGRAY);
-  }
+//  if (tileInfo->getNumberEdgeAvailale() == 0)
+//  {
+//    sp->setColor(ccGRAY);
+//  }
   
   for (int i = 0; i < popsArr->count(); ++i)
   {
@@ -319,7 +387,6 @@ void PlayScene::moveMap(float offsetX, float offsetY)
     posY = getBound().y;
   }
   tileMap->setPosition(ccp(posX, posY));
-//  CCLog("map pos: %f %f", posX, posY);
 }
 
 CCPoint PlayScene::getBound()
@@ -360,4 +427,15 @@ void PlayScene::addGlowEffect(CCSprite* sprite,
 PlayScene::~PlayScene()
 {
     popsArr->release();
+}
+
+void PlayScene::update(float pdT)
+{
+  for (int i = 0; i < tileInfoVector.size(); ++i)
+  {
+    if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0)
+    {
+      tileInfoVector.at(i)->getTile()->setColor(ccGRAY);
+    }
+  }
 }
