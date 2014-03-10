@@ -99,6 +99,8 @@ void PlayScene::makeMapScroll()
   
   CCSize s = mapLayer->getLayerSize();
   CCSprite* tile = CCSprite::create();
+  popsArr = CCArray::createWithCapacity(NUMBER_EDGE_AVAILABLE);
+  popsArr->retain();
   
   for (int i = 0; i < s.width; ++i)
   {
@@ -112,6 +114,38 @@ void PlayScene::makeMapScroll()
         TileInfo *tileInfo = new TileInfo();
         tileInfo->setTile(tile);
         tileInfoVector.push_back(tileInfo);
+        
+        CCSprite* popBottom = CCSprite::create("PlayScene/button-pause.png");
+        CCMenuItemSprite* itemBottom = CCMenuItemSprite::create(popBottom, popBottom, this, menu_selector(PlayScene::chooseEdgeEnded));
+        CCMenu *edgePopBottom = CCMenu::create(itemBottom, NULL);
+        itemBottom->setTag(TAG_EDGE_BOTTOM);
+        edgePopBottom->setPosition(ccp(tile->getPositionX() + tile->getContentSize().width/2, tile->getPositionY() - popBottom->getContentSize().height/2));
+        tileMap->addChild(edgePopBottom);
+        edgePopBottom->setVisible(false);
+        
+        CCSprite* popTop = CCSprite::create("PlayScene/button-pause.png");
+        CCMenuItemSprite* itemTop = CCMenuItemSprite::create(popTop, popTop, this, menu_selector(PlayScene::chooseEdgeEnded));
+        CCMenu *edgePopTop = CCMenu::create(itemTop, NULL);
+        itemTop->setTag(TAG_EDGE_TOP);
+        edgePopTop->setPosition(ccp(tile->getPositionX() + tile->getContentSize().width/2, tile->getPositionY() + tile->getContentSize().height + popTop->getContentSize().height/2));
+        tileMap->addChild(edgePopTop);
+        edgePopTop->setVisible(false);
+
+        CCSprite* popLeft = CCSprite::create("PlayScene/button-pause.png");
+        CCMenuItemSprite* itemLeft = CCMenuItemSprite::create(popLeft, popLeft, this, menu_selector(PlayScene::chooseEdgeEnded));
+        CCMenu *edgePopLeft = CCMenu::create(itemLeft, NULL);
+        itemLeft->setTag(TAG_EDGE_LEFT);
+        edgePopLeft->setPosition(ccp(tile->getPositionX() - popLeft->getContentSize().width/2, tile->getPositionY() + tile->getContentSize().height/2));
+        tileMap->addChild(edgePopLeft);
+        edgePopLeft->setVisible(false);
+
+        CCSprite* popRight = CCSprite::create("PlayScene/button-pause.png");
+        CCMenuItemSprite* itemRight = CCMenuItemSprite::create(popRight, popRight, this, menu_selector(PlayScene::chooseEdgeEnded));
+        CCMenu *edgePopRight = CCMenu::create(itemRight, NULL);
+        itemRight->setTag(TAG_EDGE_BOTTOM);
+        edgePopRight->setPosition(ccp(tile->getPositionX() + tile->getContentSize().width + popRight->getContentSize().width/2, tile->getPositionY() + tile->getContentSize().height/2));
+        tileMap->addChild(edgePopRight);
+        edgePopRight->setVisible(false);
       }
     }
   }
@@ -186,6 +220,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
   TileInfo *tileInfo = new TileInfo();
   CCSprite *sp = CCSprite::create();
 //  CCSize s = mapLayer->getLayerSize();
+
   for (int i = 0; i < tileInfoVector.size(); ++i)
   {
     tileInfo = tileInfoVector.at(i);
@@ -194,37 +229,46 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     if (!mIsScrolling && sp && sp->boundingBox().containsPoint(beginLocationToMap))
     {
       curTile = i;
-      if (tileInfo->getEdgeBottomSts() == STS_AVAILABLE)
+
+      if (tileInfo->getEdgeBottomSts() == STS_AVAILABLE && !tileInfo->getHasBottomPop())
       {
+        tileInfo->setHasBottomPop(true);
         CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
         CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
+        popsArr->addObject(item);
         CCMenu *edgePop = CCMenu::create(item, NULL);
         item->setTag(TAG_EDGE_BOTTOM);
         edgePop->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() - pop->getContentSize().height/2));
         tileMap->addChild(edgePop);
       }
-      if (tileInfo->getEdgeTopSts() == STS_AVAILABLE)
+      if (tileInfo->getEdgeTopSts() == STS_AVAILABLE && !tileInfo->getHasTopPop())
       {
+        tileInfo->setHasTopPop(true);
         CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
         CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
+        popsArr->addObject(item);
         CCMenu *edgePop = CCMenu::create(item, NULL);
         item->setTag(TAG_EDGE_TOP);
         edgePop->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height + pop->getContentSize().height/2));
         tileMap->addChild(edgePop);
       }
-      if (tileInfo->getEdgeLeftSts() == STS_AVAILABLE)
+      if (tileInfo->getEdgeLeftSts() == STS_AVAILABLE && !tileInfo->getHasLeftPop())
       {
+        tileInfo->setHasLeftPop(true);
         CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
         CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
+        popsArr->addObject(item);
         CCMenu *edgePop = CCMenu::create(item, NULL);
         item->setTag(TAG_EDGE_LEFT);
         edgePop->setPosition(ccp(sp->getPositionX() - pop->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height/2));
         tileMap->addChild(edgePop);
       }
-      if (tileInfo->getEdgeRightSts() == STS_AVAILABLE)
+      if (tileInfo->getEdgeRightSts() == STS_AVAILABLE && !tileInfo->getHasRightPop())
       {
+        tileInfo->setHasRightPop(true);
         CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
         CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
+        popsArr->addObject(item);
         CCMenu *edgePop = CCMenu::create(item, NULL);
         item->setTag(TAG_EDGE_RIGHT);
         edgePop->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width + pop->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height/2));
@@ -281,7 +325,11 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     sp->setColor(ccGRAY);
   }
   
-  pop->removeFromParent();
+  for (int i = 0; i < popsArr->count(); ++i)
+  {
+    ((CCMenuItemSprite*)popsArr->objectAtIndex(i))->setVisible(false);
+  }
+  CCLog("%d", tileInfo->getNumberEdgeAvailale());
 }
 
 void PlayScene::registerWithTouchDispatcher() {
@@ -339,4 +387,9 @@ void PlayScene::addGlowEffect(CCSprite* sprite,
   
   CCRepeatForever* r = CCRepeatForever::create(s1);
   glowSprite->runAction(r);
+}
+
+PlayScene::~PlayScene()
+{
+    popsArr->release();
 }

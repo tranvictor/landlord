@@ -37,12 +37,15 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCArray *mEdgeArrLeft;
   cocos2d::CCArray *mEdgeArrRight;
   
-//  cocos2d::CCArray *tilesArr;
+  cocos2d::CCArray *popsArr;
   std::vector<TileInfo*> tileInfoVector;
   int curTile = 0;
+  int numPop = NUMBER_EDGE_AVAILABLE;
+  
 public:
   virtual bool init();
   static cocos2d::CCScene* scene();
+  ~PlayScene();
   
   void addPauseButton();
   void addPlayGroud();

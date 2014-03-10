@@ -80,8 +80,6 @@ enum eEdgeStatus
 {
   STS_AVAILABLE,
   STS_NOT_AVAILABLE,
-  STS_APPEAR,
-  STS_NOT_APPEAR
 };
 
 

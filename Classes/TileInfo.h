@@ -22,15 +22,16 @@ public:
   CC_SYNTHESIZE(eEdgeStatus, mEdgeLeftSts, EdgeLeftSts);
   CC_SYNTHESIZE(eEdgeStatus, mEdgeRightSts, EdgeRightSts);
   
-  CC_SYNTHESIZE(int, mBelongToTile, BelongToTile);
+//  CC_SYNTHESIZE(int, mBelongToTile, BelongToTile);
   
-  CC_SYNTHESIZE(cocos2d::CCSprite*, mEdgeTop, EdgeTop);
-  CC_SYNTHESIZE(cocos2d::CCSprite*, mEdgeBottom, EdgeBottom);
-  CC_SYNTHESIZE(cocos2d::CCSprite*, mEdgeLeft, EdgeLeft);
-  CC_SYNTHESIZE(cocos2d::CCSprite*, mEdgeRight, EdgeRight);
+  CC_SYNTHESIZE(bool, mHasTopPop, HasTopPop);
+  CC_SYNTHESIZE(bool, mHasBottomPop, HasBottomPop);
+  CC_SYNTHESIZE(bool, mHasLeftPop, HasLeftPop);
+  CC_SYNTHESIZE(bool, mHasRightPop, HasRightPop);
   
   CC_SYNTHESIZE(int, mNumberEdgeAvailale, NumberEdgeAvailale);
   CC_SYNTHESIZE(cocos2d::CCSprite*, mTile, Tile);
+  CC_SYNTHESIZE(bool, mHasEdgeTouched, HasEdgeTouched);
   
   TileInfo();
   
