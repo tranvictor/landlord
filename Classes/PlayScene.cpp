@@ -45,10 +45,10 @@ bool PlayScene::init()
   makeMapScroll();
 //  tilesArr->retain();
 //  addFrameImg();
-//  addPauseButton();
-//  addPLayerOne();
-//  addPlayerTwo();
-//  addScoreLbn();
+  addPauseButton();
+  addPLayerOne();
+  addPlayerTwo();
+  addScoreLbn();
   schedule(schedule_selector(PlayScene::update));
   
   return true;
@@ -150,9 +150,14 @@ void PlayScene::addScoreLbn()
   lbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
   lbnScorePlayer1->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
   lbnScorePlayer1->setColor(ccRED);
-  lbnScorePlayer1->setPosition(ccp(scoreP1->getPositionX()+scoreP1->getContentSize().width/2, scoreP1->getPositionY()));
-//  scoreP1->addChild(lbnScorePlayer1);
+  lbnScorePlayer1->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
+  scoreP1->addChild(lbnScorePlayer1);
   this->addChild(scoreP1);
+  
+  // demo counting player1 score
+  int player1Score = 555;
+  sprintf(scoreBuffer, "%i", player1Score);
+  lbnScorePlayer1->setString(scoreBuffer);
   
   CCSprite* scoreP2 = CCSprite::create("PlayScene/scoreP2.png");
   scoreP2->setPosition(LBN_SCORE_PLAYER2_POS);
@@ -160,9 +165,14 @@ void PlayScene::addScoreLbn()
   lbnScorePlayer2->setHorizontalAlignment(kCCTextAlignmentCenter);
   lbnScorePlayer2->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
   lbnScorePlayer2->setColor(ccRED);
-  lbnScorePlayer2->setPosition(ccp(scoreP2->getPositionX()+scoreP2->getContentSize().width/2, scoreP2->getPositionY()));
-//  scoreP2->addChild(lbnScorePlayer2);
+  lbnScorePlayer2->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
+  scoreP2->addChild(lbnScorePlayer2);
   this->addChild(scoreP2);
+  
+  // demo counting player2 score
+  int player2Score = 222;
+  sprintf(scoreBuffer, "%i", player2Score);
+  lbnScorePlayer2->setString(scoreBuffer);
 }
 
 void PlayScene::pauseButtonTouched()

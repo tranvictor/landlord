@@ -24,6 +24,7 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCSize screenSize;
   cocos2d::CCLabelTTF *lbnScorePlayer1;
   cocos2d::CCLabelTTF *lbnScorePlayer2;
+  char scoreBuffer[10];
   
   CCPoint beginLocation;
   CCPoint beginLocationToMap; // beginLocation in tilemap co-ordinate
