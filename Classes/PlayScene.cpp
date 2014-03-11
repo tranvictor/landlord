@@ -208,6 +208,15 @@ void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 
 void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
+  if (popsArr->count() > 0)
+  {
+    for (int i = 0; i < popsArr->count(); ++i)
+    {
+      ((CCMenuItemSprite*)popsArr->objectAtIndex(i))->removeFromParent();
+      CCLog("remove %d", i);
+    }
+    popsArr->removeAllObjects();
+  }
   TileInfo *tileInfo = new TileInfo();
   CCSprite *sp = CCSprite::create();
 //  CCSize s = mapLayer->getLayerSize();
