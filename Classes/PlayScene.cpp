@@ -484,7 +484,7 @@ bool PlayScene::getCurrentPlayer()
   return currentPlayer;
 }
 
-int PlayScene::getPlayerScore(bool currentScore)
+int PlayScene::getPlayerScore(bool currentPlayer)
 {
   if (currentPlayer == true)
   {
