@@ -41,6 +41,7 @@ bool PlayScene::init()
   screenSize = CCDirector::sharedDirector()->getWinSize();
   setTouchEnabled(true);
   
+  initPlayersInfor();
 //  addPlayGroud();
   makeMapScroll();
 //  tilesArr->retain();
@@ -155,8 +156,7 @@ void PlayScene::addScoreLbn()
   this->addChild(scoreP1);
   
   // demo counting player1 score
-  int player1Score = 555;
-  sprintf(scoreBuffer, "%i", player1Score);
+  sprintf(scoreBuffer, "%i", getPlayerScore(true));
   lbnScorePlayer1->setString(scoreBuffer);
   
   CCSprite* scoreP2 = CCSprite::create("PlayScene/scoreP2.png");
@@ -170,8 +170,7 @@ void PlayScene::addScoreLbn()
   this->addChild(scoreP2);
   
   // demo counting player2 score
-  int player2Score = 222;
-  sprintf(scoreBuffer, "%i", player2Score);
+  sprintf(scoreBuffer, "%i", getPlayerScore(false));
   lbnScorePlayer2->setString(scoreBuffer);
 }
 
@@ -456,5 +455,43 @@ void PlayScene::update(float pdT)
     {
       tileInfoVector.at(i)->getTile()->setColor(ccGRAY);
     }
+  }
+}
+
+
+// Players infor
+void PlayScene::initPlayersInfor()
+{
+  player1Score = 1;
+  player2Score = 2;
+  currentPlayer = true;
+}
+
+void PlayScene::increaseScore(bool currentPlayer)
+{
+  if (currentPlayer == true)
+  {
+    player1Score++;
+  }
+  else
+  {
+    player2Score++;
+  }
+}
+
+bool PlayScene::getCurrentPlayer()
+{
+  return currentPlayer;
+}
+
+int PlayScene::getPlayerScore(bool currentScore)
+{
+  if (currentPlayer == true)
+  {
+    return player1Score;
+  }
+  else
+  {
+    return player2Score;
   }
 }

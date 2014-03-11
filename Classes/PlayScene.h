@@ -44,6 +44,11 @@ class PlayScene : public cocos2d::CCLayer
   int curTile = 0;
   int numPop = NUMBER_EDGE_AVAILABLE;
   
+  // Player infor
+  int player1Score;
+  int player2Score;
+  bool currentPlayer; // true = P1, false = P2
+  
 public:
   virtual bool init();
   static cocos2d::CCScene* scene();
@@ -72,6 +77,12 @@ public:
   void chooseEdgeEnded(cocos2d::CCObject *pSender);
   CREATE_FUNC(PlayScene);
   void update(float pdT);
+  
+  //  Players infor
+  void initPlayersInfor();
+  void increaseScore(bool currentPlayer);
+  bool getCurrentPlayer();
+  int getPlayerScore(bool currentPlayer);
 };
 
 #endif /* defined(__landlord__PlayScene__) */

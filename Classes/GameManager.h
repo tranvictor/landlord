@@ -18,7 +18,7 @@ private:
   static int  playerOneID;
   static int  playerTwoID;
   static int  mapIDTouched;
-  
+
 public:
   static bool getMusicState();
   static void setMusicState();
@@ -37,6 +37,7 @@ public:
   
   static void setMapIDTouched(int ID);
   static int getMapIDTouched();
+  
 };
 
 #endif
