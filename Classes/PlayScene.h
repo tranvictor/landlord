@@ -45,7 +45,7 @@ class PlayScene : public cocos2d::CCLayer
   int curTile = 0;
   int numPop = NUMBER_EDGE_AVAILABLE;
   
-  // Player infor
+  // Player info
   int player1Score;
   int player2Score;
   bool currentPlayer; // true = P1, false = P2

@@ -18,6 +18,8 @@ int  GameManager::mapIDTouched = 1;
 int  GameManager::player1Score;
 int  GameManager::player2Score;
 bool GameManager::currentPlayer;
+bool GameManager::winPlayer;
+int  GameManager::numberOfTilesChose;
 
 bool GameManager::getMusicState()
 {
@@ -81,16 +83,17 @@ int GameManager::getMapIDTouched()
 }
 
 //  Players infor
-void GameManager::initPlayersInfor()
+void GameManager::initPlayersInfo()
 {
   player1Score = 0;
   player2Score = 0;
   currentPlayer = true;
+  numberOfTilesChose = 0;
 }
 
 void GameManager::increaseScore(bool currentPlayer)
 {
-  if (currentPlayer == true)
+  if (currentPlayer)
   {
     player1Score++;
   }
@@ -107,12 +110,29 @@ bool GameManager::getCurrentPlayer()
 
 int GameManager::getPlayerScore(bool currentPlayer)
 {
-  if (currentPlayer == true)
+  if (currentPlayer)
   {
     return player1Score;
   }
   else
   {
     return player2Score;
+  }
+}
+
+bool GameManager::getWinPlayer()
+{
+  return winPlayer;
+}
+
+void GameManager::changeCurrentPlayer()
+{
+  if (currentPlayer)
+  {
+    currentPlayer = false;
+  }
+  else
+  {
+    currentPlayer = true;
   }
 }

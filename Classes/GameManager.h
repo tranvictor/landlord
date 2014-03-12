@@ -38,15 +38,19 @@ public:
   static void setMapIDTouched(int ID);
   static int getMapIDTouched();
   
-  //  Players infor
+  //  Players info
   static int player1Score;
   static int player2Score;
   static bool currentPlayer; // true = P1, false = P2
+  static bool winPlayer;
+  static int numberOfTilesChose;
   
-  static void initPlayersInfor();
+  static void initPlayersInfo();
   static void increaseScore(bool currentPlayer);
   static bool getCurrentPlayer();
   static int getPlayerScore(bool currentPlayer);
+  static bool getWinPlayer();
+  static void changeCurrentPlayer();
 };
 
 #endif

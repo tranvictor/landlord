@@ -41,12 +41,13 @@ bool PlayScene::init()
   screenSize = CCDirector::sharedDirector()->getWinSize();
   setTouchEnabled(true);
   
-  GameManager::initPlayersInfor();
+  GameManager::initPlayersInfo();
 //  addPlayGroud();
   makeMapScroll();
 //  tilesArr->retain();
 //  addFrameImg();
   addPauseButton();
+  
   addPLayerOne();
   addPlayerTwo();
   addScoreLbn();
@@ -150,7 +151,7 @@ void PlayScene::addScoreLbn()
   lbnScorePlayer1 = CCLabelTTF::create("0", "ordin", 50);
   lbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
   lbnScorePlayer1->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
-  lbnScorePlayer1->setColor(ccRED);
+  lbnScorePlayer1->setColor(ccBLUE);
   lbnScorePlayer1->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
   scoreP1->addChild(lbnScorePlayer1);
   this->addChild(scoreP1);
@@ -214,6 +215,7 @@ void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
   beginLocation = touchLocation;
   beginLocationToMap = touchLocationToMap;
 }
+
 
 void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
@@ -299,7 +301,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     
     edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
 
-    tileMap->addChild(edge, GR_FOREGROUND);
+    tileMap->addChild(edge, GR_FOREGROUND); // EDGE z-Order
     tileInfo->setEdgeBottomSts(STS_NOT_AVAILABLE);
     
     for (int i = 0; i < tileInfoVector.size(); ++i)
@@ -373,10 +375,26 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   tileInfo->setNumberEdgeAvailale(tileInfo->getNumberEdgeAvailale()-1);
   CCLog("tileInfo->getNumberEdgeAvailale() = %d", tileInfo->getNumberEdgeAvailale());
   
-//  if (tileInfo->getNumberEdgeAvailale() == 0)
-//  {
-//    sp->setColor(ccGRAY);
-//  }
+  bool currentPlayer = GameManager::getCurrentPlayer();
+  CCLog("Current Player is %i", currentPlayer);
+  
+  if (tileInfo->getNumberEdgeAvailale() == 0)
+  {
+    GameManager::increaseScore(currentPlayer);
+    sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(currentPlayer));
+    if (currentPlayer)
+    {
+      lbnScorePlayer1->setString(scoreBuffer);
+    }
+    else
+    {
+      lbnScorePlayer2->setString(scoreBuffer);
+    }
+  }
+  else
+  {
+    GameManager::changeCurrentPlayer();
+  }
   
   for (int i = 0; i < popsArr->count(); ++i)
   {
