@@ -48,8 +48,10 @@ bool PlayScene::init()
 //  addFrameImg();
   addPauseButton();
   
-  addPLayerOne();
+  addPlayerOne();
+  addPlayerOneShadow();
   addPlayerTwo();
+  addPlayerTwoShadow();
   addScoreLbn();
   schedule(schedule_selector(PlayScene::update));
   
@@ -72,14 +74,22 @@ void PlayScene::addPlayGroud()
   addChild(ground);
 }
 
-void PlayScene::addPLayerOne()
+void PlayScene::addPlayerOne()
 {
   playerOneTag = GameManager::getPlayerOneID();
   CCLog("getPlayerOneID = %d", GameManager::getPlayerOneID());
   CCSprite *playerOne = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", playerOneTag))->getCString());
   playerOne->setScale(0.8f);
   playerOne->setPosition(PLAYER_ONE_POS);
-  this->addChild(playerOne);
+  this->addChild(playerOne, GR_MIDDLEGROUND);
+}
+
+void PlayScene::addPlayerOneShadow()
+{
+  playerOneShadow = CCSprite::create((CCString::createWithFormat("ChooseCharacterScene/c%i-blue.png", playerOneTag))->getCString());
+  playerOneShadow->setScale(0.8f);
+  playerOneShadow->setPosition(PLAYER_ONE_POS);
+  this->addChild(playerOneShadow, GR_BACKGROUND);
 }
 
 void PlayScene::addPlayerTwo()
@@ -88,7 +98,16 @@ void PlayScene::addPlayerTwo()
   CCSprite *playerTwo = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", playerTwoTag))->getCString());
   playerTwo->setScale(0.8f);
   playerTwo->setPosition(PLAYER_TWO_POS);
-  this->addChild(playerTwo);
+  this->addChild(playerTwo, GR_MIDDLEGROUND);
+}
+
+void PlayScene::addPlayerTwoShadow()
+{
+  playerTwoShadow = CCSprite::create((CCString::createWithFormat("ChooseCharacterScene/c%i-red.png", playerTwoTag))->getCString());
+  playerTwoShadow->setScale(0.8f);
+  playerTwoShadow->setPosition(PLAYER_TWO_POS);
+  this->addChild(playerTwoShadow, GR_BACKGROUND);
+  playerTwoShadow->setVisible(false);
 }
 
 void PlayScene::makeMapScroll()
@@ -154,7 +173,7 @@ void PlayScene::addScoreLbn()
   lbnScorePlayer1->setColor(ccBLUE);
   lbnScorePlayer1->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
   scoreP1->addChild(lbnScorePlayer1);
-  this->addChild(scoreP1);
+  this->addChild(scoreP1, GR_FOREGROUND);
   
   // demo counting player1 score
   sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(true));
@@ -168,7 +187,7 @@ void PlayScene::addScoreLbn()
   lbnScorePlayer2->setColor(ccRED);
   lbnScorePlayer2->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
   scoreP2->addChild(lbnScorePlayer2);
-  this->addChild(scoreP2);
+  this->addChild(scoreP2, GR_FOREGROUND);
   
   // demo counting player2 score
   sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(false));
@@ -394,6 +413,17 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   else
   {
     GameManager::changeCurrentPlayer();
+    
+    if (currentPlayer)
+    {
+      playerOneShadow->setVisible(false);
+      playerTwoShadow->setVisible(true);
+    }
+    else
+    {
+      playerTwoShadow->setVisible(false);
+      playerOneShadow->setVisible(true);
+    }
   }
   
   for (int i = 0; i < popsArr->count(); ++i)

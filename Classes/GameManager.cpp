@@ -6,7 +6,11 @@
 //
 //
 
+#include "cocos2d.h"
 #include "GameManager.h"
+#include "Constant.h"
+
+USING_NS_CC;
 
 bool GameManager::musicState = true;
 bool GameManager::soundState = true;
@@ -89,6 +93,7 @@ void GameManager::initPlayersInfo()
   player2Score = 0;
   currentPlayer = true;
   numberOfTilesChose = 0;
+
 }
 
 void GameManager::increaseScore(bool currentPlayer)

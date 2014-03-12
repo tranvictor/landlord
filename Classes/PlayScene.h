@@ -45,10 +45,14 @@ class PlayScene : public cocos2d::CCLayer
   int curTile = 0;
   int numPop = NUMBER_EDGE_AVAILABLE;
   
-  // Player info
+  // Players info
   int player1Score;
   int player2Score;
   bool currentPlayer; // true = P1, false = P2
+  
+  // Players shadow
+  CCSprite *playerOneShadow;
+  CCSprite *playerTwoShadow;
   
 public:
   virtual bool init();
@@ -57,8 +61,10 @@ public:
   
   void addPauseButton();
   void addPlayGroud();
-  void addPLayerOne();
+  void addPlayerOne();
+  void addPlayerOneShadow();
   void addPlayerTwo();
+  void addPlayerTwoShadow();
   void addScoreLbn();
   void addFrameImg();
   

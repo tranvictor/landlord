@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/PlayScene.cpp"
-            timestampString = "416284368.466815"
+            timestampString = "416310616.893487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
+            startingLineNumber = "474"
+            endingLineNumber = "474"
             landmarkName = "PlayScene::addGlowEffect(CCSprite* sprite, const ccColor3B&amp; colour, const CCSize&amp; size)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/PlayScene.cpp"
-            timestampString = "416284368.466815"
+            timestampString = "416310616.893487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "472"
-            endingLineNumber = "472"
+            startingLineNumber = "502"
+            endingLineNumber = "502"
             landmarkName = "PlayScene::update(float pdT)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/PlayScene.cpp"
-            timestampString = "416284368.466815"
+            timestampString = "416310616.893487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "474"
-            endingLineNumber = "474"
+            startingLineNumber = "504"
+            endingLineNumber = "504"
             landmarkName = "PlayScene::update(float pdT)"
             landmarkType = "5">
             <Locations>
@@ -125,6 +125,52 @@
                   startingLineNumber = "461"
                   endingLineNumber = "461"
                   offsetFromSymbolStart = "156">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/PlayScene.cpp"
+            timestampString = "416309960.478733"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "PlayScene::addPlayerOneShadow()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlayScene::init()"
+                  moduleName = "landlord"
+                  urlString = "file:///Users/TuanTQ/Desktop/cocos2d-x-2.2.2/projects/landlord/Classes/PlayScene.cpp"
+                  timestampString = "416310055.266246"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "298">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlayScene::addPlayerOneShadow()"
+                  moduleName = "landlord"
+                  urlString = "file:///Users/TuanTQ/Desktop/cocos2d-x-2.2.2/projects/landlord/Classes/PlayScene.cpp"
+                  timestampString = "416310055.26659"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "60">
                </Location>
             </Locations>
          </BreakpointContent>
