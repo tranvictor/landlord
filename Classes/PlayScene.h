@@ -14,6 +14,7 @@
 #include "cocos-ext.h"
 #include "CCLayerPanZoom.h"
 #include "TileInfo.h"
+#include "GameManager.h"
 
 class PlayScene : public cocos2d::CCLayer
 {
@@ -78,11 +79,6 @@ public:
   CREATE_FUNC(PlayScene);
   void update(float pdT);
   
-  //  Players infor
-  void initPlayersInfor();
-  void increaseScore(bool currentPlayer);
-  bool getCurrentPlayer();
-  int getPlayerScore(bool currentPlayer);
 };
 
 #endif /* defined(__landlord__PlayScene__) */

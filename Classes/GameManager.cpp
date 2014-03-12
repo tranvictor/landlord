@@ -15,6 +15,10 @@ int  GameManager::playerOneID = 1;
 int  GameManager::playerTwoID = 1;
 int  GameManager::mapIDTouched = 1;
 
+int  GameManager::player1Score;
+int  GameManager::player2Score;
+bool GameManager::currentPlayer;
+
 bool GameManager::getMusicState()
 {
   return musicState;
@@ -74,4 +78,41 @@ void GameManager::setMapIDTouched(int ID)
 int GameManager::getMapIDTouched()
 {
   return mapIDTouched;
+}
+
+//  Players infor
+void GameManager::initPlayersInfor()
+{
+  player1Score = 0;
+  player2Score = 0;
+  currentPlayer = true;
+}
+
+void GameManager::increaseScore(bool currentPlayer)
+{
+  if (currentPlayer == true)
+  {
+    player1Score++;
+  }
+  else
+  {
+    player2Score++;
+  }
+}
+
+bool GameManager::getCurrentPlayer()
+{
+  return currentPlayer;
+}
+
+int GameManager::getPlayerScore(bool currentPlayer)
+{
+  if (currentPlayer == true)
+  {
+    return player1Score;
+  }
+  else
+  {
+    return player2Score;
+  }
 }
