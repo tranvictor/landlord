@@ -140,3 +140,8 @@ void GameManager::changeCurrentPlayer()
     currentPlayer = true;
   }
 }
+
+void GameManager::setWinPlayer()
+{
+  winPlayer = currentPlayer;
+}

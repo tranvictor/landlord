@@ -19,6 +19,11 @@ private:
   static int  playerTwoID;
   static int  mapIDTouched;
 
+  static int player1Score;
+  static int player2Score;
+  static bool currentPlayer; // true = P1, false = P2
+  static bool winPlayer;
+  static int numberOfTilesChose;
 public:
   static bool getMusicState();
   static void setMusicState();
@@ -37,20 +42,15 @@ public:
   
   static void setMapIDTouched(int ID);
   static int getMapIDTouched();
-  
-  //  Players info
-  static int player1Score;
-  static int player2Score;
-  static bool currentPlayer; // true = P1, false = P2
-  static bool winPlayer;
-  static int numberOfTilesChose;
 
   static void initPlayersInfo();
   static void increaseScore(bool currentPlayer);
-  static bool getCurrentPlayer();
   static int getPlayerScore(bool currentPlayer);
-  static bool getWinPlayer();
+  static bool getCurrentPlayer();
   static void changeCurrentPlayer();
+  static void setWinPlayer();
+  static bool getWinPlayer();
+
 };
 
 #endif
