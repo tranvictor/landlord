@@ -450,110 +450,6 @@ PlayScene::~PlayScene()
     popsArr->release();
 }
 
-void PlayScene::tileUpdate(int pSender)
-{
-  //TOP
-  if (!tileInfoVector.at(pSender)->getHasTopPop())
-  {
-    CCLog("Ha ha");
-    CCSprite *edge = CCSprite::create("PlayScene/edge.png");
-  
-    TileInfo *tileInfo = tileInfoVector.at(pSender);
-  
-    CCSprite *sp = tileInfo->getTile();
-    tileInfo->setHasTopPop(true);
-  
-    edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height));
-  
-    tileMap->addChild(edge, GR_FOREGROUND);
-    tileInfo->setEdgeTopSts(STS_NOT_AVAILABLE);
-    for (int i = 0; i < tileInfoVector.size(); ++i)
-    {
-      if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileUp())
-      {
-        tileInfoVector.at(i)->setHasBottomPop(true);
-        tileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
-        tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-      }
-    }
-  }else
-  //BOTTOM
-  if (!tileInfoVector.at(pSender)->getHasBottomPop())
-  {
-    CCLog("Ha ha");
-    CCSprite *edge = CCSprite::create("PlayScene/edge.png");
-    
-    TileInfo *tileInfo = tileInfoVector.at(pSender);
-    
-    CCSprite *sp = tileInfo->getTile();
-    tileInfo->setHasBottomPop(true);
-    
-    edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
-    
-    tileMap->addChild(edge, GR_FOREGROUND);
-    tileInfo->setEdgeBottomSts(STS_NOT_AVAILABLE);
-    for (int i = 0; i < tileInfoVector.size(); ++i)
-    {
-      if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileDown())
-      {
-        tileInfoVector.at(i)->setHasTopPop(true);
-        tileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
-        tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-      }
-    }
-  }else
-  //LEFT
-  if (!tileInfoVector.at(pSender)->getHasLeftPop())
-  {
-    CCLog("Ha ha");
-    CCSprite *edge = CCSprite::create("PlayScene/edge.png");
-    
-    TileInfo *tileInfo = tileInfoVector.at(pSender);
-    
-    CCSprite *sp = tileInfo->getTile();
-    tileInfo->setHasLeftPop(true);
-    
-    edge->setPosition(ccp(sp->getPositionX(), sp->getPositionY() + sp->getContentSize().height/2));
-    
-    tileMap->addChild(edge, GR_FOREGROUND);
-    tileInfo->setEdgeLeftSts(STS_NOT_AVAILABLE);
-    for (int i = 0; i < tileInfoVector.size(); ++i)
-    {
-      if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileLeft())
-      {
-        tileInfoVector.at(i)->setHasRightPop(true);
-        tileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
-        tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-      }
-    }
-  }else
-  //RIGHT
-  if (!tileInfoVector.at(pSender)->getHasRightPop())
-  {
-    CCLog("Ha ha");
-    CCSprite *edge = CCSprite::create("PlayScene/edge.png");
-    
-    TileInfo *tileInfo = tileInfoVector.at(pSender);
-    
-    CCSprite *sp = tileInfo->getTile();
-    tileInfo->setHasRightPop(true);
-    
-    edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width, sp->getPositionY() + sp->getContentSize().height/2));
-    
-    tileMap->addChild(edge, GR_FOREGROUND);
-    tileInfo->setEdgeRightSts(STS_NOT_AVAILABLE);
-    for (int i = 0; i < tileInfoVector.size(); ++i)
-    {
-      if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileRight())
-      {
-        tileInfoVector.at(i)->setHasLeftPop(true);
-        tileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
-        tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-      }
-    }
-  }
-}
-
 void PlayScene::update(float pdT)
 {
   for (int i = 0; i < tileInfoVector.size(); ++i)
@@ -567,15 +463,33 @@ void PlayScene::update(float pdT)
     }
   }
   
-  for (int i=0; i<SimpleAI::tileAccepted.size(); i++) {
-    for (int j=0; j<tileInfoVector.size(); j++) {
-      if (tileInfoVector.at(j)->getGID() == SimpleAI::tileAccepted.at(i))
-      {
-        tileInfoVector.at(j)->setNumberEdgeAvailale(-1);
-        tileUpdate(j);
-        tileInfoVector.at(j)->getTile()->setColor(ccGRAY);
-        break;
-      }
+  for (int i=0; i<tileInfoVector.size(); i++)
+  {
+    if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0)
+    {
+    //Bottom
+      CCSprite *edge1 = CCSprite::create("PlayScene/edge.png");
+    
+      TileInfo *tileInfo = tileInfoVector.at(i);
+    
+      CCSprite *sp = tileInfo->getTile();
+    
+      edge1->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
+      tileMap->addChild(edge1, GR_FOREGROUND);
+    //Top
+      CCSprite *edge2 = CCSprite::create("PlayScene/edge.png");
+      edge2->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()+sp->getContentSize().height));
+      tileMap->addChild(edge2, GR_FOREGROUND);
+    //Left
+      CCSprite *edge3 = CCSprite::create("PlayScene/edge.png");
+      edge3->setRotation(90);
+      edge3->setPosition(ccp(sp->getPositionX(), sp->getPositionY()+sp->getContentSize().height/2));
+      tileMap->addChild(edge3, GR_FOREGROUND);
+    //Right
+      CCSprite *edge4 = CCSprite::create("PlayScene/edge.png");
+      edge4->setRotation(90);
+      edge4->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width, sp->getPositionY()+sp->getContentSize().height/2));
+      tileMap->addChild(edge4, GR_FOREGROUND);
     }
   }
 }

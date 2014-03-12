@@ -28,7 +28,6 @@ class PlayScene : public cocos2d::CCLayer
   CCPoint beginLocation;
   CCPoint beginLocationToMap; // beginLocation in tilemap co-ordinate
   
-  CCTMXTiledMap *tileMap;
   CCTMXLayer    *mapLayer;
   CCTMXObjectGroup *mTileEdges;
   bool mIsScrolling = false;
@@ -48,6 +47,7 @@ public:
   ~PlayScene();
   
   static std::vector<TileInfo*> tileInfoVector;
+  CCTMXTiledMap *tileMap;
   
   void addPauseButton();
   void addPlayGroud();
@@ -59,6 +59,8 @@ public:
   void tileUpdate(int pSender);
   
   static std::vector<TileInfo*> getTileInfoVector();
+  
+  static void addToTiledMap(cocos2d::CCSprite *pSender);
   
   CCTMXTiledMap getTileMap();
 //  CC_SYNTHESIZE_READONLY(std::vector<TileInfo*>, tileInfoVector, TileInfoVector);

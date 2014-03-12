@@ -56,67 +56,67 @@ void update(int pSender)
     SimpleAI::tileArr.at(vt)->setHasBottomPop(true);
     SimpleAI::tileArr.at(vt)->setEdgeBottomSts(STS_NOT_AVAILABLE);
     for (int i = 0; i < SimpleAI::tileArr.size(); ++i)
-      {
+    {
       if (SimpleAI::tileArr.at(i)->getGID() == SimpleAI::tileArr.at(vt)->getGIDTileDown())
-        {
+      {
         SimpleAI::tileArr.at(i)->setHasTopPop(true);
         SimpleAI::tileArr.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
         SimpleAI::tileArr.at(i)->setNumberEdgeAvailale(SimpleAI::tileArr.at(i)->getNumberEdgeAvailale()-1);
         break;
-        }
       }
-  }
+    }
+  } else
   
   //TOP
   if(!SimpleAI::tileArr.at(vt)->getHasTopPop())
-    {
+  {
     SimpleAI::tileArr.at(vt)->setHasTopPop(true);
     SimpleAI::tileArr.at(vt)->setEdgeTopSts(STS_NOT_AVAILABLE);
     for (int i = 0; i < SimpleAI::tileArr.size(); ++i)
-      {
+    {
       if (SimpleAI::tileArr.at(i)->getGID() == SimpleAI::tileArr.at(vt)->getGIDTileUp())
-        {
+      {
         SimpleAI::tileArr.at(i)->setHasBottomPop(true);
         SimpleAI::tileArr.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
         SimpleAI::tileArr.at(i)->setNumberEdgeAvailale(SimpleAI::tileArr.at(i)->getNumberEdgeAvailale()-1);
         break;
-        }
       }
     }
+  } else
   
   //LEFT
   if(!SimpleAI::tileArr.at(vt)->getHasLeftPop())
-    {
+  {
     SimpleAI::tileArr.at(vt)->setHasLeftPop(true);
     SimpleAI::tileArr.at(vt)->setEdgeLeftSts(STS_NOT_AVAILABLE);
     for (int i = 0; i < SimpleAI::tileArr.size(); ++i)
-      {
+    {
       if (SimpleAI::tileArr.at(i)->getGID() == SimpleAI::tileArr.at(vt)->getGIDTileLeft())
-        {
+      {
         SimpleAI::tileArr.at(i)->setHasRightPop(true);
         SimpleAI::tileArr.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
         SimpleAI::tileArr.at(i)->setNumberEdgeAvailale(SimpleAI::tileArr.at(i)->getNumberEdgeAvailale()-1);
         break;
-        }
       }
     }
+  } else
   
   //RIGHT
   if(!SimpleAI::tileArr.at(vt)->getHasRightPop())
-    {
+  {
     SimpleAI::tileArr.at(vt)->setHasRightPop(true);
     SimpleAI::tileArr.at(vt)->setEdgeRightSts(STS_NOT_AVAILABLE);
     for (int i = 0; i < SimpleAI::tileArr.size(); ++i)
-      {
+    {
       if (SimpleAI::tileArr.at(i)->getGID() == SimpleAI::tileArr.at(vt)->getGIDTileRight())
-        {
+      {
         SimpleAI::tileArr.at(i)->setHasLeftPop(true);
         SimpleAI::tileArr.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
         SimpleAI::tileArr.at(i)->setNumberEdgeAvailale(SimpleAI::tileArr.at(i)->getNumberEdgeAvailale()-1);
         break;
-        }
       }
     }
+  }
 }
 
 void SimpleAI::Breath_First_Search(int ptileIndex_i, int ptileIndex_j)
@@ -162,6 +162,7 @@ void SimpleAI::Breath_First_Search(int ptileIndex_i, int ptileIndex_j)
           if (tileArr.at(r)->getNumberEdgeAvailale() == 1)
           {
             update(r);
+            tileArr.at(r)->getTile()->setColor(ccGRAY);
             tileArr.at(r)->setNumberEdgeAvailale(0);
             push(tileArr.at(r)->getGID());
             tileAccepted.push_back(tileArr.at(r)->getGID());
