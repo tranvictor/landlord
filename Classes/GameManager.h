@@ -48,7 +48,7 @@ public:
   static int getPlayerScore(bool currentPlayer);
   static bool getCurrentPlayer();
   static void changeCurrentPlayer();
-  static void setWinPlayer();
+  static void setWinPlayer(bool _currentPlayer);
   static bool getWinPlayer();
 
 };

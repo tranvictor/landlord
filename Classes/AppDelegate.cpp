@@ -32,7 +32,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
 //    CCScene *pScene = HelloWorld::scene();
-    CCScene *pScene = PlayScene::scene();
+//    CCScene *pScene = PlayScene::scene();
+    CCScene *pScene = StartScene::scene();
     // run
     pDirector->runWithScene(pScene);
 

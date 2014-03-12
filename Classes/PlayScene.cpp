@@ -394,7 +394,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   tileInfo->setNumberEdgeAvailale(tileInfo->getNumberEdgeAvailale()-1);
   CCLog("tileInfo->getNumberEdgeAvailale() = %d", tileInfo->getNumberEdgeAvailale());
   
-  bool currentPlayer = GameManager::getCurrentPlayer();
+  currentPlayer = GameManager::getCurrentPlayer();
   CCLog("Current Player is %i", currentPlayer);
   
   if (tileInfo->getNumberEdgeAvailale() == 0)
@@ -584,9 +584,10 @@ void PlayScene::update(float pdT)
       }
     }
   }
-  if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) == 5)
+  if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) == 3)
   {
-    GameManager::setWinPlayer();
-    CCLog("Win player is %i", GameManager::getWinPlayer());
+    GameManager::setWinPlayer(currentPlayer);
+    CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
+    CCDirector::sharedDirector()->replaceScene(newScene);
   }
 }

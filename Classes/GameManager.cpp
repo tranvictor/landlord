@@ -141,7 +141,7 @@ void GameManager::changeCurrentPlayer()
   }
 }
 
-void GameManager::setWinPlayer()
+void GameManager::setWinPlayer(bool _currentPlayer)
 {
-  winPlayer = currentPlayer;
+  winPlayer = _currentPlayer;
 }
