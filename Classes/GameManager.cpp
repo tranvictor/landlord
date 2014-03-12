@@ -93,7 +93,6 @@ void GameManager::initPlayersInfo()
   player2Score = 0;
   currentPlayer = true;
   numberOfTilesChose = 0;
-
 }
 
 void GameManager::increaseScore(bool currentPlayer)

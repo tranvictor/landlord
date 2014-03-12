@@ -44,7 +44,7 @@ public:
   static bool currentPlayer; // true = P1, false = P2
   static bool winPlayer;
   static int numberOfTilesChose;
-  
+
   static void initPlayersInfo();
   static void increaseScore(bool currentPlayer);
   static bool getCurrentPlayer();

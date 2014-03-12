@@ -41,7 +41,10 @@ public:
 //  CC_SYNTHESIZE(float, mGridX, GridX);
 //  CC_SYNTHESIZE(int, mGridY, GridY);
   
+  CC_SYNTHESIZE(int, mBelongToPlayer, BelongToPlayer);
+  
   TileInfo();
+  
   
 //  static TileInfo* create(const char* pFileName);
 //  virtual bool init(const char* pFileName);

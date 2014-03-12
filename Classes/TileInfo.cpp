@@ -51,5 +51,6 @@ TileInfo::TileInfo()
   mHasEdgeTouched = false;
   mGIDTileDown = mGIDTileLeft = mGIDTileRight = mGIDTileUp = -1;
   mGID = 0;
+  mBelongToPlayer = 0;
 }
 

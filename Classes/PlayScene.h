@@ -45,11 +45,6 @@ class PlayScene : public cocos2d::CCLayer
   int curTile = 0;
   int numPop = NUMBER_EDGE_AVAILABLE;
   
-  // Players info
-  int player1Score;
-  int player2Score;
-  bool currentPlayer; // true = P1, false = P2
-  
   // Players shadow
   CCSprite *playerOneShadow;
   CCSprite *playerTwoShadow;

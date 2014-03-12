@@ -404,10 +404,12 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     if (currentPlayer)
     {
       lbnScorePlayer1->setString(scoreBuffer);
+      tileInfo->setBelongToPlayer(1);
     }
     else
     {
       lbnScorePlayer2->setString(scoreBuffer);
+      tileInfo->setBelongToPlayer(2);
     }
   }
   else
@@ -501,7 +503,14 @@ void PlayScene::update(float pdT)
   {
     if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0)
     {
-      tileInfoVector.at(i)->getTile()->setColor(ccGRAY);
+      if (tileInfoVector.at(i)->getBelongToPlayer() == 1)
+      {
+        tileInfoVector.at(i)->getTile()->setColor(ccBLUE);
+      }
+      else if (tileInfoVector.at(i)->getBelongToPlayer() == 2)
+      {
+        tileInfoVector.at(i)->getTile()->setColor(ccRED);
+      }
     }
   }
 }
