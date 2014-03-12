@@ -38,7 +38,6 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCArray *mEdgeArrRight;
   
   cocos2d::CCArray *popsArr;
-  std::vector<TileInfo*> tileInfoVector;
   
   int curTile = 0;
   int numPop = NUMBER_EDGE_AVAILABLE;
@@ -48,12 +47,22 @@ public:
   static cocos2d::CCScene* scene();
   ~PlayScene();
   
+  static std::vector<TileInfo*> tileInfoVector;
+  
   void addPauseButton();
   void addPlayGroud();
   void addPLayerOne();
   void addPlayerTwo();
   void addScoreLbn();
   void addFrameImg();
+  
+  void tileUpdate(int pSender);
+  
+  static std::vector<TileInfo*> getTileInfoVector();
+  
+  CCTMXTiledMap getTileMap();
+//  CC_SYNTHESIZE_READONLY(std::vector<TileInfo*>, tileInfoVector, TileInfoVector);
+//   CC_SYNTHESIZE_PASS_BY_REF(std::vector<TileInfo*>, tileInfoVector, TileInfoVector);
   
   void makeMapScroll();
   void pauseButtonTouched();
