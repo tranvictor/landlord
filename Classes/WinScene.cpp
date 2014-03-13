@@ -94,10 +94,19 @@ void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 void WinScene::appearWinner()
 {
   // Get from manager
-  int arr[2] = {GameManager::getPlayerOneID(), GameManager::getPlayerTwoID()};
-  srand (time(NULL));
-  int i = arr[rand()%2];
-  CCString *winnerName = CCString::createWithFormat("WinScene/c%i.png", i);
+//  int arr[2] = {GameManager::getPlayerOneID(), GameManager::getPlayerTwoID()};
+//  srand (time(NULL));
+//  int i = arr[rand()%2];
+  int winnerID;
+  if (GameManager::getWinPlayer())
+  {
+    winnerID = GameManager::getPlayerOneID();
+  }
+  else
+  {
+    winnerID = GameManager::getPlayerTwoID();
+  }
+  CCString *winnerName = CCString::createWithFormat("WinScene/c%i.png", winnerID);
   CCSprite *winner = CCSprite::create(winnerName->getCString());
   
   winner->setPosition(WINNER_START_POS);
