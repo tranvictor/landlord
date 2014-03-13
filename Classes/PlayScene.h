@@ -67,9 +67,19 @@ public:
   void makeMapScroll();
   void pauseButtonTouched();
   void moveMap(float offsetX, float offsetY);
-  void addGlowEffect(CCSprite* sprite,
+  void addGlowEffect(CCSprite *sprite,
                                 const ccColor3B& colour,
                      const CCSize& size);
+  
+  void addBottomEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge);
+  void addTopEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge);
+  void addLeftEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge);
+  void addRightEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge);
+  
+  void appearBottomPop(TileInfo *tileInfo, cocos2d::CCSprite *sp);
+  void appearTopPop(TileInfo *tileInfo, cocos2d::CCSprite *sp);
+  void appearLeftPop(TileInfo *tileInfo, cocos2d::CCSprite *sp);
+  void appearRightPop(TileInfo *tileInfo, cocos2d::CCSprite *sp);
   
   CCPoint getBound();
   
