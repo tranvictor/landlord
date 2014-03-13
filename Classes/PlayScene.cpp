@@ -584,7 +584,7 @@ void PlayScene::update(float pdT)
       }
     }
   }
-  if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) == 3)
+  if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 3)
   {
     GameManager::setWinPlayer(currentPlayer);
     CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
