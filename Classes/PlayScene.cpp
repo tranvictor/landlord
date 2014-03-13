@@ -312,93 +312,29 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   currentPlayer = GameManager::getCurrentPlayer();
   CCLog("Current Player is %i", currentPlayer);
   
-  if (tileInfo->getNumberEdgeAvailale() == 0)
+  bool checkIncreasingScore = false;
+  
+  for (int i = 0; i < tileInfoVector.size(); ++i)
   {
-    GameManager::increaseScore(currentPlayer);
-    if (currentPlayer)
+    if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
     {
-      tileInfo->setBelongToPlayer(1);
-      for (int i = 0; i < tileInfoVector.size(); ++i)
-      {
-        if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileDown())
-        {
-          if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
-          {
-            GameManager::increaseScore(currentPlayer);
-            tileInfoVector.at(i)->setBelongToPlayer(1);
-          }
-        }
-        else if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileUp())
-        {
-          if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
-          {
-            GameManager::increaseScore(currentPlayer);
-            tileInfoVector.at(i)->setBelongToPlayer(1);
-          }
-        }
-        else if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileLeft())
-        {
-          if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
-          {
-            GameManager::increaseScore(currentPlayer);
-            tileInfoVector.at(i)->setBelongToPlayer(1);
-          }
-        }
-        else if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileRight())
-        {
-          if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
-          {
-            GameManager::increaseScore(currentPlayer);
-            tileInfoVector.at(i)->setBelongToPlayer(1);
-          }
-        }
-      }
+      GameManager::increaseScore(currentPlayer);
+      checkIncreasingScore = true;
       sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(currentPlayer));
-      lbnScorePlayer1->setString(scoreBuffer);
-    }
-    else
-    {
-      tileInfo->setBelongToPlayer(2);
-      for (int i = 0; i < tileInfoVector.size(); ++i)
+      if (currentPlayer)
       {
-        if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileDown())
-        {
-          if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
-          {
-            GameManager::increaseScore(currentPlayer);
-            tileInfoVector.at(i)->setBelongToPlayer(2);
-          }
-        }
-        else if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileUp())
-        {
-          if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
-          {
-            GameManager::increaseScore(currentPlayer);
-            tileInfoVector.at(i)->setBelongToPlayer(2);
-          }
-        }
-        else if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileLeft())
-        {
-          if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
-          {
-            GameManager::increaseScore(currentPlayer);
-            tileInfoVector.at(i)->setBelongToPlayer(2);
-          }
-        }
-        else if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileRight())
-        {
-          if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
-          {
-            GameManager::increaseScore(currentPlayer);
-            tileInfoVector.at(i)->setBelongToPlayer(2);
-          }
-        }
+        tileInfoVector.at(i)->setBelongToPlayer(1);
+        lbnScorePlayer1->setString(scoreBuffer);
       }
-      sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(currentPlayer));
-      lbnScorePlayer2->setString(scoreBuffer);
+      else
+      {
+        tileInfoVector.at(i)->setBelongToPlayer(2);
+        lbnScorePlayer2->setString(scoreBuffer);
+      }
     }
   }
-  else
+  
+  if (!checkIncreasingScore)
   {
     GameManager::changeCurrentPlayer();
     
@@ -413,7 +349,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       playerOneShadow->setVisible(true);
     }
   }
-  
+   
   for (int i = 0; i < popsArr->count(); ++i)
   {
     ((CCMenuItemSprite*)popsArr->objectAtIndex(i))->removeFromParent();
