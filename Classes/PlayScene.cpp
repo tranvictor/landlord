@@ -9,9 +9,12 @@
 #include "PlayScene.h"
 #include "WinScene.h"
 #include "GameManager.h"
+#include "SimpleAI.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
+
+std::vector<TileInfo*> PlayScene::tileInfoVector;
 
 CCScene* PlayScene::scene()
 {
@@ -117,7 +120,9 @@ void PlayScene::makeMapScroll()
         tileInfo->setGID(PAIR_FUNC(i, j));
         CCLog("gid %d", PAIR_FUNC(i, j));
         tileInfoVector.push_back(tileInfo);
-        
+        tileInfo->setGridX(i);
+        tileInfo->setGridY(j);
+      
         if (j > 0 && mapLayer->tileAt(ccp(i, j-1)))
         {
           tileInfo->setGIDTileUp(PAIR_FUNC(i, j-1));
@@ -277,6 +282,13 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     addRightEdge(tileInfo, edge);
   }
   tileInfo->setNumberEdgeAvailale(tileInfo->getNumberEdgeAvailale()-1);
+  
+  //Run Simple AI if needed
+//  if(tileInfo->getNumberEdgeAvailale() == 0)
+//  {
+//    SimpleAI::Breath_First_Search(tileInfo->getGridX(), tileInfo->getGridY());
+//  }
+  
   CCLog("tileInfo->getNumberEdgeAvailale() = %d", tileInfo->getNumberEdgeAvailale());
   
 //  if (tileInfo->getNumberEdgeAvailale() == 0)
@@ -359,9 +371,52 @@ void PlayScene::update(float pdT)
   {
     if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0)
     {
+      tileInfoVector.at(i)->setNumberEdgeAvailale(-1);
       tileInfoVector.at(i)->getTile()->setColor(ccGRAY);
+      SimpleAI::Breath_First_Search(tileInfoVector.at(i)->getGridX(), tileInfoVector.at(i)->getGridY());
+      break;
     }
   }
+  
+  for (int i=0; i<tileInfoVector.size(); i++)
+  {
+    if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0)
+    {
+    //Bottom
+      CCSprite *edge1 = CCSprite::create("PlayScene/edge.png");
+    
+      TileInfo *tileInfo = tileInfoVector.at(i);
+    
+      CCSprite *sp = tileInfo->getTile();
+    
+      edge1->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
+      tileMap->addChild(edge1, GR_FOREGROUND);
+    //Top
+      CCSprite *edge2 = CCSprite::create("PlayScene/edge.png");
+      edge2->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()+sp->getContentSize().height));
+      tileMap->addChild(edge2, GR_FOREGROUND);
+    //Left
+      CCSprite *edge3 = CCSprite::create("PlayScene/edge.png");
+      edge3->setRotation(90);
+      edge3->setPosition(ccp(sp->getPositionX(), sp->getPositionY()+sp->getContentSize().height/2));
+      tileMap->addChild(edge3, GR_FOREGROUND);
+    //Right
+      CCSprite *edge4 = CCSprite::create("PlayScene/edge.png");
+      edge4->setRotation(90);
+      edge4->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width, sp->getPositionY()+sp->getContentSize().height/2));
+      tileMap->addChild(edge4, GR_FOREGROUND);
+    }
+  }
+}
+
+CCTMXTiledMap PlayScene::getTileMap()
+{
+  return *tileMap;
+}
+
+std::vector<TileInfo*> PlayScene::getTileInfoVector()
+{
+  return tileInfoVector;
 }
 
 void PlayScene::addBottomEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge)

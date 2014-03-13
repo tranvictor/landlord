@@ -38,8 +38,8 @@ public:
   CC_SYNTHESIZE(int, mGIDTileLeft, GIDTileLeft);
   CC_SYNTHESIZE(int, mGIDTileRight, GIDTileRight);
   CC_SYNTHESIZE(int, mGID, GID);
-//  CC_SYNTHESIZE(float, mGridX, GridX);
-//  CC_SYNTHESIZE(int, mGridY, GridY);
+  CC_SYNTHESIZE(int, mGridX, GridX);
+  CC_SYNTHESIZE(int, mGridY, GridY);
   
   TileInfo();
   

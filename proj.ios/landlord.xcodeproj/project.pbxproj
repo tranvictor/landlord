@@ -228,6 +228,7 @@
 		661B812118B3E5AD00578534 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661B812018B3E5AD00578534 /* StartScene.cpp */; };
 		6692F13618BB4E4400068D35 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6692F13518BB4E4400068D35 /* GameManager.cpp */; };
 		66EB9FF718B65370000A1CEB /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66EB9FF518B65370000A1CEB /* SettingScene.cpp */; };
+		66FD900B18CF7EE300D4F43B /* SimpleAI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66FD900A18CF7EE300D4F43B /* SimpleAI.cpp */; };
 		7A08F1D618C6CC4900BB75AA /* ChooseCharacterScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A08F1C918C6CC4900BB75AA /* ChooseCharacterScene */; };
 		7A08F1D718C6CC4900BB75AA /* ChooseMapScene in Resources */ = {isa = PBXBuildFile; fileRef = 7A08F1CA18C6CC4900BB75AA /* ChooseMapScene */; };
 		7A08F1D818C6CC4900BB75AA /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A08F1CB18C6CC4900BB75AA /* CloseNormal.png */; };
@@ -740,6 +741,8 @@
 		6692F13518BB4E4400068D35 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../Classes/GameManager.cpp; sourceTree = "<group>"; };
 		66EB9FF518B65370000A1CEB /* SettingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingScene.cpp; sourceTree = "<group>"; };
 		66EB9FF618B65370000A1CEB /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
+		66FD900918CF7C4200D4F43B /* SimpleAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SimpleAI.h; path = ../Classes/SimpleAI.h; sourceTree = "<group>"; };
+		66FD900A18CF7EE300D4F43B /* SimpleAI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SimpleAI.cpp; path = ../Classes/SimpleAI.cpp; sourceTree = "<group>"; };
 		7A08F1C918C6CC4900BB75AA /* ChooseCharacterScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ChooseCharacterScene; sourceTree = "<group>"; };
 		7A08F1CA18C6CC4900BB75AA /* ChooseMapScene */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ChooseMapScene; sourceTree = "<group>"; };
 		7A08F1CB18C6CC4900BB75AA /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
@@ -1324,6 +1327,8 @@
 				663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */,
 				7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */,
 				7A18DB7018CD91F100C95A32 /* TileInfo.h */,
+				66FD900918CF7C4200D4F43B /* SimpleAI.h */,
+				66FD900A18CF7EE300D4F43B /* SimpleAI.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2044,6 +2049,7 @@
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
+				66FD900B18CF7EE300D4F43B /* SimpleAI.cpp in Sources */,
 				1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */,
 				1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */,
 				1A8F3B70175E05DA00049216 /* AnimationStateData.cpp in Sources */,
