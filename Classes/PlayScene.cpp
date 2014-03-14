@@ -409,11 +409,13 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       if (currentPlayer)
       {
         tileInfoVector.at(i)->setBelongToPlayer(1);
+        tileInfoVector.at(i)->getTile()->setColor(ccBLUE);
         lbnScorePlayer1->setString(scoreBuffer);
       }
       else
       {
         tileInfoVector.at(i)->setBelongToPlayer(2);
+        tileInfoVector.at(i)->getTile()->setColor(ccRED);
         lbnScorePlayer2->setString(scoreBuffer);
       }
     }
@@ -506,20 +508,6 @@ PlayScene::~PlayScene()
 
 void PlayScene::update(float pdT)
 {
-  for (int i = 0; i < tileInfoVector.size(); ++i)
-  {
-    if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0)
-    {
-      if (tileInfoVector.at(i)->getBelongToPlayer() == 1)
-      {
-        tileInfoVector.at(i)->getTile()->setColor(ccBLUE);
-      }
-      else if (tileInfoVector.at(i)->getBelongToPlayer() == 2)
-      {
-        tileInfoVector.at(i)->getTile()->setColor(ccRED);
-      }
-    }
-  }
   if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 3)
   {
     GameManager::setWinPlayer(currentPlayer);
