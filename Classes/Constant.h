@@ -83,5 +83,10 @@ enum eEdgeStatus
   STS_NOT_AVAILABLE,
 };
 
+enum eCurrentPlayer
+{
+  PLAYER_ONE = 1,
+  PLAYER_TWO = 2,
+};
 
 #endif

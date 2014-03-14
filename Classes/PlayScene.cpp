@@ -309,8 +309,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   tileInfo->setNumberEdgeAvailale(tileInfo->getNumberEdgeAvailale()-1);
   CCLog("tileInfo->getNumberEdgeAvailale() = %d", tileInfo->getNumberEdgeAvailale());
   
-  currentPlayer = GameManager::getCurrentPlayer();
-  CCLog("Current Player is %i", currentPlayer);
+  CCLog("Current Player is %i", GameManager::getCurrentPlayer());
   
   bool checkIncreasingScore = false;
   
@@ -318,17 +317,19 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   {
     if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
     {
-      GameManager::increaseScore(currentPlayer);
+      GameManager::increaseScore(GameManager::getCurrentPlayer());
       checkIncreasingScore = true;
-      sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(currentPlayer));
-      if (currentPlayer)
+      sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(GameManager::getCurrentPlayer()));
+      if (GameManager::getCurrentPlayer() == PLAYER_ONE)
       {
         tileInfoVector.at(i)->setBelongToPlayer(1);
+        tileInfoVector.at(i)->getTile()->setColor(ccBLUE);
         lbnScorePlayer1->setString(scoreBuffer);
       }
       else
       {
         tileInfoVector.at(i)->setBelongToPlayer(2);
+        tileInfoVector.at(i)->getTile()->setColor(ccRED);
         lbnScorePlayer2->setString(scoreBuffer);
       }
     }
@@ -336,9 +337,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   
   if (!checkIncreasingScore)
   {
-    GameManager::changeCurrentPlayer();
-    
-    if (currentPlayer)
+    if (GameManager::getCurrentPlayer() == PLAYER_ONE)
     {
       playerOneShadow->setVisible(false);
       playerTwoShadow->setVisible(true);
@@ -348,6 +347,8 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       playerTwoShadow->setVisible(false);
       playerOneShadow->setVisible(true);
     }
+    
+    GameManager::changeCurrentPlayer();
   }
    
   for (int i = 0; i < popsArr->count(); ++i)
@@ -421,23 +422,9 @@ PlayScene::~PlayScene()
 
 void PlayScene::update(float pdT)
 {
-  for (int i = 0; i < tileInfoVector.size(); ++i)
-  {
-    if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0)
-    {
-      if (tileInfoVector.at(i)->getBelongToPlayer() == 1)
-      {
-        tileInfoVector.at(i)->getTile()->setColor(ccBLUE);
-      }
-      else if (tileInfoVector.at(i)->getBelongToPlayer() == 2)
-      {
-        tileInfoVector.at(i)->getTile()->setColor(ccRED);
-      }
-    }
-  }
   if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 3)
   {
-    GameManager::setWinPlayer(currentPlayer);
+    GameManager::setWinPlayer(GameManager::getCurrentPlayer());
     CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
