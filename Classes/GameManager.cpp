@@ -21,9 +21,8 @@ int  GameManager::mapIDTouched = 1;
 
 int  GameManager::player1Score;
 int  GameManager::player2Score;
-bool GameManager::currentPlayer;
-bool GameManager::winPlayer;
-int  GameManager::numberOfTilesChose;
+int  GameManager::currentPlayer;
+int  GameManager::winPlayer;
 
 bool GameManager::getMusicState()
 {
@@ -91,13 +90,12 @@ void GameManager::initPlayersInfo()
 {
   player1Score = 0;
   player2Score = 0;
-  currentPlayer = true;
-  numberOfTilesChose = 0;
+  currentPlayer = PLAYER_ONE;
 }
 
-void GameManager::increaseScore(bool currentPlayer)
+void GameManager::increaseScore(int currentPlayer)
 {
-  if (currentPlayer)
+  if (currentPlayer == PLAYER_ONE)
   {
     player1Score++;
   }
@@ -107,14 +105,14 @@ void GameManager::increaseScore(bool currentPlayer)
   }
 }
 
-bool GameManager::getCurrentPlayer()
+int GameManager::getCurrentPlayer()
 {
   return currentPlayer;
 }
 
-int GameManager::getPlayerScore(bool currentPlayer)
+int GameManager::getPlayerScore(int currentPlayer)
 {
-  if (currentPlayer)
+  if (currentPlayer == PLAYER_ONE)
   {
     return player1Score;
   }
@@ -124,24 +122,24 @@ int GameManager::getPlayerScore(bool currentPlayer)
   }
 }
 
-bool GameManager::getWinPlayer()
+int GameManager::getWinPlayer()
 {
   return winPlayer;
 }
 
 void GameManager::changeCurrentPlayer()
 {
-  if (currentPlayer)
+  if (currentPlayer == PLAYER_ONE)
   {
-    currentPlayer = false;
+    currentPlayer = PLAYER_TWO;
   }
   else
   {
-    currentPlayer = true;
+    currentPlayer = PLAYER_ONE;
   }
 }
 
-void GameManager::setWinPlayer(bool _currentPlayer)
+void GameManager::setWinPlayer(int _currentPlayer)
 {
   winPlayer = _currentPlayer;
 }
