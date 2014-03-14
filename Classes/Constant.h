@@ -34,6 +34,8 @@ USING_NS_CC;
 #define PLAYER_TWO_POS  ccp(543.762, 142.551)
 #define LBN_SCORE_PLAYER1_POS   ccp(109.114, 37.093)
 #define LBN_SCORE_PLAYER2_POS   ccp(531.229, 37.093)
+#define NUMBER_EDGE_AVAILABLE 4
+#define PAIR_FUNC(a,b)    (int)(0.5*(a+b)*(a+b+1)+b)  // return the unique number from a, b
 
 // ChooseCharacterScene
 #define NUMBER_CHARACTERS 8
@@ -61,5 +63,25 @@ enum eGround
   GR_MIDDLEGROUND,
   GR_FOREGROUND
 };
+
+enum eTag
+{
+  TG_TILE
+};
+
+enum eTagEdge
+{
+  TAG_EDGE_TOP,
+  TAG_EDGE_BOTTOM,
+  TAG_EDGE_LEFT,
+  TAG_EDGE_RIGHT
+};
+
+enum eEdgeStatus
+{
+  STS_AVAILABLE,
+  STS_NOT_AVAILABLE,
+};
+
 
 #endif
