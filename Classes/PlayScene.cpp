@@ -394,8 +394,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   tileInfo->setNumberEdgeAvailale(tileInfo->getNumberEdgeAvailale()-1);
   CCLog("tileInfo->getNumberEdgeAvailale() = %d", tileInfo->getNumberEdgeAvailale());
   
-  currentPlayer = GameManager::getCurrentPlayer();
-  CCLog("Current Player is %i", currentPlayer);
+  CCLog("Current Player is %i", GameManager::getCurrentPlayer());
   
   bool checkIncreasingScore = false;
   
@@ -403,10 +402,10 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   {
     if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
     {
-      GameManager::increaseScore(currentPlayer);
+      GameManager::increaseScore(GameManager::getCurrentPlayer());
       checkIncreasingScore = true;
-      sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(currentPlayer));
-      if (currentPlayer)
+      sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(GameManager::getCurrentPlayer()));
+      if (GameManager::getCurrentPlayer() == PLAYER_ONE)
       {
         tileInfoVector.at(i)->setBelongToPlayer(1);
         tileInfoVector.at(i)->getTile()->setColor(ccBLUE);
@@ -423,9 +422,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   
   if (!checkIncreasingScore)
   {
-    GameManager::changeCurrentPlayer();
-    
-    if (currentPlayer)
+    if (GameManager::getCurrentPlayer() == PLAYER_ONE)
     {
       playerOneShadow->setVisible(false);
       playerTwoShadow->setVisible(true);
@@ -435,6 +432,8 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       playerTwoShadow->setVisible(false);
       playerOneShadow->setVisible(true);
     }
+    
+    GameManager::changeCurrentPlayer();
   }
    
   for (int i = 0; i < popsArr->count(); ++i)
@@ -510,7 +509,7 @@ void PlayScene::update(float pdT)
 {
   if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 3)
   {
-    GameManager::setWinPlayer(currentPlayer);
+    GameManager::setWinPlayer(GameManager::getCurrentPlayer());
     CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
