@@ -21,8 +21,8 @@ bool ChooseMapScene::init()
     return false;
   }
   
-  screenSize = CCDirector::sharedDirector()->getWinSize();
-  CCLog("%f %f", screenSize.width, screenSize.height);
+  mScreenSize = CCDirector::sharedDirector()->getWinSize();
+  CCLog("%f %f", mScreenSize.width, mScreenSize.height);
   
   addBackground();
   addButtonRandom();
@@ -43,7 +43,7 @@ CCScene* ChooseMapScene::scene()
 void ChooseMapScene::addBackground()
 {
   CCSprite *background = CCSprite::create("ChooseMapScene/background.png");
-  background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+  background->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
 }
 
@@ -74,7 +74,7 @@ void ChooseMapScene::addButtonBack()
 // use CCScrollLayer
 void ChooseMapScene::makeSlidingMap()
 {
-  mapArr = CCArray::createWithCapacity(NUMBER_MAPS);
+  mMapArr = CCArray::createWithCapacity(NUMBER_MAPS);
   for (int i = 1; i <= NUMBER_MAPS; ++i)
   {
     CCMenu *menu = CCMenu::create(NULL);
@@ -87,20 +87,20 @@ void ChooseMapScene::makeSlidingMap()
     CCLayer *mapLayer = CCLayer::create();
     mapLayer->addChild(menu);
     
-    mapArr->addObject(mapLayer);
+    mMapArr->addObject(mapLayer);
   }
-//  slidingMap = CCScrollLayer::nodeWithLayers(mapArr, - screenSize.width - (NUMBER_MAPS-1)*DISTANCE_BETWEEN_MAPS, "ChooseMapScene/greendot-08.png");
-  slidingMap = CCScrollLayer::nodeWithLayers(mapArr, 0, "ChooseMapScene/greendot-08.png");
-  slidingMap->setPagesIndicatorPosition(ccp(screenSize.width/2, GREEN_DOT_Y));
-  this->addChild(slidingMap, GR_FOREGROUND);
+//  mSlidingMap = CCScrollLayer::nodeWithLayers(mMapArr, - mScreenSize.width - (NUMBER_MAPS-1)*DISTANCE_BETWEEN_MAPS, "ChooseMapScene/greendot-08.png");
+  mSlidingMap = CCScrollLayer::nodeWithLayers(mMapArr, 0, "ChooseMapScene/greendot-08.png");
+  mSlidingMap->setPagesIndicatorPosition(ccp(mScreenSize.width/2, GREEN_DOT_Y));
+  this->addChild(mSlidingMap, GR_FOREGROUND);
 }
 
-void ChooseMapScene::mapTouched(CCObject* pSender)
+void ChooseMapScene::mapTouched(CCObject *pSender)
 {
   CCMenuItemImage* mapSelected = (CCMenuItemImage*)pSender;
-  mapTouchedID = mapSelected->getTag();
-  CCLog("map %i choosed", mapTouchedID);
-  GameManager::setMapIDTouched(mapTouchedID);
+  mMapTouchedID = mapSelected->getTag();
+  CCLog("map %i choosed", mMapTouchedID);
+  GameManager::setMapIDTouched(mMapTouchedID);
   CCScene* newScene = CCTransitionCrossFade::create(0.5, PlayScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 
@@ -113,7 +113,7 @@ void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
   srand (time(NULL));
   int r = ((int)random())%10+1;
   CCLog("r = %i", r);
-  slidingMap->moveToPage(r-1);
+  mSlidingMap->moveToPage(r-1);
 }
 
 void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)

@@ -31,12 +31,12 @@ bool ChooseCharacterScene::init()
     return false;
   }
   
-  screenSize = CCDirector::sharedDirector()->getWinSize();
+  mScreenSize = CCDirector::sharedDirector()->getWinSize();
   addBackground();
   addCharacter();
   addBackButton();
   
-  characterArr->retain();
+  mCharacterArr->retain();
   
   return true;
 }
@@ -44,14 +44,14 @@ bool ChooseCharacterScene::init()
 void ChooseCharacterScene::addBackground()
 {
   CCSprite* background = CCSprite::create("ChooseCharacterScene/Background.png");
-  CCLOG("%f %f", screenSize.width, screenSize.height);
-  background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+  CCLOG("%f %f", mScreenSize.width, mScreenSize.height);
+  background->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
 }
 
 void ChooseCharacterScene::addCharacter()
 {
-  characterArr = CCArray::createWithCapacity(NUMBER_CHARACTERS/NUMBER_CHARACTERS_PER_SCENE);
+  mCharacterArr = CCArray::createWithCapacity(NUMBER_CHARACTERS/NUMBER_CHARACTERS_PER_SCENE);
   for (int i = 1; i <= NUMBER_CHARACTERS/NUMBER_CHARACTERS_PER_SCENE; ++i)
   {
     CCLayer* characterLayer = CCLayer::create();
@@ -98,44 +98,44 @@ void ChooseCharacterScene::addCharacter()
       }
       characterLayer->addChild(menu, GR_FOREGROUND);
     }
-    characterArr->addObject(characterLayer);
+    mCharacterArr->addObject(characterLayer);
   }
-  characterArr->retain();
+  mCharacterArr->retain();
   
-  slidingCharacterLayer = CCScrollLayer::nodeWithLayers(characterArr, 0, "ChooseMapScene/greendot-08.png");
-  slidingCharacterLayer->setPagesIndicatorPosition(ccp(screenSize.width/2, INDICATOR_POS_Y));
-  this->addChild(slidingCharacterLayer, GR_FOREGROUND);
+  mSlidingCharacterLayer = CCScrollLayer::nodeWithLayers(mCharacterArr, 0, "ChooseMapScene/greendot-08.png");
+  mSlidingCharacterLayer->setPagesIndicatorPosition(ccp(mScreenSize.width/2, INDICATOR_POS_Y));
+  this->addChild(mSlidingCharacterLayer, GR_FOREGROUND);
 }
 
 void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
 {
   CCMenuItemSprite* characterSelected = (CCMenuItemSprite*)pSender;
-  characterTouchedID = characterSelected->getTag();
+  mCharacterTouchedID = characterSelected->getTag();
   CCString* characterName;
   
   bool checkValid = false;
   
-  player++;
+  mPlayer++;
   
-  if (player == 1)
+  if (mPlayer == 1)
   {
-    characterChoseByPlayer1 = characterTouchedID;
-    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-blue.png", characterTouchedID);
+    mCharacterChoseByPlayer1 = mCharacterTouchedID;
+    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-blue.png", mCharacterTouchedID);
     checkValid = true;
-    GameManager::setPlayerOneID(characterTouchedID);
-    CCLOG("Player 1 had chose character %i", characterTouchedID);
+    GameManager::setPlayerOneID(mCharacterTouchedID);
+    CCLOG("Player 1 had chose character %i", mCharacterTouchedID);
   }
-  else if (player == 2 && characterTouchedID != characterChoseByPlayer1)
+  else if (mPlayer == 2 && mCharacterTouchedID != mCharacterChoseByPlayer1)
   {
-    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-red.png", characterTouchedID);
+    characterName = CCString::createWithFormat("ChooseCharacterScene/c%i-red.png", mCharacterTouchedID);
     checkValid = true;
-    GameManager::setPlayerTwoID(characterTouchedID);
-    CCLOG("Player 2 had chose character %i", characterTouchedID);
+    GameManager::setPlayerTwoID(mCharacterTouchedID);
+    CCLOG("Player 2 had chose character %i", mCharacterTouchedID);
   }
-  else if (characterTouchedID == characterChoseByPlayer1)
+  else if (mCharacterTouchedID == mCharacterChoseByPlayer1)
   {
     checkValid = false;
-    player--;
+    mPlayer--;
     CCLOG("This character has been chose by Player 1");
   }
   else
@@ -146,7 +146,7 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
   if (checkValid)
   {
     CCSprite* character = CCSprite::create(characterName->getCString());
-    switch (characterTouchedID) {
+    switch (mCharacterTouchedID) {
       case 1:
         character->setPosition(C1_POS);
         break;
@@ -176,18 +176,18 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
         break;
     }
 
-    int layerIndex = characterTouchedID/NUMBER_CHARACTERS_PER_SCENE;
-    if (characterTouchedID % NUMBER_CHARACTERS_PER_SCENE == 0)
+    int layerIndex = mCharacterTouchedID/NUMBER_CHARACTERS_PER_SCENE;
+    if (mCharacterTouchedID % NUMBER_CHARACTERS_PER_SCENE == 0)
     {
       layerIndex--;
     }
     CCLog("layerId = %d", layerIndex);
-    ((CCLayer* )characterArr->objectAtIndex(layerIndex))->addChild(character, GR_MIDDLEGROUND);
+    ((CCLayer* )mCharacterArr->objectAtIndex(layerIndex))->addChild(character, GR_MIDDLEGROUND);
   }
   
-  if (player == 2)
+  if (mPlayer == 2)
   {
-    characterArr->release();
+    mCharacterArr->release();
     CCScene* newScene = CCTransitionSlideInR::create(0.5, ChooseMapScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
@@ -205,7 +205,7 @@ void ChooseCharacterScene::addBackButton()
   this->addChild(pMenu, GR_MIDDLEGROUND);
 }
 
-void ChooseCharacterScene::buttonBackTouched()
+void ChooseCharacterScene::buttonBackTouched(CCObject *pSender)
 {
   CCLOG("Button back touched");
   CCScene* newScene = CCTransitionSlideInL::create(0.5, StartScene::scene());

@@ -21,24 +21,24 @@
 class ChooseMapScene : public cocos2d::CCLayer
 {
 private:
-  cocos2d::CCSize screenSize;
-  cocos2d::CCArray *mapArr;
-  int mapTouchedID;
-  CCScrollLayer *slidingMap;
+  cocos2d::CCSize   mScreenSize;
+  cocos2d::CCArray* mMapArr;
+  int               mMapTouchedID;
+  CCScrollLayer*    mSlidingMap;
   
 public:
   virtual bool init();
-  static cocos2d::CCScene * scene();
+  static cocos2d::CCScene* scene();
   CREATE_FUNC(ChooseMapScene);
   
   void addBackground();
   void addButtonRandom();
-  void buttonRandomTouched(cocos2d::CCObject* pSender);
+  void buttonRandomTouched(cocos2d::CCObject *pSender);
   void addButtonBack();
-  void buttonBackTouched(cocos2d::CCObject* pSender);
+  void buttonBackTouched(cocos2d::CCObject *pSender);
   
   void makeSlidingMap();
-  void mapTouched(cocos2d::CCObject* pSender);
+  void mapTouched(cocos2d::CCObject *pSender);
 };
 
 #endif /* defined(__landlord__ChooseMapScence__) */

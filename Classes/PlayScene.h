@@ -18,35 +18,36 @@
 
 class PlayScene : public cocos2d::CCLayer
 {
-  int playerOneTag, playerTwoTag;
+  int                 mPlayerOneTag, mPlayerTwoTag;
 //  cocos2d::extension::CCScrollView *scrollMap;
-  CCLayerPanZoom *controller;
+//  CCLayerPanZoom*     mController;
   
-  cocos2d::CCSize screenSize;
-  cocos2d::CCLabelTTF *lbnScorePlayer1;
-  cocos2d::CCLabelTTF *lbnScorePlayer2;
-  char scoreBuffer[10];
+  cocos2d::CCSize     mScreenSize;
+  cocos2d::CCLabelTTF *mLbnScorePlayer1;
+  cocos2d::CCLabelTTF *mLbnScorePlayer2;
+  char                mScoreBuffer[10];
   
-  CCPoint beginLocation;
-  CCPoint beginLocationToMap; // beginLocation in tilemap co-ordinate
+  CCPoint             mBeginLocation;
+  // beginLocation in tilemap co-ordinate
+  CCPoint             mBeginLocationToMap;
   
-  CCTMXTiledMap *tileMap;
-  CCTMXLayer    *mapLayer;
-  CCTMXObjectGroup *mTileEdges;
-  bool mIsScrolling = false;
-  cocos2d::CCArray *mEdgeArrTop;
-  cocos2d::CCArray *mEdgeArrBottom;
-  cocos2d::CCArray *mEdgeArrLeft;
-  cocos2d::CCArray *mEdgeArrRight;
+  CCTMXTiledMap*      mTileMap;
+  CCTMXLayer*         mMapLayer;
+  CCTMXObjectGroup*   mTileEdges;
+  bool                mIsScrolling = false;
+  cocos2d::CCArray*   mEdgeArrTop;
+  cocos2d::CCArray*   mEdgeArrBottom;
+  cocos2d::CCArray*   mEdgeArrLeft;
+  cocos2d::CCArray*   mEdgeArrRight;
   
-  cocos2d::CCArray *popsArr;
-  std::vector<TileInfo*> tileInfoVector;
+  cocos2d::CCArray*   mPopsArr;
+  std::vector<TileInfo*>  mTileInfoVector;
   
-  int curTile = 0;
-  int numPop = NUMBER_EDGE_AVAILABLE;
+  int                 mCurTile = 0;
+//  int                 mNumPop = NUMBER_EDGE_AVAILABLE;
   
-  CCSprite *playerOneShadow;
-  CCSprite *playerTwoShadow;
+  CCSprite*           mPlayerOneShadow;
+  CCSprite*           mPlayerTwoShadow;
   
 public:
   virtual bool init();
@@ -64,20 +65,20 @@ public:
   
   void makeMapScroll();
   void pauseButtonTouched();
-  void moveMap(float offsetX, float offsetY);
-  void addGlowEffect(CCSprite *sprite,
-                                const ccColor3B& colour,
-                     const CCSize& size);
+  void moveMap(float pOffsetX, float pOffsetY);
+  void addGlowEffect(CCSprite *pSprite,
+                     const ccColor3B& pColour,
+                     const CCSize& pSize);
   
-  void addBottomEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge);
-  void addTopEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge);
-  void addLeftEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge);
-  void addRightEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge);
+  void addBottomEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge);
+  void addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge);
+  void addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge);
+  void addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge);
   
-  void appearBottomPop(TileInfo *tileInfo, cocos2d::CCSprite *sp);
-  void appearTopPop(TileInfo *tileInfo, cocos2d::CCSprite *sp);
-  void appearLeftPop(TileInfo *tileInfo, cocos2d::CCSprite *sp);
-  void appearRightPop(TileInfo *tileInfo, cocos2d::CCSprite *sp);
+  void appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
+  void appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
+  void appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
+  void appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   
   CCPoint getBound();
   
