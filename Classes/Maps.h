@@ -18,8 +18,8 @@ private:
 public:
   CC_SYNTHESIZE(int, mMapID, MapID);
   
-  static Maps* create(const char* pFileName);
-  virtual bool init(const char* pFileName);
+  static Maps* create(const char * pFileName);
+  virtual bool init(const char * pFileName);
 };
 
 #endif /* defined(__landlord__Maps__) */

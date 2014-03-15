@@ -32,7 +32,7 @@ bool StartScene::init()
     return false;
   }
   
-  screenSize = CCDirector::sharedDirector()->getWinSize();
+  mScreenSize = CCDirector::sharedDirector()->getWinSize();
   sound::playBackgroundMusic();
   
   addBackground();
@@ -46,22 +46,22 @@ void StartScene::addBackground()
 {
   CCSprite *background = CCSprite::create("Mainscene/MainsceneBackground.png");
   
-  CCLOG("%f %f", screenSize.width, screenSize.height);
+  CCLOG("%f %f", mScreenSize.width, mScreenSize.height);
   
-  background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+  background->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   
   this->addChild(background, 0);
   
   //CCSprite *background = CCSprite::create("CloudAnimation/Mainscene-Background-blanksky.png");
   
-//  CCSprite* cloud = CloudAnimation::create(cloudSpeed);
+//  CCSprite* cloud = CloudAnimation::create(mCloudSpeed);
 //  cloud->setPosition(ccp(-150, 800));
 //  
 //  this->addChild(cloud, 1);
 //  
-//  cloudSpeed = 2;
+//  mCloudSpeed = 2;
 //  
-//  CCSprite* cloud1 = CloudAnimation::create(cloudSpeed);
+//  CCSprite* cloud1 = CloudAnimation::create(mCloudSpeed);
 //  cloud1->setPosition(ccp(-150, 600));
 //  
 //  this->addChild(cloud1, 2);

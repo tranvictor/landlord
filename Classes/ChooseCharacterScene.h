@@ -17,13 +17,14 @@ USING_NS_CC;
 class ChooseCharacterScene : public cocos2d::CCLayer
 {
 private:
-  CCSize screenSize;
-  CCArray* characterArr;
-  CCScrollLayer* slidingCharacterLayer;
+  CCSize          mScreenSize;
+  CCArray*        mCharacterArr;
+  CCScrollLayer*  mSlidingCharacterLayer;
   
-  int characterTouchedID;
-  int player = 0;
-  int characterChoseByPlayer1;
+  int             mCharacterTouchedID;
+  int             mPlayer = 0;
+  int             mCharacterChoseByPlayer1;
+  
 public:
   // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
   virtual bool init();
@@ -34,7 +35,7 @@ public:
   void addBackground();
   void addCharacter();
   void addBackButton();
-  void buttonBackTouched();
+  void buttonBackTouched(cocos2d::CCObject *pSender);
   
   void CharacterTouched(CCObject *pSender);
   // implement the "static node()" method manually

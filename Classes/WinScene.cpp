@@ -98,7 +98,7 @@ void WinScene::appearWinner()
 //  srand (time(NULL));
 //  int i = arr[rand()%2];
   int winnerID;
-  if (GameManager::getWinPlayer())
+  if (GameManager::getWinPlayer() == PLAYER_ONE)
   {
     winnerID = GameManager::getPlayerOneID();
   }

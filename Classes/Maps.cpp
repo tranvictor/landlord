@@ -10,7 +10,7 @@
 
 USING_NS_CC;
 
-Maps* Maps::create(const char* pFileName)
+Maps* Maps::create(const char * pFileName)
 {
   Maps *map = new Maps();
   if (map && map->init(pFileName))
@@ -25,7 +25,7 @@ Maps* Maps::create(const char* pFileName)
   }
 }
 
-bool Maps::init(const char *pFileName)
+bool Maps::init(const char * pFileName)
 {
   if (!CCSprite::initWithFile(pFileName))
   {

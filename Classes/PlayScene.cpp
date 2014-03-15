@@ -38,7 +38,7 @@ bool PlayScene::init()
     return false;
   }
   
-  screenSize = CCDirector::sharedDirector()->getWinSize();
+  mScreenSize = CCDirector::sharedDirector()->getWinSize();
   setTouchEnabled(true);
   
   GameManager::initPlayersInfo();
@@ -70,15 +70,15 @@ void PlayScene::addPauseButton()
 void PlayScene::addPlayGroud()
 {
   CCSprite *ground = CCSprite::create("PlayScene/background-playscene.png");
-  ground->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+  ground->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   addChild(ground);
 }
 
 void PlayScene::addPlayerOne()
 {
-  playerOneTag = GameManager::getPlayerOneID();
+  mPlayerOneTag = GameManager::getPlayerOneID();
   CCLog("getPlayerOneID = %d", GameManager::getPlayerOneID());
-  CCSprite *playerOne = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", playerOneTag))->getCString());
+  CCSprite *playerOne = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", mPlayerOneTag))->getCString());
   playerOne->setScale(0.8f);
   playerOne->setPosition(PLAYER_ONE_POS);
   this->addChild(playerOne, GR_MIDDLEGROUND);
@@ -86,16 +86,16 @@ void PlayScene::addPlayerOne()
 
 void PlayScene::addPlayerOneShadow()
 {
-  playerOneShadow = CCSprite::create((CCString::createWithFormat("ChooseCharacterScene/c%i-blue.png", playerOneTag))->getCString());
-  playerOneShadow->setScale(0.8f);
-  playerOneShadow->setPosition(PLAYER_ONE_POS);
-  this->addChild(playerOneShadow, GR_BACKGROUND);
+  mPlayerOneShadow = CCSprite::create((CCString::createWithFormat("ChooseCharacterScene/c%i-blue.png", mPlayerOneTag))->getCString());
+  mPlayerOneShadow->setScale(0.8f);
+  mPlayerOneShadow->setPosition(PLAYER_ONE_POS);
+  this->addChild(mPlayerOneShadow, GR_BACKGROUND);
 }
 
 void PlayScene::addPlayerTwo()
 {
-  playerTwoTag = GameManager::getPlayerTwoID();
-  CCSprite *playerTwo = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", playerTwoTag))->getCString());
+  mPlayerTwoTag = GameManager::getPlayerTwoID();
+  CCSprite *playerTwo = CCSprite::create((CCString::createWithFormat("PlayScene/c%i.png", mPlayerTwoTag))->getCString());
   playerTwo->setScale(0.8f);
   playerTwo->setPosition(PLAYER_TWO_POS);
   this->addChild(playerTwo, GR_MIDDLEGROUND);
@@ -103,32 +103,32 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::addPlayerTwoShadow()
 {
-  playerTwoShadow = CCSprite::create((CCString::createWithFormat("ChooseCharacterScene/c%i-red.png", playerTwoTag))->getCString());
-  playerTwoShadow->setScale(0.8f);
-  playerTwoShadow->setPosition(PLAYER_TWO_POS);
-  this->addChild(playerTwoShadow, GR_BACKGROUND);
-  playerTwoShadow->setVisible(false);
+  mPlayerTwoShadow = CCSprite::create((CCString::createWithFormat("ChooseCharacterScene/c%i-red.png", mPlayerTwoTag))->getCString());
+  mPlayerTwoShadow->setScale(0.8f);
+  mPlayerTwoShadow->setPosition(PLAYER_TWO_POS);
+  this->addChild(mPlayerTwoShadow, GR_BACKGROUND);
+  mPlayerTwoShadow->setVisible(false);
 }
 
 void PlayScene::makeMapScroll()
 {
-  tileMap = CCTMXTiledMap::create("PlayScene/map01.tmx");
+  mTileMap = CCTMXTiledMap::create("PlayScene/map01.tmx");
 
-  this->addChild(tileMap);
+  this->addChild(mTileMap);
 
-  tileMap->setPosition(ccp(0, 0));
-  mapLayer = tileMap->layerNamed("map01");
+  mTileMap->setPosition(ccp(0, 0));
+  mMapLayer = mTileMap->layerNamed("map01");
   
-  CCSize s = mapLayer->getLayerSize();
+  CCSize s = mMapLayer->getLayerSize();
   CCSprite* tile = CCSprite::create();
-  popsArr = CCArray::createWithCapacity(NUMBER_EDGE_AVAILABLE);
-  popsArr->retain();
+  mPopsArr = CCArray::createWithCapacity(NUMBER_EDGE_AVAILABLE);
+  mPopsArr->retain();
 
   for (int i = 0; i < s.width; ++i)
   {
     for (int j = 0; j < s.height; ++j)
     {
-      tile = mapLayer->tileAt(ccp(i, j));
+      tile = mMapLayer->tileAt(ccp(i, j));
       if (!tile);
 //        CCLog("tile is null");
       else
@@ -137,24 +137,24 @@ void PlayScene::makeMapScroll()
         tileInfo->setTile(tile);
         tileInfo->setGID(PAIR_FUNC(i, j));
         CCLog("gid %d", PAIR_FUNC(i, j));
-        tileInfoVector.push_back(tileInfo);
+        mTileInfoVector.push_back(tileInfo);
         
-        if (j > 0 && mapLayer->tileAt(ccp(i, j-1)))
+        if (j > 0 && mMapLayer->tileAt(ccp(i, j-1)))
         {
           tileInfo->setGIDTileUp(PAIR_FUNC(i, j-1));
         }
         
-        if (j < s.height-1 && mapLayer->tileAt(ccp(i, j+1)))
+        if (j < s.height-1 && mMapLayer->tileAt(ccp(i, j+1)))
         {
           tileInfo->setGIDTileDown(PAIR_FUNC(i, j+1));
         }
 
-        if (i > 0 && mapLayer->tileAt(ccp(i-1, j)))
+        if (i > 0 && mMapLayer->tileAt(ccp(i-1, j)))
         {
           tileInfo->setGIDTileLeft(PAIR_FUNC(i-1, j));
         }
 
-        if (i < s.width-1 && mapLayer->tileAt(ccp(i+1, j)))
+        if (i < s.width-1 && mMapLayer->tileAt(ccp(i+1, j)))
         {
           tileInfo->setGIDTileRight(PAIR_FUNC(i+1, j));
         }
@@ -167,31 +167,31 @@ void PlayScene::addScoreLbn()
 {
   CCSprite* scoreP1 = CCSprite::create("PlayScene/scoreP1.png");
   scoreP1->setPosition(LBN_SCORE_PLAYER1_POS);
-  lbnScorePlayer1 = CCLabelTTF::create("0", "ordin", 50);
-  lbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
-  lbnScorePlayer1->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
-  lbnScorePlayer1->setColor(ccBLUE);
-  lbnScorePlayer1->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
-  scoreP1->addChild(lbnScorePlayer1);
+  mLbnScorePlayer1 = CCLabelTTF::create("0", "ordin", 50);
+  mLbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
+  mLbnScorePlayer1->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
+  mLbnScorePlayer1->setColor(ccBLUE);
+  mLbnScorePlayer1->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
+  scoreP1->addChild(mLbnScorePlayer1);
   this->addChild(scoreP1, GR_FOREGROUND);
   
   // demo counting player1 score
-  sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(true));
-  lbnScorePlayer1->setString(scoreBuffer);
+  sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(true));
+  mLbnScorePlayer1->setString(mScoreBuffer);
   
   CCSprite* scoreP2 = CCSprite::create("PlayScene/scoreP2.png");
   scoreP2->setPosition(LBN_SCORE_PLAYER2_POS);
-  lbnScorePlayer2 = CCLabelTTF::create("0", "ordin", 50);
-  lbnScorePlayer2->setHorizontalAlignment(kCCTextAlignmentCenter);
-  lbnScorePlayer2->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
-  lbnScorePlayer2->setColor(ccRED);
-  lbnScorePlayer2->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
-  scoreP2->addChild(lbnScorePlayer2);
+  mLbnScorePlayer2 = CCLabelTTF::create("0", "ordin", 50);
+  mLbnScorePlayer2->setHorizontalAlignment(kCCTextAlignmentCenter);
+  mLbnScorePlayer2->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
+  mLbnScorePlayer2->setColor(ccRED);
+  mLbnScorePlayer2->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
+  scoreP2->addChild(mLbnScorePlayer2);
   this->addChild(scoreP2, GR_FOREGROUND);
   
   // demo counting player2 score
-  sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(false));
-  lbnScorePlayer2->setString(scoreBuffer);
+  sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(false));
+  mLbnScorePlayer2->setString(mScoreBuffer);
 }
 
 void PlayScene::pauseButtonTouched()
@@ -204,7 +204,7 @@ void PlayScene::pauseButtonTouched()
 void PlayScene::addFrameImg()
 {
   CCSprite *frame = CCSprite::create("PlayScene/frame-01.png");
-  frame->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+  frame->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   addChild(frame);
 }
 
@@ -212,9 +212,9 @@ bool PlayScene::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
   mIsScrolling = false;
   
-  beginLocation = pTouch->getLocation();
-  beginLocation = this->convertToNodeSpace(beginLocation);
-  beginLocationToMap = tileMap->convertToNodeSpace(beginLocation);
+  mBeginLocation = pTouch->getLocation();
+  mBeginLocation = this->convertToNodeSpace(mBeginLocation);
+  mBeginLocationToMap = mTileMap->convertToNodeSpace(mBeginLocation);
   
   return true;
 }
@@ -225,40 +225,40 @@ void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
   
   CCPoint touchLocation = pTouch->getLocation();
   touchLocation = this->convertToNodeSpace(touchLocation);
-  CCPoint touchLocationToMap = tileMap->convertToNodeSpace(touchLocation);
+  CCPoint touchLocationToMap = mTileMap->convertToNodeSpace(touchLocation);
   
-  float offsetX = touchLocation.x - beginLocation.x;
-  float offsetY = touchLocation.y - beginLocation.y;
+  float offsetX = touchLocation.x - mBeginLocation.x;
+  float offsetY = touchLocation.y - mBeginLocation.y;
   moveMap(offsetX, offsetY);
 
-  beginLocation = touchLocation;
-  beginLocationToMap = touchLocationToMap;
+  mBeginLocation = touchLocation;
+  mBeginLocationToMap = touchLocationToMap;
 }
 
 
 void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-  if (popsArr->count() > 0)
+  if (mPopsArr->count() > 0)
   {
-    for (int i = 0; i < popsArr->count(); ++i)
+    for (int i = 0; i < mPopsArr->count(); ++i)
     {
-      ((CCMenuItemSprite*)popsArr->objectAtIndex(i))->removeFromParent();
+      ((CCMenuItemSprite*)mPopsArr->objectAtIndex(i))->removeFromParent();
       CCLog("remove %d", i);
     }
-    popsArr->removeAllObjects();
+    mPopsArr->removeAllObjects();
   }
   TileInfo *tileInfo = new TileInfo();
   CCSprite *sp = CCSprite::create();
-//  CCSize s = mapLayer->getLayerSize();
+//  CCSize s = mMapLayer->getLayerSize();
 
-  for (int i = 0; i < tileInfoVector.size(); ++i)
+  for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    tileInfo = tileInfoVector.at(i);
+    tileInfo = mTileInfoVector.at(i);
     sp = tileInfo->getTile();
     
-    if (!mIsScrolling && sp && sp->boundingBox().containsPoint(beginLocationToMap))
+    if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap))
     {
-      curTile = i;
+      mCurTile = i;
       if (tileInfo->getEdgeBottomSts() == STS_AVAILABLE && !tileInfo->getHasBottomPop())
       {
         appearBottomPop(tileInfo, sp);
@@ -285,10 +285,10 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   pop->setVisible(false);
   CCSprite *edge = CCSprite::create("PlayScene/edge.png");
   
-  TileInfo *tileInfo = tileInfoVector.at(curTile);
+  TileInfo *tileInfo = mTileInfoVector.at(mCurTile);
 
 //  CCSprite *sp = tileInfo->getTile();
-  CCLog("curTile = %d", curTile);
+  CCLog("curTile = %d", mCurTile);
   
   if (pop->getTag() == TAG_EDGE_BOTTOM)
   {
@@ -309,53 +309,54 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   tileInfo->setNumberEdgeAvailale(tileInfo->getNumberEdgeAvailale()-1);
   CCLog("tileInfo->getNumberEdgeAvailale() = %d", tileInfo->getNumberEdgeAvailale());
   
-  currentPlayer = GameManager::getCurrentPlayer();
-  CCLog("Current Player is %i", currentPlayer);
+  CCLog("Current Player is %i", GameManager::getCurrentPlayer());
   
   bool checkIncreasingScore = false;
   
-  for (int i = 0; i < tileInfoVector.size(); ++i)
+  for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && tileInfoVector.at(i)->getBelongToPlayer() == 0)
+    if (mTileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && mTileInfoVector.at(i)->getBelongToPlayer() == 0)
     {
-      GameManager::increaseScore(currentPlayer);
+      GameManager::increaseScore(GameManager::getCurrentPlayer());
       checkIncreasingScore = true;
-      sprintf(scoreBuffer, "%i", GameManager::getPlayerScore(currentPlayer));
-      if (currentPlayer)
+      sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(GameManager::getCurrentPlayer()));
+      if (GameManager::getCurrentPlayer() == PLAYER_ONE)
       {
-        tileInfoVector.at(i)->setBelongToPlayer(1);
-        lbnScorePlayer1->setString(scoreBuffer);
+        mTileInfoVector.at(i)->setBelongToPlayer(1);
+        mTileInfoVector.at(i)->getTile()->setColor(ccBLUE);
+        mLbnScorePlayer1->setString(mScoreBuffer);
       }
       else
       {
-        tileInfoVector.at(i)->setBelongToPlayer(2);
-        lbnScorePlayer2->setString(scoreBuffer);
+        mTileInfoVector.at(i)->setBelongToPlayer(2);
+        mTileInfoVector.at(i)->getTile()->setColor(ccRED);
+        mLbnScorePlayer2->setString(mScoreBuffer);
       }
     }
   }
   
   if (!checkIncreasingScore)
   {
-    GameManager::changeCurrentPlayer();
-    
-    if (currentPlayer)
+    if (GameManager::getCurrentPlayer() == PLAYER_ONE)
     {
-      playerOneShadow->setVisible(false);
-      playerTwoShadow->setVisible(true);
+      mPlayerOneShadow->setVisible(false);
+      mPlayerTwoShadow->setVisible(true);
     }
     else
     {
-      playerTwoShadow->setVisible(false);
-      playerOneShadow->setVisible(true);
+      mPlayerTwoShadow->setVisible(false);
+      mPlayerOneShadow->setVisible(true);
     }
+    
+    GameManager::changeCurrentPlayer();
   }
    
-  for (int i = 0; i < popsArr->count(); ++i)
+  for (int i = 0; i < mPopsArr->count(); ++i)
   {
-    ((CCMenuItemSprite*)popsArr->objectAtIndex(i))->removeFromParent();
+    ((CCMenuItemSprite*)mPopsArr->objectAtIndex(i))->removeFromParent();
     CCLog("remove %d", i);
   }
-  popsArr->removeAllObjects();
+  mPopsArr->removeAllObjects();
 }
 
 void PlayScene::registerWithTouchDispatcher() {
@@ -364,8 +365,8 @@ void PlayScene::registerWithTouchDispatcher() {
 
 void PlayScene::moveMap(float offsetX, float offsetY)
 {
-  float posX = tileMap->getPosition().x + offsetX;
-  float posY = tileMap->getPosition().y + offsetY;
+  float posX = mTileMap->getPosition().x + offsetX;
+  float posY = mTileMap->getPosition().y + offsetY;
   if (posX > 0)
     posX = 0;
   if (posX < getBound().x)
@@ -376,16 +377,16 @@ void PlayScene::moveMap(float offsetX, float offsetY)
   {
     posY = getBound().y;
   }
-  tileMap->setPosition(ccp(posX, posY));
+  mTileMap->setPosition(ccp(posX, posY));
 }
 
 CCPoint PlayScene::getBound()
 {
-  float mapWidth = tileMap->getTileSize().width * tileMap->getMapSize().width;
-  float mapHeight = tileMap->getTileSize().height * tileMap->getMapSize().height;
+  float mapWidth = mTileMap->getTileSize().width * mTileMap->getMapSize().width;
+  float mapHeight = mTileMap->getTileSize().height * mTileMap->getMapSize().height;
   
   // should caculate the bounding of map position
-  return ccp(screenSize.width - mapWidth, screenSize.height - mapHeight);
+  return ccp(mScreenSize.width - mapWidth, mScreenSize.height - mapHeight);
 }
 
 void PlayScene::addGlowEffect(CCSprite* sprite,
@@ -416,159 +417,145 @@ void PlayScene::addGlowEffect(CCSprite* sprite,
 
 PlayScene::~PlayScene()
 {
-    popsArr->release();
+    mPopsArr->release();
 }
 
 void PlayScene::update(float pdT)
 {
-  for (int i = 0; i < tileInfoVector.size(); ++i)
-  {
-    if (tileInfoVector.at(i)->getNumberEdgeAvailale() == 0)
-    {
-      if (tileInfoVector.at(i)->getBelongToPlayer() == 1)
-      {
-        tileInfoVector.at(i)->getTile()->setColor(ccBLUE);
-      }
-      else if (tileInfoVector.at(i)->getBelongToPlayer() == 2)
-      {
-        tileInfoVector.at(i)->getTile()->setColor(ccRED);
-      }
-    }
-  }
   if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 3)
   {
-    GameManager::setWinPlayer(currentPlayer);
+    GameManager::setWinPlayer(GameManager::getCurrentPlayer());
     CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
 }
 
-void PlayScene::addBottomEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge)
+void PlayScene::addBottomEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 {
-  CCSprite *sp = tileInfo->getTile();
-  tileInfo->setHasBottomPop(true);
+  CCSprite *sp = pTileInfo->getTile();
+  pTileInfo->setHasBottomPop(true);
   
-  edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
+  pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
   
-  tileMap->addChild(edge, GR_FOREGROUND);
-  tileInfo->setEdgeBottomSts(STS_NOT_AVAILABLE);
+  mTileMap->addChild(pEdge, GR_FOREGROUND);
+  pTileInfo->setEdgeBottomSts(STS_NOT_AVAILABLE);
   
-  for (int i = 0; i < tileInfoVector.size(); ++i)
+  for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileDown())
+    if (mTileInfoVector.at(i)->getGID() == pTileInfo->getGIDTileDown())
     {
-      tileInfoVector.at(i)->setHasTopPop(true);
-      tileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
-      tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      mTileInfoVector.at(i)->setHasTopPop(true);
+      mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
+      mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
     }
   }
 }
 
-void PlayScene::addTopEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge)
+void PlayScene::addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 {
-  CCSprite *sp = tileInfo->getTile();
-  tileInfo->setHasTopPop(true);
+  CCSprite *sp = pTileInfo->getTile();
+  pTileInfo->setHasTopPop(true);
   
-  edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height));
+  pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height));
   
-  tileMap->addChild(edge, GR_FOREGROUND);
-  tileInfo->setEdgeTopSts(STS_NOT_AVAILABLE);
-  for (int i = 0; i < tileInfoVector.size(); ++i)
+  mTileMap->addChild(pEdge, GR_FOREGROUND);
+  pTileInfo->setEdgeTopSts(STS_NOT_AVAILABLE);
+  for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileUp())
+    if (mTileInfoVector.at(i)->getGID() == pTileInfo->getGIDTileUp())
     {
-      tileInfoVector.at(i)->setHasBottomPop(true);
-      tileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
-      tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      mTileInfoVector.at(i)->setHasBottomPop(true);
+      mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
+      mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
     }
   }
 }
 
-void PlayScene::addLeftEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge)
+void PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 {
-  CCSprite *sp = tileInfo->getTile();
-  tileInfo->setHasLeftPop(true);
+  CCSprite *sp = pTileInfo->getTile();
+  pTileInfo->setHasLeftPop(true);
   
-  edge->setRotation(90);
-  edge->setPosition(ccp(sp->getPositionX(), sp->getPositionY() + sp->getContentSize().height/2));
+  pEdge->setRotation(90);
+  pEdge->setPosition(ccp(sp->getPositionX(), sp->getPositionY() + sp->getContentSize().height/2));
   
-  tileMap->addChild(edge, GR_FOREGROUND);
-  tileInfo->setEdgeLeftSts(STS_NOT_AVAILABLE);
+  mTileMap->addChild(pEdge, GR_FOREGROUND);
+  pTileInfo->setEdgeLeftSts(STS_NOT_AVAILABLE);
   
-  for (int i = 0; i < tileInfoVector.size(); ++i)
+  for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileLeft())
+    if (mTileInfoVector.at(i)->getGID() == pTileInfo->getGIDTileLeft())
     {
-      tileInfoVector.at(i)->setHasRightPop(true);
-      tileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
-      tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      mTileInfoVector.at(i)->setHasRightPop(true);
+      mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
+      mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
     }
   }
 }
 
-void PlayScene::addRightEdge(TileInfo *tileInfo, cocos2d::CCSprite *edge)
+void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 {
-  CCSprite *sp = tileInfo->getTile();
-  tileInfo->setHasRightPop(true);
+  CCSprite *sp = pTileInfo->getTile();
+  pTileInfo->setHasRightPop(true);
   
-  edge->setRotation(90);
-  edge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width, sp->getPositionY() + sp->getContentSize().height/2));
+  pEdge->setRotation(90);
+  pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width, sp->getPositionY() + sp->getContentSize().height/2));
   
-  tileMap->addChild(edge, GR_FOREGROUND);
-  tileInfo->setEdgeRightSts(STS_NOT_AVAILABLE);
+  mTileMap->addChild(pEdge, GR_FOREGROUND);
+  pTileInfo->setEdgeRightSts(STS_NOT_AVAILABLE);
   
-  for (int i = 0; i < tileInfoVector.size(); ++i)
+  for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    if (tileInfoVector.at(i)->getGID() == tileInfo->getGIDTileRight())
+    if (mTileInfoVector.at(i)->getGID() == pTileInfo->getGIDTileRight())
     {
-      tileInfoVector.at(i)->setHasLeftPop(true);
-      tileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
-      tileInfoVector.at(i)->setNumberEdgeAvailale(tileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      mTileInfoVector.at(i)->setHasLeftPop(true);
+      mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
+      mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
     }
   }
 }
 
-void PlayScene::appearBottomPop(TileInfo *tileInfo, cocos2d::CCSprite *sp)
+void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 {
   CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
-  popsArr->addObject(item);
+  mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_BOTTOM);
-  edgePop->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() - pop->getContentSize().height/2));
-  tileMap->addChild(edgePop);
+  edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() - pop->getContentSize().height/2));
+  mTileMap->addChild(edgePop);
 }
 
-void PlayScene::appearTopPop(TileInfo *tileInfo, cocos2d::CCSprite *sp)
+void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 {
   CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
-  popsArr->addObject(item);
+  mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_TOP);
-  edgePop->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height + pop->getContentSize().height/2));
-  tileMap->addChild(edgePop);
+  edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height + pop->getContentSize().height/2));
+  mTileMap->addChild(edgePop);
 }
 
-void PlayScene::appearLeftPop(TileInfo *tileInfo, cocos2d::CCSprite *sp)
+void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 {
   CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
-  popsArr->addObject(item);
+  mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_LEFT);
-  edgePop->setPosition(ccp(sp->getPositionX() - pop->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height/2));
-  tileMap->addChild(edgePop);
+  edgePop->setPosition(ccp(pSp->getPositionX() - pop->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height/2));
+  mTileMap->addChild(edgePop);
 }
 
-void PlayScene::appearRightPop(TileInfo *tileInfo, cocos2d::CCSprite *sp)
+void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 {
   CCSprite* pop = CCSprite::create("PlayScene/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
-  popsArr->addObject(item);
+  mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_RIGHT);
-  edgePop->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width + pop->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height/2));
-  tileMap->addChild(edgePop);
+  edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width + pop->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height/2));
+  mTileMap->addChild(edgePop);
 }
 
