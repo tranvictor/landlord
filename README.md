@@ -27,7 +27,7 @@
    3. Every player will place *the fence* on edge of each square in grid in turn.
    4. when square is surrounded by 4 fences, a house will automatically appear on it, the house's color is depend on the player who place the last fence on that square.
    5. The one who place the last fence to complete a closed path will score that turn. 
-   6. In tree mode, player need to chop down the tree before they can place a house on that square.
+   6. In tree mode, player need to chop down the tree before they can place a house on that square..
 
 
 
