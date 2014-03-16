@@ -18,13 +18,13 @@ The concept:
 ======================
 ### HOW TO PLAY
 
---------------
-#### Control: ###
+
+#### Control: 
 
    1. To play a game you simply touch on the tile on map, then the pop up come out, choose the edge you want to put the fence by touching on it.
 
---------   
-#### Rules: ###
+
+#### Rules: 
 
    - There are two player who compete on one game.
    - *The Island* is split into Grid.
