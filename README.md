@@ -47,7 +47,7 @@ The concept:
 ### CONTACT US
 
 
-- *Group 1* -  Software Engineering Class, Spring 2014
+- __Group 1__ -  Software Engineering Class, Spring 2014
 
 - University of Engineering and Technology, Hanoi Vietnam National University.
 
