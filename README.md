@@ -2,6 +2,7 @@ Welcome to Landlord wiki
 ===
 
 
+
 ### GETTING STARTED
 
 The concept:
@@ -37,10 +38,10 @@ The concept:
 ### CONTRIBUTING TO THE PROJECT
 
 
-- Nguyen Van Giap 
-- Hoang Ha
-- Truong Quoc Tuan
-- Ha Anh Tuan
+- Nguyen Van Giap - giapnv_570@vnu.edu.vn
+- Hoang Ha  - hah_57@vnu.edu.vn
+- Truong Quoc Tuan - tuantq_57@vnu.edu.vn
+- Ha Anh Tuan - tuanha_57@vnu.edu.vn
 
 =================== 
 
