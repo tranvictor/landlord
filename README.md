@@ -11,8 +11,12 @@
 2. There are two player who compete with each other in one game.
 3. The aim of the game is build houses and occupy the island
 
+###**Concept of game**
+
+
 ![](https://trello-attachments.s3.amazonaws.com/52c4f6123915d4930f0201d2/530711763f3a2e8a45410d84/e66e722756b80f05deba192a0bde516c/Landlord_draft-01.png)
-**Concept of game**
+
+
 
 
 
