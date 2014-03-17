@@ -112,7 +112,7 @@ void PlayScene::addPlayerTwoShadow()
 
 void PlayScene::makeMapScroll()
 {
-  mTileMap = CCTMXTiledMap::create("PlayScene/map01.tmx");
+  mTileMap = CCTMXTiledMap::create("Tiled map/demo-map.tmx");
 
   this->addChild(mTileMap);
 
