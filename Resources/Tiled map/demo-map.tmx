@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128">
   <image source="Tileset.png" width="1281" height="641"/>
  </tileset>
- <layer name="Tile Layer 1" width="11" height="11">
+ <layer name="map01" width="11" height="11">
   <data encoding="base64" compression="zlib">
    eJxjYIAAJiDmRMNcDNiBKBCLo2ERNDVsQMwMxDxY1PJB5fihagWAWAyLOmQsSaFaNSR5NSxq5YFYG4oNkORBbEMoVsYSFipYzMIFtJDs0CGglpoAAOFOBqQ=
   </data>

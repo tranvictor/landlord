@@ -246,6 +246,7 @@
 		7AA0CCD118BB9C380097A90B /* PlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */; };
 		7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */; };
 		7AA1AE2418B40DF000A5C58C /* Maps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1AE2218B40DF000A5C58C /* Maps.cpp */; };
+		7AA747C718D70F7D00B502B2 /* Tiled map in Resources */ = {isa = PBXBuildFile; fileRef = 7AA747C618D70F7D00B502B2 /* Tiled map */; };
 		7AB0FF9418C8DCD000AA51D7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB0FF9318C8DCD000AA51D7 /* Default-568h@2x.png */; };
 		7AB41F7518B3CE8000F5177C /* ChooseMapScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -765,6 +766,7 @@
 		7AA1ADFC18B3F79A00A5C58C /* SlidingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenu.h; sourceTree = "<group>"; };
 		7AA1AE2218B40DF000A5C58C /* Maps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Maps.cpp; path = ../Classes/Maps.cpp; sourceTree = "<group>"; };
 		7AA1AE2318B40DF000A5C58C /* Maps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Maps.h; path = ../Classes/Maps.h; sourceTree = "<group>"; };
+		7AA747C618D70F7D00B502B2 /* Tiled map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Tiled map"; sourceTree = "<group>"; };
 		7AB0FF9318C8DCD000AA51D7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScence.cpp; path = ../Classes/ChooseMapScence.cpp; sourceTree = "<group>"; };
 		7AB41F7418B3CE8000F5177C /* ChooseMapScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseMapScence.h; path = ../Classes/ChooseMapScence.h; sourceTree = "<group>"; };
@@ -1779,6 +1781,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7AA747C618D70F7D00B502B2 /* Tiled map */,
 				7A9DCF3318CA2AEC00AA4A1D /* PlayScene */,
 				7A08F1C918C6CC4900BB75AA /* ChooseCharacterScene */,
 				7A08F1CA18C6CC4900BB75AA /* ChooseMapScene */,
@@ -1883,6 +1886,7 @@
 				7A08F1DD18C6CC4900BB75AA /* Mainscene in Resources */,
 				7AB0FF9418C8DCD000AA51D7 /* Default-568h@2x.png in Resources */,
 				7A08F1D918C6CC4900BB75AA /* CloseSelected.png in Resources */,
+				7AA747C718D70F7D00B502B2 /* Tiled map in Resources */,
 				7A08F1DA18C6CC4900BB75AA /* CloudAnimation in Resources */,
 				7A08F1DC18C6CC4900BB75AA /* HelloWorld.png in Resources */,
 				7A08F1D818C6CC4900BB75AA /* CloseNormal.png in Resources */,
