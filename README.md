@@ -1,6 +1,7 @@
 Welcome to Landlord wiki
 ===
 
+![](https://trello-attachments.s3.amazonaws.com/52c4f6123915d4930f0201d2/5325cf3ae398bcfd72002482/4733x2667/49a0a04ebd900fb344b739764cf98116/landlord-01.jpg)
 
 
 ### GETTING STARTED
