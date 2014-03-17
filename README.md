@@ -33,6 +33,8 @@ The concept:
    - when square is surrounded by 4 fences, a house will automatically appear on it, the house's color is depend on the player who place the last fence on that square.
    - The one who place the last fence to complete a closed path will score that turn. 
    - In tree mode, player need to chop down the tree before they can place a house on that square.
+   - To chop down the tree player will need *AXE* item. *AXE* is randomly hide under some square in map. Each *AXE* is able to take down one tree only.
+   - Rocks are the obstacles, they cant be interact. 
 
 =====================
 ### CONTRIBUTING TO THE PROJECT
