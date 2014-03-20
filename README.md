@@ -49,6 +49,7 @@ The concept:
 =================== 
 
 ### DOCUMENTATIONS
+- Wiki: https://github.com/tranvictor/landlord/wiki
 
 ===================
 
