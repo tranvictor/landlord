@@ -1,6 +1,7 @@
 Welcome to Landlord wiki
 ===
 
+![](https://trello-attachments.s3.amazonaws.com/52c4f6123915d4930f0201d2/5325cf3ae398bcfd72002482/4733x2667/49a0a04ebd900fb344b739764cf98116/landlord-01.jpg)
 
 
 ### GETTING STARTED
@@ -33,6 +34,8 @@ The concept:
    - when square is surrounded by 4 fences, a house will automatically appear on it, the house's color is depend on the player who place the last fence on that square.
    - The one who place the last fence to complete a closed path will score that turn. 
    - In tree mode, player need to chop down the tree before they can place a house on that square.
+   - To chop down the tree player will need *AXE* item. *AXE* is randomly hide under some square in map. Each *AXE* is able to take down one tree only.
+   - Rocks are the obstacles, they cant be interact. 
 
 =====================
 ### CONTRIBUTING TO THE PROJECT
@@ -46,6 +49,7 @@ The concept:
 =================== 
 
 ### DOCUMENTATIONS
+- Wiki: https://github.com/tranvictor/landlord/wiki
 
 ===================
 
