@@ -42,6 +42,8 @@ public:
 //  CC_SYNTHESIZE(int, mGridY, GridY);
   
   CC_SYNTHESIZE(int, mBelongToPlayer, BelongToPlayer);
+  CC_SYNTHESIZE(bool, mHasTree, HasTree);
+  CC_SYNTHESIZE(bool, mHasAxe, HasAxe);
   
   TileInfo();
   

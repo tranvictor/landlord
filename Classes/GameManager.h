@@ -21,8 +21,11 @@ private:
 
   static int  player1Score;
   static int  player2Score;
-  static int  currentPlayer; // true = P1, false = P2
+  static int  currentPlayer;
   static int  winPlayer;
+  
+  static int  nTrees;
+  static int  nAxes;
   
 public:
   static bool getMusicState();
@@ -50,7 +53,9 @@ public:
   static void changeCurrentPlayer();
   static void setWinPlayer(int _currentPlayer);
   static int  getWinPlayer();
-
+  
+  static void setNumOfTrees(int pNumOfTrees);
+  static void setNumOfAxes(int pNumOfAxes);
 };
 
 #endif

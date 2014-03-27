@@ -80,6 +80,9 @@ public:
   void appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   void appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   
+  void addTree();
+  void addAxe();
+  
   CCPoint getBound();
   
   virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
