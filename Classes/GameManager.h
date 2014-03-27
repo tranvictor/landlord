@@ -55,6 +55,8 @@ public:
   static int  getWinPlayer();
   
   static void setNumOfTrees(int pNumOfTrees);
+  static int  getNumOfTrees();
+  
   static void setNumOfAxes(int pNumOfAxes);
 };
 

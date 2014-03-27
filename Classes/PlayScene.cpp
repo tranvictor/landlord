@@ -54,7 +54,8 @@ bool PlayScene::init()
   addPlayerTwoShadow();
   addScoreLbn();
   
-  addTree();
+  addTrees();
+  addAxes();
   
   schedule(schedule_selector(PlayScene::update));
   
@@ -562,7 +563,7 @@ void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
   mTileMap->addChild(edgePop);
 }
 
-void PlayScene::addTree()
+void PlayScene::addTrees()
 {
   int mNumOfTrees = rand() % 3 + 4;
   CCLog("Number of Trees is %i", mNumOfTrees);
@@ -580,7 +581,22 @@ void PlayScene::addTree()
   }
 }
 
-void PlayScene::addAxe()
+void PlayScene::addAxes()
 {
-  
+  int mNumOfAxes = GameManager::getNumOfTrees();
+  CCLog("Number of Axes is %i", mNumOfAxes);
+  GameManager::setNumOfTrees(mNumOfAxes);
+  for (int i = 0; i < mNumOfAxes; i++)
+  {
+    int r;
+    do
+    {
+      r = rand() % mTileInfoVector.size();
+    } while (mTileInfoVector.at(r)->getHasTree() ||
+             mTileInfoVector.at(r)->getHasAxe());
+    CCLog("Tile at %i has a axe", r);
+    mTileInfoVector.at(r)->setHasAxe(true);
+    mTileInfoVector.at(r)->getTile()->setColor(ccBLACK);
+  }
+
 }
