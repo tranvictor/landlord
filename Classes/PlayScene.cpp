@@ -244,8 +244,14 @@ void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 
 void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-  
-  removePopups();
+  if (mPopsArr->count() > 0)
+  {
+    removePopups();
+  }
+  if (mIsAxePopVisible == true)
+  {
+    mAxePop->setVisible(false);
+  }
   
   TileInfo *tileInfo = new TileInfo();
   CCSprite *sp = CCSprite::create();
@@ -261,8 +267,10 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
       mCurTile = i;
       if (Tree::checkHasTree(mTileInfoVector.at(mCurTile)))
       {
-        Axe::appearAxePop();
-        appearAxePop(tileInfo, sp);
+        if (GameManager::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
+        {
+          appearAxePop(tileInfo, sp);
+        }
       }
       else
       {
@@ -325,6 +333,10 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
         mTileInfoVector.at(i)->getTile()->setColor(ccRED);
         mLbnScorePlayer2->setString(mScoreBuffer);
       }
+      if (tileInfo->getHasAxe())
+      {
+        GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
+      }
     }
   }
   
@@ -344,12 +356,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     GameManager::changeCurrentPlayer();
   }
    
-  for (int i = 0; i < mPopsArr->count(); ++i)
-  {
-    ((CCMenuItemSprite*)mPopsArr->objectAtIndex(i))->removeFromParent();
-    CCLog("remove %d", i);
-  }
-  mPopsArr->removeAllObjects();
+  removePopups();
 }
 
 void PlayScene::registerWithTouchDispatcher() {
@@ -574,15 +581,12 @@ void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 
 void PlayScene::removePopups()
 {
-  if (mPopsArr->count() > 0)
+  for (int i = 0; i < mPopsArr->count(); ++i)
   {
-    for (int i = 0; i < mPopsArr->count(); ++i)
-    {
-      ((CCMenuItemSprite*)mPopsArr->objectAtIndex(i))->removeFromParent();
-      CCLog("remove %d", i);
-    }
-    mPopsArr->removeAllObjects();
+    ((CCMenuItemSprite*)mPopsArr->objectAtIndex(i))->removeFromParent();
+    CCLog("remove %d", i);
   }
+  mPopsArr->removeAllObjects();
 }
 
 void PlayScene::addTrees()
@@ -625,16 +629,18 @@ void PlayScene::addAxes()
 void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 {
   CCSprite* pop = CCSprite::create("Images/Game/Object/axe.png");
-  CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
-  CCMenu *axePop = CCMenu::create(item, NULL);
+  mAxePop = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
+  CCMenu *axePop = CCMenu::create(mAxePop, NULL);
   axePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height + pop->getContentSize().height/2));
   mTileMap->addChild(axePop);
+  mIsAxePopVisible = true;
 }
 
 void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
 {
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
+  mIsAxePopVisible = false;
   mTileInfoVector.at(mCurTile)->setHasTree(false);
   mTileInfoVector.at(mCurTile)->getTile()->setColor(ccGREEN);
 }

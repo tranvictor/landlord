@@ -41,6 +41,8 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCArray*   mEdgeArrRight;
   
   cocos2d::CCArray*   mPopsArr;
+  bool                mIsAxePopVisible = false;
+  cocos2d::CCMenuItemSprite*   mAxePop;
   std::vector<TileInfo*>  mTileInfoVector;
   
   int                 mCurTile = 0;
