@@ -641,6 +641,7 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
   mIsAxePopVisible = false;
+  GameManager::decreaseNumOfAxes(GameManager::getCurrentPlayer());
   mTileInfoVector.at(mCurTile)->setHasTree(false);
   mTileInfoVector.at(mCurTile)->getTile()->setColor(ccGREEN);
 }
