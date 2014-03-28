@@ -316,7 +316,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    if (mTileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && mTileInfoVector.at(i)->getBelongToPlayer() == 0)
+    if (mTileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && mTileInfoVector.at(i)->getBelongToPlayer() == 0 && mTileInfoVector.at(i)->getHasTree() == false)
     {
       GameManager::increaseScore(GameManager::getCurrentPlayer());
       checkIncreasingScore = true;
@@ -644,4 +644,21 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
   GameManager::decreaseNumOfAxes(GameManager::getCurrentPlayer());
   mTileInfoVector.at(mCurTile)->setHasTree(false);
   mTileInfoVector.at(mCurTile)->getTile()->setColor(ccGREEN);
+  
+  if (mTileInfoVector.at(mCurTile)->getNumberEdgeAvailale() == 0)
+  {
+    mTileInfoVector.at(mCurTile)->setBelongToPlayer(GameManager::getCurrentPlayer());
+    GameManager::increaseScore(GameManager::getCurrentPlayer());
+    sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(GameManager::getCurrentPlayer()));
+    if (GameManager::getCurrentPlayer() == PLAYER_ONE)
+    {
+      mTileInfoVector.at(mCurTile)->getTile()->setColor(ccBLUE);
+      mLbnScorePlayer1->setString(mScoreBuffer);
+    }
+    else
+    {
+      mTileInfoVector.at(mCurTile)->getTile()->setColor(ccRED);
+      mLbnScorePlayer2->setString(mScoreBuffer);
+    }
+  }
 }
