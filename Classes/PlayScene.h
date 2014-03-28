@@ -80,6 +80,8 @@ public:
   void appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   void appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   
+  void removePopups();
+  
   void addTrees();
   void addAxes();
   

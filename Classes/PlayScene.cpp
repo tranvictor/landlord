@@ -242,15 +242,9 @@ void PlayScene::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 
 void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-  if (mPopsArr->count() > 0)
-  {
-    for (int i = 0; i < mPopsArr->count(); ++i)
-    {
-      ((CCMenuItemSprite*)mPopsArr->objectAtIndex(i))->removeFromParent();
-      CCLog("remove %d", i);
-    }
-    mPopsArr->removeAllObjects();
-  }
+  
+  removePopups();
+  
   TileInfo *tileInfo = new TileInfo();
   CCSprite *sp = CCSprite::create();
 //  CCSize s = mMapLayer->getLayerSize();
@@ -561,6 +555,19 @@ void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
   item->setTag(TAG_EDGE_RIGHT);
   edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width + pop->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height/2));
   mTileMap->addChild(edgePop);
+}
+
+void PlayScene::removePopups()
+{
+  if (mPopsArr->count() > 0)
+  {
+    for (int i = 0; i < mPopsArr->count(); ++i)
+    {
+      ((CCMenuItemSprite*)mPopsArr->objectAtIndex(i))->removeFromParent();
+      CCLog("remove %d", i);
+    }
+    mPopsArr->removeAllObjects();
+  }
 }
 
 void PlayScene::addTrees()
