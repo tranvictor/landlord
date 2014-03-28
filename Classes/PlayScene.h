@@ -85,6 +85,8 @@ public:
   
   void addTrees();
   void addAxes();
+  void appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
+  void chooseAxeEnded(cocos2d::CCObject *pSender);
   
   CCPoint getBound();
   

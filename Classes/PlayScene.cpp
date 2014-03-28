@@ -262,6 +262,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
       if (Tree::checkHasTree(mTileInfoVector.at(mCurTile)))
       {
         Axe::appearAxePop();
+        appearAxePop(tileInfo, sp);
       }
       else
       {
@@ -619,5 +620,19 @@ void PlayScene::addAxes()
     mTileInfoVector.at(r)->setHasAxe(true);
     mTileInfoVector.at(r)->getTile()->setColor(ccBLACK);
   }
+}
 
+void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
+{
+  CCSprite* pop = CCSprite::create("Images/Game/Object/axe.png");
+  CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
+  CCMenu *axePop = CCMenu::create(item, NULL);
+  axePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height + pop->getContentSize().height/2));
+  mTileMap->addChild(axePop);
+}
+
+void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
+{
+  CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
+  pop->setVisible(false);
 }
