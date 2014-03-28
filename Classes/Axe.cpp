@@ -7,3 +7,8 @@
 //
 
 #include "Axe.h"
+
+void Axe::appearAxePop()
+{
+  
+}

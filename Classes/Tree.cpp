@@ -7,3 +7,8 @@
 //
 
 #include "Tree.h"
+
+bool Tree::checkHasTree(TileInfo *pTileInfo)
+{
+  return pTileInfo->getHasTree();
+}

@@ -9,6 +9,8 @@
 #include "PlayScene.h"
 #include "WinScene.h"
 #include "GameManager.h"
+#include "Tree.h"
+#include "Axe.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -257,21 +259,13 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap))
     {
       mCurTile = i;
-      if (tileInfo->getEdgeBottomSts() == STS_AVAILABLE && !tileInfo->getHasBottomPop())
+      if (Tree::checkHasTree(mTileInfoVector.at(mCurTile)))
       {
-        appearBottomPop(tileInfo, sp);
+        Axe::appearAxePop();
       }
-      if (tileInfo->getEdgeTopSts() == STS_AVAILABLE && !tileInfo->getHasTopPop())
+      else
       {
-        appearTopPop(tileInfo, sp);
-      }
-      if (tileInfo->getEdgeLeftSts() == STS_AVAILABLE && !tileInfo->getHasLeftPop())
-      {
-        appearLeftPop(tileInfo, sp);
-      }
-      if (tileInfo->getEdgeRightSts() == STS_AVAILABLE && !tileInfo->getHasRightPop())
-      {
-        appearRightPop(tileInfo, sp);
+        appearPops(tileInfo, sp);
       }
     }
   }
@@ -510,6 +504,26 @@ void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
       mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
       mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
     }
+  }
+}
+
+void PlayScene::appearPops(TileInfo* pTileInfo, cocos2d::CCSprite *pSp)
+{
+  if (pTileInfo->getEdgeBottomSts() == STS_AVAILABLE && !pTileInfo->getHasBottomPop())
+  {
+    appearBottomPop(pTileInfo, pSp);
+  }
+  if (pTileInfo->getEdgeTopSts() == STS_AVAILABLE && !pTileInfo->getHasTopPop())
+  {
+    appearTopPop(pTileInfo, pSp);
+  }
+  if (pTileInfo->getEdgeLeftSts() == STS_AVAILABLE && !pTileInfo->getHasLeftPop())
+  {
+    appearLeftPop(pTileInfo, pSp);
+  }
+  if (pTileInfo->getEdgeRightSts() == STS_AVAILABLE && !pTileInfo->getHasRightPop())
+  {
+    appearRightPop(pTileInfo, pSp);
   }
 }
 

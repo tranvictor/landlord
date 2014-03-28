@@ -10,5 +10,15 @@
 #define __landlord__Tree__
 
 #include <iostream>
+#include "TileInfo.h"
+
+class Tree
+{
+private:
+  
+public:
+  static bool checkHasTree(TileInfo* pTileInfo);
+  
+};
 
 #endif /* defined(__landlord__Tree__) */

@@ -75,6 +75,7 @@ public:
   void addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge);
   void addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge);
   
+  void appearPops(TileInfo* pTileInfo, cocos2d::CCSprite *pSp);
   void appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   void appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   void appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
