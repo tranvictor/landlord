@@ -51,6 +51,8 @@ class PlayScene : public cocos2d::CCLayer
   CCSprite*           mPlayerOneShadow;
   CCSprite*           mPlayerTwoShadow;
   
+  int*  mStoneIndexInVector;
+  
 public:
   virtual bool init();
   static cocos2d::CCScene* scene();

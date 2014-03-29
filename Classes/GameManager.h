@@ -24,8 +24,6 @@ private:
   static int  currentPlayer;
   static int  winPlayer;
   
-  static int  nTrees;
-  
 public:
   static bool getMusicState();
   static void setMusicState();
@@ -52,10 +50,6 @@ public:
   static void changeCurrentPlayer();
   static void setWinPlayer(int _currentPlayer);
   static int  getWinPlayer();
-  
-  static void setNumOfTrees(int pNumOfTrees);
-  static int  getNumOfTrees();
-  
 
 };
 

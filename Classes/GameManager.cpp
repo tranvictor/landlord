@@ -23,7 +23,6 @@ int  GameManager::player1Score;
 int  GameManager::player2Score;
 int  GameManager::currentPlayer;
 int  GameManager::winPlayer;
-int  GameManager::nTrees;
 
 bool GameManager::getMusicState()
 {
@@ -145,13 +144,4 @@ void GameManager::setWinPlayer(int _currentPlayer)
   winPlayer = _currentPlayer;
 }
 
-void GameManager::setNumOfTrees(int pNumOfTrees)
-{
-  nTrees = pNumOfTrees;
-}
-
-int GameManager::getNumOfTrees()
-{
-  return nTrees;
-}
 

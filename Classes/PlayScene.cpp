@@ -267,19 +267,16 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap))
     {
       mCurTile = i;
-      if (mTileInfoVector.at(mCurTile)->getHasItem())
+      if (mTileInfoVector.at(mCurTile)->getHasTree())
       {
-        if (mTileInfoVector.at(mCurTile)->getHasTree())
+        if (Axe::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
         {
-          if (Axe::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
-          {
-            appearAxePop(tileInfo, sp);
-          }
+          appearAxePop(tileInfo, sp);
         }
-        else if (mTileInfoVector.at(mCurTile)->getHasStone())
-        {
-          //  Doing nothing
-        }
+      }
+      else if (mTileInfoVector.at(mCurTile)->getHasStone())
+      {
+        //  doing nothing
       }
       else
       {
@@ -325,7 +322,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    if (mTileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && mTileInfoVector.at(i)->getBelongToPlayer() == 0 && mTileInfoVector.at(i)->getHasTree() == false)
+    if (mTileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && mTileInfoVector.at(i)->getBelongToPlayer() == 0 && mTileInfoVector.at(i)->getHasTree() == false && mTileInfoVector.at(i)->getHasStone() == false)
     {
       GameManager::increaseScore(GameManager::getCurrentPlayer());
       checkIncreasingScore = true;
@@ -602,7 +599,7 @@ void PlayScene::addTrees()
 {
   int mNumOfTrees = rand() % 3 + 4;
   CCLog("Number of Trees is %i", mNumOfTrees);
-  GameManager::setNumOfTrees(mNumOfTrees);
+  Tree::setNumOfTrees(mNumOfTrees);
   for (int i = 0; i < mNumOfTrees; i++)
   {
     int r;
@@ -619,9 +616,9 @@ void PlayScene::addTrees()
 
 void PlayScene::addAxes()
 {
-  int mNumOfAxes = GameManager::getNumOfTrees();
+  int mNumOfAxes = Tree::getNumOfTrees();
   CCLog("Number of Axes is %i", mNumOfAxes);
-  GameManager::setNumOfTrees(mNumOfAxes);
+  Tree::setNumOfTrees(mNumOfAxes);
   for (int i = 0; i < mNumOfAxes; i++)
   {
     int r;
@@ -638,9 +635,10 @@ void PlayScene::addAxes()
 
 void PlayScene::addStones()
 {
-  int mNumOfStones = rand() % 4 + 2;
+  int mNumOfStones = rand() % 4 + 3;
   CCLog("Number of Axes is %i", mNumOfStones);
   Stone::setNumOfStones(mNumOfStones);
+  mStoneIndexInVector = new int[mNumOfStones];
   for (int i = 0; i < mNumOfStones; i++)
   {
     int r;
@@ -651,7 +649,39 @@ void PlayScene::addStones()
     CCLog("Tile at %i has a stone", r);
     mTileInfoVector.at(r)->setHasStone(true);
     mTileInfoVector.at(r)->setHasItem(true);
-    mTileInfoVector.at(r)->getTile()->setColor(ccWHITE);
+    mTileInfoVector.at(r)->getTile()->setColor(ccRED);
+    
+    for (int i = 0; i < mTileInfoVector.size(); ++i)
+    {
+      if (mTileInfoVector.at(i)->getGID() ==
+          mTileInfoVector.at(r)->getGIDTileLeft())
+      {
+        mTileInfoVector.at(i)->setHasRightPop(true);
+        mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+      else if (mTileInfoVector.at(i)->getGID() ==
+               mTileInfoVector.at(r)->getGIDTileRight())
+      {
+        mTileInfoVector.at(i)->setHasLeftPop(true);
+        mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+      else if (mTileInfoVector.at(i)->getGID() ==
+               mTileInfoVector.at(r)->getGIDTileUp())
+      {
+        mTileInfoVector.at(i)->setHasBottomPop(true);
+        mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+      else if (mTileInfoVector.at(i)->getGID() ==
+               mTileInfoVector.at(r)->getGIDTileDown())
+      {
+        mTileInfoVector.at(i)->setHasTopPop(true);
+        mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+    }
   }
 }
 

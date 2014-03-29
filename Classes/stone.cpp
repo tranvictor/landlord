@@ -20,3 +20,5 @@ int Stone::getNumOfStones()
 {
   return nStones;
 }
+
+
