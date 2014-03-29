@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0610AE3818E40E1A000BD558 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3618E40E1A000BD558 /* Tree.cpp */; };
 		0610AE3B18E40E44000BD558 /* Axe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3918E40E44000BD558 /* Axe.cpp */; };
-		0667816018E70C5C00024600 /* stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0667815E18E70C5C00024600 /* stone.cpp */; };
+		0667816318E70FDB00024600 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0667816118E70FDB00024600 /* Stone.cpp */; };
 		06C2EC8818BD8C8D00917282 /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */; };
 		06E0D80918E51DE000DD1336 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 06E0D80518E51DE000DD1336 /* CloseNormal.png */; };
 		06E0D80A18E51DE000DD1336 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 06E0D80618E51DE000DD1336 /* CloseSelected.png */; };
@@ -275,8 +275,8 @@
 		0610AE3718E40E1A000BD558 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tree.h; path = ../Classes/Tree.h; sourceTree = "<group>"; };
 		0610AE3918E40E44000BD558 /* Axe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Axe.cpp; path = ../Classes/Axe.cpp; sourceTree = "<group>"; };
 		0610AE3A18E40E44000BD558 /* Axe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Axe.h; path = ../Classes/Axe.h; sourceTree = "<group>"; };
-		0667815E18E70C5C00024600 /* stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stone.cpp; path = ../Classes/stone.cpp; sourceTree = "<group>"; };
-		0667815F18E70C5C00024600 /* stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stone.h; path = ../Classes/stone.h; sourceTree = "<group>"; };
+		0667816118E70FDB00024600 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = ../Classes/Stone.cpp; sourceTree = "<group>"; };
+		0667816218E70FDB00024600 /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = ../Classes/Stone.h; sourceTree = "<group>"; };
 		06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseCharacterScene.cpp; path = ../Classes/ChooseCharacterScene.cpp; sourceTree = "<group>"; };
 		06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseCharacterScene.h; path = ../Classes/ChooseCharacterScene.h; sourceTree = "<group>"; };
 		06E0D80518E51DE000DD1336 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
@@ -1323,8 +1323,8 @@
 				7A18DB7018CD91F100C95A32 /* TileInfo.h */,
 				0610AE3618E40E1A000BD558 /* Tree.cpp */,
 				0610AE3718E40E1A000BD558 /* Tree.h */,
-				0667815E18E70C5C00024600 /* stone.cpp */,
-				0667815F18E70C5C00024600 /* stone.h */,
+				0667816118E70FDB00024600 /* Stone.cpp */,
+				0667816218E70FDB00024600 /* Stone.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1893,7 +1893,6 @@
 				15A3D9031682F7D5002FB0C5 /* b2Collision.cpp in Sources */,
 				15A3D9041682F7D5002FB0C5 /* b2Distance.cpp in Sources */,
 				15A3D9051682F7D5002FB0C5 /* b2DynamicTree.cpp in Sources */,
-				0667816018E70C5C00024600 /* stone.cpp in Sources */,
 				15A3D9061682F7D5002FB0C5 /* b2TimeOfImpact.cpp in Sources */,
 				15A3D9071682F7D5002FB0C5 /* b2ChainShape.cpp in Sources */,
 				15A3D9081682F7D5002FB0C5 /* b2CircleShape.cpp in Sources */,
@@ -2072,6 +2071,7 @@
 				379BB9A317F03F3700829B88 /* CCDisplayManager.cpp in Sources */,
 				379BB9A417F03F3700829B88 /* CCSkin.cpp in Sources */,
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
+				0667816318E70FDB00024600 /* Stone.cpp in Sources */,
 				379BB9A617F03F3700829B88 /* CCArmatureDataManager.cpp in Sources */,
 				7AB41F7518B3CE8000F5177C /* ChooseMapScence.cpp in Sources */,
 				379BB9A717F03F3700829B88 /* CCArmatureDefine.cpp in Sources */,

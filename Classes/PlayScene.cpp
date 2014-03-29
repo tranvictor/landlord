@@ -11,6 +11,7 @@
 #include "GameManager.h"
 #include "Tree.h"
 #include "Axe.h"
+#include "Stone.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -58,6 +59,7 @@ bool PlayScene::init()
   
   addTrees();
   addAxes();
+  addStones();
   
   schedule(schedule_selector(PlayScene::update));
   
@@ -265,11 +267,18 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap))
     {
       mCurTile = i;
-      if (Tree::checkHasTree(mTileInfoVector.at(mCurTile)))
+      if (mTileInfoVector.at(mCurTile)->getHasItem())
       {
-        if (GameManager::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
+        if (mTileInfoVector.at(mCurTile)->getHasTree())
         {
-          appearAxePop(tileInfo, sp);
+          if (GameManager::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
+          {
+            appearAxePop(tileInfo, sp);
+          }
+        }
+        else if (mTileInfoVector.at(mCurTile)->getHasStone())
+        {
+          //  Doing nothing
         }
       }
       else
@@ -603,6 +612,7 @@ void PlayScene::addTrees()
     } while (mTileInfoVector.at(r)->getHasTree());
     CCLog("Tile at %i has a tree", r);
     mTileInfoVector.at(r)->setHasTree(true);
+    mTileInfoVector.at(r)->setHasItem(true);
     mTileInfoVector.at(r)->getTile()->setColor(ccGRAY);
   }
 }
@@ -618,11 +628,30 @@ void PlayScene::addAxes()
     do
     {
       r = rand() % mTileInfoVector.size();
-    } while (mTileInfoVector.at(r)->getHasTree() ||
-             mTileInfoVector.at(r)->getHasAxe());
+    } while (mTileInfoVector.at(r)->getHasItem());
     CCLog("Tile at %i has a axe", r);
     mTileInfoVector.at(r)->setHasAxe(true);
+    mTileInfoVector.at(r)->setHasItem(true);
     mTileInfoVector.at(r)->getTile()->setColor(ccBLACK);
+  }
+}
+
+void PlayScene::addStones()
+{
+  int mNumOfStones = rand() % 4 + 2;
+  CCLog("Number of Axes is %i", mNumOfStones);
+  Stone::setNumOfStones(mNumOfStones);
+  for (int i = 0; i < mNumOfStones; i++)
+  {
+    int r;
+    do
+    {
+      r = rand() % mTileInfoVector.size();
+    } while (mTileInfoVector.at(r)->getHasItem());
+    CCLog("Tile at %i has a stone", r);
+    mTileInfoVector.at(r)->setHasStone(true);
+    mTileInfoVector.at(r)->setHasItem(true);
+    mTileInfoVector.at(r)->getTile()->setColor(ccWHITE);
   }
 }
 
