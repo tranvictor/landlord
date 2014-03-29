@@ -423,7 +423,8 @@ void PlayScene::addGlowEffect(CCSprite* sprite,
 
 PlayScene::~PlayScene()
 {
-    mPopsArr->release();
+  mPopsArr->release();
+  mTreesArr->release();
 }
 
 void PlayScene::update(float pdT)
@@ -598,6 +599,8 @@ void PlayScene::removePopups()
 void PlayScene::addTrees()
 {
   int mNumOfTrees = rand() % 3 + 4;
+  mTreesArr = CCArray::createWithCapacity(mNumOfTrees);
+  mTreesArr->retain();
   CCLog("Number of Trees is %i", mNumOfTrees);
   Tree::setNumOfTrees(mNumOfTrees);
   for (int i = 0; i < mNumOfTrees; i++)
@@ -610,7 +613,12 @@ void PlayScene::addTrees()
     CCLog("Tile at %i has a tree", r);
     mTileInfoVector.at(r)->setHasTree(true);
     mTileInfoVector.at(r)->setHasItem(true);
-    mTileInfoVector.at(r)->getTile()->setColor(ccGRAY);
+    
+    CCSprite* tree = CCSprite::create("Images/Game/Object/tree.png");
+    mTreesArr->addObject(tree);
+    tree->setTag(r);
+    tree->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2 + tree->getContentSize().height/4));
+    mTileMap->addChild(tree);
   }
 }
 
@@ -638,7 +646,6 @@ void PlayScene::addStones()
   int mNumOfStones = rand() % 4 + 3;
   CCLog("Number of Axes is %i", mNumOfStones);
   Stone::setNumOfStones(mNumOfStones);
-  mStoneIndexInVector = new int[mNumOfStones];
   for (int i = 0; i < mNumOfStones; i++)
   {
     int r;
@@ -702,7 +709,7 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
   mIsAxePopVisible = false;
   Axe::decreaseNumOfAxes(GameManager::getCurrentPlayer());
   mTileInfoVector.at(mCurTile)->setHasTree(false);
-  mTileInfoVector.at(mCurTile)->getTile()->setColor(ccGREEN);
+  removeTree();
   
   if (mTileInfoVector.at(mCurTile)->getNumberEdgeAvailale() == 0)
   {
@@ -718,6 +725,19 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
     {
       mTileInfoVector.at(mCurTile)->getTile()->setColor(ccRED);
       mLbnScorePlayer2->setString(mScoreBuffer);
+    }
+  }
+}
+
+void PlayScene::removeTree()
+{
+  for (int i = 0; i < mTreesArr->count(); i++)
+  {
+    CCSprite* tree = (CCSprite*) mTreesArr->objectAtIndex(i);
+    if (tree->getTag() == mCurTile)
+    {
+      tree->setVisible(false);
+      mTreesArr->removeObjectAtIndex(i);
     }
   }
 }

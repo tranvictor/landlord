@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/PlayScene.cpp"
-            timestampString = "417798017.559783"
+            timestampString = "417801273.603038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "491"
-            endingLineNumber = "491"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
             landmarkName = "PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/PlayScene.h"
-            timestampString = "417671905.192715"
+            timestampString = "417801273.603038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51">
+            startingLineNumber = "52"
+            endingLineNumber = "52">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -192,28 +192,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/PlayScene.cpp"
-            timestampString = "417798017.559783"
+            timestampString = "417801273.603038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "619"
-            endingLineNumber = "619"
+            startingLineNumber = "627"
+            endingLineNumber = "627"
             landmarkName = "PlayScene::addAxes()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/PlayScene.cpp"
-            timestampString = "417799654.93322"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "641"
-            endingLineNumber = "641"
-            landmarkName = "PlayScene::addStones()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

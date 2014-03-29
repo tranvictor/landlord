@@ -41,6 +41,7 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCArray*   mEdgeArrRight;
   
   cocos2d::CCArray*   mPopsArr;
+  cocos2d::CCArray*   mTreesArr;
   bool                mIsAxePopVisible = false;
   cocos2d::CCMenuItemSprite*   mAxePop;
   std::vector<TileInfo*>  mTileInfoVector;
@@ -50,8 +51,6 @@ class PlayScene : public cocos2d::CCLayer
   
   CCSprite*           mPlayerOneShadow;
   CCSprite*           mPlayerTwoShadow;
-  
-  int*  mStoneIndexInVector;
   
 public:
   virtual bool init();
@@ -92,6 +91,7 @@ public:
   void addStones();
   void appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   void chooseAxeEnded(cocos2d::CCObject *pSender);
+  void removeTree();
   
   CCPoint getBound();
   

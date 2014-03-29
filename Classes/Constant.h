@@ -57,10 +57,6 @@ USING_NS_CC;
 #define WINNER_START_POS    ccp(320, 654-400)
 #define WINNER_POS    ccp(320, 654)
 
-// STONE
-#define MAX_STONES 5
-#define MAX_TREES  7
-
 enum eGround
 {
   GR_BACKGROUND,
