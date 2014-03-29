@@ -656,7 +656,11 @@ void PlayScene::addStones()
     CCLog("Tile at %i has a stone", r);
     mTileInfoVector.at(r)->setHasStone(true);
     mTileInfoVector.at(r)->setHasItem(true);
-    mTileInfoVector.at(r)->getTile()->setColor(ccRED);
+    
+    CCSprite* stone = CCSprite::create("Images/Game/Object/stone.png");
+    stone->setTag(r);
+    stone->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2));
+    mTileMap->addChild(stone);
     
     for (int i = 0; i < mTileInfoVector.size(); ++i)
     {
