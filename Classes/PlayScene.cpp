@@ -271,7 +271,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
       {
         if (mTileInfoVector.at(mCurTile)->getHasTree())
         {
-          if (GameManager::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
+          if (Axe::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
           {
             appearAxePop(tileInfo, sp);
           }
@@ -344,7 +344,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       }
       if (tileInfo->getHasAxe())
       {
-        GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
+        Axe::increaseNumOfAxes(GameManager::getCurrentPlayer());
       }
     }
   }
@@ -670,7 +670,7 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
   mIsAxePopVisible = false;
-  GameManager::decreaseNumOfAxes(GameManager::getCurrentPlayer());
+  Axe::decreaseNumOfAxes(GameManager::getCurrentPlayer());
   mTileInfoVector.at(mCurTile)->setHasTree(false);
   mTileInfoVector.at(mCurTile)->getTile()->setColor(ccGREEN);
   

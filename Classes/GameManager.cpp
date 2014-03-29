@@ -24,9 +24,6 @@ int  GameManager::player2Score;
 int  GameManager::currentPlayer;
 int  GameManager::winPlayer;
 int  GameManager::nTrees;
-int  GameManager::nAxes;
-int  GameManager::nAxesOfPlayerOne = 0;
-int  GameManager::nAxesOfPlayerYwo = 0;
 
 bool GameManager::getMusicState()
 {
@@ -158,43 +155,3 @@ int GameManager::getNumOfTrees()
   return nTrees;
 }
 
-void GameManager::setNumOfAxes(int pNumOfAxes)
-{
-  nAxes = pNumOfAxes;
-}
-
-int GameManager::getNumOfAxes(int pCurrentPlayer)
-{
-  if (pCurrentPlayer == PLAYER_ONE)
-  {
-    return nAxesOfPlayerOne;
-  }
-  else
-  {
-    return nAxesOfPlayerYwo;
-  }
-}
-
-void GameManager::increaseNumOfAxes(int pCurrentPlayer)
-{
-  if (pCurrentPlayer == PLAYER_ONE)
-  {
-    nAxesOfPlayerOne++;
-  }
-  else
-  {
-    nAxesOfPlayerYwo++;
-  }
-}
-
-void GameManager::decreaseNumOfAxes(int pCurrentPlayer)
-{
-  if (pCurrentPlayer == PLAYER_ONE && nAxesOfPlayerOne > 0)
-  {
-    nAxesOfPlayerOne--;
-  }
-  else if (nAxesOfPlayerYwo > 0)
-  {
-    nAxesOfPlayerYwo--;
-  }
-}
