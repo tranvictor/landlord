@@ -8,7 +8,14 @@
 
 #include "Tree.h"
 
-bool Tree::checkHasTree(TileInfo *pTileInfo)
+int Tree::nTrees;
+
+void Tree::setNumOfTrees(int pNumOfTrees)
 {
-  return pTileInfo->getHasTree();
+  nTrees = pNumOfTrees;
+}
+
+int Tree::getNumOfTrees()
+{
+  return nTrees;
 }

@@ -52,6 +52,6 @@ TileInfo::TileInfo()
   mGIDTileDown = mGIDTileLeft = mGIDTileRight = mGIDTileUp = -1;
   mGID = 0;
   mBelongToPlayer = 0;
-  mHasTree = mHasAxe = false;
+  mHasItem = mHasTree = mHasAxe = mHasStone = false;
 }
 

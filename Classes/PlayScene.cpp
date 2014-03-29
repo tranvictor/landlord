@@ -11,6 +11,7 @@
 #include "GameManager.h"
 #include "Tree.h"
 #include "Axe.h"
+#include "Stone.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -58,6 +59,7 @@ bool PlayScene::init()
   
   addTrees();
   addAxes();
+  addStones();
   
   schedule(schedule_selector(PlayScene::update));
   
@@ -265,12 +267,16 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap))
     {
       mCurTile = i;
-      if (Tree::checkHasTree(mTileInfoVector.at(mCurTile)))
+      if (mTileInfoVector.at(mCurTile)->getHasTree())
       {
-        if (GameManager::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
+        if (Axe::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
         {
           appearAxePop(tileInfo, sp);
         }
+      }
+      else if (mTileInfoVector.at(mCurTile)->getHasStone())
+      {
+        //  doing nothing
       }
       else
       {
@@ -316,7 +322,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    if (mTileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && mTileInfoVector.at(i)->getBelongToPlayer() == 0 && mTileInfoVector.at(i)->getHasTree() == false)
+    if (mTileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && mTileInfoVector.at(i)->getBelongToPlayer() == 0 && mTileInfoVector.at(i)->getHasTree() == false && mTileInfoVector.at(i)->getHasStone() == false)
     {
       GameManager::increaseScore(GameManager::getCurrentPlayer());
       checkIncreasingScore = true;
@@ -335,7 +341,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       }
       if (tileInfo->getHasAxe())
       {
-        GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
+        Axe::increaseNumOfAxes(GameManager::getCurrentPlayer());
       }
     }
   }
@@ -417,7 +423,8 @@ void PlayScene::addGlowEffect(CCSprite* sprite,
 
 PlayScene::~PlayScene()
 {
-    mPopsArr->release();
+  mPopsArr->release();
+  mTreesArr->release();
 }
 
 void PlayScene::update(float pdT)
@@ -592,8 +599,10 @@ void PlayScene::removePopups()
 void PlayScene::addTrees()
 {
   int mNumOfTrees = rand() % 3 + 4;
+  mTreesArr = CCArray::createWithCapacity(mNumOfTrees);
+  mTreesArr->retain();
   CCLog("Number of Trees is %i", mNumOfTrees);
-  GameManager::setNumOfTrees(mNumOfTrees);
+  Tree::setNumOfTrees(mNumOfTrees);
   for (int i = 0; i < mNumOfTrees; i++)
   {
     int r;
@@ -603,26 +612,87 @@ void PlayScene::addTrees()
     } while (mTileInfoVector.at(r)->getHasTree());
     CCLog("Tile at %i has a tree", r);
     mTileInfoVector.at(r)->setHasTree(true);
-    mTileInfoVector.at(r)->getTile()->setColor(ccGRAY);
+    mTileInfoVector.at(r)->setHasItem(true);
+    
+    CCSprite* tree = CCSprite::create("Images/Game/Object/tree.png");
+    mTreesArr->addObject(tree);
+    tree->setTag(r);
+    tree->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2 + tree->getContentSize().height/4));
+    mTileMap->addChild(tree);
   }
 }
 
 void PlayScene::addAxes()
 {
-  int mNumOfAxes = GameManager::getNumOfTrees();
+  int mNumOfAxes = Tree::getNumOfTrees();
   CCLog("Number of Axes is %i", mNumOfAxes);
-  GameManager::setNumOfTrees(mNumOfAxes);
+  Tree::setNumOfTrees(mNumOfAxes);
   for (int i = 0; i < mNumOfAxes; i++)
   {
     int r;
     do
     {
       r = rand() % mTileInfoVector.size();
-    } while (mTileInfoVector.at(r)->getHasTree() ||
-             mTileInfoVector.at(r)->getHasAxe());
+    } while (mTileInfoVector.at(r)->getHasItem());
     CCLog("Tile at %i has a axe", r);
     mTileInfoVector.at(r)->setHasAxe(true);
+    mTileInfoVector.at(r)->setHasItem(true);
     mTileInfoVector.at(r)->getTile()->setColor(ccBLACK);
+  }
+}
+
+void PlayScene::addStones()
+{
+  int mNumOfStones = rand() % 4 + 3;
+  CCLog("Number of Axes is %i", mNumOfStones);
+  Stone::setNumOfStones(mNumOfStones);
+  for (int i = 0; i < mNumOfStones; i++)
+  {
+    int r;
+    do
+    {
+      r = rand() % mTileInfoVector.size();
+    } while (mTileInfoVector.at(r)->getHasItem());
+    CCLog("Tile at %i has a stone", r);
+    mTileInfoVector.at(r)->setHasStone(true);
+    mTileInfoVector.at(r)->setHasItem(true);
+    
+    CCSprite* stone = CCSprite::create("Images/Game/Object/stone.png");
+    stone->setTag(r);
+    stone->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2));
+    mTileMap->addChild(stone);
+    
+    for (int i = 0; i < mTileInfoVector.size(); ++i)
+    {
+      if (mTileInfoVector.at(i)->getGID() ==
+          mTileInfoVector.at(r)->getGIDTileLeft())
+      {
+        mTileInfoVector.at(i)->setHasRightPop(true);
+        mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+      else if (mTileInfoVector.at(i)->getGID() ==
+               mTileInfoVector.at(r)->getGIDTileRight())
+      {
+        mTileInfoVector.at(i)->setHasLeftPop(true);
+        mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+      else if (mTileInfoVector.at(i)->getGID() ==
+               mTileInfoVector.at(r)->getGIDTileUp())
+      {
+        mTileInfoVector.at(i)->setHasBottomPop(true);
+        mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+      else if (mTileInfoVector.at(i)->getGID() ==
+               mTileInfoVector.at(r)->getGIDTileDown())
+      {
+        mTileInfoVector.at(i)->setHasTopPop(true);
+        mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+    }
   }
 }
 
@@ -641,9 +711,9 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
   mIsAxePopVisible = false;
-  GameManager::decreaseNumOfAxes(GameManager::getCurrentPlayer());
+  Axe::decreaseNumOfAxes(GameManager::getCurrentPlayer());
   mTileInfoVector.at(mCurTile)->setHasTree(false);
-  mTileInfoVector.at(mCurTile)->getTile()->setColor(ccGREEN);
+  removeTree();
   
   if (mTileInfoVector.at(mCurTile)->getNumberEdgeAvailale() == 0)
   {
@@ -659,6 +729,19 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
     {
       mTileInfoVector.at(mCurTile)->getTile()->setColor(ccRED);
       mLbnScorePlayer2->setString(mScoreBuffer);
+    }
+  }
+}
+
+void PlayScene::removeTree()
+{
+  for (int i = 0; i < mTreesArr->count(); i++)
+  {
+    CCSprite* tree = (CCSprite*) mTreesArr->objectAtIndex(i);
+    if (tree->getTag() == mCurTile)
+    {
+      tree->setVisible(false);
+      mTreesArr->removeObjectAtIndex(i);
     }
   }
 }

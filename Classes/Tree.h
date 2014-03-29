@@ -15,9 +15,11 @@
 class Tree
 {
 private:
-  
+  static int  nTrees;
+
 public:
-  static bool checkHasTree(TileInfo* pTileInfo);
+  static void setNumOfTrees(int pNumOfTrees);
+  static int  getNumOfTrees();
   
 };
 
