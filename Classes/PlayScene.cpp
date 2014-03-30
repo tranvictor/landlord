@@ -57,9 +57,9 @@ bool PlayScene::init()
   addPlayerTwoShadow();
   addScoreLbn();
   
-  addTrees();
+//  addTrees();
   addAxes();
-  addStones();
+//  addStones();
   
   schedule(schedule_selector(PlayScene::update));
   
@@ -550,7 +550,7 @@ void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_BOTTOM);
   edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() - pop->getContentSize().height/2));
-  mTileMap->addChild(edgePop);
+  mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
 void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
@@ -561,7 +561,7 @@ void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_TOP);
   edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height + pop->getContentSize().height/2));
-  mTileMap->addChild(edgePop);
+  mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
 void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
@@ -572,7 +572,7 @@ void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_LEFT);
   edgePop->setPosition(ccp(pSp->getPositionX() - pop->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height/2));
-  mTileMap->addChild(edgePop);
+  mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
 void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
@@ -583,7 +583,7 @@ void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_RIGHT);
   edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width + pop->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height/2));
-  mTileMap->addChild(edgePop);
+  mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
 void PlayScene::removePopups()
@@ -598,12 +598,12 @@ void PlayScene::removePopups()
 
 void PlayScene::addTrees()
 {
-  int mNumOfTrees = rand() % 3 + 4;
-  mTreesArr = CCArray::createWithCapacity(mNumOfTrees);
+  int numberOfTrees = rand() % 3 + 4;
+  mTreesArr = CCArray::createWithCapacity(numberOfTrees);
   mTreesArr->retain();
-  CCLog("Number of Trees is %i", mNumOfTrees);
-  Tree::setNumOfTrees(mNumOfTrees);
-  for (int i = 0; i < mNumOfTrees; i++)
+  CCLog("Number of Trees is %i", numberOfTrees);
+  Tree::setNumOfTrees(numberOfTrees);
+  for (int i = 0; i < numberOfTrees; i++)
   {
     int r;
     do
@@ -624,10 +624,10 @@ void PlayScene::addTrees()
 
 void PlayScene::addAxes()
 {
-  int mNumOfAxes = Tree::getNumOfTrees();
-  CCLog("Number of Axes is %i", mNumOfAxes);
-  Tree::setNumOfTrees(mNumOfAxes);
-  for (int i = 0; i < mNumOfAxes; i++)
+  int numberOfAxes = Tree::getNumOfTrees();
+  CCLog("Number of Axes is %i", numberOfAxes);
+  Tree::setNumOfTrees(numberOfAxes);
+  for (int i = 0; i < numberOfAxes; i++)
   {
     int r;
     do
@@ -643,10 +643,10 @@ void PlayScene::addAxes()
 
 void PlayScene::addStones()
 {
-  int mNumOfStones = rand() % 4 + 3;
-  CCLog("Number of Axes is %i", mNumOfStones);
-  Stone::setNumOfStones(mNumOfStones);
-  for (int i = 0; i < mNumOfStones; i++)
+  int numberOfStones = rand() % 4 + 3;
+  CCLog("Number of Axes is %i", numberOfStones);
+  Stone::setNumOfStones(numberOfStones);
+  for (int i = 0; i < numberOfStones; i++)
   {
     int r;
     do

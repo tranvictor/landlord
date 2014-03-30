@@ -3,9 +3,14 @@
  <tileset firstgid="1" name="Tileset" tilewidth="128" tileheight="128">
   <image source="Tileset.png" width="1281" height="641"/>
  </tileset>
+ <layer name="Tile Layer 2" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBj8gBuImXFgFiR1THjU8SOpE8VjFx+SHh486iSJNI9YMFzMUwJibShWINI8eRxqQWYpk6EOlxslsYiNqsNUB8pv2NI+KG8g5yMmPOoI2YmsdjS/kW8eOflNC0kPOtYhUh0svwEA10YI8A==
+  </data>
+ </layer>
  <layer name="map01" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBj8gBuImXFgFiR1TESqEwViXhyYD0kPDxCL48CSRJqHS/9wNU8JiLWhWIFI8+SharGZpYxFHbpZ6OpwuVGSAROIEnDbSDQPlN94sJgHyhv8WNShm4euDuY2bOmA3PxGbLodLubhCj9y8psWkh50rEOiOgA7QRgW
+   eJxjYBiZgBcHRgfiODCx5uHSP1zNQwfEmofNTFyAGLNGzRtc5uFKa4TMIlUduel5sJtH7fCjFgAAdfAPEQ==
   </data>
  </layer>
 </map>

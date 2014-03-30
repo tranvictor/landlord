@@ -16,7 +16,7 @@ class Axe
 private:
   static int  nAxes;
   static int  nAxesOfPlayerOne;
-  static int  nAxesOfPlayerYwo;
+  static int  nAxesOfPlayerTwo;
   
 public:
   static void setNumOfAxes(int pNumOfAxes);

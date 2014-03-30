@@ -11,7 +11,7 @@
 
 int  Axe::nAxes;
 int  Axe::nAxesOfPlayerOne = 0;
-int  Axe::nAxesOfPlayerYwo = 0;
+int  Axe::nAxesOfPlayerTwo = 0;
 
 void Axe::setNumOfAxes(int pNumOfAxes)
 {
@@ -26,7 +26,7 @@ int Axe::getNumOfAxes(int pCurrentPlayer)
   }
   else
   {
-    return nAxesOfPlayerYwo;
+    return nAxesOfPlayerTwo;
   }
 }
 
@@ -38,7 +38,7 @@ void Axe::increaseNumOfAxes(int pCurrentPlayer)
   }
   else
   {
-    nAxesOfPlayerYwo++;
+    nAxesOfPlayerTwo++;
   }
 }
 
@@ -48,8 +48,8 @@ void Axe::decreaseNumOfAxes(int pCurrentPlayer)
   {
     nAxesOfPlayerOne--;
   }
-  else if (nAxesOfPlayerYwo > 0)
+  else if (nAxesOfPlayerTwo > 0)
   {
-    nAxesOfPlayerYwo--;
+    nAxesOfPlayerTwo--;
   }
 }
