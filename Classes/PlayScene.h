@@ -41,6 +41,8 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCArray*   mEdgeArrRight;
   
   cocos2d::CCArray*   mPopsArr;
+  bool                mIsAxePopVisible = false;
+  cocos2d::CCMenuItemSprite*   mAxePop;
   std::vector<TileInfo*>  mTileInfoVector;
   
   int                 mCurTile = 0;
@@ -75,10 +77,18 @@ public:
   void addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge);
   void addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge);
   
+  void appearPops(TileInfo* pTileInfo, cocos2d::CCSprite *pSp);
   void appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   void appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   void appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
   void appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
+  
+  void removePopups();
+  
+  void addTrees();
+  void addAxes();
+  void appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp);
+  void chooseAxeEnded(cocos2d::CCObject *pSender);
   
   CCPoint getBound();
   
