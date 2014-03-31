@@ -24,6 +24,8 @@ int  GameManager::player2Score;
 int  GameManager::currentPlayer;
 int  GameManager::winPlayer;
 
+int  GameManager::nTrees;
+
 int  GameManager::nAxes;
 int  GameManager::nAxesOfPlayerOne = 0;
 int  GameManager::nAxesOfPlayerTwo = 0;
@@ -146,6 +148,16 @@ void GameManager::changeCurrentPlayer()
 void GameManager::setWinPlayer(int _currentPlayer)
 {
   winPlayer = _currentPlayer;
+}
+
+void GameManager::setNumOfTrees(int pNumOfTrees)
+{
+  nTrees = pNumOfTrees;
+}
+
+int GameManager::getNumOfTrees()
+{
+  return nTrees;
 }
 
 

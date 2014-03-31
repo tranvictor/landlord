@@ -602,7 +602,7 @@ void PlayScene::addTrees()
   mTreesArr = CCArray::createWithCapacity(mNumOfTrees);
   mTreesArr->retain();
   CCLog("Number of Trees is %i", mNumOfTrees);
-  Tree::setNumOfTrees(mNumOfTrees);
+  GameManager::setNumOfTrees(mNumOfTrees);
   srand(time(NULL));
   for (int i = 0; i < mNumOfTrees; i++)
   {
@@ -625,9 +625,9 @@ void PlayScene::addTrees()
 
 void PlayScene::addAxes()
 {
-  int mNumOfAxes = Tree::getNumOfTrees();
+  int mNumOfAxes = GameManager::getNumOfTrees();
   CCLog("Number of Axes is %i", mNumOfAxes);
-  Tree::setNumOfTrees(mNumOfAxes);
+  GameManager::setNumOfTrees(mNumOfAxes);
   srand(time(NULL));
   for (int i = 0; i < mNumOfAxes; i++)
   {
