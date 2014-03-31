@@ -18,5 +18,7 @@ TileInfo::TileInfo()
   mGID = 0;
   mBelongToPlayer = 0;
   mHasItem = mHasTree = mHasAxe = mHasStone = false;
+  mIsFoggy = true;
+  mIsUntouchableTile = false;
 }
 

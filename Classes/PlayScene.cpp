@@ -47,7 +47,9 @@ bool PlayScene::init()
   GameManager::initPlayersInfo();
 //  addPlayGroud();
   makeMapScroll();
-//  tilesArr->retain();
+  appearPlusSign(-1);
+  setViewPointCenter(posFirstTile);
+  
 //  addFrameImg();
   addPauseButton();
   
@@ -124,7 +126,9 @@ void PlayScene::makeMapScroll()
 
   this->addChild(mTileMap);
 
-  mTileMap->setPosition(ccp(0, 0));
+//  mTileMap->setPosition(ccp(0, 0));
+
+  setViewPointCenter(posFirstTile);
   mMapLayer = mTileMap->layerNamed("map01");
   
   CCSize s = mMapLayer->getLayerSize();
@@ -144,7 +148,17 @@ void PlayScene::makeMapScroll()
         TileInfo *tileInfo = new TileInfo();
         tileInfo->setTile(tile);
         tileInfo->setGID(PAIR_FUNC(i, j));
-        CCLog("gid %d", PAIR_FUNC(i, j));
+//        CCLog("gid %d", PAIR_FUNC(i, j));
+        
+        tile->setOpacity(FOGGY);
+        tileInfo->setIsFoggy(true);
+        
+        CCDictionary *properties = mTileMap->propertiesForGID(mMapLayer->tileGIDAt(ccp(i, j)));
+        if (properties && (properties->valueForKey("touchable")->compare("false")) == 0)
+        {
+          tileInfo->setIsUntouchableTile(true);
+        }
+        
         mTileInfoVector.push_back(tileInfo);
         
         if (j > 0 && mMapLayer->tileAt(ccp(i, j-1)))
@@ -167,6 +181,47 @@ void PlayScene::makeMapScroll()
           tileInfo->setGIDTileRight(PAIR_FUNC(i+1, j));
         }
       }
+    }
+  }
+}
+
+void PlayScene::appearPlusSign(int r)
+{
+  if (r == -1)
+  {
+    srand(time(NULL));
+    r = rand() % mTileInfoVector.size();
+    CCLog("r = %d", r);
+  }
+  TileInfo *tileInfo = mTileInfoVector.at(r);
+  tileInfo->getTile()->setOpacity(UNFOGGY);
+  tileInfo->setIsFoggy(false);
+  
+  posFirstTile = (tileInfo->getTile()->getPosition());
+//  setViewPointCenter(posFirstTile);
+  CCLog("%.0f %.0f", posFirstTile.x, posFirstTile.y);
+  
+  for (int i = 0; i < mTileInfoVector.size(); ++i)
+  {
+    if (mTileInfoVector.at(i)->getGID() == tileInfo->getGIDTileDown())
+    {
+      mTileInfoVector.at(i)->getTile()->setOpacity(UNFOGGY);
+      mTileInfoVector.at(i)->setIsFoggy(false);
+    }
+    if (mTileInfoVector.at(i)->getGID() == tileInfo->getGIDTileLeft())
+    {
+      mTileInfoVector.at(i)->getTile()->setOpacity(UNFOGGY);
+      mTileInfoVector.at(i)->setIsFoggy(false);
+    }
+    if (mTileInfoVector.at(i)->getGID() == tileInfo->getGIDTileUp())
+    {
+      mTileInfoVector.at(i)->getTile()->setOpacity(UNFOGGY);
+      mTileInfoVector.at(i)->setIsFoggy(false);
+    }
+    if (mTileInfoVector.at(i)->getGID() == tileInfo->getGIDTileRight())
+    {
+      mTileInfoVector.at(i)->getTile()->setOpacity(UNFOGGY);
+      mTileInfoVector.at(i)->setIsFoggy(false);
     }
   }
 }
@@ -264,9 +319,10 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     tileInfo = mTileInfoVector.at(i);
     sp = tileInfo->getTile();
     
-    if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap))
+    if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap) && !tileInfo->getIsFoggy() && !tileInfo->getIsUntouchableTile())
     {
       mCurTile = i;
+      appearPlusSign(mCurTile);
       if (mTileInfoVector.at(mCurTile)->getHasTree())
       {
         if (Axe::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
@@ -744,4 +800,20 @@ void PlayScene::removeTree()
       mTreesArr->removeObjectAtIndex(i);
     }
   }
+}
+
+void PlayScene::setViewPointCenter(CCPoint position)
+{
+  
+  CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+  
+  int x = MAX(position.x, winSize.width/2);
+  int y = MAX(position.y, winSize.height/2);
+  x = MIN(x, (mTileMap->getMapSize().width * this->mTileMap->getTileSize().width) - winSize.width / 2);
+  y = MIN(y, (mTileMap->getMapSize().height * mTileMap->getTileSize().height) - winSize.height/2);
+  CCPoint actualPosition = ccp(x, y);
+  
+  CCPoint centerOfView = ccp(winSize.width/2, winSize.height/2);
+  CCPoint viewPoint = ccpSub(centerOfView, actualPosition);
+  mTileMap->setPosition(viewPoint);
 }
