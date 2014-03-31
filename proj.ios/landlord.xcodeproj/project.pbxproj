@@ -10,10 +10,10 @@
 		0610AE3818E40E1A000BD558 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3618E40E1A000BD558 /* Tree.cpp */; };
 		0610AE3B18E40E44000BD558 /* Axe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3918E40E44000BD558 /* Axe.cpp */; };
 		0667816318E70FDB00024600 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0667816118E70FDB00024600 /* Stone.cpp */; };
-		0667816A18E7123700024600 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0667816618E7123700024600 /* CloseNormal.png */; };
-		0667816B18E7123700024600 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 0667816718E7123700024600 /* CloseSelected.png */; };
-		0667816C18E7123700024600 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 0667816818E7123700024600 /* HelloWorld.png */; };
-		0667816D18E7123700024600 /* iphone-5 in Resources */ = {isa = PBXBuildFile; fileRef = 0667816918E7123700024600 /* iphone-5 */; };
+		066A579F18E9B1B200E3D3D0 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 066A579B18E9B1B200E3D3D0 /* CloseNormal.png */; };
+		066A57A018E9B1B200E3D3D0 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 066A579C18E9B1B200E3D3D0 /* CloseSelected.png */; };
+		066A57A118E9B1B200E3D3D0 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 066A579D18E9B1B200E3D3D0 /* HelloWorld.png */; };
+		066A57A218E9B1B200E3D3D0 /* iphone-5 in Resources */ = {isa = PBXBuildFile; fileRef = 066A579E18E9B1B200E3D3D0 /* iphone-5 */; };
 		06C2EC8818BD8C8D00917282 /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */; };
 		15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88B1682F7D5002FB0C5 /* b2BroadPhase.cpp */; };
 		15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88D1682F7D5002FB0C5 /* b2CollideCircle.cpp */; };
@@ -277,10 +277,10 @@
 		0610AE3A18E40E44000BD558 /* Axe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Axe.h; path = ../Classes/Axe.h; sourceTree = "<group>"; };
 		0667816118E70FDB00024600 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = ../Classes/Stone.cpp; sourceTree = "<group>"; };
 		0667816218E70FDB00024600 /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = ../Classes/Stone.h; sourceTree = "<group>"; };
-		0667816618E7123700024600 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
-		0667816718E7123700024600 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		0667816818E7123700024600 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
-		0667816918E7123700024600 /* iphone-5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "iphone-5"; sourceTree = "<group>"; };
+		066A579B18E9B1B200E3D3D0 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
+		066A579C18E9B1B200E3D3D0 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
+		066A579D18E9B1B200E3D3D0 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
+		066A579E18E9B1B200E3D3D0 /* iphone-5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "iphone-5"; sourceTree = "<group>"; };
 		06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseCharacterScene.cpp; path = ../Classes/ChooseCharacterScene.cpp; sourceTree = "<group>"; };
 		06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseCharacterScene.h; path = ../Classes/ChooseCharacterScene.h; sourceTree = "<group>"; };
 		15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../../cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
@@ -1780,10 +1780,10 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0667816618E7123700024600 /* CloseNormal.png */,
-				0667816718E7123700024600 /* CloseSelected.png */,
-				0667816818E7123700024600 /* HelloWorld.png */,
-				0667816918E7123700024600 /* iphone-5 */,
+				066A579B18E9B1B200E3D3D0 /* CloseNormal.png */,
+				066A579C18E9B1B200E3D3D0 /* CloseSelected.png */,
+				066A579D18E9B1B200E3D3D0 /* HelloWorld.png */,
+				066A579E18E9B1B200E3D3D0 /* iphone-5 */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -1872,10 +1872,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB0FF9418C8DCD000AA51D7 /* Default-568h@2x.png in Resources */,
-				0667816C18E7123700024600 /* HelloWorld.png in Resources */,
-				0667816D18E7123700024600 /* iphone-5 in Resources */,
-				0667816A18E7123700024600 /* CloseNormal.png in Resources */,
-				0667816B18E7123700024600 /* CloseSelected.png in Resources */,
+				066A57A118E9B1B200E3D3D0 /* HelloWorld.png in Resources */,
+				066A57A218E9B1B200E3D3D0 /* iphone-5 in Resources */,
+				066A579F18E9B1B200E3D3D0 /* CloseNormal.png in Resources */,
+				066A57A018E9B1B200E3D3D0 /* CloseSelected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
