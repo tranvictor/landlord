@@ -205,7 +205,7 @@ void PlayScene::addScoreLbn()
 void PlayScene::pauseButtonTouched()
 {
   CCLog("paused touched");
-  CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 }
 
@@ -429,10 +429,10 @@ PlayScene::~PlayScene()
 
 void PlayScene::update(float pdT)
 {
-  if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 3)
+  if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 30)
   {
     GameManager::setWinPlayer(GameManager::getCurrentPlayer());
-    CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
+    CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
 }
@@ -619,7 +619,7 @@ void PlayScene::addTrees()
     mTreesArr->addObject(tree);
     tree->setTag(r);
     tree->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2 + tree->getContentSize().height/4));
-    mTileMap->addChild(tree);
+    mTileMap->addChild(tree, GR_FOREGROUND);
   }
 }
 
@@ -663,39 +663,39 @@ void PlayScene::addStones()
     CCSprite* stone = CCSprite::create("Images/Game/Object/stone.png");
     stone->setTag(r);
     stone->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2));
-    mTileMap->addChild(stone);
+    mTileMap->addChild(stone, GR_FOREGROUND);
     
-    for (int i = 0; i < mTileInfoVector.size(); ++i)
-    {
-      if (mTileInfoVector.at(i)->getGID() ==
-          mTileInfoVector.at(r)->getGIDTileLeft())
-      {
-        mTileInfoVector.at(i)->setHasRightPop(true);
-        mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
-        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-      }
-      else if (mTileInfoVector.at(i)->getGID() ==
-               mTileInfoVector.at(r)->getGIDTileRight())
-      {
-        mTileInfoVector.at(i)->setHasLeftPop(true);
-        mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
-        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-      }
-      else if (mTileInfoVector.at(i)->getGID() ==
-               mTileInfoVector.at(r)->getGIDTileUp())
-      {
-        mTileInfoVector.at(i)->setHasBottomPop(true);
-        mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
-        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-      }
-      else if (mTileInfoVector.at(i)->getGID() ==
-               mTileInfoVector.at(r)->getGIDTileDown())
-      {
-        mTileInfoVector.at(i)->setHasTopPop(true);
-        mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
-        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-      }
-    }
+//    for (int i = 0; i < mTileInfoVector.size(); ++i)
+//    {
+//      if (mTileInfoVector.at(i)->getGID() ==
+//          mTileInfoVector.at(r)->getGIDTileLeft())
+//      {
+//        mTileInfoVector.at(i)->setHasRightPop(true);
+//        mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
+//        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+//      }
+//      else if (mTileInfoVector.at(i)->getGID() ==
+//               mTileInfoVector.at(r)->getGIDTileRight())
+//      {
+//        mTileInfoVector.at(i)->setHasLeftPop(true);
+//        mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
+//        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+//      }
+//      else if (mTileInfoVector.at(i)->getGID() ==
+//               mTileInfoVector.at(r)->getGIDTileUp())
+//      {
+//        mTileInfoVector.at(i)->setHasBottomPop(true);
+//        mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
+//        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+//      }
+//      else if (mTileInfoVector.at(i)->getGID() ==
+//               mTileInfoVector.at(r)->getGIDTileDown())
+//      {
+//        mTileInfoVector.at(i)->setHasTopPop(true);
+//        mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
+//        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+//      }
+//    }
   }
 }
 

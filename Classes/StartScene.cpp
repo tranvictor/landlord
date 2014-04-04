@@ -105,7 +105,7 @@ void StartScene::playButtonTouched(CCObject *pSender)
 {
   CCLOG("Play button touched");
   sound::playSoundFx();
-  CCScene* newScene = CCTransitionSlideInR::create(0.5, ChooseCharacterScene::scene());
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseCharacterScene::scene());
   //  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
   
   
@@ -122,7 +122,7 @@ void StartScene::settingsButtonTouched(CCObject *pSender)
   
   // Set Transtion Scene
 //  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
-  CCScene* newScene = CCTransitionSlideInL::create(0.5, SettingScene::scene());
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
 //  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
   
   
