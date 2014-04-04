@@ -59,9 +59,9 @@ bool PlayScene::init()
   addPlayerTwoShadow();
   addScoreLbn();
   
-//  addTrees();
+  addTrees();
   addAxes();
-//  addStones();
+  addStones();
   
   schedule(schedule_selector(PlayScene::update));
   
@@ -283,7 +283,7 @@ void PlayScene::addScoreLbn()
 void PlayScene::pauseButtonTouched()
 {
   CCLog("paused touched");
-  CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 }
 
@@ -348,7 +348,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 //      appearPlusSign(mCurTile);
       if (mTileInfoVector.at(mCurTile)->getHasTree())
       {
-        if (Axe::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
+        if (GameManager::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)
         {
           appearAxePop(tileInfo, sp);
         }
@@ -420,7 +420,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       }
       if (tileInfo->getHasAxe())
       {
-        Axe::increaseNumOfAxes(GameManager::getCurrentPlayer());
+        GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
       }
     }
   }
@@ -508,10 +508,10 @@ PlayScene::~PlayScene()
 
 void PlayScene::update(float pdT)
 {
-  if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 3)
+  if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 30)
   {
     GameManager::setWinPlayer(GameManager::getCurrentPlayer());
-    CCScene* newScene = CCTransitionSlideInR::create(0.5, WinScene::scene());
+    CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
 }
@@ -681,7 +681,8 @@ void PlayScene::addTrees()
   mTreesArr = CCArray::createWithCapacity(numberOfTrees);
   mTreesArr->retain();
   CCLog("Number of Trees is %i", numberOfTrees);
-  Tree::setNumOfTrees(numberOfTrees);
+  GameManager::setNumOfTrees(numberOfTrees);
+  srand(time(NULL));
   for (int i = 0; i < numberOfTrees; i++)
   {
     int r;
@@ -697,16 +698,17 @@ void PlayScene::addTrees()
     mTreesArr->addObject(tree);
     tree->setTag(r);
     tree->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2 + tree->getContentSize().height/4));
-    mTileMap->addChild(tree);
+    mTileMap->addChild(tree, GR_FOREGROUND);
   }
 }
 
 void PlayScene::addAxes()
 {
-  int numberOfAxes = Tree::getNumOfTrees();
-  CCLog("Number of Axes is %i", numberOfAxes);
-  Tree::setNumOfTrees(numberOfAxes);
-  for (int i = 0; i < numberOfAxes; i++)
+  int numOfAxes = GameManager::getNumOfTrees();
+  CCLog("Number of Axes is %i", numOfAxes);
+  GameManager::setNumOfTrees(numOfAxes);
+  srand(time(NULL));
+  for (int i = 0; i < numOfAxes; i++)
   {
     int r;
     do
@@ -722,10 +724,11 @@ void PlayScene::addAxes()
 
 void PlayScene::addStones()
 {
-  int numberOfStones = rand() % 4 + 3;
-  CCLog("Number of Axes is %i", numberOfStones);
-  Stone::setNumOfStones(numberOfStones);
-  for (int i = 0; i < numberOfStones; i++)
+  int numOfStones = rand() % 4 + 3;
+  CCLog("Number of Axes is %i", numOfStones);
+  GameManager::setNumOfStones(numOfStones);
+  srand(time(NULL));
+  for (int i = 0; i < numOfStones; i++)
   {
     int r;
     do
@@ -739,7 +742,7 @@ void PlayScene::addStones()
     CCSprite* stone = CCSprite::create("Images/Game/Object/stone.png");
     stone->setTag(r);
     stone->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2));
-    mTileMap->addChild(stone);
+    mTileMap->addChild(stone, GR_FOREGROUND);
     
     for (int i = 0; i < mTileInfoVector.size(); ++i)
     {
@@ -790,7 +793,7 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
   mIsAxePopVisible = false;
-  Axe::decreaseNumOfAxes(GameManager::getCurrentPlayer());
+  GameManager::decreaseNumOfAxes(GameManager::getCurrentPlayer());
   mTileInfoVector.at(mCurTile)->setHasTree(false);
   removeTree();
   

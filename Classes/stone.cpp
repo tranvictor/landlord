@@ -9,16 +9,6 @@
 
 #include "Stone.h"
 
-int Stone::nStones = 0;
 
-void Stone::setNumOfStones(int pNumOfStones)
-{
-  nStones = pNumOfStones;
-}
-
-int Stone::getNumOfStones()
-{
-  return nStones;
-}
 
 

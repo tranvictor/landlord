@@ -1,32 +1,40 @@
 #include "SlidingMenu.h"
 
-SlidingMenuGrid::SlidingMenuGrid(){
+SlidingMenuGrid::SlidingMenuGrid()
+{
 }
 
-SlidingMenuGrid::~SlidingMenuGrid(){
+SlidingMenuGrid::~SlidingMenuGrid()
+{
 	CCLog("Grid Destructor");
 }
 
-void SlidingMenuGrid::onExit(){
-    CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
-    CCLog("Grid onExit");
+void SlidingMenuGrid::onExit()
+{
+  CCDirector::sharedDirector()->getTouchDispatcher()->removeDelegate(this);
+  CCLog("Grid onExit");
 }
 
-bool SlidingMenuGrid::init(){
-	if ( !CCLayer::init() ){
+bool SlidingMenuGrid::init()
+{
+	if ( !CCLayer::init() )
+  {
 		return false;
 	}
 	return true;
 }
 
-SlidingMenuGrid* SlidingMenuGrid::menuWithArray(CCArray *items, int cols, int rows, CCPoint pos, CCPoint pad){
+SlidingMenuGrid* SlidingMenuGrid::menuWithArray(CCArray *items, int cols, int rows, CCPoint pos, CCPoint pad)
+{
 	return menuWithArray(items,cols,rows,pos,pad,false);
 }
 
 
-SlidingMenuGrid* SlidingMenuGrid::menuWithArray(CCArray *items, int cols, int rows, CCPoint pos, CCPoint pad,bool vertical){
+SlidingMenuGrid* SlidingMenuGrid::menuWithArray(CCArray *items, int cols, int rows, CCPoint pos, CCPoint pad,bool vertical)
+{
 	SlidingMenuGrid *slidingMenu = new SlidingMenuGrid();
-	if (slidingMenu && slidingMenu->initWithArray(items ,cols ,rows ,pos ,pad ,vertical)){
+	if (slidingMenu && slidingMenu->initWithArray(items ,cols ,rows ,pos ,pad ,vertical))
+  {
 		slidingMenu->autorelease();
 		return slidingMenu;
 	}
@@ -35,32 +43,34 @@ SlidingMenuGrid* SlidingMenuGrid::menuWithArray(CCArray *items, int cols, int ro
 }
 
 bool SlidingMenuGrid::initWithArray(CCArray *items, int cols, int rows, CCPoint pos, CCPoint pad, bool vertical){
-	if( !CCLayer::init() ){
+	if( !CCLayer::init())
+  {
 		return false;
 	}
-    
-     //default threshold Values
+  
+  //default threshold Values
 	if(vertical)
-    	threshold = CCDirector::sharedDirector()->getWinSize().height / 4;
-    else 
-    	threshold = CCDirector::sharedDirector()->getWinSize().width / 4;
-
-
+    threshold = CCDirector::sharedDirector()->getWinSize().height / 4;
+  else
+    threshold = CCDirector::sharedDirector()->getWinSize().width / 4;
+  
+  
 	selectedItem = NULL;
 	setTouchEnabled(true);
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,0,true);
+  CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,0,true);
 	pMenu=new CCMenu;
-    pMenu->autorelease();
+  pMenu->autorelease();
 	addChild(pMenu,0);
-    
-    CCObject *object;
-    CCMenuItemSprite *getItem;
-    
-    CCARRAY_FOREACH(items, object){
-        getItem = (CCMenuItemSprite*)object;
-        pMenu->addChild(getItem, 1, getItem->getTag());
-    }
-    
+  
+  CCObject *object;
+  CCMenuItemSprite *getItem;
+  
+  CCARRAY_FOREACH(items, object)
+  {
+    getItem = (CCMenuItemSprite*)object;
+    pMenu->addChild(getItem, 1, getItem->getTag());
+  }
+  
 	padding = pad;
 	iCurrentPage = 0;
 	bMoving = false;
@@ -76,39 +86,43 @@ bool SlidingMenuGrid::initWithArray(CCArray *items, int cols, int rows, CCPoint 
 }
 
 
-void SlidingMenuGrid::buildGrid(int cols, int rows){
+void SlidingMenuGrid::buildGrid(int cols, int rows)
+{
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    
+  
 	int col = 0, row = 0;
 	CCArray* child = pMenu->getChildren();
 	CCObject* item;
 	CCPoint position=getPosition();
 	iPageCount=0;
-	CCARRAY_FOREACH(child, item){
+	CCARRAY_FOREACH(child, item)
+  {
 		CCMenuItemSprite* getItem = (CCMenuItemSprite*) item;
 		getItem->setPosition(ccp(position.x +  menuOrigin.x + col * padding.x + (iPageCount * winSize.width), position.y +(winSize.height-menuOrigin.y)- row * padding.y));
 		++col;
 		if (col == cols){
 			col = 0;
 			++row;
-			if( row == rows ){
+			if(row == rows)
+      {
 				iPageCount++;
 				col = 0;
 				row = 0;
 			}
 		}
-		
 	}
-	if(child->count() > rows*cols*iPageCount){//   <-- add code for FIX (Mr.  K pop)
+	if(child->count() > rows*cols*iPageCount)
+  {//   <-- add code for FIX (Mr.  K pop)
 		iPageCount++;
 	}
 }
 
 
 
-void SlidingMenuGrid::buildGridVertical(int cols, int rows){
+void SlidingMenuGrid::buildGridVertical(int cols, int rows)
+{
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    
+  
 	int col = 0, row = 0;
 	CCArray* child = pMenu->getChildren();
 	CCObject* item;
@@ -118,37 +132,42 @@ void SlidingMenuGrid::buildGridVertical(int cols, int rows){
 		CCMenuItemSprite* getItem = (CCMenuItemSprite*) item;
 		getItem->setPosition(ccp(position.x + menuOrigin.x+col * padding.x , position.y +(winSize.height-menuOrigin.y)- row * padding.y - (iPageCount * winSize.height)));
 		++col;
-		if (col == cols){
+		if (col == cols)
+    {
 			col = 0;
 			++row;
-			if( row == rows ){
+			if(row == rows)
+      {
 				iPageCount++;
 				col = 0;
 				row = 0;
 			}
 		}
-        
+    
 	}
-	if(child->count() > rows*cols*iPageCount){ //   <-- add code for FIX (Mr.  K pop)
+	if(child->count() > rows*cols*iPageCount)
+  { //   <-- add code for FIX (Mr.  K pop)
 		iPageCount++;
 	}
 }
 
 
-CCMenuItemSprite* SlidingMenuGrid::GetItemWithinTouch(CCTouch* touch){
-    CCPoint touchLocation = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView());
-    
+CCMenuItemSprite* SlidingMenuGrid::GetItemWithinTouch(CCTouch* touch)
+{
+  CCPoint touchLocation = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView());
+  
 	// Parse our menu items and see if our touch exists within one.
 	CCArray* child = pMenu->getChildren();
 	CCObject* item;
-	CCARRAY_FOREACH(child, item){
-		
+	CCARRAY_FOREACH(child, item)
+  {
 		CCMenuItemSprite * getItem= static_cast<CCMenuItemSprite *>(item);
-        
+    
 		CCPoint local = getItem->convertToNodeSpace(touchLocation);
 		CCRect r = getItem->rect();
 		r.origin = CCPointZero;// If the touch was within this item. Return the item.
-		if (r.containsPoint(local)){
+		if (r.containsPoint(local))
+    {
 			return getItem;
 		}
 	}
@@ -156,10 +175,11 @@ CCMenuItemSprite* SlidingMenuGrid::GetItemWithinTouch(CCTouch* touch){
 	return NULL;
 }
 
-bool SlidingMenuGrid::ccTouchBegan(CCTouch* touch, CCEvent* event){
-    touchOrigin = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView());
-    
-    // If we weren't in "waiting" state bail out.
+bool SlidingMenuGrid::ccTouchBegan(CCTouch* touch, CCEvent* event)
+{
+  touchOrigin = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView());
+  
+  // If we weren't in "waiting" state bail out.
 	if (state == kCCMenuStateWaiting){
 		// Activate the menu item if we are touching one.
 		if(!bMoving){
@@ -174,79 +194,94 @@ bool SlidingMenuGrid::ccTouchBegan(CCTouch* touch, CCEvent* event){
 	return true;
 }
 
-void SlidingMenuGrid::ccTouchCancelled(CCTouch* touch, CCEvent* event){
-	if(selectedItem){
+void SlidingMenuGrid::ccTouchCancelled(CCTouch* touch, CCEvent* event)
+{
+	if(selectedItem)
+  {
 		selectedItem->unselected();
 		selectedItem = NULL;
 		state = kCCMenuStateWaiting;
 	}
 }
 
-void SlidingMenuGrid::ccTouchMoved(CCTouch* touch, CCEvent* event){
-	if(GetItemWithinTouch(touch) == NULL && selectedItem){
+void SlidingMenuGrid::ccTouchMoved(CCTouch* touch, CCEvent* event)
+{
+	if(GetItemWithinTouch(touch) == NULL && selectedItem)
+  {
 		//Touch Cancelled
-		if(selectedItem->isEnabled()){
+		if(selectedItem->isEnabled())
+    {
 			selectedItem->unselected();
 		}
 		selectedItem = NULL;
 		state = kCCMenuStateWaiting;
 		return;
 	}
-    
-	if(GetItemWithinTouch(touch) != NULL && selectedItem){
+  
+	if(GetItemWithinTouch(touch) != NULL && selectedItem)
+  {
 		return;
 	}
 	// Calculate the current touch point during the move.
-    touchStop = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView());// Distance between the origin of the touch and current touch point.
+  touchStop = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView());// Distance between the origin of the touch and current touch point.
 	fMoveDelta = (bVerticalPaging) ? (touchStop.y - touchOrigin.y) : (touchStop.x - touchOrigin.x);// Set our position.
 	
   
 	if(iCurrentPage == 0){
-        if (fMoveDelta < threshold) {
-            setPosition(GetPositionOfCurrentPageWithOffset(fMoveDelta));
-            bMoving = true;
-            return;
-        }
+    if (fMoveDelta < threshold) {
+      setPosition(GetPositionOfCurrentPageWithOffset(fMoveDelta));
+      bMoving = true;
+      return;
     }
-    else if(iCurrentPage == iPageCount - 1){
-        if (fMoveDelta > -threshold) {
-            setPosition(GetPositionOfCurrentPageWithOffset(fMoveDelta));
-            bMoving = true;
-            return;
-        }
+  }
+  else if(iCurrentPage == iPageCount - 1){
+    if (fMoveDelta > -threshold) {
+      setPosition(GetPositionOfCurrentPageWithOffset(fMoveDelta));
+      bMoving = true;
+      return;
     }
-    else{
-        setPosition(GetPositionOfCurrentPageWithOffset(fMoveDelta));
-        bMoving = true;
-    }
+  }
+  else{
+    setPosition(GetPositionOfCurrentPageWithOffset(fMoveDelta));
+    bMoving = true;
+  }
 }
 
-void SlidingMenuGrid::ccTouchEnded(CCTouch* touch, CCEvent* event){
-	if( bMoving ){
+void SlidingMenuGrid::ccTouchEnded(CCTouch* touch, CCEvent* event)
+{
+	if(bMoving)
+  {
 		bMoving = false;
 		{
 			// Do we have multiple pages?
-			if( iPageCount > 1 && (fMoveDeadZone < abs(fMoveDelta))){
+			if( iPageCount > 1 && (fMoveDeadZone < abs(fMoveDelta)))
+      {
 				// Are we going forward or backward?
 				bool bForward = (fMoveDelta > 0) ? true : false;
 				
 				// Do we have a page available?
-				if(bVerticalPaging){
-					if(bForward && (iPageCount>iCurrentPage+1)){
+				if(bVerticalPaging)
+        {
+					if(bForward && (iPageCount>iCurrentPage+1))
+          {
 						// Increment currently active page.
 						iCurrentPage++;
 					}
-					else if(!bForward && (iCurrentPage > 0)){
+					else if(!bForward && (iCurrentPage > 0))
+          {
 						// Decrement currently active page.
 						iCurrentPage--;
 					}
 				}
-				else{
-					if(!bForward && (iPageCount>iCurrentPage+1)){
+				else
+        {
+					if(!bForward && (iPageCount>iCurrentPage+1))
+          {
 						// Increment currently active page.
 						iCurrentPage++;
 					}
-					else if(bForward && (iCurrentPage > 0)){
+					else if(bForward && (iCurrentPage > 0))
+          {
 						// Decrement currently active page.
 						iCurrentPage--;
 					}
@@ -255,18 +290,22 @@ void SlidingMenuGrid::ccTouchEnded(CCTouch* touch, CCEvent* event){
 				// Start sliding towards the current page.
 				moveToCurrentPage();
 			}
-			else{
-				if(selectedItem){
+			else
+      {
+				if(selectedItem)
+        {
 					selectedItem->unselected();
 					selectedItem->activate();
 				}
-                moveToCurrentPage();
+        moveToCurrentPage();
 			}
 		}
 	}
 	else{
-		if(selectedItem){
-			if(selectedItem->isEnabled()){
+		if(selectedItem)
+    {
+			if(selectedItem->isEnabled())
+      {
 				selectedItem->unselected();
 				selectedItem->activate();
 			}
@@ -275,17 +314,21 @@ void SlidingMenuGrid::ccTouchEnded(CCTouch* touch, CCEvent* event){
 	state = kCCMenuStateWaiting;
 }
 
-void SlidingMenuGrid::moveToCurrentPage(bool animated){
-    if (animated){
-        CCEaseBounce* action =CCEaseBounce::create(CCMoveTo::create(fAnimSpeed*0.3f, GetPositionOfCurrentPage()));
-        runAction(action);
-    }
-    else{
-        setPosition(GetPositionOfCurrentPage());
-    }
+void SlidingMenuGrid::moveToCurrentPage(bool animated)
+{
+  if (animated)
+  {
+    CCEaseBounce* action =CCEaseBounce::create(CCMoveTo::create(fAnimSpeed*0.3f, GetPositionOfCurrentPage()));
+    runAction(action);
+  }
+  else
+  {
+    setPosition(GetPositionOfCurrentPage());
+  }
 }
 
-CCPoint SlidingMenuGrid::GetPositionOfCurrentPage(){
+CCPoint SlidingMenuGrid::GetPositionOfCurrentPage()
+{
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
 	CCPoint position=getPosition();
 	if(bVerticalPaging)
@@ -295,7 +338,8 @@ CCPoint SlidingMenuGrid::GetPositionOfCurrentPage(){
 	return position;
 }
 
-CCPoint SlidingMenuGrid::GetPositionOfCurrentPageWithOffset(float offset){
+CCPoint SlidingMenuGrid::GetPositionOfCurrentPageWithOffset(float offset)
+{
 	CCPoint position=GetPositionOfCurrentPage();
 	if(bVerticalPaging)
 		position.y+=offset;
@@ -305,16 +349,19 @@ CCPoint SlidingMenuGrid::GetPositionOfCurrentPageWithOffset(float offset){
 }
 
 // Returns the swiping dead zone.
-float SlidingMenuGrid::GetSwipeDeadZone(){
+float SlidingMenuGrid::GetSwipeDeadZone()
+{
 	return fMoveDeadZone;
 }
 
 //Sets the width limit for First/Last page swipe limit.
-void SlidingMenuGrid::setThresholdPageLimit(float fValue){
-    threshold = fValue;
+void SlidingMenuGrid::setThresholdPageLimit(float fValue)
+{
+  threshold = fValue;
 }
 
-void SlidingMenuGrid::SetSwipeDeadZone(float fValue){
+void SlidingMenuGrid::SetSwipeDeadZone(float fValue)
+{
 	fMoveDeadZone = fValue;
 }
 
@@ -324,30 +371,35 @@ bool SlidingMenuGrid::IsVerticallyPaged(){
 }
 
 // Sets the vertical paging flag.
-void SlidingMenuGrid::SetVerticalPaging(bool bValue){
+void SlidingMenuGrid::SetVerticalPaging(bool bValue)
+{
 	bVerticalPaging = bValue;
 	// this->buildGridVertical();
 }
 
-void SlidingMenuGrid::gotoPage(int iPage, bool animated){
+void SlidingMenuGrid::gotoPage(int iPage, bool animated)
+{
 	int iSetPage=iPage;
 	if(iPage<=0)
 		iSetPage=1;
-	else if(iPage>iPageCount){
+	else if(iPage>iPageCount)
+  {
 		iSetPage=iPageCount;
 	}
 	iCurrentPage=iSetPage-1;
 	moveToCurrentPage(animated);
 }
 
-void SlidingMenuGrid::setPageLabel( int iPage,CCNode * pLabel){
+void SlidingMenuGrid::setPageLabel( int iPage,CCNode * pLabel)
+{
 	addChild(pLabel,10);
 	if(!pLabel)
 		return;
 	int iSetPage=iPage;
 	if(iPage<=0)
 		iSetPage=1;
-	else if(iPage>iPageCount){
+	else if(iPage>iPageCount)
+  {
 		iSetPage=iPageCount;
 	}
 	CCSize winSize = CCDirector::sharedDirector()->getWinSize();
