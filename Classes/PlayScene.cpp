@@ -665,37 +665,37 @@ void PlayScene::addStones()
     stone->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2));
     mTileMap->addChild(stone, GR_FOREGROUND);
     
-//    for (int i = 0; i < mTileInfoVector.size(); ++i)
-//    {
-//      if (mTileInfoVector.at(i)->getGID() ==
-//          mTileInfoVector.at(r)->getGIDTileLeft())
-//      {
-//        mTileInfoVector.at(i)->setHasRightPop(true);
-//        mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
-//        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-//      }
-//      else if (mTileInfoVector.at(i)->getGID() ==
-//               mTileInfoVector.at(r)->getGIDTileRight())
-//      {
-//        mTileInfoVector.at(i)->setHasLeftPop(true);
-//        mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
-//        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-//      }
-//      else if (mTileInfoVector.at(i)->getGID() ==
-//               mTileInfoVector.at(r)->getGIDTileUp())
-//      {
-//        mTileInfoVector.at(i)->setHasBottomPop(true);
-//        mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
-//        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-//      }
-//      else if (mTileInfoVector.at(i)->getGID() ==
-//               mTileInfoVector.at(r)->getGIDTileDown())
-//      {
-//        mTileInfoVector.at(i)->setHasTopPop(true);
-//        mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
-//        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
-//      }
-//    }
+    for (int i = 0; i < mTileInfoVector.size(); ++i)
+    {
+      if (mTileInfoVector.at(i)->getGID() ==
+          mTileInfoVector.at(r)->getGIDTileLeft())
+      {
+        mTileInfoVector.at(i)->setHasRightPop(true);
+        mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+      else if (mTileInfoVector.at(i)->getGID() ==
+               mTileInfoVector.at(r)->getGIDTileRight())
+      {
+        mTileInfoVector.at(i)->setHasLeftPop(true);
+        mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+      else if (mTileInfoVector.at(i)->getGID() ==
+               mTileInfoVector.at(r)->getGIDTileUp())
+      {
+        mTileInfoVector.at(i)->setHasBottomPop(true);
+        mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+      else if (mTileInfoVector.at(i)->getGID() ==
+               mTileInfoVector.at(r)->getGIDTileDown())
+      {
+        mTileInfoVector.at(i)->setHasTopPop(true);
+        mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
+      }
+    }
   }
 }
 
