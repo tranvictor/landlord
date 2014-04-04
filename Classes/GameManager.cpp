@@ -24,6 +24,14 @@ int  GameManager::player2Score;
 int  GameManager::currentPlayer;
 int  GameManager::winPlayer;
 
+int  GameManager::nTrees;
+
+int  GameManager::nAxes;
+int  GameManager::nAxesOfPlayerOne = 0;
+int  GameManager::nAxesOfPlayerTwo = 0;
+
+int GameManager::nStones = 0;
+
 bool GameManager::getMusicState()
 {
   return musicState;
@@ -144,4 +152,64 @@ void GameManager::setWinPlayer(int _currentPlayer)
   winPlayer = _currentPlayer;
 }
 
+void GameManager::setNumOfTrees(int pNumOfTrees)
+{
+  nTrees = pNumOfTrees;
+}
 
+int GameManager::getNumOfTrees()
+{
+  return nTrees;
+}
+
+
+void GameManager::setNumOfAxes(int pNumOfAxes)
+{
+  nAxes = pNumOfAxes;
+}
+
+int GameManager::getNumOfAxes(int pCurrentPlayer)
+{
+  if (pCurrentPlayer == PLAYER_ONE)
+  {
+    return nAxesOfPlayerOne;
+  }
+  else
+  {
+    return nAxesOfPlayerTwo;
+  }
+}
+
+void GameManager::increaseNumOfAxes(int pCurrentPlayer)
+{
+  if (pCurrentPlayer == PLAYER_ONE)
+  {
+    nAxesOfPlayerOne++;
+  }
+  else
+  {
+    nAxesOfPlayerTwo++;
+  }
+}
+
+void GameManager::decreaseNumOfAxes(int pCurrentPlayer)
+{
+  if (pCurrentPlayer == PLAYER_ONE && nAxesOfPlayerOne > 0)
+  {
+    nAxesOfPlayerOne--;
+  }
+  else if (nAxesOfPlayerTwo > 0)
+  {
+    nAxesOfPlayerTwo--;
+  }
+}
+
+void GameManager::setNumOfStones(int pNumOfStones)
+{
+  nStones = pNumOfStones;
+}
+
+int GameManager::getNumOfStones()
+{
+  return nStones;
+}
