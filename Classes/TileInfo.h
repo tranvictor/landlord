@@ -45,6 +45,7 @@ public:
   
   CC_SYNTHESIZE(bool, mIsFoggy, IsFoggy);
   CC_SYNTHESIZE(bool, mIsUntouchableTile, IsUntouchableTile);
+  CC_SYNTHESIZE(std::vector<int>, mAroundTile, AroundTile);
   
   TileInfo();
   

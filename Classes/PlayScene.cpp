@@ -47,7 +47,7 @@ bool PlayScene::init()
   GameManager::initPlayersInfo();
 //  addPlayGroud();
   makeMapScroll();
-  appearPlusSign(-1);
+//  appearPlusSign(-1);
   setViewPointCenter(posFirstTile);
   
 //  addFrameImg();
@@ -150,8 +150,8 @@ void PlayScene::makeMapScroll()
         tileInfo->setGID(PAIR_FUNC(i, j));
 //        CCLog("gid %d", PAIR_FUNC(i, j));
         
-        tile->setOpacity(FOGGY);
-        tileInfo->setIsFoggy(true);
+//        tile->setOpacity(FOGGY);
+//        tileInfo->setIsFoggy(true);
         
         CCDictionary *properties = mTileMap->propertiesForGID(mMapLayer->tileGIDAt(ccp(i, j)));
         if (properties && (properties->valueForKey("touchable")->compare("false")) == 0)
@@ -207,6 +207,17 @@ void PlayScene::appearPlusSign(int r)
     {
       mTileInfoVector.at(i)->getTile()->setOpacity(UNFOGGY);
       mTileInfoVector.at(i)->setIsFoggy(false);
+      for (int j = 0; j < mTileInfoVector.size(); ++j)
+      {
+        if (mTileInfoVector.at(i)->getGIDTileLeft() == mTileInfoVector.at(j)->getGID())
+        {
+          mTileInfoVector.at(j)->getTile()->setOpacity(UNFOGGY*0.8);
+        }
+        if (mTileInfoVector.at(i)->getGIDTileRight() == mTileInfoVector.at(j)->getGID())
+        {
+          mTileInfoVector.at(j)->getTile()->setOpacity(UNFOGGY*0.8);
+        }
+      }
     }
     if (mTileInfoVector.at(i)->getGID() == tileInfo->getGIDTileLeft())
     {
@@ -217,6 +228,18 @@ void PlayScene::appearPlusSign(int r)
     {
       mTileInfoVector.at(i)->getTile()->setOpacity(UNFOGGY);
       mTileInfoVector.at(i)->setIsFoggy(false);
+      for (int j = 0; j < mTileInfoVector.size(); ++j)
+      {
+        if (mTileInfoVector.at(i)->getGIDTileLeft() == mTileInfoVector.at(j)->getGID())
+        {
+          mTileInfoVector.at(j)->getTile()->setOpacity(UNFOGGY*0.5);
+        }
+        if (mTileInfoVector.at(i)->getGIDTileRight() == mTileInfoVector.at(j)->getGID())
+        {
+          mTileInfoVector.at(j)->getTile()->setOpacity(UNFOGGY*0.5);
+        }
+      }
+
     }
     if (mTileInfoVector.at(i)->getGID() == tileInfo->getGIDTileRight())
     {
@@ -322,7 +345,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap) && !tileInfo->getIsFoggy() && !tileInfo->getIsUntouchableTile())
     {
       mCurTile = i;
-      appearPlusSign(mCurTile);
+//      appearPlusSign(mCurTile);
       if (mTileInfoVector.at(mCurTile)->getHasTree())
       {
         if (Axe::getNumOfAxes(GameManager::getCurrentPlayer()) > 0)

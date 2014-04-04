@@ -23,8 +23,8 @@ class PlayScene : public cocos2d::CCLayer
 //  CCLayerPanZoom*     mController;
   
   cocos2d::CCSize     mScreenSize;
-  cocos2d::CCLabelTTF *mLbnScorePlayer1;
-  cocos2d::CCLabelTTF *mLbnScorePlayer2;
+  cocos2d::CCLabelTTF* mLbnScorePlayer1;
+  cocos2d::CCLabelTTF* mLbnScorePlayer2;
   char                mScoreBuffer[10];
   
   CCPoint             mBeginLocation;

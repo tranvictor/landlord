@@ -17,12 +17,27 @@
     <property name="touchable" value="false"/>
    </properties>
   </tile>
+  <tile id="10">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
   <tile id="11">
    <properties>
     <property name="touchable" value="false"/>
    </properties>
   </tile>
   <tile id="13">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="24">
    <properties>
     <property name="touchable" value="false"/>
    </properties>
