@@ -95,6 +95,9 @@ public:
   void removeTree();
   
   void appearPlusSign(int r);
+  void setAroundTileToPartialFoggy(int i);
+  void setTileUnfoggy(int i);
+  
   void setViewPointCenter(cocos2d::CCPoint position);
 
   CCPoint getBound();

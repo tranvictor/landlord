@@ -17,6 +17,26 @@
     <property name="touchable" value="false"/>
    </properties>
   </tile>
+  <tile id="5">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
   <tile id="10">
    <properties>
     <property name="touchable" value="false"/>
@@ -37,7 +57,122 @@
     <property name="touchable" value="false"/>
    </properties>
   </tile>
+  <tile id="15">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
   <tile id="24">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="37">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="39">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="41">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="43">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="45">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="46">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="47">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="48">
+   <properties>
+    <property name="touchable" value="false"/>
+   </properties>
+  </tile>
+  <tile id="49">
    <properties>
     <property name="touchable" value="false"/>
    </properties>
@@ -45,12 +180,12 @@
  </tileset>
  <layer name="Tile Layer 2" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYBj8gBuImXFgFiR1THjU8SOpE8VjFx+SHh486iSJNI9YMFzMUwJibShWINI8eRxqQWYpk6EOlxslsYiNqsNUB8pv2NI+KG8g5yMmItWN5jfamUdOftNC0oOOdYhUB8tvAPPeCP8=
+   eJxjYBj8gBuImXFgFiR1THjU8SOpE8VjFx+SHh486iSJNI8QYKSyeTAwUOYpAbE2FCsQaZ48DrUgs5TJUIfLjZJYxEbVYaoD5TdsaR+UN5DzEROR6gZTfhtu5pGT37SQ9KBjHSLVwfIbAPieCQA=
   </data>
  </layer>
  <layer name="map01" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgagBkHZkFSw0SkOhDgxYH5kPTwALE4DowOcJmHS/9wNQ8dEGseNjNxAWLMGjVvcJmHK60RMotUdeSm58FuHrXDj1oAABbKD18=
+   eJxjYBj8gBuImXFgFiR1TESqEwViXhyYD0kPDxCL48CSRJqHS/9wNU8JiLWhWAGPeSJI5slD1WIzSxmLOnSz0NXhcqMkAyYQJeDXkWgeKL/xYDEPlDdYsKhDNw+kjh+L27ClA3LzG7HpdriYhyv8iM1vyOZpIelBxzpEqoPlNwARYRf9
   </data>
  </layer>
 </map>
