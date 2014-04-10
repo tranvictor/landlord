@@ -61,7 +61,11 @@ bool PlayScene::init()
   addAxes();
   addStones();
   
+  setCooldownTime(100.0);
+  setupRemindLayer();
+  
   schedule(schedule_selector(PlayScene::update));
+  schedule(schedule_selector(PlayScene::cooldown));
   
   return true;
 }
@@ -219,6 +223,7 @@ void PlayScene::addFrameImg()
 bool PlayScene::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
   mIsScrolling = false;
+  setCooldownTime(100.0);
   
   mBeginLocation = pTouch->getLocation();
   mBeginLocation = this->convertToNodeSpace(mBeginLocation);
@@ -282,6 +287,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
       {
         appearPops(tileInfo, sp);
       }
+      schedule(schedule_selector(PlayScene::cooldown));
     }
   }
 }
@@ -746,5 +752,38 @@ void PlayScene::removeTree()
       tree->setVisible(false);
       mTreesArr->removeObjectAtIndex(i);
     }
+  }
+}
+
+void PlayScene::setupRemindLayer()
+{
+  mReminder = CCLayer::create();
+  CCSprite* btn = CCSprite::create("Images/Game/UI/buttonPlay.png");
+  CCMenuItemSprite* item = CCMenuItemSprite::create(btn, btn, this, menu_selector(PlayScene::onResume));
+  CCPoint centerPos = ccp(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2);
+  item->setPosition(centerPos);
+  CCMenu* menu = CCMenu::create(item, NULL);
+  mReminder->addChild(menu);
+  mReminder->setVisible(false);
+  menu->setPosition(CCPointZero);
+  this->addChild(mReminder);
+}
+
+void PlayScene::onResume()
+{
+  mReminder->setVisible(false);
+  setCooldownTime(100.0);
+  CCDirector::sharedDirector()->resume();
+}
+
+void PlayScene::cooldown()
+{
+  float now = getCooldownTime();
+  CCLog("%f", now);
+  setCooldownTime(now - 0.3);
+  if (now <= 0)
+  {
+    mReminder->setVisible(true);
+    CCDirector::sharedDirector()->pause();
   }
 }
