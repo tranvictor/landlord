@@ -118,7 +118,8 @@ bool CCLayerPanZoom::init()
   return true;
 }
 
-void CCLayerPanZoom::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent){
+void CCLayerPanZoom::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
+{
   CCTouch *pTouch;
   CCSetIterator setIter;
   for (setIter = pTouches->begin(); setIter != pTouches->end(); ++setIter)
@@ -624,7 +625,8 @@ float CCLayerPanZoom::horSpeedWithPosition(CCPoint pos)
   return speed;
 }
 
-float CCLayerPanZoom::vertSpeedWithPosition(CCPoint pos){
+float CCLayerPanZoom::vertSpeedWithPosition(CCPoint pos)
+{
   CCLayerPanZoomFrameEdge edge = this->frameEdgeWithPoint(pos);
   float speed = 0.0f;
   if (edge == kCCLayerPanZoomFrameEdgeBottom)

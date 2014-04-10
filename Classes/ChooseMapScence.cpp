@@ -110,8 +110,8 @@ void ChooseMapScene::mapTouched(CCObject *pSender)
 void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button random touched");
-  srand (time(NULL));
-  int r = ((int)random())%10+1;
+  srand(time(NULL));
+  int r = rand()%10+1;
   CCLog("r = %i", r);
   mSlidingMap->moveToPage(r-1);
 }

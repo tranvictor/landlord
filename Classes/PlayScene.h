@@ -23,8 +23,8 @@ class PlayScene : public cocos2d::CCLayer
 //  CCLayerPanZoom*     mController;
   
   cocos2d::CCSize     mScreenSize;
-  cocos2d::CCLabelTTF *mLbnScorePlayer1;
-  cocos2d::CCLabelTTF *mLbnScorePlayer2;
+  cocos2d::CCLabelTTF* mLbnScorePlayer1;
+  cocos2d::CCLabelTTF* mLbnScorePlayer2;
   char                mScoreBuffer[10];
   
   CCPoint             mBeginLocation;
@@ -51,6 +51,7 @@ class PlayScene : public cocos2d::CCLayer
   
   CCSprite*           mPlayerOneShadow;
   CCSprite*           mPlayerTwoShadow;
+  cocos2d::CCPoint    posFirstTile;
   
 public:
   virtual bool init();
@@ -93,6 +94,12 @@ public:
   void chooseAxeEnded(cocos2d::CCObject *pSender);
   void removeTree();
   
+  void appearPlusSign(int r);
+  void setAroundTileToPartialFoggy(int i);
+  void setTileUnfoggy(int i);
+  
+  void setViewPointCenter(cocos2d::CCPoint position);
+
   CCPoint getBound();
   
   virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);

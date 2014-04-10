@@ -12,8 +12,8 @@
 #include "cocos2d.h"
 
 USING_NS_CC;
-//  the gap between dot of indicator
-#define GAP_BETWEEN_DOT 37.78f
+
+#define GAP_BETWEEN_DOT 37.78f  //  the gap between dot of indicator
 
 #define SCREEN_SIZE             CCDirector::sharedDirector()->getWinSize()
 // ChooseMapScene
@@ -85,8 +85,14 @@ enum eEdgeStatus
 
 enum eCurrentPlayer
 {
-  PLAYER_ONE = 1,
-  PLAYER_TWO = 2,
+  PLAYER_ONE,
+  PLAYER_TWO
+};
+
+enum eFog
+{
+  FOGGY = 20,
+  UNFOGGY = 255
 };
 
 #endif

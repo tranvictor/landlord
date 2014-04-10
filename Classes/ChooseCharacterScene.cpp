@@ -195,7 +195,7 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
 
 void ChooseCharacterScene::addBackButton()
 {
-  CCSprite *back = CCSprite::create("Images/Game/UI/button-back.png");
+  CCSprite* back = CCSprite::create("Images/Game/UI/button-back.png");
   CCMenuItemSprite *backBtn = CCMenuItemSprite::create(back,
                                                        back,
                                                        this,
