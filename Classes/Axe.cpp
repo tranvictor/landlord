@@ -7,8 +7,5 @@
 //
 
 #include "Axe.h"
+#include "Constant.h"
 
-void Axe::appearAxePop()
-{
-  
-}

@@ -13,10 +13,7 @@
 
 class Axe
 {
-private:
-  
-public:
-  static void appearAxePop();
+
 };
 
 #endif /* defined(__landlord__Axe__) */

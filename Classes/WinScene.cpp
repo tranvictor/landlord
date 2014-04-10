@@ -86,7 +86,7 @@ void WinScene::buttonShareTouched(cocos2d::CCObject *pSender)
 void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button replay touched");
-  CCScene* newScene = CCTransitionSlideInR::create(0.5, ChooseMapScene::scene());
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 
 }

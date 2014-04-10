@@ -119,7 +119,7 @@ void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button back touched");
-  CCScene* newScene = CCTransitionSlideInL::create(0.5, ChooseCharacterScene::scene());
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseCharacterScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 
 }

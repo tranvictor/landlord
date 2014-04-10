@@ -14,11 +14,7 @@
 
 class Tree
 {
-private:
-  
-public:
-  static bool checkHasTree(TileInfo* pTileInfo);
-  
+
 };
 
 #endif /* defined(__landlord__Tree__) */
