@@ -54,14 +54,14 @@ void LoadingScene::addItems()
   addChild(landlord, GR_MIDDLEGROUND);
   
   CCSprite* sun = CCSprite::create("Images/Game/Object/sun-beam.png");
-  sun->setPosition(ccp(SCREEN_SIZE.width/2, 0));
+  sun->setPosition(CENTER_POS);
   sun->setScale(0.3f);
-  sun->runAction(CCMoveTo::create(0.5f, CENTER_POS + ccp(0, 100)));
+  sun->runAction(CCMoveTo::create(2.5f, CENTER_POS + ccp(0, 100)));
 //  CCAction* repeateAction = CCRepeatForever::create(CCRotateBy::create(1,180));
 //  mSelectedThong->runAction(repeateAction);
   sun->runAction(
                  CCSequence::create(
-                                    CCScaleTo::create(0.5, 1.0),
+                                    CCScaleTo::create(2.5, 1.0),
                                     NULL));
   sun->runAction(CCRepeatForever::create(CCRotateBy::create(1, 30)));
   this->addChild(sun);
