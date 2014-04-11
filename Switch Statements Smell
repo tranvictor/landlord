@@ -1,0 +1,86 @@
+// Switch Statements Smell
+
+method foo(int thingType) {
+        switch (thingType) {
+            case TYPE_ONE:
+                oneFoo();
+                break;
+            case TYPE_TWO:
+                twoFoo();
+                break;
+            case TYPE_THREE:
+                threeFoo();
+                break;
+            case TYPE_FOUR:
+                fourFoo();
+                break;
+        }
+    }
+
+    method oneFoo() {
+    }
+
+    method twoFoo() {
+    }
+
+    method threeFoo() {
+    }
+
+    method fourFoo() {
+    }
+
+    method bar(int thingType) {
+        switch (thingType) {
+            case TYPE_ONE:
+                oneBar();
+                break;
+            case TYPE_TWO:
+                twoBar();
+                break;
+            case TYPE_THREE:
+                threeBar();
+                break;
+            case TYPE_FOUR:
+                fourBar();
+                break;
+        }
+    }
+
+    method oneBar() {
+    }
+
+    method twoBar() {
+    }
+
+    method threeBar() {
+    }
+
+    method fourBar() {
+    }
+
+// Refactor 
+class one {
+   method foo() {
+  }
+  method bar() {
+  }
+  }
+  class two {
+  method foo() {
+  }
+  method bar() {
+  }
+  }
+  class three {
+  method foo() {
+  }
+  method bar() {
+  }
+  }
+  class four {
+  method foo() {
+  }
+  method bar() {
+  }
+  }
+  
