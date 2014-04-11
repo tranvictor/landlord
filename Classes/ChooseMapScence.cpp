@@ -101,8 +101,8 @@ void ChooseMapScene::mapTouched(CCObject *pSender)
   mMapTouchedID = mapSelected->getTag();
   CCLog("map %i choosed", mMapTouchedID);
   GameManager::setMapIDTouched(mMapTouchedID);
-  CCScene* newScene = CCTransitionCrossFade::create(0.5, PlayScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
+  CCScene* playScene = CCTransitionCrossFade::create(SCENE_TRANSITION_TIME, PlayScene::scene());
+  CCDirector::sharedDirector()->replaceScene(playScene);
 
 }
 
@@ -111,15 +111,15 @@ void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button random touched");
   srand (time(NULL));
-  int r = ((int)random())%10+1;
-  CCLog("r = %i", r);
-  mSlidingMap->moveToPage(r-1);
+  int withIndex = ((int)random())%NUMBER_MAPS+1;
+  CCLog("r = %i", withIndex);
+  mSlidingMap->moveToPage(withIndex-1);
 }
 
 void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button back touched");
-  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseCharacterScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
+  CCScene* chooCharacterScene = CCTransitionCrossFade::create(SCENE_TRANSITION_TIME, ChooseCharacterScene::scene());
+  CCDirector::sharedDirector()->replaceScene(chooCharacterScene);
 
 }

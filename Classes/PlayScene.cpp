@@ -70,9 +70,9 @@ void PlayScene::addPauseButton()
 {
   CCSprite* btn = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* btnPause = CCMenuItemSprite::create(btn, btn, this, menu_selector(PlayScene::pauseButtonTouched));
-  CCMenu* pMenu = CCMenu::create(btnPause, NULL);
-  pMenu->setPosition(BTN_PAUSE_POS);
-  addChild(pMenu);
+  CCMenu* menu = CCMenu::create(btnPause, NULL);
+  menu->setPosition(BTN_PAUSE_POS);
+  addChild(menu);
 }
 
 void PlayScene::addPlayGroud()
@@ -460,10 +460,10 @@ void PlayScene::addBottomEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 
 void PlayScene::addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 {
-  CCSprite *sp = pTileInfo->getTile();
+  CCSprite *tileSprite = pTileInfo->getTile();
   pTileInfo->setHasTopPop(true);
   
-  pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY() + sp->getContentSize().height));
+  pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width/2, tileSprite->getPositionY() + tileSprite->getContentSize().height));
   
   mTileMap->addChild(pEdge, GR_FOREGROUND);
   pTileInfo->setEdgeTopSts(STS_NOT_AVAILABLE);
@@ -480,11 +480,11 @@ void PlayScene::addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 
 void PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 {
-  CCSprite *sp = pTileInfo->getTile();
+  CCSprite *tileSprite = pTileInfo->getTile();
   pTileInfo->setHasLeftPop(true);
   
   pEdge->setRotation(90);
-  pEdge->setPosition(ccp(sp->getPositionX(), sp->getPositionY() + sp->getContentSize().height/2));
+  pEdge->setPosition(ccp(tileSprite->getPositionX(), tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
   
   mTileMap->addChild(pEdge, GR_FOREGROUND);
   pTileInfo->setEdgeLeftSts(STS_NOT_AVAILABLE);
@@ -502,11 +502,11 @@ void PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 
 void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 {
-  CCSprite *sp = pTileInfo->getTile();
+  CCSprite *tileSprite = pTileInfo->getTile();
   pTileInfo->setHasRightPop(true);
   
   pEdge->setRotation(90);
-  pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width, sp->getPositionY() + sp->getContentSize().height/2));
+  pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width, tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
   
   mTileMap->addChild(pEdge, GR_FOREGROUND);
   pTileInfo->setEdgeRightSts(STS_NOT_AVAILABLE);
@@ -542,47 +542,47 @@ void PlayScene::appearPops(TileInfo* pTileInfo, cocos2d::CCSprite *pSp)
   }
 }
 
-void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
+void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
   CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_BOTTOM);
-  edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() - pop->getContentSize().height/2));
+  edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2, pTileSprite->getPositionY() - pop->getContentSize().height/2));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
-void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
+void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
   CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_TOP);
-  edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height + pop->getContentSize().height/2));
+  edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2, pTileSprite->getPositionY() + pTileSprite->getContentSize().height + pop->getContentSize().height/2));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
-void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
+void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
   CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_LEFT);
-  edgePop->setPosition(ccp(pSp->getPositionX() - pop->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height/2));
+  edgePop->setPosition(ccp(pTileSprite->getPositionX() - pop->getContentSize().width/2, pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
-void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
+void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
   CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
   CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_RIGHT);
-  edgePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width + pop->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height/2));
+  edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width + pop->getContentSize().width/2, pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
@@ -598,7 +598,7 @@ void PlayScene::removePopups()
 
 void PlayScene::addTrees()
 {
-  int numberOfTrees = rand() % 3 + 4;
+  int numberOfTrees = RANDOM_NUMBER_OF_TREES;
   mTreesArr = CCArray::createWithCapacity(numberOfTrees);
   mTreesArr->retain();
   CCLog("Number of Trees is %i", numberOfTrees);
@@ -606,19 +606,19 @@ void PlayScene::addTrees()
   srand(time(NULL));
   for (int i = 0; i < numberOfTrees; i++)
   {
-    int r;
+    int indexOfTileToAddTree;
     do
     {
-      r = rand() % mTileInfoVector.size();
-    } while (mTileInfoVector.at(r)->getHasTree());
-    CCLog("Tile at %i has a tree", r);
-    mTileInfoVector.at(r)->setHasTree(true);
-    mTileInfoVector.at(r)->setHasItem(true);
+      indexOfTileToAddTree = rand() % mTileInfoVector.size();
+    } while (mTileInfoVector.at(indexOfTileToAddTree)->getHasTree());
+    CCLog("Tile at %i has a tree", indexOfTileToAddTree);
+    mTileInfoVector.at(indexOfTileToAddTree)->setHasTree(true);
+    mTileInfoVector.at(indexOfTileToAddTree)->setHasItem(true);
     
     CCSprite* tree = CCSprite::create("Images/Game/Object/tree.png");
     mTreesArr->addObject(tree);
-    tree->setTag(r);
-    tree->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2 + tree->getContentSize().height/4));
+    tree->setTag(indexOfTileToAddTree);
+    tree->setPosition(ccp(mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getPositionX() + mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getContentSize().width/2, mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getPositionY() + mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getContentSize().height/2 + tree->getContentSize().height/4));
     mTileMap->addChild(tree, GR_FOREGROUND);
   }
 }
@@ -631,15 +631,15 @@ void PlayScene::addAxes()
   srand(time(NULL));
   for (int i = 0; i < numOfAxes; i++)
   {
-    int r;
+    int indexOfTileToAddAxe;
     do
     {
-      r = rand() % mTileInfoVector.size();
-    } while (mTileInfoVector.at(r)->getHasItem());
-    CCLog("Tile at %i has a axe", r);
-    mTileInfoVector.at(r)->setHasAxe(true);
-    mTileInfoVector.at(r)->setHasItem(true);
-    mTileInfoVector.at(r)->getTile()->setColor(ccBLACK);
+      indexOfTileToAddAxe = rand() % mTileInfoVector.size();
+    } while (mTileInfoVector.at(indexOfTileToAddAxe)->getHasItem());
+    CCLog("Tile at %i has a axe", indexOfTileToAddAxe);
+    mTileInfoVector.at(indexOfTileToAddAxe)->setHasAxe(true);
+    mTileInfoVector.at(indexOfTileToAddAxe)->setHasItem(true);
+    mTileInfoVector.at(indexOfTileToAddAxe)->getTile()->setColor(ccBLACK);
   }
 }
 
@@ -651,45 +651,45 @@ void PlayScene::addStones()
   srand(time(NULL));
   for (int i = 0; i < numOfStones; i++)
   {
-    int r;
+    int indexOfTileToAddStone;
     do
     {
-      r = rand() % mTileInfoVector.size();
-    } while (mTileInfoVector.at(r)->getHasItem());
-    CCLog("Tile at %i has a stone", r);
-    mTileInfoVector.at(r)->setHasStone(true);
-    mTileInfoVector.at(r)->setHasItem(true);
+      indexOfTileToAddStone = rand() % mTileInfoVector.size();
+    } while (mTileInfoVector.at(indexOfTileToAddStone)->getHasItem());
+    CCLog("Tile at %i has a stone", indexOfTileToAddStone);
+    mTileInfoVector.at(indexOfTileToAddStone)->setHasStone(true);
+    mTileInfoVector.at(indexOfTileToAddStone)->setHasItem(true);
     
     CCSprite* stone = CCSprite::create("Images/Game/Object/stone.png");
-    stone->setTag(r);
-    stone->setPosition(ccp(mTileInfoVector.at(r)->getTile()->getPositionX() + mTileInfoVector.at(r)->getTile()->getContentSize().width/2, mTileInfoVector.at(r)->getTile()->getPositionY() + mTileInfoVector.at(r)->getTile()->getContentSize().height/2));
+    stone->setTag(indexOfTileToAddStone);
+    stone->setPosition(ccp(mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getPositionX() + mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getContentSize().width/2, mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getPositionY() + mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getContentSize().height/2));
     mTileMap->addChild(stone, GR_FOREGROUND);
     
     for (int i = 0; i < mTileInfoVector.size(); ++i)
     {
       if (mTileInfoVector.at(i)->getGID() ==
-          mTileInfoVector.at(r)->getGIDTileLeft())
+          mTileInfoVector.at(indexOfTileToAddStone)->getGIDTileLeft())
       {
         mTileInfoVector.at(i)->setHasRightPop(true);
         mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
         mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
       }
       else if (mTileInfoVector.at(i)->getGID() ==
-               mTileInfoVector.at(r)->getGIDTileRight())
+               mTileInfoVector.at(indexOfTileToAddStone)->getGIDTileRight())
       {
         mTileInfoVector.at(i)->setHasLeftPop(true);
         mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
         mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
       }
       else if (mTileInfoVector.at(i)->getGID() ==
-               mTileInfoVector.at(r)->getGIDTileUp())
+               mTileInfoVector.at(indexOfTileToAddStone)->getGIDTileUp())
       {
         mTileInfoVector.at(i)->setHasBottomPop(true);
         mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
         mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
       }
       else if (mTileInfoVector.at(i)->getGID() ==
-               mTileInfoVector.at(r)->getGIDTileDown())
+               mTileInfoVector.at(indexOfTileToAddStone)->getGIDTileDown())
       {
         mTileInfoVector.at(i)->setHasTopPop(true);
         mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
@@ -699,12 +699,12 @@ void PlayScene::addStones()
   }
 }
 
-void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
+void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
   CCSprite* pop = CCSprite::create("Images/Game/Object/axe.png");
   mAxePop = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
   CCMenu *axePop = CCMenu::create(mAxePop, NULL);
-  axePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height + pop->getContentSize().height/2));
+  axePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2, pTileSprite->getPositionY() + pTileSprite->getContentSize().height + pop->getContentSize().height/2));
   mTileMap->addChild(axePop, GR_FOREGROUND);
   mIsAxePopVisible = true;
 }
