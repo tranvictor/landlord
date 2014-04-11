@@ -1,0 +1,18 @@
+// Too many instance
+class Point {
+  public:
+	Point( int x, int y ): _x(x), _y(y) {}
+
+	int getX() const { return _x; }
+	int getY() const { return _y; }
+	void setX( int x ) { _x = x; }
+	void setY( int y ) { _y = y; }
+
+  private:
+	int _x;
+	int _y;
+}
+
+// refactor
+Point aMutablePoint( 4, 10 );
+const Point anImmutablePoint( 5, 5 );

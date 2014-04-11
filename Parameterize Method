@@ -1,0 +1,20 @@
+// parameterize method
+setValue (String name, int value) {
+  if (name.equals("height")) {
+    _height = value;
+    return;
+  }
+  if (name.equals("width")) {
+    _width = value;
+    return;
+  }
+  Assert.shouldNeverReachHere();
+}
+
+// refactor
+void setHeight(int arg) {
+  _height = arg;
+}
+void setWidth (int arg) {
+  _width = arg;
+}
