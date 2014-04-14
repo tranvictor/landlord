@@ -18,14 +18,27 @@
 - (void) testGetAndSetMusicState
 {
   GameManager gameManager;
-  STAssertEquals(true, gameManager.getMusicState(), @"initial count is true");
+  STAssertEquals(true, gameManager.getMusicState(), @"initial music state is true");
   
   gameManager.setMusicState();
   STAssertEquals(false, gameManager.getMusicState(), @"change music state to false");
   
   gameManager.setMusicState();
   gameManager.setMusicState();
-  STAssertEquals(false, gameManager.getMusicState(), @"change music state 2 times");
+  STAssertEquals(false, gameManager.getMusicState(), @"change music state twice");
+}
+
+- (void) testGetAndSetSoundState
+{
+  GameManager gameManager;
+  STAssertEquals(true, gameManager.getSoundState(), @"initial sound state is true");
+  
+  gameManager.setSoundState();
+  STAssertEquals(false, gameManager.getSoundState(), @"change sound state to false");
+  
+  gameManager.setSoundState();
+  gameManager.setSoundState();
+  STAssertEquals(false, gameManager.getSoundState(), @"change sound state twice");
 }
 
 @end
