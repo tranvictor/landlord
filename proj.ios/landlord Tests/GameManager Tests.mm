@@ -41,4 +41,17 @@
   STAssertEquals(false, gameManager.getSoundState(), @"change sound state twice");
 }
 
+- (void) testGetAndSetTreeModeState
+{
+  GameManager gameManager;
+  STAssertEquals(true, gameManager.getTreeModeState(), @"initial tree mode state is true");
+  
+  gameManager.setTreeModeState();
+  STAssertEquals(false, gameManager.getTreeModeState(), @"change tree mode state to false");
+  
+  gameManager.setTreeModeState();
+  gameManager.setTreeModeState();
+  STAssertEquals(false, gameManager.getTreeModeState(), @"change tree mode state twice");
+}
+
 @end
