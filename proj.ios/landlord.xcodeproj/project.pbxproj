@@ -10,6 +10,11 @@
 		0610AE3818E40E1A000BD558 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3618E40E1A000BD558 /* Tree.cpp */; };
 		0610AE3B18E40E44000BD558 /* Axe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3918E40E44000BD558 /* Axe.cpp */; };
 		0667816318E70FDB00024600 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0667816118E70FDB00024600 /* Stone.cpp */; };
+		06B770B518FC213C0063D66F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B770B418FC213C0063D66F /* SenTestingKit.framework */; };
+		06B770B618FC213C0063D66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		06B770B718FC213C0063D66F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		06B770BD18FC213C0063D66F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06B770BB18FC213C0063D66F /* InfoPlist.strings */; };
+		06B770CA18FC21AB0063D66F /* GameManager Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 06B770C918FC21AB0063D66F /* GameManager Tests.mm */; };
 		06C2EC8818BD8C8D00917282 /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */; };
 		15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88B1682F7D5002FB0C5 /* b2BroadPhase.cpp */; };
 		15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88D1682F7D5002FB0C5 /* b2CollideCircle.cpp */; };
@@ -254,6 +259,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		06B770C118FC213C0063D66F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = landlord;
+		};
+		06B770C618FC213C0063D66F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06879ACA18F774B700C39BFB;
+			remoteInfo = Test;
+		};
 		15A3D8851682F7B3002FB0C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
@@ -277,6 +296,12 @@
 		0610AE3A18E40E44000BD558 /* Axe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Axe.h; path = ../Classes/Axe.h; sourceTree = "<group>"; };
 		0667816118E70FDB00024600 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = ../Classes/Stone.cpp; sourceTree = "<group>"; };
 		0667816218E70FDB00024600 /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = ../Classes/Stone.h; sourceTree = "<group>"; };
+		06B770B318FC213C0063D66F /* landlord Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "landlord Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		06B770B418FC213C0063D66F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		06B770BA18FC213C0063D66F /* landlord Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "landlord Tests-Info.plist"; sourceTree = "<group>"; };
+		06B770BC18FC213C0063D66F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		06B770C018FC213C0063D66F /* landlord Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "landlord Tests-Prefix.pch"; sourceTree = "<group>"; };
+		06B770C918FC21AB0063D66F /* GameManager Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GameManager Tests.mm"; sourceTree = "<group>"; };
 		06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseCharacterScene.cpp; path = ../Classes/ChooseCharacterScene.cpp; sourceTree = "<group>"; };
 		06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseCharacterScene.h; path = ../Classes/ChooseCharacterScene.h; sourceTree = "<group>"; };
 		15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../../cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
@@ -775,6 +800,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		06B770B018FC213C0063D66F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06B770B518FC213C0063D66F /* SenTestingKit.framework in Frameworks */,
+				06B770B718FC213C0063D66F /* UIKit.framework in Frameworks */,
+				06B770B618FC213C0063D66F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -798,6 +833,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06B770B818FC213C0063D66F /* landlord Tests */ = {
+			isa = PBXGroup;
+			children = (
+				06B770B918FC213C0063D66F /* Supporting Files */,
+				06B770C918FC21AB0063D66F /* GameManager Tests.mm */,
+			);
+			path = "landlord Tests";
+			sourceTree = "<group>";
+		};
+		06B770B918FC213C0063D66F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				06B770BA18FC213C0063D66F /* landlord Tests-Info.plist */,
+				06B770BB18FC213C0063D66F /* InfoPlist.strings */,
+				06B770C018FC213C0063D66F /* landlord Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,6 +871,7 @@
 			isa = PBXGroup;
 			children = (
 				15A3D8861682F7B3002FB0C5 /* libcocos2dx.a */,
+				06B770C718FC213C0063D66F /* Test.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1334,6 +1389,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* landlord.app */,
+				06B770B318FC213C0063D66F /* landlord Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1441,6 +1497,7 @@
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				15A3DA6B1682F8A6002FB0C5 /* CocosDenshion */,
 				15A3D9B31682F826002FB0C5 /* extensions */,
+				06B770B818FC213C0063D66F /* landlord Tests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				080E96DDFE201D6D7F000001 /* ios */,
 				1AB87036175E0A92005D39BF /* libwebsockets */,
@@ -1464,6 +1521,7 @@
 				BF170DB012928DE900B8313A /* OpenGLES.framework */,
 				BF1C47EA1293683800B63C5D /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				06B770B418FC213C0063D66F /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1805,6 +1863,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		06B770B218FC213C0063D66F /* landlord Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06B770C818FC213C0063D66F /* Build configuration list for PBXNativeTarget "landlord Tests" */;
+			buildPhases = (
+				06B770AF18FC213C0063D66F /* Sources */,
+				06B770B018FC213C0063D66F /* Frameworks */,
+				06B770B118FC213C0063D66F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06B770C218FC213C0063D66F /* PBXTargetDependency */,
+			);
+			name = "landlord Tests";
+			productName = "landlord Tests";
+			productReference = 06B770B318FC213C0063D66F /* landlord Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		1D6058900D05DD3D006BFB54 /* landlord */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "landlord" */;
@@ -1830,6 +1906,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					06B770B218FC213C0063D66F = {
+						TestTargetID = 1D6058900D05DD3D006BFB54;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "landlord" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1840,6 +1921,7 @@
 				Japanese,
 				French,
 				German,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -1852,11 +1934,19 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* landlord */,
+				06B770B218FC213C0063D66F /* landlord Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		06B770C718FC213C0063D66F /* Test.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Test.xctest;
+			remoteRef = 06B770C618FC213C0063D66F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		15A3D8861682F7B3002FB0C5 /* libcocos2dx.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1867,6 +1957,14 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		06B770B118FC213C0063D66F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06B770BD18FC213C0063D66F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1882,6 +1980,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		06B770AF18FC213C0063D66F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06B770CA18FC21AB0063D66F /* GameManager Tests.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2118,6 +2224,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		06B770C218FC213C0063D66F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* landlord */;
+			targetProxy = 06B770C118FC213C0063D66F /* PBXContainerItemProxy */;
+		};
 		15A3DA691682F881002FB0C5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = cocos2dx;
@@ -2125,7 +2236,105 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		06B770BB18FC213C0063D66F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06B770BC18FC213C0063D66F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		06B770C318FC213C0063D66F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/landlord.app/landlord";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "landlord Tests/landlord Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "landlord Tests/landlord Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		06B770C418FC213C0063D66F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/landlord.app/landlord";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "landlord Tests/landlord Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "landlord Tests/landlord Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2252,6 +2461,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		06B770C818FC213C0063D66F /* Build configuration list for PBXNativeTarget "landlord Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06B770C318FC213C0063D66F /* Debug */,
+				06B770C418FC213C0063D66F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "landlord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
