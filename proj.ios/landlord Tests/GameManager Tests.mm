@@ -73,6 +73,19 @@
   STAssertEquals(7, gameManager.getPlayerTwoID(), @"set player two ID of 7");
 }
 
+- (void) testGetAndChangeCurrentPlayer
+{
+  GameManager gameManager;
+  STAssertEquals(1, gameManager.getCurrentPlayer(), @"initial current player is 1");
+  
+  gameManager.changeCurrentPlayer();
+  STAssertEquals(2, gameManager.getCurrentPlayer(), @"change current player to 2");
+  
+  gameManager.changeCurrentPlayer();
+  gameManager.changeCurrentPlayer();
+  STAssertEquals(2, gameManager.getCurrentPlayer(), @"change current player twice");
+}
+
 - (void) testGetAndSetWinPlayer
 {
   GameManager gameManager;
@@ -82,5 +95,7 @@
   gameManager.setWinPlayer(2);
   STAssertEquals(2, gameManager.getWinPlayer(), @"set win player is player two");
 }
+
+
 
 @end
