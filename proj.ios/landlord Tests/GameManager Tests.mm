@@ -8,6 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "GameManager.h"
+//#import "Constant.h"
 
 @interface GameManager_Tests : SenTestCase
 
@@ -60,7 +61,7 @@
   STAssertEquals(1, gameManager.getPlayerOneID(), @"initial player one ID is 1");
   
   gameManager.setPlayerOneID(4);
-  STAssertEquals(4, gameManager.getPlayerOneID(), @"set player one ID to 4");
+  STAssertEquals(4, gameManager.getPlayerOneID(), @"set player one ID of 4");
 }
 
 - (void) testGetAndSetPlayerTwoID
@@ -69,7 +70,17 @@
   STAssertEquals(1, gameManager.getPlayerTwoID(), @"initial player two ID is 1");
   
   gameManager.setPlayerTwoID(7);
-  STAssertEquals(7, gameManager.getPlayerTwoID(), @"set player two ID to 7");
+  STAssertEquals(7, gameManager.getPlayerTwoID(), @"set player two ID of 7");
+}
+
+- (void) testGetAndSetWinPlayer
+{
+  GameManager gameManager;
+  gameManager.setWinPlayer(1);
+  STAssertEquals(1, gameManager.getWinPlayer(), @"set win player is player one");
+  
+  gameManager.setWinPlayer(2);
+  STAssertEquals(2, gameManager.getWinPlayer(), @"set win player is player two");
 }
 
 @end
