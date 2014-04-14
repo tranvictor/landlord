@@ -2468,6 +2468,7 @@
 				06B770C418FC213C0063D66F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "landlord" */ = {
 			isa = XCConfigurationList;

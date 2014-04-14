@@ -54,4 +54,22 @@
   STAssertEquals(false, gameManager.getTreeModeState(), @"change tree mode state twice");
 }
 
+- (void) testGetAndSetPlayerOneID
+{
+  GameManager gameManager;
+  STAssertEquals(1, gameManager.getPlayerOneID(), @"initial player one ID is 1");
+  
+  gameManager.setPlayerOneID(4);
+  STAssertEquals(4, gameManager.getPlayerOneID(), @"set player one ID to 4");
+}
+
+- (void) testGetAndSetPlayerTwoID
+{
+  GameManager gameManager;
+  STAssertEquals(1, gameManager.getPlayerTwoID(), @"initial player two ID is 1");
+  
+  gameManager.setPlayerTwoID(7);
+  STAssertEquals(7, gameManager.getPlayerTwoID(), @"set player two ID to 7");
+}
+
 @end
