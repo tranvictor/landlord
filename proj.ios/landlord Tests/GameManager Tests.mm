@@ -73,6 +73,20 @@
   STAssertEquals(7, gameManager.getPlayerTwoID(), @"set player two ID of 7");
 }
 
+- (void) testIncreaseAndGetPlayerScore
+{
+  GameManager gameManager;
+  STAssertEquals(0, gameManager.getPlayerScore(1), @"initial player one score is 0");
+  STAssertEquals(0, gameManager.getPlayerScore(2), @"initial player two score is 0");
+  
+  gameManager.increaseScore(1);
+  STAssertEquals(1, gameManager.getPlayerScore(1), @"increase player one score to 1");
+  
+  gameManager.increaseScore(2);
+  gameManager.increaseScore(2);
+  STAssertEquals(2, gameManager.getPlayerScore(2), @"increase player two score to 2");
+}
+
 - (void) testGetAndChangeCurrentPlayer
 {
   GameManager gameManager;
