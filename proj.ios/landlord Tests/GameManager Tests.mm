@@ -87,6 +87,15 @@
   STAssertEquals(2, gameManager.getPlayerScore(2), @"increase player two score to 2");
 }
 
+- (void) testGetAndSetMapIDTouched
+{
+  GameManager gameManager;
+  STAssertEquals(1, gameManager.getMapIDTouched(), @"initial touched map ID is 1");
+  
+  gameManager.setMapIDTouched(5);
+  STAssertEquals(5, gameManager.getMapIDTouched(), @"set touched map ID is 5");
+}
+
 - (void) testInitPlayersInfo
 {
   GameManager gameManager;
