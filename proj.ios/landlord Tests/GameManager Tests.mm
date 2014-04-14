@@ -87,6 +87,16 @@
   STAssertEquals(2, gameManager.getPlayerScore(2), @"increase player two score to 2");
 }
 
+- (void) testInitPlayersInfo
+{
+  GameManager gameManager;
+  gameManager.initPlayersInfo();
+  
+  STAssertEquals(0, gameManager.getPlayerScore(1), @"initial player one score is 0");
+  STAssertEquals(0, gameManager.getPlayerScore(2), @"initial player two score is 0");
+  STAssertEquals(1, gameManager.getCurrentPlayer(), @"initial current player is player one");
+}
+
 - (void) testGetAndChangeCurrentPlayer
 {
   GameManager gameManager;
