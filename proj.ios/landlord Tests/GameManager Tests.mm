@@ -141,5 +141,15 @@
   STAssertEquals(7, gameManager.getNumOfTrees(), @"number of trees is 7");
 }
 
+- (void) testGetNumOfAxes
+{
+  GameManager gameManager;
+  gameManager.increaseNumOfAxes(PLAYER_ONE);
+  gameManager.increaseNumOfAxes(PLAYER_TWO);
+  gameManager.decreaseNumOfAxes(PLAYER_TWO);
+  
+  STAssertEquals(1, gameManager.getNumOfAxes(PLAYER_ONE), @"number of axes of player one is 1");
+  STAssertEquals(0, gameManager.getNumOfAxes(PLAYER_TWO), @"number of axes of player two is 0");
+}
 
 @end
