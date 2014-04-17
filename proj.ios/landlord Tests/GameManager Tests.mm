@@ -152,4 +152,16 @@
   STAssertEquals(0, gameManager.getNumOfAxes(PLAYER_TWO), @"number of axes of player two is 0");
 }
 
+- (void) testGetAndSetNumOfStones
+{
+  GameManager gameManager;
+  
+  gameManager.setNumOfStones(6);
+  STAssertEquals(6, gameManager.getNumOfStones(), @"number of stones is 6");
+  
+  gameManager.setNumOfStones(3);
+  gameManager.setNumOfStones(4);
+  STAssertEquals(4, gameManager.getNumOfStones(), @"number of stones is 4");
+}
+
 @end
