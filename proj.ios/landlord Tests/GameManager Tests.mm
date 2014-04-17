@@ -8,7 +8,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "GameManager.h"
-//#import "Constant.h"
+#import "Constant.h"
 
 @interface GameManager_Tests : SenTestCase
 
@@ -129,6 +129,17 @@
   STAssertEquals(2, gameManager.getWinPlayer(), @"set win player is player two");
 }
 
+- (void) testGetAndSetNumOfTrees
+{
+  GameManager gameManager;
+  
+  gameManager.setNumOfTrees(5);
+  STAssertEquals(5, gameManager.getNumOfTrees(), @"number of trees is 5");
+  
+  gameManager.setNumOfTrees(10);
+  gameManager.setNumOfTrees(7);
+  STAssertEquals(7, gameManager.getNumOfTrees(), @"number of trees is 7");
+}
 
 
 @end
