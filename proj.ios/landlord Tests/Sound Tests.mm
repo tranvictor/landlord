@@ -64,4 +64,14 @@
   STAssertEquals(true, sound->getMusicState(), @"music state is turned to on");
 }
 
+- (void) testToggleSoundFx
+{
+  sound *sound;
+  sound->toggleSoundFx();
+  STAssertEquals(false, sound->getSoundFxState(), @"soundFx state is turned to off");
+  
+  sound->toggleSoundFx();
+  STAssertEquals(true, sound->getSoundFxState(), @"soundFx state is turned to on");
+}
+
 @end
