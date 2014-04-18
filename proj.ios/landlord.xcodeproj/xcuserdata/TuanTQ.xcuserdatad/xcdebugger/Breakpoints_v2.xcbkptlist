@@ -226,12 +226,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "landlord Tests/ChooseCharacterScene Tests.mm"
-            timestampString = "419507863.724923"
+            timestampString = "419509339.240002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-testAddCharacterToLayer"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-testAddCharactersToLayer"
             landmarkType = "5">
             <Locations>
                <Location
