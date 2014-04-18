@@ -22,9 +22,11 @@ ChooseCharacterScene *character;
 
 - (void)setUp
 {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+  [super setUp];
+  // Put setup code here. This method is called before the invocation of each test method in the class.
   character = ChooseCharacterScene::create();
+  cocos2d::CCDirector *pDirector = cocos2d::CCDirector::sharedDirector();
+  pDirector->runWithScene(character->scene());
 }
 
 - (void)tearDown
@@ -102,6 +104,18 @@ ChooseCharacterScene *character;
   STAssertTrue(((CCMenu*)chrt)->getPosition().equals(C8_POS), @"position of character 8 is C8_POS");
   
   arr.release();
+}
+
+- (void) testButtonBackTouched
+{
+  character->buttonBackTouched(character->getChildByTag(CHOOSECHARACTER_BACKBTN_TAG));
+  CCScene *startScene = CCDirector::sharedDirector()->getRunningScene();
+  STAssertFalse(startScene != NULL, @"touching back button should turn to start scene");
+}
+
+- (void) testCharacterTouched
+{
+  
 }
 
 @end

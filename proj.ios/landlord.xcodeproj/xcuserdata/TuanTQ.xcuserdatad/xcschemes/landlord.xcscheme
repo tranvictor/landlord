@@ -37,11 +37,6 @@
                BlueprintName = "landlord Tests"
                ReferencedContainer = "container:landlord.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "GameManager_Tests/testExample">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

@@ -189,7 +189,7 @@ void ChooseCharacterScene::CharacterTouched(CCObject *pSender)
   {
     mCharacterArr->release();
     CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
-    CCDirector::sharedDirector()->replaceScene(newScene);
+    CCDirector::sharedDirector()->runWithScene(newScene);
   }
 }
 
@@ -209,7 +209,7 @@ void ChooseCharacterScene::buttonBackTouched(CCObject *pSender)
 {
   CCLOG("Button back touched");
   CCScene* newScene = CCTransitionCrossFade::create(0.5, StartScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
+  CCDirector::sharedDirector()->runWithScene(newScene);
 }
 
 CCArray ChooseCharacterScene::getCharacterArr()
