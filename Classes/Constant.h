@@ -89,4 +89,10 @@ enum eCurrentPlayer
   PLAYER_TWO = 2,
 };
 
+enum eChooseCharacterSceneTags
+{
+  CHOOSECHARACTER_BG_TAG,
+  CHOOSECHARACTER_BACKBTN_TAG,
+};
+
 #endif

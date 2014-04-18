@@ -10,6 +10,7 @@
 		0610AE3818E40E1A000BD558 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3618E40E1A000BD558 /* Tree.cpp */; };
 		0610AE3B18E40E44000BD558 /* Axe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3918E40E44000BD558 /* Axe.cpp */; };
 		0667816318E70FDB00024600 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0667816118E70FDB00024600 /* Stone.cpp */; };
+		06AF43FC1900A6C10001B0BC /* ChooseCharacterScene Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 06AF43FB1900A6C10001B0BC /* ChooseCharacterScene Tests.mm */; };
 		06B770B518FC213C0063D66F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B770B418FC213C0063D66F /* SenTestingKit.framework */; };
 		06B770B618FC213C0063D66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		06B770B718FC213C0063D66F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -296,6 +297,7 @@
 		0610AE3A18E40E44000BD558 /* Axe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Axe.h; path = ../Classes/Axe.h; sourceTree = "<group>"; };
 		0667816118E70FDB00024600 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = ../Classes/Stone.cpp; sourceTree = "<group>"; };
 		0667816218E70FDB00024600 /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = ../Classes/Stone.h; sourceTree = "<group>"; };
+		06AF43FB1900A6C10001B0BC /* ChooseCharacterScene Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ChooseCharacterScene Tests.mm"; sourceTree = "<group>"; };
 		06B770B318FC213C0063D66F /* landlord Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "landlord Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B770B418FC213C0063D66F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		06B770BA18FC213C0063D66F /* landlord Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "landlord Tests-Info.plist"; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 			children = (
 				06B770B918FC213C0063D66F /* Supporting Files */,
 				06B770C918FC21AB0063D66F /* GameManager Tests.mm */,
+				06AF43FB1900A6C10001B0BC /* ChooseCharacterScene Tests.mm */,
 			);
 			path = "landlord Tests";
 			sourceTree = "<group>";
@@ -1984,6 +1987,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06AF43FC1900A6C10001B0BC /* ChooseCharacterScene Tests.mm in Sources */,
 				06B770CA18FC21AB0063D66F /* GameManager Tests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2273,6 +2277,8 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "landlord Tests/landlord Tests-Prefix.pch";
@@ -2329,6 +2335,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "landlord Tests/landlord Tests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = CC_TARGET_OS_IPHONE;

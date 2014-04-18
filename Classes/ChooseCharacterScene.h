@@ -38,6 +38,8 @@ public:
   void buttonBackTouched(cocos2d::CCObject *pSender);
   
   void CharacterTouched(CCObject *pSender);
+  CCArray getCharacterArr();
+  CCScrollLayer getSlidingCharacterLayer();
   // implement the "static node()" method manually
   CREATE_FUNC(ChooseCharacterScene);
 };
