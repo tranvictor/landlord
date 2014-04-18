@@ -40,8 +40,17 @@ WinScene *win;
   win->addBackground();
   CCObject *obj = win->getChildByTag(WIN_BG_TAG);
   STAssertTrue(obj != NULL, @"background added");
-  STAssertTrue(((CCSprite*)obj)->getPosition().equals(CCPoint(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)), @"background position");
+  STAssertTrue(((CCSprite*)obj)->getPosition().equals(CCPoint(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)), @"background is center of the screen");
 }
+
+- (void) testAddMask
+{
+  win->addMask();
+  CCObject *obj = win->getChildByTag(WIN_MASK_TAG);
+  STAssertTrue(obj != NULL, @"mask added");
+  STAssertTrue(((CCSprite*)obj)->getPosition().equals(CCPoint(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)), @"mask is center of the screen");
+}
+
 
 
 @end

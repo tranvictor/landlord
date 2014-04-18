@@ -50,7 +50,7 @@ void WinScene::addMask()
 {
   CCSprite *mask = CCSprite::create("Images/Game/Background/BG-mask-winscene.png");
   mask->setPosition(ccp(screenSize.width/2, screenSize.height/2));
-  this->addChild(mask, GR_FOREGROUND);
+  this->addChild(mask, GR_FOREGROUND, WIN_MASK_TAG);
 }
 
 

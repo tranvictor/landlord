@@ -98,7 +98,7 @@ enum eChooseCharacterSceneTags
 enum eWinSceneTags
 {
   WIN_BG_TAG,
-
+  WIN_MASK_TAG,
 };
 
 #endif
