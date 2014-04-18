@@ -54,5 +54,14 @@
 }
 
 
+- (void) testToggleMusic
+{
+  sound *sound;
+  sound->toggleMusic();
+  STAssertEquals(false, sound->getMusicState(), @"music state is turned to off");
+  
+  sound->toggleMusic();
+  STAssertEquals(true, sound->getMusicState(), @"music state is turned to on");
+}
 
 @end
