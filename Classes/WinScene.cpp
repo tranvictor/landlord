@@ -18,15 +18,15 @@ bool WinScene::init()
   {
     return false;
   }
-  
+
   screenSize = CCDirector::sharedDirector()->getWinSize();
-  
+
   addBackground();
   addMask();
   addButtonShare();
   addButtonReplay();
   appearWinner();
-  
+
   return true;
 }
 
@@ -35,7 +35,7 @@ CCScene* WinScene::scene()
   CCScene *scene = CCScene::create();
   WinScene *layer = WinScene::create();
   scene->addChild(layer);
-  
+
   return scene;
 }
 
@@ -43,7 +43,7 @@ void WinScene::addBackground()
 {
   CCSprite *background = CCSprite::create("Images/Game/Background/BG-win.png");
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
-  this->addChild(background, GR_BACKGROUND);
+  this->addChild(background, GR_BACKGROUND, WIN_BG_TAG);
 }
 
 void WinScene::addMask()
@@ -87,7 +87,7 @@ void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button replay touched");
   CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
+  CCDirector::sharedDirector()->runWithScene(newScene);
 
 }
 
@@ -108,12 +108,11 @@ void WinScene::appearWinner()
   }
   CCString *winnerName = CCString::createWithFormat("Images/Game/Object/c%i.png", winnerID);
   CCSprite *winner = CCSprite::create(winnerName->getCString());
-  
+
   winner->setPosition(WINNER_START_POS);
-  
+
   CCAction * act1 = CCMoveTo::create(1, WINNER_POS);
   winner->runAction(act1);
-  
+
   addChild(winner, GR_MIDDLEGROUND);
 }
-

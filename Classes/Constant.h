@@ -95,4 +95,10 @@ enum eChooseCharacterSceneTags
   CHOOSECHARACTER_BACKBTN_TAG,
 };
 
+enum eWinSceneTags
+{
+  WIN_BG_TAG,
+
+};
+
 #endif

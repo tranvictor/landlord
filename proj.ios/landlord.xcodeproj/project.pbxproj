@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0610AE3818E40E1A000BD558 /* Tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3618E40E1A000BD558 /* Tree.cpp */; };
 		0610AE3B18E40E44000BD558 /* Axe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0610AE3918E40E44000BD558 /* Axe.cpp */; };
+		064EBDDE19018DDA00911EB4 /* WinScene Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 064EBDDD19018DDA00911EB4 /* WinScene Tests.mm */; };
 		065CD853190138490052F238 /* Sound Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 065CD852190138490052F238 /* Sound Tests.mm */; };
 		0667816318E70FDB00024600 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0667816118E70FDB00024600 /* Stone.cpp */; };
 		06AF43FC1900A6C10001B0BC /* ChooseCharacterScene Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 06AF43FB1900A6C10001B0BC /* ChooseCharacterScene Tests.mm */; };
@@ -296,6 +297,7 @@
 		0610AE3718E40E1A000BD558 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tree.h; path = ../Classes/Tree.h; sourceTree = "<group>"; };
 		0610AE3918E40E44000BD558 /* Axe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Axe.cpp; path = ../Classes/Axe.cpp; sourceTree = "<group>"; };
 		0610AE3A18E40E44000BD558 /* Axe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Axe.h; path = ../Classes/Axe.h; sourceTree = "<group>"; };
+		064EBDDD19018DDA00911EB4 /* WinScene Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "WinScene Tests.mm"; sourceTree = "<group>"; };
 		065CD852190138490052F238 /* Sound Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Sound Tests.mm"; sourceTree = "<group>"; };
 		0667816118E70FDB00024600 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = ../Classes/Stone.cpp; sourceTree = "<group>"; };
 		0667816218E70FDB00024600 /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = ../Classes/Stone.h; sourceTree = "<group>"; };
@@ -844,6 +846,7 @@
 				06B770C918FC21AB0063D66F /* GameManager Tests.mm */,
 				06AF43FB1900A6C10001B0BC /* ChooseCharacterScene Tests.mm */,
 				065CD852190138490052F238 /* Sound Tests.mm */,
+				064EBDDD19018DDA00911EB4 /* WinScene Tests.mm */,
 			);
 			path = "landlord Tests";
 			sourceTree = "<group>";
@@ -1992,6 +1995,7 @@
 			files = (
 				06AF43FC1900A6C10001B0BC /* ChooseCharacterScene Tests.mm in Sources */,
 				06B770CA18FC21AB0063D66F /* GameManager Tests.mm in Sources */,
+				064EBDDE19018DDA00911EB4 /* WinScene Tests.mm in Sources */,
 				065CD853190138490052F238 /* Sound Tests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
