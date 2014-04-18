@@ -43,3 +43,13 @@ void sound::toggleSoundFx()
 {
   soundFx = !soundFx;
 }
+
+bool sound::getMusicState()
+{
+  return music;
+}
+
+bool sound::getSoundFxState()
+{
+  return soundFx;
+}

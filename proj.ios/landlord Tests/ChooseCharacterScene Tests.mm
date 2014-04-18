@@ -108,14 +108,9 @@ ChooseCharacterScene *character;
 
 - (void) testButtonBackTouched
 {
-  character->buttonBackTouched(character->getChildByTag(CHOOSECHARACTER_BACKBTN_TAG));
+  character->buttonBackTouched(NULL);
   CCScene *startScene = CCDirector::sharedDirector()->getRunningScene();
   STAssertFalse(startScene != NULL, @"touching back button should turn to start scene");
-}
-
-- (void) testCharacterTouched
-{
-  
 }
 
 @end
