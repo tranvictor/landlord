@@ -63,7 +63,7 @@ void WinScene::addButtonShare()
                                                          menu_selector(WinScene::buttonShareTouched));
   CCMenu* pMenu = CCMenu::create(shareBtn, NULL);
   pMenu->setPosition(BTN_SHARE_POS);
-  this->addChild(pMenu);
+  this->addChild(pMenu, WIN_SHAREBTN_TAG);
 }
 
 void WinScene::addButtonReplay()
@@ -75,7 +75,7 @@ void WinScene::addButtonReplay()
                                                        menu_selector(WinScene::buttonReplayTouched));
   CCMenu* pMenu = CCMenu::create(replayBtn, NULL);
   pMenu->setPosition(BTN_REPLAY_POS);
-  this->addChild(pMenu);
+  this->addChild(pMenu, WIN_REPLAYBTN_TAG);
 }
 
 void WinScene::buttonShareTouched(cocos2d::CCObject *pSender)

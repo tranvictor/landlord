@@ -99,6 +99,8 @@ enum eWinSceneTags
 {
   WIN_BG_TAG,
   WIN_MASK_TAG,
+  WIN_SHAREBTN_TAG,
+  WIN_REPLAYBTN_TAG,
 };
 
 #endif

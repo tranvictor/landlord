@@ -51,6 +51,29 @@ WinScene *win;
   STAssertTrue(((CCSprite*)obj)->getPosition().equals(CCPoint(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)), @"mask is center of the screen");
 }
 
+- (void) testAddButtonShare
+{
+  win->addButtonShare();
+  CCObject *obj = win->getChildByTag(WIN_SHAREBTN_TAG);
+  STAssertTrue(obj != NULL, @"button share added");
+  STAssertTrue(((CCMenu*)obj)->getPosition().equals(BTN_SHARE_POS), @"button share position must be BTN_SHARE_POS");
+}
 
+//- (void) testButtonShareTouched
+//{
+//  
+//}
+//
+//- (void) testAddButtonReplay
+//{
+//  win->addButtonReplay();
+//  CCObject *obj = win->getChildByTag(WIN_REPLAYBTN_TAG);
+//  STAssertTrue(obj != NULL, @"button replay added");
+//}
+//
+//- (void) testButtonReplayTouched
+//{
+//  
+//}
 
 @end
