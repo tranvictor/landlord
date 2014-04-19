@@ -234,11 +234,8 @@
 		7A0B9E0118B93FC80004A419 /* CCScrollLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */; };
 		7A15E7A818EE4AA900F3AC93 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A118EE4AA900F3AC93 /* CloseNormal.png */; };
 		7A15E7A918EE4AA900F3AC93 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A218EE4AA900F3AC93 /* CloseSelected.png */; };
-		7A15E7AA18EE4AA900F3AC93 /* hd in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A318EE4AA900F3AC93 /* hd */; };
 		7A15E7AB18EE4AA900F3AC93 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A418EE4AA900F3AC93 /* HelloWorld.png */; };
-		7A15E7AC18EE4AA900F3AC93 /* ipad in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A518EE4AA900F3AC93 /* ipad */; };
 		7A15E7AD18EE4AA900F3AC93 /* iphone-5 in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A618EE4AA900F3AC93 /* iphone-5 */; };
-		7A15E7AE18EE4AA900F3AC93 /* sd in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A718EE4AA900F3AC93 /* sd */; };
 		7A18DB7118CD91F100C95A32 /* TileInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */; };
 		7A94DC8418BDBB2A0071CDD5 /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */; };
 		7A9B5CE418C0A45900C739FD /* CCLayerPanZoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */; };
@@ -749,11 +746,8 @@
 		7A0B9E0018B93FC80004A419 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
 		7A15E7A118EE4AA900F3AC93 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		7A15E7A218EE4AA900F3AC93 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		7A15E7A318EE4AA900F3AC93 /* hd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hd; sourceTree = "<group>"; };
 		7A15E7A418EE4AA900F3AC93 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
-		7A15E7A518EE4AA900F3AC93 /* ipad */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ipad; sourceTree = "<group>"; };
 		7A15E7A618EE4AA900F3AC93 /* iphone-5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "iphone-5"; sourceTree = "<group>"; };
-		7A15E7A718EE4AA900F3AC93 /* sd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sd; sourceTree = "<group>"; };
 		7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileInfo.cpp; path = ../Classes/TileInfo.cpp; sourceTree = "<group>"; };
 		7A18DB7018CD91F100C95A32 /* TileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileInfo.h; path = ../Classes/TileInfo.h; sourceTree = "<group>"; };
 		7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinScene.cpp; path = ../Classes/WinScene.cpp; sourceTree = "<group>"; };
@@ -1788,11 +1782,8 @@
 			children = (
 				7A15E7A118EE4AA900F3AC93 /* CloseNormal.png */,
 				7A15E7A218EE4AA900F3AC93 /* CloseSelected.png */,
-				7A15E7A318EE4AA900F3AC93 /* hd */,
 				7A15E7A418EE4AA900F3AC93 /* HelloWorld.png */,
-				7A15E7A518EE4AA900F3AC93 /* ipad */,
 				7A15E7A618EE4AA900F3AC93 /* iphone-5 */,
-				7A15E7A718EE4AA900F3AC93 /* sd */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -1882,11 +1873,8 @@
 			files = (
 				7A15E7AB18EE4AA900F3AC93 /* HelloWorld.png in Resources */,
 				7AB0FF9418C8DCD000AA51D7 /* Default-568h@2x.png in Resources */,
-				7A15E7AC18EE4AA900F3AC93 /* ipad in Resources */,
 				7A15E7AD18EE4AA900F3AC93 /* iphone-5 in Resources */,
 				7A15E7A818EE4AA900F3AC93 /* CloseNormal.png in Resources */,
-				7A15E7AE18EE4AA900F3AC93 /* sd in Resources */,
-				7A15E7AA18EE4AA900F3AC93 /* hd in Resources */,
 				7A15E7A918EE4AA900F3AC93 /* CloseSelected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
