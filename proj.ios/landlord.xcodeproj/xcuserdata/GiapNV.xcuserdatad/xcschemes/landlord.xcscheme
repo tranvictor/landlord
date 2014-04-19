@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
-   version = "1.3">
+   LastUpgradeVersion = "0510"
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -27,6 +27,24 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "06B770B218FC213C0063D66F"
+                     BuildableName = "landlordTests.octest"
+                     BlueprintName = "landlordTests"
+                     ReferencedContainer = "container:landlord.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,16 +53,6 @@
                BlueprintIdentifier = "06B770B218FC213C0063D66F"
                BuildableName = "landlordTests.octest"
                BlueprintName = "landlordTests"
-               ReferencedContainer = "container:landlord.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7A3D1ECE190126DA00B6469A"
-               BuildableName = "landlord Tests copy.octest"
-               BlueprintName = "landlord Tests copy"
                ReferencedContainer = "container:landlord.xcodeproj">
             </BuildableReference>
          </TestableReference>

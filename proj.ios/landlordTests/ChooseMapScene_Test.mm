@@ -9,6 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "ChooseMapScence.h"
 #import "cocos2d.h"
+#import "GameManager.h"
 
 @interface ChooseMapScene_Test : SenTestCase
 
@@ -21,9 +22,9 @@ ChooseMapScene *chooseMap;
 - (void)setUp
 {
   [super setUp];
-//  chooseMap = ChooseMapScene::create();
-//  cocos2d::CCDirector *pDirector = cocos2d::CCDirector::sharedDirector();
-//  pDirector->runWithScene(chooseMap->scene());
+  chooseMap = ChooseMapScene::create();
+  cocos2d::CCDirector *pDirector = cocos2d::CCDirector::sharedDirector();
+  pDirector->runWithScene(chooseMap->scene());
   // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -37,7 +38,13 @@ ChooseMapScene *chooseMap;
 
 - (void)testChooseMapExists
 {
-//  STAssertTrue(chooseMap != NULL, @"choosemap should not be null");
+  STAssertTrue(chooseMap != NULL, @"choosemap should not be null");
 }
 
+- (void)testMapTouched
+{
+  chooseMap->mapTouched(((CCLayer*)chooseMap->getMapArr()->objectAtIndex(2))->getChildByTag(2));
+  STAssertTrue(GameManager::getMapIDTouched() == 1, @"choose map 1");
+  
+}
 @end

@@ -97,4 +97,18 @@ enum eCurrentPlayer
   PLAYER_TWO = 2,
 };
 
+enum eChooseCharacterSceneTags
+{
+  CHOOSECHARACTER_BG_TAG,
+  CHOOSECHARACTER_BACKBTN_TAG,
+};
+
+enum eWinSceneTags
+{
+  WIN_BG_TAG,
+  WIN_MASK_TAG,
+  WIN_SHAREBTN_TAG,
+  WIN_REPLAYBTN_TAG,
+};
+
 #endif

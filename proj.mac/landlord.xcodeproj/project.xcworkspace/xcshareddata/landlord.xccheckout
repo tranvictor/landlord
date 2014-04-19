@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A355F7E9-D2D7-4733-A61E-8548A2F8A2E2</string>
+	<string>7D0EF5B1-E588-4DD9-B9EF-AB8357D369CF</string>
 	<key>IDESourceControlProjectName</key>
 	<string>landlord</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,7 +14,7 @@
 		<string>ssh://github.com/tranvictor/landlord.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>proj.ios/landlord.xcodeproj/project.xcworkspace</string>
+	<string>proj.mac/landlord.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>9CA220B2-9AD8-4761-86AE-27B030E7A8A7</key>

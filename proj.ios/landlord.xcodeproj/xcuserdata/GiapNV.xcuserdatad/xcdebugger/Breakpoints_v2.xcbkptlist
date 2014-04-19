@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/ChooseMapScence.h"
-            timestampString = "414779236.958431"
+            timestampString = "419634114.868728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31">
+            startingLineNumber = "30"
+            endingLineNumber = "30">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -149,7 +149,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "175"
             endingLineNumber = "175"
-            landmarkName = "ChooseCharacterScene::CharacterTouched(CCObject *pSender)"
+            landmarkName = "ChooseCharacterScene::characterTouched(CCObject *pSender)"
             landmarkType = "5">
             <Locations>
                <Location

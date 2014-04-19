@@ -1,9 +1,9 @@
 //
 //  main.cpp
-//  GTests
+//  EEE
 //
-//  Created by Giap Nguyen on 4/18/14.
-//
+//  Created by Giap Nguyen on 4/20/14.
+//  Copyright (c) 2014 cocos2d-x. All rights reserved.
 //
 
 #include <iostream>
