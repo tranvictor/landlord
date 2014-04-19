@@ -28,6 +28,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "06B770B218FC213C0063D66F"
+               BuildableName = "landlordTests.octest"
+               BlueprintName = "landlordTests"
+               ReferencedContainer = "container:landlord.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7A3D1ECE190126DA00B6469A"
+               BuildableName = "landlord Tests copy.octest"
+               BlueprintName = "landlord Tests copy"
+               ReferencedContainer = "container:landlord.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -16,6 +16,7 @@ USING_NS_CC;
 #define GAP_BETWEEN_DOT 37.78f
 
 #define SCREEN_SIZE             CCDirector::sharedDirector()->getWinSize()
+#define CENTER_POS              ccp(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)
 // ChooseMapScene
 #define BTN_RANDOM_POS          ccp(320, 245)
 #define BTN_BACK_POS            ccp(49, 46)
@@ -62,6 +63,13 @@ enum eGround
   GR_BACKGROUND,
   GR_MIDDLEGROUND,
   GR_FOREGROUND
+};
+
+enum eStartSceneTag
+{
+  BTN_SETTINGS_TAG,
+  START_BG_TAG,
+  BTN_PLAY_TAG
 };
 
 enum eTag

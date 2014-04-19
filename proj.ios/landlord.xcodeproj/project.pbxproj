@@ -13,8 +13,6 @@
 		06B770B518FC213C0063D66F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B770B418FC213C0063D66F /* SenTestingKit.framework */; };
 		06B770B618FC213C0063D66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		06B770B718FC213C0063D66F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		06B770BD18FC213C0063D66F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06B770BB18FC213C0063D66F /* InfoPlist.strings */; };
-		06B770CA18FC21AB0063D66F /* GameManager Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 06B770C918FC21AB0063D66F /* GameManager Tests.mm */; };
 		06C2EC8818BD8C8D00917282 /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */; };
 		15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88B1682F7D5002FB0C5 /* b2BroadPhase.cpp */; };
 		15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88D1682F7D5002FB0C5 /* b2CollideCircle.cpp */; };
@@ -242,6 +240,14 @@
 		7A15E7AB18EE4AA900F3AC93 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A418EE4AA900F3AC93 /* HelloWorld.png */; };
 		7A15E7AD18EE4AA900F3AC93 /* iphone-5 in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A618EE4AA900F3AC93 /* iphone-5 */; };
 		7A18DB7118CD91F100C95A32 /* TileInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */; };
+		7A3D1EE51901284100B6469A /* landlordTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A3D1EE31901284100B6469A /* landlordTests-Info.plist */; };
+		7A3D1EE81901285900B6469A /* GameManager_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EE61901285900B6469A /* GameManager_Tests.mm */; };
+		7A3D1EE91901285900B6469A /* StartScene_Test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EE71901285900B6469A /* StartScene_Test.mm */; };
+		7A3D1EF3190133F200B6469A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EF2190133F200B6469A /* main.cpp */; };
+		7A3D1EF5190133F200B6469A /* GTests.1 in Copy Files */ = {isa = PBXBuildFile; fileRef = 7A3D1EF4190133F200B6469A /* GTests.1 */; };
+		7A3D1EFC1901345C00B6469A /* sample1_unittest.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EF91901345C00B6469A /* sample1_unittest.cc */; };
+		7A3D1EFD1901345C00B6469A /* sample1.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EFA1901345C00B6469A /* sample1.cc */; };
+		7A3D1F0019013D9500B6469A /* ChooseMapScene_Test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EFF19013D9500B6469A /* ChooseMapScene_Test.mm */; };
 		7A94DC8418BDBB2A0071CDD5 /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */; };
 		7A9B5CE418C0A45900C739FD /* CCLayerPanZoom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */; };
 		7AA0CCD118BB9C380097A90B /* PlayScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */; };
@@ -266,13 +272,6 @@
 			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
 			remoteInfo = landlord;
 		};
-		06B770C618FC213C0063D66F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06879ACA18F774B700C39BFB;
-			remoteInfo = Test;
-		};
 		15A3D8851682F7B3002FB0C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
@@ -287,7 +286,35 @@
 			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
 			remoteInfo = cocos2dx;
 		};
+		7A3D1EC719011D9B00B6469A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A62C97518F2500B00282224;
+			remoteInfo = UnitTests;
+		};
+		7A3D1EC919011D9B00B6469A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A62C99318F25C5200282224;
+			remoteInfo = unittests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A3D1EEE190133F200B6469A /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				7A3D1EF5190133F200B6469A /* GTests.1 in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0610AE3618E40E1A000BD558 /* Tree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tree.cpp; path = ../Classes/Tree.cpp; sourceTree = "<group>"; };
@@ -296,12 +323,8 @@
 		0610AE3A18E40E44000BD558 /* Axe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Axe.h; path = ../Classes/Axe.h; sourceTree = "<group>"; };
 		0667816118E70FDB00024600 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = ../Classes/Stone.cpp; sourceTree = "<group>"; };
 		0667816218E70FDB00024600 /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = ../Classes/Stone.h; sourceTree = "<group>"; };
-		06B770B318FC213C0063D66F /* landlord Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "landlord Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		06B770B318FC213C0063D66F /* landlordTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = landlordTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B770B418FC213C0063D66F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		06B770BA18FC213C0063D66F /* landlord Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "landlord Tests-Info.plist"; sourceTree = "<group>"; };
-		06B770BC18FC213C0063D66F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		06B770C018FC213C0063D66F /* landlord Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "landlord Tests-Prefix.pch"; sourceTree = "<group>"; };
-		06B770C918FC21AB0063D66F /* GameManager Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GameManager Tests.mm"; sourceTree = "<group>"; };
 		06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseCharacterScene.cpp; path = ../Classes/ChooseCharacterScene.cpp; sourceTree = "<group>"; };
 		06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseCharacterScene.h; path = ../Classes/ChooseCharacterScene.h; sourceTree = "<group>"; };
 		15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../../cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
@@ -775,6 +798,17 @@
 		7A15E7A618EE4AA900F3AC93 /* iphone-5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "iphone-5"; sourceTree = "<group>"; };
 		7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileInfo.cpp; path = ../Classes/TileInfo.cpp; sourceTree = "<group>"; };
 		7A18DB7018CD91F100C95A32 /* TileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileInfo.h; path = ../Classes/TileInfo.h; sourceTree = "<group>"; };
+		7A3D1EE31901284100B6469A /* landlordTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "landlordTests-Info.plist"; path = "landlordTests/landlordTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7A3D1EE41901284100B6469A /* landlordTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "landlordTests-Prefix.pch"; path = "landlordTests/landlordTests-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		7A3D1EE61901285900B6469A /* GameManager_Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GameManager_Tests.mm; path = landlordTests/GameManager_Tests.mm; sourceTree = SOURCE_ROOT; };
+		7A3D1EE71901285900B6469A /* StartScene_Test.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StartScene_Test.mm; path = landlordTests/StartScene_Test.mm; sourceTree = SOURCE_ROOT; };
+		7A3D1EF0190133F200B6469A /* GTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GTests; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A3D1EF2190133F200B6469A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		7A3D1EF4190133F200B6469A /* GTests.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = GTests.1; sourceTree = "<group>"; };
+		7A3D1EF91901345C00B6469A /* sample1_unittest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sample1_unittest.cc; sourceTree = "<group>"; };
+		7A3D1EFA1901345C00B6469A /* sample1.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sample1.cc; sourceTree = "<group>"; };
+		7A3D1EFB1901345C00B6469A /* sample1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sample1.h; sourceTree = "<group>"; };
+		7A3D1EFF19013D9500B6469A /* ChooseMapScene_Test.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ChooseMapScene_Test.mm; path = landlordTests/ChooseMapScene_Test.mm; sourceTree = SOURCE_ROOT; };
 		7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinScene.cpp; path = ../Classes/WinScene.cpp; sourceTree = "<group>"; };
 		7A94DC8318BDBB2A0071CDD5 /* WinScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinScene.h; path = ../Classes/WinScene.h; sourceTree = "<group>"; };
 		7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLayerPanZoom.cpp; sourceTree = "<group>"; };
@@ -830,24 +864,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A3D1EED190133F200B6469A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06B770B818FC213C0063D66F /* landlord Tests */ = {
+		06B770B818FC213C0063D66F /* landlordTests */ = {
 			isa = PBXGroup;
 			children = (
+				7A3D1EE61901285900B6469A /* GameManager_Tests.mm */,
+				7A3D1EE71901285900B6469A /* StartScene_Test.mm */,
+				7A3D1EFF19013D9500B6469A /* ChooseMapScene_Test.mm */,
 				06B770B918FC213C0063D66F /* Supporting Files */,
-				06B770C918FC21AB0063D66F /* GameManager Tests.mm */,
 			);
+			name = landlordTests;
 			path = "landlord Tests";
 			sourceTree = "<group>";
 		};
 		06B770B918FC213C0063D66F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				06B770BA18FC213C0063D66F /* landlord Tests-Info.plist */,
-				06B770BB18FC213C0063D66F /* InfoPlist.strings */,
-				06B770C018FC213C0063D66F /* landlord Tests-Prefix.pch */,
+				7A3D1EE31901284100B6469A /* landlordTests-Info.plist */,
+				7A3D1EE41901284100B6469A /* landlordTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -871,7 +914,8 @@
 			isa = PBXGroup;
 			children = (
 				15A3D8861682F7B3002FB0C5 /* libcocos2dx.a */,
-				06B770C718FC213C0063D66F /* Test.xctest */,
+				7A3D1EC819011D9B00B6469A /* UnitTests */,
+				7A3D1ECA19011D9B00B6469A /* unittests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1389,7 +1433,8 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* landlord.app */,
-				06B770B318FC213C0063D66F /* landlord Tests.octest */,
+				06B770B318FC213C0063D66F /* landlordTests.octest */,
+				7A3D1EF0190133F200B6469A /* GTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1497,7 +1542,8 @@
 				15AA9C4015B7EC450033D6C2 /* Classes */,
 				15A3DA6B1682F8A6002FB0C5 /* CocosDenshion */,
 				15A3D9B31682F826002FB0C5 /* extensions */,
-				06B770B818FC213C0063D66F /* landlord Tests */,
+				06B770B818FC213C0063D66F /* landlordTests */,
+				7A3D1EF1190133F200B6469A /* GTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				080E96DDFE201D6D7F000001 /* ios */,
 				1AB87036175E0A92005D39BF /* libwebsockets */,
@@ -1847,6 +1893,18 @@
 			path = ../Resources;
 			sourceTree = "<group>";
 		};
+		7A3D1EF1190133F200B6469A /* GTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A3D1EF91901345C00B6469A /* sample1_unittest.cc */,
+				7A3D1EFA1901345C00B6469A /* sample1.cc */,
+				7A3D1EFB1901345C00B6469A /* sample1.h */,
+				7A3D1EF2190133F200B6469A /* main.cpp */,
+				7A3D1EF4190133F200B6469A /* GTests.1 */,
+			);
+			path = GTests;
+			sourceTree = "<group>";
+		};
 		7AA1ADFA18B3F76100A5C58C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1863,9 +1921,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		06B770B218FC213C0063D66F /* landlord Tests */ = {
+		06B770B218FC213C0063D66F /* landlordTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 06B770C818FC213C0063D66F /* Build configuration list for PBXNativeTarget "landlord Tests" */;
+			buildConfigurationList = 06B770C818FC213C0063D66F /* Build configuration list for PBXNativeTarget "landlordTests" */;
 			buildPhases = (
 				06B770AF18FC213C0063D66F /* Sources */,
 				06B770B018FC213C0063D66F /* Frameworks */,
@@ -1876,9 +1934,9 @@
 			dependencies = (
 				06B770C218FC213C0063D66F /* PBXTargetDependency */,
 			);
-			name = "landlord Tests";
+			name = landlordTests;
 			productName = "landlord Tests";
-			productReference = 06B770B318FC213C0063D66F /* landlord Tests.octest */;
+			productReference = 06B770B318FC213C0063D66F /* landlordTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		1D6058900D05DD3D006BFB54 /* landlord */ = {
@@ -1888,6 +1946,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				7A3D1ECD190122FF00B6469A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1898,6 +1957,23 @@
 			productName = iphone;
 			productReference = 1D6058910D05DD3D006BFB54 /* landlord.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7A3D1EEF190133F200B6469A /* GTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A3D1EF6190133F200B6469A /* Build configuration list for PBXNativeTarget "GTests" */;
+			buildPhases = (
+				7A3D1EEC190133F200B6469A /* Sources */,
+				7A3D1EED190133F200B6469A /* Frameworks */,
+				7A3D1EEE190133F200B6469A /* Copy Files */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTests;
+			productName = GTests;
+			productReference = 7A3D1EF0190133F200B6469A /* GTests */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -1934,24 +2010,32 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* landlord */,
-				06B770B218FC213C0063D66F /* landlord Tests */,
+				06B770B218FC213C0063D66F /* landlordTests */,
+				7A3D1EEF190133F200B6469A /* GTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		06B770C718FC213C0063D66F /* Test.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Test.xctest;
-			remoteRef = 06B770C618FC213C0063D66F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		15A3D8861682F7B3002FB0C5 /* libcocos2dx.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libcocos2dx.a;
 			remoteRef = 15A3D8851682F7B3002FB0C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7A3D1EC819011D9B00B6469A /* UnitTests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = UnitTests;
+			remoteRef = 7A3D1EC719011D9B00B6469A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7A3D1ECA19011D9B00B6469A /* unittests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = unittests;
+			remoteRef = 7A3D1EC919011D9B00B6469A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1961,7 +2045,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06B770BD18FC213C0063D66F /* InfoPlist.strings in Resources */,
+				7A3D1EE51901284100B6469A /* landlordTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1979,12 +2063,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7A3D1ECD190122FF00B6469A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = XcodeCoverage/exportenv.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		06B770AF18FC213C0063D66F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06B770CA18FC21AB0063D66F /* GameManager Tests.mm in Sources */,
+				7A3D1EE81901285900B6469A /* GameManager_Tests.mm in Sources */,
+				7A3D1F0019013D9500B6469A /* ChooseMapScene_Test.mm in Sources */,
+				7A3D1EE91901285900B6469A /* StartScene_Test.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2221,6 +2323,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A3D1EEC190133F200B6469A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A3D1EF3190133F200B6469A /* main.cpp in Sources */,
+				7A3D1EFD1901345C00B6469A /* sample1.cc in Sources */,
+				7A3D1EFC1901345C00B6469A /* sample1_unittest.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2235,17 +2347,6 @@
 			targetProxy = 15A3DA681682F881002FB0C5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		06B770BB18FC213C0063D66F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				06B770BC18FC213C0063D66F /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		06B770C318FC213C0063D66F /* Debug */ = {
@@ -2273,9 +2374,11 @@
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "landlord Tests/landlord Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "landlordTests/landlordTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = CC_TARGET_OS_IPHONE;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2296,7 +2399,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios\"",
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
 				);
-				INFOPLIST_FILE = "landlord Tests/landlord Tests-Info.plist";
+				INFOPLIST_FILE = "landlordTests/landlordTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -2329,8 +2432,10 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "landlord Tests/landlord Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "landlordTests/landlordTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = CC_TARGET_OS_IPHONE;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -2350,7 +2455,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios\"",
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
 				);
-				INFOPLIST_FILE = "landlord Tests/landlord Tests-Info.plist";
+				INFOPLIST_FILE = "landlordTests/landlordTests-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -2366,6 +2471,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2416,6 +2525,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2456,6 +2569,89 @@
 			};
 			name = Release;
 		};
+		7A3D1EF7190133F200B6469A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7A3D1EF8190133F200B6469A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2485,7 +2681,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		06B770C818FC213C0063D66F /* Build configuration list for PBXNativeTarget "landlord Tests" */ = {
+		06B770C818FC213C0063D66F /* Build configuration list for PBXNativeTarget "landlordTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				06B770C318FC213C0063D66F /* Debug */,
@@ -2499,6 +2695,15 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7A3D1EF6190133F200B6469A /* Build configuration list for PBXNativeTarget "GTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A3D1EF7190133F200B6469A /* Debug */,
+				7A3D1EF8190133F200B6469A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>landlord.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,7 +17,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>06B770B218FC213C0063D66F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1D6058900D05DD3D006BFB54</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7A3D1ECE190126DA00B6469A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7A3D1EEF190133F200B6469A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

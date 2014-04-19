@@ -9,6 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "GameManager.h"
 #import "Constant.h"
+#import "cocos2d.h"
 
 @interface GameManager_Tests : SenTestCase
 
