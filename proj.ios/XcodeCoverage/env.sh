@@ -1,0 +1,5 @@
+export BUILT_PRODUCTS_DIR="/Users/GiapNV/Library/Developer/Xcode/DerivedData/landlord-esdxzohqfvqqylfoufkygqveituf/Build/Products/Debug-iphonesimulator"
+export CURRENT_ARCH="i386"
+export OBJECT_FILE_DIR_normal="/Users/GiapNV/Library/Developer/Xcode/DerivedData/landlord-esdxzohqfvqqylfoufkygqveituf/Build/Intermediates/landlord.build/Debug-iphonesimulator/landlord.build/Objects-normal"
+export OBJROOT="/Users/GiapNV/Library/Developer/Xcode/DerivedData/landlord-esdxzohqfvqqylfoufkygqveituf/Build/Intermediates"
+export SRCROOT="/Volumes/Learning/zhaqteam/cocos2d-x-2.2.2/projects/landlord/proj.ios"
