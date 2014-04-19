@@ -45,12 +45,10 @@
   cocos2d::CCDirector *pDirector = cocos2d::CCDirector::sharedDirector();
   pDirector->runWithScene(start->scene());
   CocosDenshion::SimpleAudioEngine *pAudio = CocosDenshion::SimpleAudioEngine::sharedEngine();
-  STAssertEquals(false, pAudio->isBackgroundMusicPlaying(), @"background music must be playing");
-  
   sound *sound;
   sound->playBackgroundMusic();
   pAudio = CocosDenshion::SimpleAudioEngine::sharedEngine();
-  STAssertFalse(pAudio->isBackgroundMusicPlaying() == true, @"background music must be playing");
+  STAssertTrue(pAudio->isBackgroundMusicPlaying() == true, @"background music must be playing");
 }
 
 
