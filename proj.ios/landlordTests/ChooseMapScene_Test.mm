@@ -43,8 +43,8 @@ ChooseMapScene *chooseMap;
 
 - (void)testMapTouched
 {
-  chooseMap->mapTouched(((CCLayer*)chooseMap->getMapArr()->objectAtIndex(2))->getChildByTag(2));
-  STAssertTrue(GameManager::getMapIDTouched() == 1, @"choose map 1");
+  chooseMap->mapTouched(((CCLayer*)chooseMap->getMapArr()->objectAtIndex(2)));
+  STAssertEquals(-1, GameManager::getMapIDTouched(), @"choose map 2");
   
 }
 @end

@@ -86,7 +86,7 @@ void PlayScene::addPlayerOne()
 {
   mPlayerOneTag = GameManager::getPlayerOneID();
   CCLog("getPlayerOneID = %d", GameManager::getPlayerOneID());
-  CCSprite *playerOne = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i.png", mPlayerOneTag))->getCString());
+  CCSprite *playerOne = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c1.png", mPlayerOneTag))->getCString());
   playerOne->setScale(0.8f);
   playerOne->setPosition(PLAYER_ONE_POS);
   this->addChild(playerOne, GR_MIDDLEGROUND);
@@ -94,7 +94,7 @@ void PlayScene::addPlayerOne()
 
 void PlayScene::addPlayerOneShadow()
 {
-  mPlayerOneShadow = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i-blue.png", mPlayerOneTag))->getCString());
+  mPlayerOneShadow = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c2-blue.png", mPlayerOneTag))->getCString());
   mPlayerOneShadow->setScale(0.8f);
   mPlayerOneShadow->setPosition(PLAYER_ONE_POS);
   this->addChild(mPlayerOneShadow, GR_BACKGROUND);
@@ -103,7 +103,7 @@ void PlayScene::addPlayerOneShadow()
 void PlayScene::addPlayerTwo()
 {
   mPlayerTwoTag = GameManager::getPlayerTwoID();
-  CCSprite *playerTwo = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i.png", mPlayerTwoTag))->getCString());
+  CCSprite *playerTwo = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c1.png", mPlayerTwoTag))->getCString());
   playerTwo->setScale(0.8f);
   playerTwo->setPosition(PLAYER_TWO_POS);
   this->addChild(playerTwo, GR_MIDDLEGROUND);
@@ -111,7 +111,7 @@ void PlayScene::addPlayerTwo()
 
 void PlayScene::addPlayerTwoShadow()
 {
-  mPlayerTwoShadow = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i-red.png", mPlayerTwoTag))->getCString());
+  mPlayerTwoShadow = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c2-red.png", mPlayerTwoTag))->getCString());
   mPlayerTwoShadow->setScale(0.8f);
   mPlayerTwoShadow->setPosition(PLAYER_TWO_POS);
   this->addChild(mPlayerTwoShadow, GR_BACKGROUND);

@@ -263,6 +263,8 @@
 		7ABE0A08190304E400693F28 /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */; };
 		7ABE0A09190304E800693F28 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6692F13518BB4E4400068D35 /* GameManager.cpp */; };
 		7ABE0A0A190304F700693F28 /* ChooseMapScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */; };
+		7ABE0A2B1903273A00693F28 /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66EB9FF518B65370000A1CEB /* SettingScene.cpp */; };
+		7ABE0A2D1903288800693F28 /* SettingScene_Test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE0A2C1903288800693F28 /* SettingScene_Test.mm */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -872,6 +874,7 @@
 		7ABE09F01903015C00693F28 /* sample1.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sample1.cc; sourceTree = "<group>"; };
 		7ABE09F11903015C00693F28 /* sample1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sample1.h; sourceTree = "<group>"; };
 		7ABE09F21903015C00693F28 /* sample1_unittest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sample1_unittest.cc; sourceTree = "<group>"; };
+		7ABE0A2C1903288800693F28 /* SettingScene_Test.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SettingScene_Test.mm; path = landlordTests/SettingScene_Test.mm; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -932,6 +935,7 @@
 				7A3D1EE61901285900B6469A /* GameManager_Tests.mm */,
 				7A3D1EE71901285900B6469A /* StartScene_Test.mm */,
 				7A3D1EFF19013D9500B6469A /* ChooseMapScene_Test.mm */,
+				7ABE0A2C1903288800693F28 /* SettingScene_Test.mm */,
 				06B770B918FC213C0063D66F /* Supporting Files */,
 			);
 			name = landlordTests;
@@ -2213,8 +2217,10 @@
 				7A3D1EE81901285900B6469A /* GameManager_Tests.mm in Sources */,
 				7ABE0A06190304D600693F28 /* ChooseCharacterScene.cpp in Sources */,
 				7ABE0A09190304E800693F28 /* GameManager.cpp in Sources */,
+				7ABE0A2B1903273A00693F28 /* SettingScene.cpp in Sources */,
 				7ABE0A0A190304F700693F28 /* ChooseMapScence.cpp in Sources */,
 				7A3D1F0019013D9500B6469A /* ChooseMapScene_Test.mm in Sources */,
+				7ABE0A2D1903288800693F28 /* SettingScene_Test.mm in Sources */,
 				7A3D1EE91901285900B6469A /* StartScene_Test.mm in Sources */,
 				7ABE0A07190304DE00693F28 /* Sound.cpp in Sources */,
 			);
