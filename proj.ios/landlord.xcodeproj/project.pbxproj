@@ -1393,8 +1393,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7AFB24291908280600A40219 /* SharedClass */,
 				7AA1ADFA18B3F76100A5C58C /* Supporting Files */,
-				7AB41F7918B3DE6200F5177C /* Constant.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				0610AE3918E40E44000BD558 /* Axe.cpp */,
@@ -1419,8 +1419,6 @@
 				66EB9FF618B65370000A1CEB /* SettingScene.h */,
 				6616F87218BA515100F695A3 /* Sound.h */,
 				66199A9618BA969300A45A99 /* Sound.cpp */,
-				6692F13418BB4E3200068D35 /* GameManager.h */,
-				6692F13518BB4E4400068D35 /* GameManager.cpp */,
 				663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */,
 				7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */,
 				7A18DB7018CD91F100C95A32 /* TileInfo.h */,
@@ -1922,6 +1920,16 @@
 				7ABE09F21903015C00693F28 /* sample1_unittest.cc */,
 			);
 			path = GTests;
+			sourceTree = "<group>";
+		};
+		7AFB24291908280600A40219 /* SharedClass */ = {
+			isa = PBXGroup;
+			children = (
+				6692F13418BB4E3200068D35 /* GameManager.h */,
+				6692F13518BB4E4400068D35 /* GameManager.cpp */,
+				7AB41F7918B3DE6200F5177C /* Constant.h */,
+			);
+			name = SharedClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
