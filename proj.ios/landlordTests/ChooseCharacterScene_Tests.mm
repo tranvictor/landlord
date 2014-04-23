@@ -105,9 +105,9 @@ ChooseCharacterScene *character;
 
 - (void) testButtonBackTouched
 {
-//  character->buttonBackTouched(NULL);
-//  CCScene *startScene = CCDirector::sharedDirector()->getRunningScene();
-//  STAssertTrue(startScene != NULL, @"touching back button should turn to start scene");
+  character->buttonBackTouched(NULL);
+  CCScene *startScene = CCDirector::sharedDirector()->getRunningScene();
+  STAssertTrue(startScene != NULL, @"touching back button should turn to start scene");
 }
 
 - (void) test2PlayersChooseSameCharacter
@@ -119,12 +119,12 @@ ChooseCharacterScene *character;
 
 - (void) testChooseCharactersAndChangeScene
 {
-//  character->characterTouched(((CCLayer *)character->getCharacterArr()->objectAtIndex(0))->getChildByTag(1));
-//  character->characterTouched(((CCLayer *)character->getCharacterArr()->objectAtIndex(1))->getChildByTag(5));
-//  STAssertTrue(GameManager::getPlayerOneID() == 1, @"get id of the 1st character");
-//  STAssertTrue(GameManager::getPlayerTwoID() == 5, @"get id of the 2nd character");
-//  CCScene *chooseMapScene = CCDirector::sharedDirector()->getRunningScene();
-//  STAssertTrue(chooseMapScene != NULL, @"after 2 players choose 2 different characters, game should turn to chooseMap scene");
+  character->characterTouched(((CCLayer *)character->getCharacterArr()->objectAtIndex(0))->getChildByTag(1));
+  character->characterTouched(((CCLayer *)character->getCharacterArr()->objectAtIndex(1))->getChildByTag(5));
+  STAssertTrue(GameManager::getPlayerOneID() == 1, @"get id of the 1st character");
+  STAssertTrue(GameManager::getPlayerTwoID() == 5, @"get id of the 2nd character");
+  CCScene *chooseMapScene = CCDirector::sharedDirector()->getRunningScene();
+  STAssertTrue(chooseMapScene != NULL, @"after 2 players choose 2 different characters, game should turn to chooseMap scene");
 }
 
 @end
