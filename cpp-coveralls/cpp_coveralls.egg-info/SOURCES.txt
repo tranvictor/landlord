@@ -1,0 +1,17 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+cpp_coveralls/__init__.py
+cpp_coveralls/coverage.py
+cpp_coveralls/coverage_test.py
+cpp_coveralls/gitrepo.py
+cpp_coveralls/report.py
+cpp_coveralls.egg-info/PKG-INFO
+cpp_coveralls.egg-info/SOURCES.txt
+cpp_coveralls.egg-info/dependency_links.txt
+cpp_coveralls.egg-info/entry_points.txt
+cpp_coveralls.egg-info/requires.txt
+cpp_coveralls.egg-info/top_level.txt

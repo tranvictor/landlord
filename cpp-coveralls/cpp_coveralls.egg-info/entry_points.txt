@@ -1,0 +1,4 @@
+[console_scripts]
+cpp-coveralls = cpp_coveralls:run
+coveralls = cpp_coveralls:run
+
