@@ -58,11 +58,11 @@
 
 - (void) testInitialPlayerOneID
 {
-//  GameManager gameManager;
-//  STAssertEquals(-1, gameManager.getPlayerOneID(), @"initial player one ID is -1");
+  GameManager gameManager;
+  STAssertEquals(-1, gameManager.getPlayerOneID(), @"initial player one ID is -1");
   
-//  gameManager.setPlayerOneID(4);
-//  STAssertEquals(4, gameManager.getPlayerOneID(), @"set player one ID of 4");
+  gameManager.setPlayerOneID(4);
+  STAssertEquals(4, gameManager.getPlayerOneID(), @"set player one ID of 4");
 }
 
 - (void) testInitialPlayerTwoID
