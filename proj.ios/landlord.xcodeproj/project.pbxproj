@@ -1393,18 +1393,13 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7AFB24291908280600A40219 /* SharedClass */,
+				7AFB242D1908286400A40219 /* Game */,
+				7AFB242C1908285400A40219 /* AppDelegate */,
 				7AA1ADFA18B3F76100A5C58C /* Supporting Files */,
-				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
-				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
-				0610AE3918E40E44000BD558 /* Axe.cpp */,
-				0610AE3A18E40E44000BD558 /* Axe.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */,
 				7AB41F7418B3CE8000F5177C /* ChooseMapScence.h */,
-				7AA1AE2218B40DF000A5C58C /* Maps.cpp */,
-				7AA1AE2318B40DF000A5C58C /* Maps.h */,
 				661B811F18B3E22C00578534 /* StartScene.h */,
 				661B812018B3E5AD00578534 /* StartScene.cpp */,
 				7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */,
@@ -1422,10 +1417,6 @@
 				663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */,
 				7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */,
 				7A18DB7018CD91F100C95A32 /* TileInfo.h */,
-				0610AE3618E40E1A000BD558 /* Tree.cpp */,
-				0610AE3718E40E1A000BD558 /* Tree.h */,
-				0667816118E70FDB00024600 /* Stone.cpp */,
-				0667816218E70FDB00024600 /* Stone.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1930,6 +1921,39 @@
 				7AB41F7918B3DE6200F5177C /* Constant.h */,
 			);
 			name = SharedClass;
+			sourceTree = "<group>";
+		};
+		7AFB242C1908285400A40219 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
+				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		7AFB242D1908286400A40219 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				7AFB242E1908287700A40219 /* Models */,
+				7AFB24291908280600A40219 /* SharedClass */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		7AFB242E1908287700A40219 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0610AE3618E40E1A000BD558 /* Tree.cpp */,
+				0610AE3718E40E1A000BD558 /* Tree.h */,
+				0667816118E70FDB00024600 /* Stone.cpp */,
+				0667816218E70FDB00024600 /* Stone.h */,
+				7AA1AE2218B40DF000A5C58C /* Maps.cpp */,
+				7AA1AE2318B40DF000A5C58C /* Maps.h */,
+				0610AE3918E40E44000BD558 /* Axe.cpp */,
+				0610AE3A18E40E44000BD558 /* Axe.h */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
