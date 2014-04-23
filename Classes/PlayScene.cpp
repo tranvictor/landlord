@@ -148,7 +148,7 @@ void PlayScene::makeMapScroll()
         TileInfo *tileInfo = new TileInfo();
         tileInfo->setTile(tile);
         tileInfo->setGID(PAIR_FUNC(i, j));
-        CCLog("gid %d", PAIR_FUNC(i, j));
+//        CCLog("gid %d", PAIR_FUNC(i, j));
         mTileInfoVector.push_back(tileInfo);
         
         if (j > 0 && mMapLayer->tileAt(ccp(i, j-1)))
@@ -345,7 +345,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
         mTileInfoVector.at(i)->getTile()->setColor(ccRED);
         mLbnScorePlayer2->setString(mScoreBuffer);
       }
-      if (tileInfo->getHasAxe())
+      if (mTileInfoVector.at(i)->getHasAxe())
       {
         GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
       }
@@ -711,7 +711,7 @@ void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
   mAxePop = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
   CCMenu *axePop = CCMenu::create(mAxePop, NULL);
   axePop->setPosition(ccp(pSp->getPositionX() + pSp->getContentSize().width/2, pSp->getPositionY() + pSp->getContentSize().height + pop->getContentSize().height/2));
-  mTileMap->addChild(axePop);
+  mTileMap->addChild(axePop, GR_FOREGROUND);
   mIsAxePopVisible = true;
 }
 

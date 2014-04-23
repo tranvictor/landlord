@@ -15,9 +15,9 @@ USING_NS_CC;
 bool GameManager::musicState = true;
 bool GameManager::soundState = true;
 bool GameManager::treeModeState = true;
-int  GameManager::playerOneID = 1;
-int  GameManager::playerTwoID = 1;
-int  GameManager::mapIDTouched = 1;
+int  GameManager::playerOneID = -1;
+int  GameManager::playerTwoID = -1;
+int  GameManager::mapIDTouched = -1;
 
 int  GameManager::player1Score;
 int  GameManager::player2Score;

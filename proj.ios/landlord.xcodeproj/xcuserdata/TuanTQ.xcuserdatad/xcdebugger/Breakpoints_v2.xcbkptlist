@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/ChooseCharacterScene.cpp"
-            timestampString = "415351342.739289"
+            timestampString = "419505341.914227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "ChooseCharacterScene::addCharacter()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/ChooseCharacterScene.cpp"
-            timestampString = "415351356.871923"
+            timestampString = "419505341.914227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "ChooseCharacterScene::addCharacter()"
             landmarkType = "5">
          </BreakpointContent>
@@ -182,7 +182,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
-            endingLineNumber = "70">
+            endingLineNumber = "70"
+            landmarkName = "class GameManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -214,6 +216,96 @@
             startingLineNumber = "636"
             endingLineNumber = "636"
             landmarkName = "PlayScene::addAxes()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "landlord Tests/ChooseCharacterScene Tests.mm"
+            timestampString = "419527121.48987"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-testAddCharactersToLayer"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ChooseCharacterScene_Tests testAddCharacter]"
+                  moduleName = "landlord Tests"
+                  urlString = "file:///Users/TuanTQ/Desktop/Cocos2d-x-2.2.2/projects/landlord/proj.ios/landlord%20Tests/ChooseCharacterScene%20Tests.mm"
+                  timestampString = "419506054.128402"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ChooseCharacterScene_Tests testAddCharacter]"
+                  moduleName = "landlord Tests"
+                  urlString = "file:///Users/TuanTQ/Desktop/Cocos2d-x-2.2.2/projects/landlord/proj.ios/landlord%20Tests/ChooseCharacterScene%20Tests.mm"
+                  timestampString = "419506054.12867"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ChooseCharacterScene_Tests testAddCharacter]"
+                  moduleName = "landlord Tests"
+                  urlString = "file:///Users/TuanTQ/Desktop/Cocos2d-x-2.2.2/projects/landlord/proj.ios/landlord%20Tests/ChooseCharacterScene%20Tests.mm"
+                  timestampString = "419506054.128843"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "357">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/ChooseCharacterScene.h"
+            timestampString = "419527394.048051"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "landlord Tests/GameManager Tests.mm"
+            timestampString = "419529540.633997"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-testGetAndSetMusicState"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
