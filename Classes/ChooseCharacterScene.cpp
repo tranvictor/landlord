@@ -123,7 +123,7 @@ void ChooseCharacterScene::characterTouched(CCObject *pSender)
     characterName = CCString::createWithFormat("Images/Game/Object/c%i-blue.png", mCharacterTouchedID);
     checkValid = true;
     GameManager::setPlayerOneID(mCharacterTouchedID);
-    CCLOG("Player 1 had chose character %i", mCharacterTouchedID);
+    CCLOG("Player 1 had chose character %i", GameManager::getPlayerOneID());
   }
   else if (mPlayer == 2 && mCharacterTouchedID != mCharacterChoseByPlayer1)
   {
@@ -189,7 +189,7 @@ void ChooseCharacterScene::characterTouched(CCObject *pSender)
   {
     mCharacterArr->release();
     CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
-    CCDirector::sharedDirector()->runWithScene(newScene);
+    CCDirector::sharedDirector()->replaceScene(newScene);
   }
 }
 
@@ -209,7 +209,7 @@ void ChooseCharacterScene::buttonBackTouched(CCObject *pSender)
 {
   CCLOG("Button back touched");
   CCScene* newScene = CCTransitionCrossFade::create(0.5, StartScene::scene());
-  CCDirector::sharedDirector()->runWithScene(newScene);
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }
 
 CCArray* ChooseCharacterScene::getCharacterArr()

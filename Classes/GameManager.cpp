@@ -99,7 +99,6 @@ void GameManager::initPlayersInfo()
   player1Score = 0;
   player2Score = 0;
   currentPlayer = PLAYER_ONE;
-  playerOneID = playerTwoID = -1;
 }
 
 void GameManager::increaseScore(int currentPlayer)

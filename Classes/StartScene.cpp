@@ -110,7 +110,7 @@ void StartScene::playButtonTouched(CCObject *pSender)
   //  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
   
   
-  CCDirector::sharedDirector()->runWithScene(newScene);
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }
 
 void StartScene::settingsButtonTouched(CCObject *pSender)
@@ -123,5 +123,5 @@ void StartScene::settingsButtonTouched(CCObject *pSender)
   CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
   
   
-  CCDirector::sharedDirector()->runWithScene(newScene);
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }
