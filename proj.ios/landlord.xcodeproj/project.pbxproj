@@ -780,7 +780,6 @@
 		66199A9618BA969300A45A99 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sound.cpp; path = ../Classes/Sound.cpp; sourceTree = "<group>"; };
 		661B811F18B3E22C00578534 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
 		661B812018B3E5AD00578534 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
-		663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneTransition.h; path = ../Classes/SceneTransition.h; sourceTree = "<group>"; };
 		6692F13418BB4E3200068D35 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameManager.h; path = ../Classes/GameManager.h; sourceTree = "<group>"; };
 		6692F13518BB4E4400068D35 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../Classes/GameManager.cpp; sourceTree = "<group>"; };
 		66EB9FF518B65370000A1CEB /* SettingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingScene.cpp; sourceTree = "<group>"; };
@@ -1398,23 +1397,8 @@
 				7AA1ADFA18B3F76100A5C58C /* Supporting Files */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
-				7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */,
-				7AB41F7418B3CE8000F5177C /* ChooseMapScence.h */,
-				661B811F18B3E22C00578534 /* StartScene.h */,
-				661B812018B3E5AD00578534 /* StartScene.cpp */,
-				7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */,
-				7AA0CCD018BB9C380097A90B /* PlayScene.h */,
-				06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */,
-				06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */,
-				660DE50A18BBC22F00079508 /* CloudAnimation.h */,
-				660DE50C18BBC24700079508 /* CloudAnimation.cpp */,
-				7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */,
-				7A94DC8318BDBB2A0071CDD5 /* WinScene.h */,
-				66EB9FF518B65370000A1CEB /* SettingScene.cpp */,
-				66EB9FF618B65370000A1CEB /* SettingScene.h */,
 				6616F87218BA515100F695A3 /* Sound.h */,
 				66199A9618BA969300A45A99 /* Sound.cpp */,
-				663E4F0718BBAF6A00AFFF9F /* SceneTransition.h */,
 				7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */,
 				7A18DB7018CD91F100C95A32 /* TileInfo.h */,
 			);
@@ -1935,6 +1919,8 @@
 		7AFB242D1908286400A40219 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				7AFB24301908293100A40219 /* SoundControl */,
+				7AFB242F190828FA00A40219 /* Scenes */,
 				7AFB242E1908287700A40219 /* Models */,
 				7AFB24291908280600A40219 /* SharedClass */,
 			);
@@ -1944,6 +1930,8 @@
 		7AFB242E1908287700A40219 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				660DE50A18BBC22F00079508 /* CloudAnimation.h */,
+				660DE50C18BBC24700079508 /* CloudAnimation.cpp */,
 				0610AE3618E40E1A000BD558 /* Tree.cpp */,
 				0610AE3718E40E1A000BD558 /* Tree.h */,
 				0667816118E70FDB00024600 /* Stone.cpp */,
@@ -1954,6 +1942,32 @@
 				0610AE3A18E40E44000BD558 /* Axe.h */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		7AFB242F190828FA00A40219 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */,
+				7AB41F7418B3CE8000F5177C /* ChooseMapScence.h */,
+				7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */,
+				7A94DC8318BDBB2A0071CDD5 /* WinScene.h */,
+				66EB9FF518B65370000A1CEB /* SettingScene.cpp */,
+				66EB9FF618B65370000A1CEB /* SettingScene.h */,
+				661B811F18B3E22C00578534 /* StartScene.h */,
+				661B812018B3E5AD00578534 /* StartScene.cpp */,
+				7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */,
+				7AA0CCD018BB9C380097A90B /* PlayScene.h */,
+				06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */,
+				06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		7AFB24301908293100A40219 /* SoundControl */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SoundControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
