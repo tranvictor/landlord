@@ -48,7 +48,7 @@
   sound *sound;
   sound->playBackgroundMusic();
   pAudio = CocosDenshion::SimpleAudioEngine::sharedEngine();
-//  STAssertTrue(pAudio->isBackgroundMusicPlaying(), @"background music must be playing");
+  STAssertTrue(pAudio->isBackgroundMusicPlaying(), @"background music must be playing");
 }
 
 

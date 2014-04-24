@@ -793,7 +793,6 @@
 		7A3D1EE41901284100B6469A /* landlordTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "landlordTests-Prefix.pch"; path = "landlordTests/landlordTests-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		7A3D1EE61901285900B6469A /* GameManager_Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GameManager_Tests.mm; path = landlordTests/GameManager_Tests.mm; sourceTree = SOURCE_ROOT; };
 		7A3D1EE71901285900B6469A /* StartScene_Test.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = StartScene_Test.mm; path = landlordTests/StartScene_Test.mm; sourceTree = SOURCE_ROOT; };
-		7A3D1EF0190133F200B6469A /* GTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A3D1EFF19013D9500B6469A /* ChooseMapScene_Test.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ChooseMapScene_Test.mm; path = landlordTests/ChooseMapScene_Test.mm; sourceTree = SOURCE_ROOT; };
 		7A4091B4190273A30003A7B0 /* ChooseCharacterScene_Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ChooseCharacterScene_Tests.mm; path = landlordTests/ChooseCharacterScene_Tests.mm; sourceTree = SOURCE_ROOT; };
 		7A4091B5190273A30003A7B0 /* Sound_Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Sound_Tests.mm; path = landlordTests/Sound_Tests.mm; sourceTree = SOURCE_ROOT; };
@@ -856,25 +855,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A3D1EED190133F200B6469A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		06B770B818FC213C0063D66F /* landlordTests */ = {
 			isa = PBXGroup;
 			children = (
-				7A4091B4190273A30003A7B0 /* ChooseCharacterScene_Tests.mm */,
-				7A4091B5190273A30003A7B0 /* Sound_Tests.mm */,
-				7A4091B6190273A30003A7B0 /* WinScene_Tests.mm */,
 				7A3D1EE61901285900B6469A /* GameManager_Tests.mm */,
 				7A3D1EE71901285900B6469A /* StartScene_Test.mm */,
+				7A4091B4190273A30003A7B0 /* ChooseCharacterScene_Tests.mm */,
 				7A3D1EFF19013D9500B6469A /* ChooseMapScene_Test.mm */,
+				7A4091B6190273A30003A7B0 /* WinScene_Tests.mm */,
+				7A4091B5190273A30003A7B0 /* Sound_Tests.mm */,
 				7ABE0A2C1903288800693F28 /* SettingScene_Test.mm */,
 				06B770B918FC213C0063D66F /* Supporting Files */,
 			);
@@ -1398,7 +1390,6 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* landlord.app */,
 				06B770B318FC213C0063D66F /* landlordTests.octest */,
-				7A3D1EF0190133F200B6469A /* GTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2103,22 +2094,6 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* landlord.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7A3D1EEF190133F200B6469A /* GTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7A3D1EF6190133F200B6469A /* Build configuration list for PBXNativeTarget "GTests" */;
-			buildPhases = (
-				7A3D1EEC190133F200B6469A /* Sources */,
-				7A3D1EED190133F200B6469A /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = GTests;
-			productName = GTests;
-			productReference = 7A3D1EF0190133F200B6469A /* GTests */;
-			productType = "com.apple.product-type.tool";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2155,7 +2130,6 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* landlord */,
 				06B770B218FC213C0063D66F /* landlordTests */,
-				7A3D1EEF190133F200B6469A /* GTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2478,13 +2452,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A3D1EEC190133F200B6469A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2723,125 +2690,6 @@
 			};
 			name = Release;
 		};
-		7A3D1EF7190133F200B6469A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libstdc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = CC_TARGET_OS_MAC;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/../../../CocosDenshion/include",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
-					"\"$(SRCROOT)/../../../extensions\"",
-					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
-					"\"$(SRCROOT)/../../../external\"",
-					"\"$(SRCROOT)/../../../cocos2dx\"",
-					"\"$(SRCROOT)/../../../cocos2dx/include\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/mac\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac/libraries\"",
-					"\"$(SRCROOT)/../../../external/libwebsockets/mac/lib\"",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		7A3D1EF8190133F200B6469A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libstdc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = CC_TARGET_OS_MAC;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/../../../CocosDenshion/include",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
-					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
-					"\"$(SRCROOT)/../../../extensions\"",
-					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
-					"\"$(SRCROOT)/../../../external\"",
-					"\"$(SRCROOT)/../../../cocos2dx\"",
-					"\"$(SRCROOT)/../../../cocos2dx/include\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac\"",
-					"\"$(SRCROOT)/../../../cocos2dx/platform/mac\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/mac/libraries\"",
-					"\"$(SRCROOT)/../../../external/libwebsockets/mac/lib\"",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2892,15 +2740,6 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		7A3D1EF6190133F200B6469A /* Build configuration list for PBXNativeTarget "GTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7A3D1EF7190133F200B6469A /* Debug */,
-				7A3D1EF8190133F200B6469A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
