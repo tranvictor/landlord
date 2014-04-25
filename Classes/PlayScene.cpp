@@ -12,6 +12,7 @@
 #include "Tree.h"
 #include "Axe.h"
 #include "Stone.h"
+#include "Sound.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -209,6 +210,8 @@ void PlayScene::addScoreLbn()
 void PlayScene::pauseButtonTouched()
 {
   CCLog("paused touched");
+  // TODO
+  sound::playSoundFx(SFX_CONGRATULATION);
   CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 }
@@ -271,6 +274,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     
     if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap))
     {
+      sound::playSoundFx(SFX_TOUCH_TILE);
       mCurTile = i;
       if (mTileInfoVector.at(mCurTile)->getHasTree())
       {
@@ -294,6 +298,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 
 void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
 {
+  sound::playSoundFx(SFX_TOUCH_POP);
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
   CCSprite *edge = CCSprite::create("Images/Game/Object/edge.png");
@@ -717,6 +722,7 @@ void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pSp)
 
 void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
 {
+  sound::playSoundFx(SFX_TOUCH_POP);
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
   mIsAxePopVisible = false;

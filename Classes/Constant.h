@@ -62,6 +62,12 @@ USING_NS_CC;
 #define SFX_BUTTON_TOUCH        "Sound/SFX/ui-button-tap.aac"
 #define MUSIC_BACKGROUND        "Sound/Music/music-in-game.wav"
 #define SFX_CHARACTER_SELECT    "Sound/SFX/ui-character-select.aac"
+#define SFX_RANDOM_MAP          "Sound/SFX/sfx-random-map.aac"
+#define SFX_CHOOSE_MAP          "Sound/SFX/sfx-choose-map.aac"
+#define SFX_TOUCH_TILE          "Sound/SFX/sfx-touch-tile.aac"
+#define SFX_TOUCH_POP           "Sound/SFX/sfx-touch-pop.wav"
+#define SFX_CONGRATULATION      "Sound/SFX/sfx-congratulate.acc"
+#define MUSIC_LEVEL_WON         "Sound/Music/music_level-won.mp3"
 
 enum eGround
 {
