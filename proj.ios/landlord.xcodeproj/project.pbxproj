@@ -12,7 +12,6 @@
 		0667816318E70FDB00024600 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0667816118E70FDB00024600 /* Stone.cpp */; };
 		06B770B518FC213C0063D66F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B770B418FC213C0063D66F /* SenTestingKit.framework */; };
 		06B770B618FC213C0063D66F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		06C2EC8818BD8C8D00917282 /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */; };
 		15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88B1682F7D5002FB0C5 /* b2BroadPhase.cpp */; };
 		15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88D1682F7D5002FB0C5 /* b2CollideCircle.cpp */; };
 		15A3D9011682F7D5002FB0C5 /* b2CollideEdge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15A3D88E1682F7D5002FB0C5 /* b2CollideEdge.cpp */; };
@@ -252,14 +251,14 @@
 		7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */; };
 		7AA1AE2418B40DF000A5C58C /* Maps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1AE2218B40DF000A5C58C /* Maps.cpp */; };
 		7AB0FF9418C8DCD000AA51D7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB0FF9318C8DCD000AA51D7 /* Default-568h@2x.png */; };
-		7AB41F7518B3CE8000F5177C /* ChooseMapScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */; };
-		7AB5C45D190A77C90034CBFD /* ChooseMapScene_horizontal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5C45B190A77C90034CBFD /* ChooseMapScene_horizontal.cpp */; };
+		7AB5C462190A7C890034CBFD /* ChooseMapScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5C460190A7C890034CBFD /* ChooseMapScence.cpp */; };
+		7AB5C463190A8A9B0034CBFD /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */; };
+		7AB5C464190A8A9C0034CBFD /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */; };
+		7AB5C46B190A98410034CBFD /* CCScrollLayerHorizontal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5C469190A98410034CBFD /* CCScrollLayerHorizontal.cpp */; };
 		7ABE0A051903043600693F28 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661B812018B3E5AD00578534 /* StartScene.cpp */; };
-		7ABE0A06190304D600693F28 /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */; };
 		7ABE0A07190304DE00693F28 /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66199A9618BA969300A45A99 /* Sound.cpp */; };
 		7ABE0A08190304E400693F28 /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */; };
 		7ABE0A09190304E800693F28 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6692F13518BB4E4400068D35 /* GameManager.cpp */; };
-		7ABE0A0A190304F700693F28 /* ChooseMapScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */; };
 		7ABE0A2B1903273A00693F28 /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66EB9FF518B65370000A1CEB /* SettingScene.cpp */; };
 		7ABE0A2D1903288800693F28 /* SettingScene_Test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE0A2C1903288800693F28 /* SettingScene_Test.mm */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -810,11 +809,11 @@
 		7AA1AE2218B40DF000A5C58C /* Maps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Maps.cpp; path = ../Classes/Maps.cpp; sourceTree = "<group>"; };
 		7AA1AE2318B40DF000A5C58C /* Maps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Maps.h; path = ../Classes/Maps.h; sourceTree = "<group>"; };
 		7AB0FF9318C8DCD000AA51D7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScence.cpp; path = ../Classes/ChooseMapScence.cpp; sourceTree = "<group>"; };
-		7AB41F7418B3CE8000F5177C /* ChooseMapScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseMapScence.h; path = ../Classes/ChooseMapScence.h; sourceTree = "<group>"; };
 		7AB41F7918B3DE6200F5177C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = ../Classes/Constant.h; sourceTree = "<group>"; };
-		7AB5C45B190A77C90034CBFD /* ChooseMapScene_horizontal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScene_horizontal.cpp; path = ../Classes/ChooseMapScene_horizontal.cpp; sourceTree = "<group>"; };
-		7AB5C45C190A77C90034CBFD /* ChooseMapScene_horizontal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseMapScene_horizontal.h; path = ../Classes/ChooseMapScene_horizontal.h; sourceTree = "<group>"; };
+		7AB5C460190A7C890034CBFD /* ChooseMapScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScence.cpp; path = ../Classes/ChooseMapScence.cpp; sourceTree = "<group>"; };
+		7AB5C461190A7C890034CBFD /* ChooseMapScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseMapScence.h; path = ../Classes/ChooseMapScence.h; sourceTree = "<group>"; };
+		7AB5C469190A98410034CBFD /* CCScrollLayerHorizontal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCScrollLayerHorizontal.cpp; path = ../Classes/CCScrollLayerHorizontal.cpp; sourceTree = "<group>"; };
+		7AB5C46A190A98410034CBFD /* CCScrollLayerHorizontal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCScrollLayerHorizontal.h; path = ../Classes/CCScrollLayerHorizontal.h; sourceTree = "<group>"; };
 		7ABE08501902B30400693F28 /* libUnitTest++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUnitTest++.a"; path = "../../../../../../../Users/GiapNV/Downloads/UnitTest++/libUnitTest++.a"; sourceTree = "<group>"; };
 		7ABE09AC1902E81900693F28 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		7ABE0A2C1903288800693F28 /* SettingScene_Test.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SettingScene_Test.mm; path = landlordTests/SettingScene_Test.mm; sourceTree = SOURCE_ROOT; };
@@ -1856,6 +1855,8 @@
 		7AA1ADFA18B3F76100A5C58C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7AB5C469190A98410034CBFD /* CCScrollLayerHorizontal.cpp */,
+				7AB5C46A190A98410034CBFD /* CCScrollLayerHorizontal.h */,
 				7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */,
 				7A9B5CE318C0A45900C739FD /* CCLayerPanZoom.h */,
 				7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */,
@@ -2006,10 +2007,8 @@
 		7AFB243919082A6A00A40219 /* ChooseMap */ = {
 			isa = PBXGroup;
 			children = (
-				7AB41F7318B3CE8000F5177C /* ChooseMapScence.cpp */,
-				7AB41F7418B3CE8000F5177C /* ChooseMapScence.h */,
-				7AB5C45B190A77C90034CBFD /* ChooseMapScene_horizontal.cpp */,
-				7AB5C45C190A77C90034CBFD /* ChooseMapScene_horizontal.h */,
+				7AB5C460190A7C890034CBFD /* ChooseMapScence.cpp */,
+				7AB5C461190A7C890034CBFD /* ChooseMapScence.h */,
 			);
 			name = ChooseMap;
 			sourceTree = "<group>";
@@ -2214,10 +2213,9 @@
 				7ABE0A08190304E400693F28 /* WinScene.cpp in Sources */,
 				7ABE0A051903043600693F28 /* StartScene.cpp in Sources */,
 				7A3D1EE81901285900B6469A /* GameManager_Tests.mm in Sources */,
-				7ABE0A06190304D600693F28 /* ChooseCharacterScene.cpp in Sources */,
+				7AB5C464190A8A9C0034CBFD /* ChooseCharacterScene.cpp in Sources */,
 				7ABE0A09190304E800693F28 /* GameManager.cpp in Sources */,
 				7ABE0A2B1903273A00693F28 /* SettingScene.cpp in Sources */,
-				7ABE0A0A190304F700693F28 /* ChooseMapScence.cpp in Sources */,
 				7ABE0A2D1903288800693F28 /* SettingScene_Test.mm in Sources */,
 				7A3D1EE91901285900B6469A /* StartScene_Test.mm in Sources */,
 				7A114D1219096BC000D4566D /* ChooseMapScene_Test.mm in Sources */,
@@ -2258,6 +2256,7 @@
 				15A3D9171682F7D5002FB0C5 /* b2ChainAndCircleContact.cpp in Sources */,
 				15A3D9181682F7D5002FB0C5 /* b2ChainAndPolygonContact.cpp in Sources */,
 				375BD5111868454E0024609E /* CCActionManager.cpp in Sources */,
+				7AB5C46B190A98410034CBFD /* CCScrollLayerHorizontal.cpp in Sources */,
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
 				15A3D91B1682F7D5002FB0C5 /* b2ContactSolver.cpp in Sources */,
@@ -2377,6 +2376,7 @@
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
 				1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */,
+				7AB5C462190A7C890034CBFD /* ChooseMapScence.cpp in Sources */,
 				1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */,
 				1A8F3B70175E05DA00049216 /* AnimationStateData.cpp in Sources */,
 				1A8F3B71175E05DA00049216 /* Atlas.cpp in Sources */,
@@ -2395,12 +2395,12 @@
 				1A8F3B7D175E05DA00049216 /* SkeletonData.cpp in Sources */,
 				1A8F3B7E175E05DA00049216 /* SkeletonJson.cpp in Sources */,
 				7A9B5CE418C0A45900C739FD /* CCLayerPanZoom.cpp in Sources */,
+				7AB5C463190A8A9B0034CBFD /* ChooseCharacterScene.cpp in Sources */,
 				1A8F3B7F175E05DA00049216 /* Skin.cpp in Sources */,
 				1A8F3B80175E05DA00049216 /* Slot.cpp in Sources */,
 				1A8F3B81175E05DA00049216 /* SlotData.cpp in Sources */,
 				1A8F3B82175E05DA00049216 /* spine-cocos2dx.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
-				7AB5C45D190A77C90034CBFD /* ChooseMapScene_horizontal.cpp in Sources */,
 				375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */,
 				1A9CE8781765A12C000E3062 /* AssetsManager.cpp in Sources */,
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
@@ -2417,7 +2417,6 @@
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
 				0667816318E70FDB00024600 /* Stone.cpp in Sources */,
 				379BB9A617F03F3700829B88 /* CCArmatureDataManager.cpp in Sources */,
-				7AB41F7518B3CE8000F5177C /* ChooseMapScence.cpp in Sources */,
 				379BB9A717F03F3700829B88 /* CCArmatureDefine.cpp in Sources */,
 				379BB9A817F03F3700829B88 /* CCDataReaderHelper.cpp in Sources */,
 				66199A9718BA969300A45A99 /* Sound.cpp in Sources */,
@@ -2439,7 +2438,6 @@
 				379BB9B717F03F3700829B88 /* UILayoutDefine.cpp in Sources */,
 				379BB9B817F03F3700829B88 /* CocosGUI.cpp in Sources */,
 				379BB9B917F03F3700829B88 /* UIHelper.cpp in Sources */,
-				06C2EC8818BD8C8D00917282 /* ChooseCharacterScene.cpp in Sources */,
 				379BB9BD17F03F3700829B88 /* UIListView.cpp in Sources */,
 				379BB9BE17F03F3700829B88 /* UIPageView.cpp in Sources */,
 				379BB9BF17F03F3700829B88 /* UIScrollView.cpp in Sources */,

@@ -19,17 +19,23 @@ USING_NS_CC;
 #define CENTER_POS              ccp(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)
 // ChooseMapScene
 #define BTN_RANDOM_POS          ccp(320, 245)
-#define BTN_BACK_POS            ccp(49, 46)
+#define BTN_BACK_POS            ccp(109.599, 103.958)
+#define BTN_FORWARSD_POS        ccp(1024.179, 103.958)
 #define NUMBER_MAPS             10
+#define NUMBER_LAYERS           2
 #define MAP_CENTER_POS          ccp(320, 357)
 #define MAP_CENTER_X            320
 #define MAP_CENTER_Y            779
 #define MAP_WIDTH               328
 #define DISTANCE_BETWEEN_MAPS   444
 #define GREEN_DOT_Y             419
+#define CHARACTER_LEFT_LAYER_POS ccp(339.106, 320.977)
+#define CHARACTER_RIGHT_LAYER_POS ccp(796.894, 320.977)
+#define VS_POS                  ccp(561.163, 345.206)
 
 // PlayScene
 #define BTN_PAUSE_POS           ccp(320, 158.27)
+
 #define MAP_POS                 ccp(320.5, 657.338)
 #define PLAYER_ONE_POS          ccp(97.192, 142.551)
 #define PLAYER_TWO_POS          ccp(543.762, 142.551)
@@ -123,6 +129,11 @@ enum eWinSceneTags
   WIN_MASK_TAG,
   WIN_SHAREBTN_TAG,
   WIN_REPLAYBTN_TAG,
+};
+
+enum eSLideMap
+{
+  TAG_SLIDE_MAP
 };
 
 #endif

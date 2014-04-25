@@ -1,4 +1,4 @@
-#include "CCScrollLayer.h"
+#include "CCScrollLayerHorizontal.h"
 //#include "CCTouchHandler.h"
 //#include "GLES-Render.h"
 
@@ -12,31 +12,31 @@ USING_NS_CC;
 //{
 enum
 {
-  kCCScrollLayerStateIdle,
-  kCCScrollLayerStateSliding,
+  kCCScrollLayerHorizontalStateIdle,
+  kCCScrollLayerHorizontalStateSliding,
 };
 
-CCScrollLayer::CCScrollLayer()
-: m_pDelegate(NULL), m_pLayers(NULL), m_bStealingTouchInProgress(false), m_pScrollTouch(NULL), m_iState(kCCScrollLayerStateIdle)
+CCScrollLayerHorizontal::CCScrollLayerHorizontal()
+: m_pDelegate(NULL), m_pLayers(NULL), m_bStealingTouchInProgress(false), m_pScrollTouch(NULL), m_iState(kCCScrollLayerHorizontalStateIdle)
 
 {
 }
 
-CCScrollLayer::~CCScrollLayer()
+CCScrollLayerHorizontal::~CCScrollLayerHorizontal()
 {
   CC_SAFE_RELEASE(m_pLayers);
   m_pDelegate = NULL;
   this->setCustomPageIndicators(NULL);
 }
 
-unsigned int CCScrollLayer::getTotalScreens() const
+unsigned int CCScrollLayerHorizontal::getTotalScreens() const
 {
   return m_pLayers->count();
 }
 
-CCScrollLayer* CCScrollLayer::nodeWithLayers(CCArray* layers, int widthOffset)
+CCScrollLayerHorizontal* CCScrollLayerHorizontal::nodeWithLayers(CCArray* layers, int widthOffset)
 {
-  CCScrollLayer* pRet = new CCScrollLayer();
+  CCScrollLayerHorizontal* pRet = new CCScrollLayerHorizontal();
   if (pRet && pRet->initWithLayers(layers, widthOffset))
   {
     pRet->autorelease();
@@ -49,9 +49,9 @@ CCScrollLayer* CCScrollLayer::nodeWithLayers(CCArray* layers, int widthOffset)
   }
 }
 
-CCScrollLayer* CCScrollLayer::nodeWithLayers(cocos2d::CCArray *layers, int widthOffset, const char * pageSpriterameName)
+CCScrollLayerHorizontal* CCScrollLayerHorizontal::nodeWithLayers(cocos2d::CCArray *layers, int widthOffset, const char * pageSpriterameName)
 {
-  CCScrollLayer* layer = CCScrollLayer::nodeWithLayers(layers, widthOffset);
+  CCScrollLayerHorizontal* layer = CCScrollLayerHorizontal::nodeWithLayers(layers, widthOffset);
   if (layers == NULL) {
     CCLog("null");
   }
@@ -66,15 +66,16 @@ CCScrollLayer* CCScrollLayer::nodeWithLayers(cocos2d::CCArray *layers, int width
   for (int i = 0; i < layer->getTotalScreens(); ++i)
   {
     CCSprite *pageSprite = CCSprite::create(pageSpriterameName);
+    pageSprite->setPosition(ccp(d*((float)i - 0.5f*(n-1.0f)), 0));
     layer->customPageIndicators->addChild(pageSprite);
   }
   layer->addChild(layer->getCustomPageIndicators());
-  layer->schedule(schedule_selector(CCScrollLayer::updatePageIndicators));
+  layer->schedule(schedule_selector(CCScrollLayerHorizontal::updatePageIndicators));
   
   return layer;
 }
 
-bool CCScrollLayer::initWithLayers(CCArray* layers, int widthOffset)
+bool CCScrollLayerHorizontal::initWithLayers(CCArray* layers, int widthOffset)
 {
   if (!CCLayer::init())
     return false;
@@ -88,7 +89,7 @@ bool CCScrollLayer::initWithLayers(CCArray* layers, int widthOffset)
   m_fMinimumTouchLengthToSlide = 30.0f;
   m_fMinimumTouchLengthToChangePage = 100.0f;
   
-  m_fMarginOffset = CCDirector::sharedDirector()->getWinSize().width;
+  m_fMarginOffset = CCDirector::sharedDirector()->getWinSize().height;
   
   // Show indicator by default.
   m_bShowPagesIndicator = true;
@@ -113,7 +114,7 @@ bool CCScrollLayer::initWithLayers(CCArray* layers, int widthOffset)
   return true;
 }
 
-void CCScrollLayer::updatePages()
+void CCScrollLayerHorizontal::updatePages()
 {
   // Loop through the array and add the screens if needed.
   int i = 0;
@@ -122,8 +123,8 @@ void CCScrollLayer::updatePages()
   {
     CCLayer* layer = (CCLayer*)object;
     layer->setAnchorPoint(ccp(0,0));
-//    layer->setContentSize(CCDirector::sharedDirector()->getWinSize());
-    layer->setPosition(ccp((i * (m_obContentSize.width - m_fPagesWidthOffset)), 0));
+    layer->setContentSize(CCDirector::sharedDirector()->getWinSize());
+    layer->setPosition(ccp(0, (i * (m_obContentSize.height - m_fPagesWidthOffset))));
     if (!layer->getParent())
       addChild(layer);
     i++;
@@ -132,7 +133,7 @@ void CCScrollLayer::updatePages()
 
 // CCLayer Methods ReImpl
 
-void CCScrollLayer::visit()
+void CCScrollLayerHorizontal::visit()
 {
   CCLayer::visit();	//< Will draw after glPopScene.
   
@@ -142,12 +143,12 @@ void CCScrollLayer::visit()
     
     // Prepare Points Array
     float n = (float)totalScreens; //< Total points count in float.
-    float pY = m_tPagesIndicatorPosition.y; //< Points y-coord in parent coord sys.
+    float pX = m_tPagesIndicatorPosition.y; //< Points y-coord in parent coord sys.
     float d = 16.0f; //< Distance between points.
     CCPoint* points = new CCPoint[totalScreens];
     for (int i = 0; i < totalScreens; ++i)
     {
-      float pX = m_tPagesIndicatorPosition.x + d * ((float)i - 0.5f*(n-1.0f));
+      float pY = m_tPagesIndicatorPosition.y + d * ((float)i - 0.5f*(n-1.0f));
       points[i] = ccp(pX, pY);
     }
     
@@ -179,15 +180,15 @@ void CCScrollLayer::visit()
 
 // Moving To / Selecting Pages
 
-void CCScrollLayer::moveToPageEnded()
+void CCScrollLayerHorizontal::moveToPageEnded()
 {
   if (m_pDelegate)
     m_pDelegate->scrollLayerScrolledToPageNumber(this, m_uCurrentScreen);
 }
 
-unsigned int CCScrollLayer::pageNumberForPosition(const CCPoint& position)
+unsigned int CCScrollLayerHorizontal::pageNumberForPosition(const CCPoint& position)
 {
-  float pageFloat = - m_obPosition.x / (m_obContentSize.width - m_fPagesWidthOffset);
+  float pageFloat = - m_obPosition.y / (m_obContentSize.height - m_fPagesWidthOffset);
   int pageNumber = (int)ceilf(pageFloat);
   if ((float)pageNumber - pageFloat  >= 0.5f)
     pageNumber--;
@@ -199,16 +200,16 @@ unsigned int CCScrollLayer::pageNumberForPosition(const CCPoint& position)
 }
 
 
-CCPoint CCScrollLayer::positionForPageWithNumber(unsigned int pageNumber)
+CCPoint CCScrollLayerHorizontal::positionForPageWithNumber(unsigned int pageNumber)
 {
-  return ccp(pageNumber * -1.f * (m_obContentSize.width - m_fPagesWidthOffset), 0.0f);
+  return ccp(0.0f, pageNumber * -1.f * (m_obContentSize.height - m_fPagesWidthOffset));
 }
 
-void CCScrollLayer::moveToPage(unsigned int pageNumber)
+void CCScrollLayerHorizontal::moveToPage(unsigned int pageNumber)
 {
   if (pageNumber >= m_pLayers->count())
   {
-    CCLOGERROR("CCScrollLayer::moveToPage: %d - wrong page number, out of bounds.", pageNumber);
+    CCLOGERROR("CCScrollLayerHorizontal::moveToPage: %d - wrong page number, out of bounds.", pageNumber);
     return;
   }
   
@@ -216,7 +217,7 @@ void CCScrollLayer::moveToPage(unsigned int pageNumber)
   //		CCAction* changePage =
   //			CCSequence::create(
   //					CCMoveTo::create(0.6f, positionForPageWithNumber(pageNumber)),
-  //					CCCallFunc::create(this, callfunc_selector(CCScrollLayer::moveToPageEnded)),
+  //					CCCallFunc::create(this, callfunc_selector(CCScrollLayerHorizontal::moveToPageEnded)),
   //          NULL
   //				);
   
@@ -226,7 +227,7 @@ void CCScrollLayer::moveToPage(unsigned int pageNumber)
   CCAction* changePage =
   CCSequence::create(
                      
-                     CCCallFunc::create(this, callfunc_selector(CCScrollLayer::moveToPageEnded)),
+                     CCCallFunc::create(this, callfunc_selector(CCScrollLayerHorizontal::moveToPageEnded)),
                      CCEaseElasticOut::create(
                                                     CCMoveTo::create(actionDuration, positionForPageWithNumber(pageNumber)), bouncePeriod),
                      NULL);
@@ -236,18 +237,18 @@ void CCScrollLayer::moveToPage(unsigned int pageNumber)
   //    CCAction* changePage =
   //      CCSequence::create(
   //        action,
-  //        CCCallFunc::create(this, callfunc_selector(CCScrollLayer::moveToPageEnded)),
+  //        CCCallFunc::create(this, callfunc_selector(CCScrollLayerHorizontal::moveToPageEnded)),
   //        NULL);
   
   runAction(changePage);
   m_uCurrentScreen = pageNumber;
 }
 
-void CCScrollLayer::selectPage(unsigned int pageNumber)
+void CCScrollLayerHorizontal::selectPage(unsigned int pageNumber)
 {
   if (pageNumber >= m_pLayers->count())
   {
-    CCLOGERROR("CCScrollLayer::selectPage: %d - wrong page number, out of bounds.", pageNumber);
+    CCLOGERROR("CCScrollLayerHorizontal::selectPage: %d - wrong page number, out of bounds.", pageNumber);
     return;
   }
   
@@ -258,12 +259,12 @@ void CCScrollLayer::selectPage(unsigned int pageNumber)
 
 // Dynamic Pages Control
 
-void CCScrollLayer::addPage(CCLayer* aPage)
+void CCScrollLayerHorizontal::addPage(CCLayer* aPage)
 {
   addPage(aPage, m_pLayers->count());
 }
 
-void CCScrollLayer::addPage(CCLayer* aPage, unsigned int pageNumber)
+void CCScrollLayerHorizontal::addPage(CCLayer* aPage, unsigned int pageNumber)
 {
   pageNumber = MIN(pageNumber, m_pLayers->count());
   pageNumber = MAX(pageNumber, 0);
@@ -274,7 +275,7 @@ void CCScrollLayer::addPage(CCLayer* aPage, unsigned int pageNumber)
   moveToPage(m_uCurrentScreen);
 }
 
-void CCScrollLayer::removePage(CCLayer* aPage)
+void CCScrollLayerHorizontal::removePage(CCLayer* aPage)
 {
   m_pLayers->removeObject(aPage);
   removeChild(aPage, true);
@@ -285,7 +286,7 @@ void CCScrollLayer::removePage(CCLayer* aPage)
   moveToPage(m_uCurrentScreen);
 }
 
-void CCScrollLayer::removePageWithNumber(unsigned int pageNumber)
+void CCScrollLayerHorizontal::removePageWithNumber(unsigned int pageNumber)
 {
   if (pageNumber < m_pLayers->count())
     removePage((CCLayer*)(m_pLayers->objectAtIndex(pageNumber)));
@@ -294,14 +295,14 @@ void CCScrollLayer::removePageWithNumber(unsigned int pageNumber)
 // Touches
 
 // Register with more priority than CCMenu's but don't swallow touches
-void CCScrollLayer::registerWithTouchDispatcher()
+void CCScrollLayerHorizontal::registerWithTouchDispatcher()
 {
   CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, kCCMenuHandlerPriority - 1, false);
 }
 
 /** Hackish stuff - stole touches from other CCTouchDispatcher targeted delegates.
  Used to claim touch without receiving ccTouchBegan. */
-void CCScrollLayer::claimTouch(CCTouch* pTouch)
+void CCScrollLayerHorizontal::claimTouch(CCTouch* pTouch)
 {
   CCTargetedTouchHandler* handler = (CCTargetedTouchHandler*)CCDirector::sharedDirector()->getTouchDispatcher()->findHandler(this);
   if (handler)
@@ -313,12 +314,12 @@ void CCScrollLayer::claimTouch(CCTouch* pTouch)
     }
     else
     {
-      CCLOGERROR("CCScrollLayer::claimTouch is already claimed!");
+      CCLOGERROR("CCScrollLayerHorizontal::claimTouch is already claimed!");
     }
   }
 }
 
-void CCScrollLayer::cancelAndStoleTouch(CCTouch* pTouch, CCEvent* pEvent)
+void CCScrollLayerHorizontal::cancelAndStoleTouch(CCTouch* pTouch, CCEvent* pEvent)
 {
   // Throw Cancel message for everybody in TouchDispatcher.
   CCSet* touchSet = new CCSet();
@@ -334,7 +335,7 @@ void CCScrollLayer::cancelAndStoleTouch(CCTouch* pTouch, CCEvent* pEvent)
   claimTouch(pTouch);
 }
 
-void CCScrollLayer::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
+void CCScrollLayerHorizontal::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
 {
   // Do not cancel touch, if this method is called from cancelAndStoleTouch:
   if (m_bStealingTouchInProgress)
@@ -347,7 +348,7 @@ void CCScrollLayer::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
   }
 }
 
-bool CCScrollLayer::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
+bool CCScrollLayerHorizontal::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
 {
   if (!m_pScrollTouch)
     m_pScrollTouch = pTouch;
@@ -357,13 +358,13 @@ bool CCScrollLayer::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
   CCPoint touchPoint = pTouch->getLocationInView();
   touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
   
-  m_fStartSwipe = touchPoint.x;
-  m_iState = kCCScrollLayerStateIdle;
+  m_fStartSwipe = touchPoint.y;
+  m_iState = kCCScrollLayerHorizontalStateIdle;
   
   return true;
 }
 
-void CCScrollLayer::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
+void CCScrollLayerHorizontal::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
 {
   if(m_pScrollTouch != pTouch)
     return;
@@ -373,13 +374,13 @@ void CCScrollLayer::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
   
   // If finger is dragged for more distance then minimum - start sliding and cancel pressed buttons.
   // Of course only if we not already in sliding mode
-  if ((m_iState != kCCScrollLayerStateSliding)
-			&& (fabsf(touchPoint.x - m_fStartSwipe) >= m_fMinimumTouchLengthToSlide))
+  if ((m_iState != kCCScrollLayerHorizontalStateSliding)
+			&& (fabsf(touchPoint.y - m_fStartSwipe) >= m_fMinimumTouchLengthToSlide))
   {
-    m_iState = kCCScrollLayerStateSliding;
+    m_iState = kCCScrollLayerHorizontalStateSliding;
     
     // Avoid jerk after state change.
-    m_fStartSwipe = touchPoint.x;
+    m_fStartSwipe = touchPoint.y;
     
     if (m_bStealTouches)
       cancelAndStoleTouch(pTouch, pEvent);
@@ -388,20 +389,20 @@ void CCScrollLayer::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
       m_pDelegate->scrollLayerScrollingStarted(this);
   }
   
-  if (m_iState == kCCScrollLayerStateSliding)
+  if (m_iState == kCCScrollLayerHorizontalStateSliding)
   {
-    float desiredX = (m_uCurrentScreen * -1.f * (m_obContentSize.width - m_fPagesWidthOffset)) + touchPoint.x - m_fStartSwipe;
-    unsigned int page = pageNumberForPosition(ccp(desiredX, 0));
-    float offset = desiredX - positionForPageWithNumber(page).x;
+    float desiredY = (m_uCurrentScreen * -1.f * (m_obContentSize.height - m_fPagesWidthOffset)) + touchPoint.y - m_fStartSwipe;
+    unsigned int page = pageNumberForPosition(ccp(0, desiredY));
+    float offset = desiredY - positionForPageWithNumber(page).y;
     if ((page == 0 && offset > 0) || (page == m_pLayers->count() - 1 && offset < 0))
-      offset -= m_fMarginOffset * (offset / CCDirector::sharedDirector()->getWinSize().width);
+      offset -= m_fMarginOffset * (offset / CCDirector::sharedDirector()->getWinSize().height);
     else
       offset = 0;
-    setPosition(ccp(desiredX - offset, 0));
+    setPosition(ccp(0, desiredY - offset));
   }
 }
 
-void CCScrollLayer::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
+void CCScrollLayerHorizontal::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 {
   if(m_pScrollTouch != pTouch)
     return;
@@ -412,7 +413,7 @@ void CCScrollLayer::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
   touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
   
   unsigned int selectedPage = m_uCurrentScreen;
-  float delta = touchPoint.x - m_fStartSwipe;
+  float delta = touchPoint.y - m_fStartSwipe;
   if (fabs(delta) >= m_fMinimumTouchLengthToChangePage)
   {
     selectedPage = pageNumberForPosition(m_obPosition);
@@ -428,17 +429,17 @@ void CCScrollLayer::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
 }
 //}
 
-CCScrollLayer* CCScrollLayer::nodeWithLayers(cocos2d::CCArray *layers, int widthOffset, float duration, float bouncePeriod)
+CCScrollLayerHorizontal* CCScrollLayerHorizontal::nodeWithLayers(cocos2d::CCArray *layers, int widthOffset, float duration, float bouncePeriod)
 {
-  CCScrollLayer *layer = CCScrollLayer::nodeWithLayers(layers, widthOffset);
+  CCScrollLayerHorizontal *layer = CCScrollLayerHorizontal::nodeWithLayers(layers, widthOffset);
   layer->setActionDuration(duration);
   layer->setBouncePeriod(bouncePeriod);
   return layer;
 }
 
-void CCScrollLayer::updatePageIndicators()
+void CCScrollLayerHorizontal::updatePageIndicators()
 {
-  customPageIndicators->setPosition(ccp(getPagesIndicatorPosition().x - getPosition().x, getPagesIndicatorPosition().y));
+  customPageIndicators->setPosition(ccp(getPagesIndicatorPosition().x, getPagesIndicatorPosition().y - getPosition().y));
   for (int i = 0; i < customPageIndicators->getChildren()->count(); i++)
   {
     CCSprite *indicator = (CCSprite*)customPageIndicators->getChildren()->objectAtIndex(i);
