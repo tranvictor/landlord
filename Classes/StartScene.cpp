@@ -74,7 +74,8 @@ void StartScene::addPlayButton()
   CCSprite *play = CCSprite::create("Images/Game/UI/buttonPlay.png");
   
   CCMenuItemSprite *playBtn = CCMenuItemSprite::create(play, play, this,
-                                                         menu_selector(StartScene::playButtonTouched));
+                                  menu_selector(StartScene::playButtonTouched));
+    
 //  playBtn->setPosition(BTN_PLAY);
   
   CCMenu *playMenu = CCMenu::create(playBtn, NULL);
@@ -90,7 +91,7 @@ void StartScene::addSettingsButton()
   
   CCMenuItemSprite *settingBtn = CCMenuItemSprite::create(settings,settings,
                                                           this,
-                                                          menu_selector(StartScene::settingsButtonTouched));
+                              menu_selector(StartScene::settingsButtonTouched));
 //  settingBtn->setPosition(BTN_SETTINGS);
   
   CCMenu *settingMenu = CCMenu::create(settingBtn, NULL);
@@ -105,7 +106,8 @@ void StartScene::playButtonTouched(CCObject *pSender)
 {
   CCLOG("Play button touched");
   sound::playSoundFx(SFX_BUTTON_TOUCH);
-  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseCharacterScene::scene());
+  CCScene* newScene = CCTransitionCrossFade::create(0.5,
+                                                ChooseCharacterScene::scene());
   
   CCDirector::sharedDirector()->replaceScene(newScene);
 }
