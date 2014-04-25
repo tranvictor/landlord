@@ -234,6 +234,7 @@
 		6692F13618BB4E4400068D35 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6692F13518BB4E4400068D35 /* GameManager.cpp */; };
 		66EB9FF718B65370000A1CEB /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66EB9FF518B65370000A1CEB /* SettingScene.cpp */; };
 		7A0B9E0118B93FC80004A419 /* CCScrollLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */; };
+		7A114D1219096BC000D4566D /* ChooseMapScene_Test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EFF19013D9500B6469A /* ChooseMapScene_Test.mm */; };
 		7A15E7A818EE4AA900F3AC93 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A118EE4AA900F3AC93 /* CloseNormal.png */; };
 		7A15E7A918EE4AA900F3AC93 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A218EE4AA900F3AC93 /* CloseSelected.png */; };
 		7A15E7AB18EE4AA900F3AC93 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A418EE4AA900F3AC93 /* HelloWorld.png */; };
@@ -242,7 +243,6 @@
 		7A3D1EE51901284100B6469A /* landlordTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A3D1EE31901284100B6469A /* landlordTests-Info.plist */; };
 		7A3D1EE81901285900B6469A /* GameManager_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EE61901285900B6469A /* GameManager_Tests.mm */; };
 		7A3D1EE91901285900B6469A /* StartScene_Test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EE71901285900B6469A /* StartScene_Test.mm */; };
-		7A3D1F0019013D9500B6469A /* ChooseMapScene_Test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EFF19013D9500B6469A /* ChooseMapScene_Test.mm */; };
 		7A4091B7190273A30003A7B0 /* ChooseCharacterScene_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A4091B4190273A30003A7B0 /* ChooseCharacterScene_Tests.mm */; };
 		7A4091B8190273A30003A7B0 /* Sound_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A4091B5190273A30003A7B0 /* Sound_Tests.mm */; };
 		7A4091B9190273A30003A7B0 /* WinScene_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A4091B6190273A30003A7B0 /* WinScene_Tests.mm */; };
@@ -862,11 +862,11 @@
 			isa = PBXGroup;
 			children = (
 				7A3D1EE61901285900B6469A /* GameManager_Tests.mm */,
+				7A4091B5190273A30003A7B0 /* Sound_Tests.mm */,
 				7A3D1EE71901285900B6469A /* StartScene_Test.mm */,
 				7A4091B4190273A30003A7B0 /* ChooseCharacterScene_Tests.mm */,
 				7A3D1EFF19013D9500B6469A /* ChooseMapScene_Test.mm */,
 				7A4091B6190273A30003A7B0 /* WinScene_Tests.mm */,
-				7A4091B5190273A30003A7B0 /* Sound_Tests.mm */,
 				7ABE0A2C1903288800693F28 /* SettingScene_Test.mm */,
 				06B770B918FC213C0063D66F /* Supporting Files */,
 			);
@@ -2082,7 +2082,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				7A3D1ECD190122FF00B6469A /* ShellScript */,
+				7A3D1ECD190122FF00B6469A /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -2182,13 +2182,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7A3D1ECD190122FF00B6469A /* ShellScript */ = {
+		7A3D1ECD190122FF00B6469A /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2212,9 +2213,9 @@
 				7ABE0A09190304E800693F28 /* GameManager.cpp in Sources */,
 				7ABE0A2B1903273A00693F28 /* SettingScene.cpp in Sources */,
 				7ABE0A0A190304F700693F28 /* ChooseMapScence.cpp in Sources */,
-				7A3D1F0019013D9500B6469A /* ChooseMapScene_Test.mm in Sources */,
 				7ABE0A2D1903288800693F28 /* SettingScene_Test.mm in Sources */,
 				7A3D1EE91901285900B6469A /* StartScene_Test.mm in Sources */,
+				7A114D1219096BC000D4566D /* ChooseMapScene_Test.mm in Sources */,
 				7ABE0A07190304DE00693F28 /* Sound.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

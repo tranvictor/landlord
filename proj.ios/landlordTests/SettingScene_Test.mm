@@ -9,8 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "SettingScene.h"
 #import "cocos2d.h"
-#import "Sound.h"
-#import "SimpleAudioEngine.h"
+#import "GameManager.h"
 #import "Constant.h"
 
 @interface SettingScene_Test : SenTestCase
@@ -41,5 +40,31 @@ SettingScene *setting;
 - (void)testClassExists
 {
   STAssertTrue(setting != NULL, @"instance creates from SettingScene should not be NULL");
+}
+
+- (void)testSoundFXTouched
+{
+  bool preVal = GameManager::getSoundState();
+  setting->soundFxTouched(NULL);
+  STAssertTrue(GameManager::getSoundState() != preVal, @"change sound state");
+}
+
+- (void)testTreeModeTouched
+{
+  bool preVal = GameManager::getTreeModeState();
+  setting->treeModeTouched(NULL);
+  STAssertTrue(GameManager::getTreeModeState() != preVal, @"change tree state");
+}
+
+- (void)testMusicTouched
+{
+  bool preVal = GameManager::getMusicState();
+  setting->musicTouched(NULL);
+  STAssertTrue(GameManager::getMusicState() != preVal, @"change music state");
+}
+
+- (void)testBackButtonTouched
+{
+  // TODO
 }
 @end

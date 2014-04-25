@@ -482,11 +482,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "landlordTests/ChooseCharacterScene_Tests.mm"
-            timestampString = "420045231.597647"
+            timestampString = "420048616.785179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-testChooseCharactersAndChangeScene"
             landmarkType = "5">
          </BreakpointContent>
@@ -497,13 +497,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "landlordTests/ChooseCharacterScene_Tests.mm"
-            timestampString = "420045247.193966"
+            filePath = "../Classes/ChooseCharacterScene.cpp"
+            timestampString = "420080860.736647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "-testButtonBackTouched"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "ChooseCharacterScene::characterTouched(CCObject *pSender)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
