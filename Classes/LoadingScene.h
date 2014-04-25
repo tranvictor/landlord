@@ -23,6 +23,9 @@ public:
   
   void addItems();
   void addPlayButton();
+  void addSettingButton();
+  void playButtonTouched();
+  void settingButtonTouched();
   
   CREATE_FUNC(LoadingScene);
 };

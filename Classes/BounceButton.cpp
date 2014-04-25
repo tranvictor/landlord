@@ -34,3 +34,31 @@ bool BounceButton::init(const char * pFileName)
     return true;
 }
 
+void BounceButton::onEnter()
+{
+  CCNode::onEnter();
+  counter = 0.0f;
+  bouncing = true;
+  this->scheduleUpdate();
+}
+
+void BounceButton::update(float dt)
+{
+  if (bouncing)
+  {
+    counter += dt;
+    CCLog("update");
+    this->setScaleX((sin(counter*10) + 1)/2.0 * 0.1 + 1);
+    this->setScaleY((cos(counter*10) + 1)/2.0 * 0.1 + 1);
+    
+    if (counter > M_PI*500){
+      counter = 0;
+    }
+  }
+}
+
+void BounceButton::onExit()
+{
+  CCNode::onExit();
+  this->unscheduleUpdate();
+}

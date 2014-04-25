@@ -20,8 +20,11 @@ private:
 public:
     CC_SYNTHESIZE(int, mMapID, MapID);
     
-    static BounceButton* create(const char * pFileName);
-    virtual bool init(const char * pFileName);
+  static BounceButton* create(const char * pFileName);
+  virtual bool init(const char * pFileName);
+  void onEnter();
+  void onExit();
+  void update(float pDt);
 };
 
 #endif /* defined(__landlord__Bounce_Button__) */
