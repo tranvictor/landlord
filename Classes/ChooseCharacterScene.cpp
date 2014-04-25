@@ -110,6 +110,7 @@ void ChooseCharacterScene::addCharacter()
 
 void ChooseCharacterScene::characterTouched(CCObject *pSender)
 {
+  sound::playSoundFx(SFX_CHARACTER_SELECT);
   CCMenuItemSprite* characterSelected = (CCMenuItemSprite*)pSender;
   mCharacterTouchedID = characterSelected->getTag();
   CCString* characterName;
@@ -209,7 +210,7 @@ void ChooseCharacterScene::addBackButton()
 void ChooseCharacterScene::buttonBackTouched(CCObject *pSender)
 {
   CCLOG("Button back touched");
-  sound::playSoundFx();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   CCScene* newScene = CCTransitionCrossFade::create(0.5, StartScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 }

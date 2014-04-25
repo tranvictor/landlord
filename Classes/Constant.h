@@ -58,6 +58,11 @@ USING_NS_CC;
 #define WINNER_START_POS        ccp(320, 654-400)
 #define WINNER_POS              ccp(320, 654)
 
+// Sound
+#define SFX_BUTTON_TOUCH        "Sound/SFX/ui-button-tap.aac"
+#define MUSIC_BACKGROUND        "Sound/Music/music-in-game.wav"
+#define SFX_CHARACTER_SELECT    "Sound/SFX/ui-character-select.aac"
+
 enum eGround
 {
   GR_BACKGROUND,
