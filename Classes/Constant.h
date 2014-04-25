@@ -66,8 +66,11 @@ USING_NS_CC;
 #define SFX_CHOOSE_MAP          "Sound/SFX/sfx-choose-map.aac"
 #define SFX_TOUCH_TILE          "Sound/SFX/sfx-touch-tile.aac"
 #define SFX_TOUCH_POP           "Sound/SFX/sfx-touch-pop.wav"
-#define SFX_CONGRATULATION      "Sound/SFX/sfx-congratulate.acc"
-#define MUSIC_LEVEL_WON         "Sound/Music/music_level-won.mp3"
+#define SFX_CONGRATULATION      "Sound/SFX/sfx-congratulate.aac"
+#define MUSIC_WON               "Sound/Music/music_level-won.mp3"
+#define SFX_PICKUP_AXE          "Sound/SFX/sfx-pickup-axe.aac"
+#define SFX_UHOH                "Sound/SFX/sfx-uhoh.wav"
+#define SFX_CUT_TREE            "Sound/SFX/sfx-cut-tree.aac"
 
 enum eGround
 {
