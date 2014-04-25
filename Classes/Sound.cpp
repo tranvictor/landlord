@@ -12,19 +12,19 @@
 bool sound::music = true;
 bool sound::soundFx = true;
 
-void sound::playBackgroundMusic()
+void sound::playBackgroundMusic(const char* pFileName)
 {
   if(music && !CocosDenshion::SimpleAudioEngine::sharedEngine()->isBackgroundMusicPlaying())
   {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Sound/Music/Music_InGame.wav", true);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic(pFileName, true);
   }
 }
 
-void sound::playSoundFx()
+void sound::playSoundFx(const char* pFileName)
 {
   if(soundFx)
   {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("Sound/SFX/ui-button-tap.aac");
+      CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(pFileName);
   }
 }
 

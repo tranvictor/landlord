@@ -10,6 +10,7 @@
 #include "StartScene.h"
 #include "Sound.h"
 #include "GameManager.h"
+#include "Constant.h"
 
 USING_NS_CC;
 
@@ -184,7 +185,7 @@ void SettingScene::addBackButton()
 void SettingScene::soundFxTouched(CCObject *pSender)
 {
   CCLog("soundFx Touched");
-  sound::playSoundFx();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   sound::toggleSoundFx();
   GameManager::setSoundState();
 }
@@ -192,23 +193,23 @@ void SettingScene::soundFxTouched(CCObject *pSender)
 void SettingScene::musicTouched(CCObject *pSender)
 {
   CCLog("music Touched");
-  sound::playSoundFx();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   sound::toggleMusic();
-  sound::playBackgroundMusic();
+  sound::playBackgroundMusic(MUSIC_BACKGROUND);
   GameManager::setMusicState();
 }
 
 void SettingScene::treeModeTouched(CCObject *pSender)
 {
   CCLog("Tree Touched");
-  sound::playSoundFx();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   GameManager::setTreeModeState();
 }
 
 void SettingScene::backButtonTouched(CCObject *pSender)
 {
   CCLog("Back Button Touched");
-  sound::playSoundFx();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   
   //Set Scene Transition
   CCScene* newScene = CCTransitionSlideInL::create(0.5, StartScene::scene());

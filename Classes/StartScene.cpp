@@ -34,7 +34,7 @@ bool StartScene::init()
   }
   
   mScreenSize = CCDirector::sharedDirector()->getWinSize();
-  sound::playBackgroundMusic();
+  sound::playBackgroundMusic(MUSIC_BACKGROUND);
   
   addBackground();
   addPlayButton();
@@ -104,7 +104,7 @@ void StartScene::addSettingsButton()
 void StartScene::playButtonTouched(CCObject *pSender)
 {
   CCLOG("Play button touched");
-  sound::playSoundFx();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseCharacterScene::scene());
   
   CCDirector::sharedDirector()->replaceScene(newScene);
@@ -114,7 +114,7 @@ void StartScene::settingsButtonTouched(CCObject *pSender)
 {
   CCLOG("Settings button touched");
   
-  sound::playSoundFx();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   
   // Set Transtion Scene
   CCScene* newScene = CCTransitionSlideInL::create(0.5, SettingScene::scene());
