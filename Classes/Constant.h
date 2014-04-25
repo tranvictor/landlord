@@ -22,7 +22,7 @@ USING_NS_CC;
 #define BTN_RANDOM_POS          ccp(320, 245)
 #define BTN_BACK_POS            ccp(109.599, 103.958)
 #define BTN_FORWARSD_POS        ccp(1024.179, 103.958)
-#define NUMBER_MAPS             10
+#define NUMBER_MAPS             3 //10
 #define NUMBER_LAYERS           2
 #define MAP_CENTER_POS          ccp(320, 357)
 #define MAP_CENTER_X            320
@@ -92,6 +92,12 @@ USING_NS_CC;
 #define DELTA_ANGLE             30
 #define TIME_TO_MYST_FADE_IN_OUT 4.0f
 #define NUMBER_CLOUDS           1
+#define PLAY_BUTTON_POS         ccp(572.495, 640-526.133)
+#define SETTING_BUTTON_POS      ccp(105.331,640-548.252)
+
+// Sound
+#define SFX_BUTTON_TOUCH        "Sound/SFX/ui-button-tap.aac"
+#define MUSIC_BACKGROUND        "Sound/Music/Music_InGame.wav"
 
 enum eGround
 {

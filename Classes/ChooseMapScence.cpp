@@ -174,7 +174,7 @@ CCLayer* ChooseMapScene::createChooseMapLayer()
   {
     CCLayer* mapLayer = CCLayer::create();
     
-    CCSprite* map = CCSprite::create(CCString::createWithFormat("Images/Map/map-0%i.png", i)->getCString());
+    CCSprite* map = CCSprite::create(CCString::createWithFormat("Images/Map/map%i.png", i)->getCString());
     map->setPosition(CENTER_POS);
     mapLayer->addChild(map, GR_FOREGROUND, i);
     mapArr->addObject(mapLayer);

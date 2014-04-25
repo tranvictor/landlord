@@ -7,7 +7,7 @@
 //
 
 #include "SettingScene.h"
-#include "StartScene.h"
+#include "LoadingScene.h"
 #include "Sound.h"
 #include "GameManager.h"
 #include "Constant.h"
@@ -212,7 +212,7 @@ void SettingScene::backButtonTouched(CCObject *pSender)
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   
   //Set Scene Transition
-  CCScene* newScene = CCTransitionSlideInR::create(0.5, StartScene::scene());
+  CCScene* newScene = CCTransitionSlideInR::create(0.5, LoadingScene::scene());
   
   CCDirector::sharedDirector()->replaceScene(newScene);
   //CCDirector::sharedDirector()->popScene();

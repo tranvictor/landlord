@@ -54,15 +54,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
   
   // create a scene. it's an autorelease object
   //    CCScene *pScene = HelloWorld::scene();
-
   CCScene *pScene = LoadingScene::scene();
 
 //  CCScene *pScene = StartScene::scene();
-//  CCScene *pScene = ChooseMapScene::scene();
     // run
-    pDirector->runWithScene(pScene);
+  pDirector->runWithScene(pScene);
 
-    return true;
+  return true;
 }
 
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too

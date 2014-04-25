@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "Constant.h"
 #include "Sound.h"
+#include "ChooseMapScence.h"
 
 class LoadingScene : public cocos2d::CCLayer
 {
@@ -23,6 +24,10 @@ public:
   static cocos2d::CCScene* scene();
   
   void addItems();
+  void addPlayButton();
+  void addSettingButton();
+  void playButtonTouched();
+  void settingButtonTouched();
   
   CREATE_FUNC(LoadingScene);
 };
