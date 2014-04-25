@@ -257,7 +257,7 @@ void SettingScene::backButtonTouched(CCObject *pSender)
   
   //Set Scene Transition
   CCScene* newScene = CCTransitionSlideInR::create(0.5, LoadingScene::scene());
-  
+`
   CCDirector::sharedDirector()->replaceScene(newScene);
   //CCDirector::sharedDirector()->popScene();
 }

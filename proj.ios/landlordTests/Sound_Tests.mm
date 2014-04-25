@@ -11,6 +11,7 @@
 #import "SimpleAudioEngine.h"
 #import "Sound.h"
 #import "StartScene.h"
+#import "Constant.h"
 
 @interface Sound_Tests : SenTestCase
 
@@ -40,7 +41,7 @@ StartScene* startS;
   
   if (!sound::getMusicState())
     sound::toggleMusic();
-  sound::playBackgroundMusic();
+  sound::playBackgroundMusic(MUSIC_BACKGROUND);
   audio = CocosDenshion::SimpleAudioEngine::sharedEngine();
   STAssertTrue(audio->isBackgroundMusicPlaying(), @"background music must be playing");
 }

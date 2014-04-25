@@ -11,6 +11,7 @@
 #include "ChooseCharacterScene.h"
 #include "PlayScene.h"
 #include "GameManager.h"
+#include "Sound.h"
 
 USING_NS_CC;
 
@@ -56,7 +57,7 @@ void ChooseMapScene::addButtonRandom()
                                                          menu_selector(ChooseMapScene::buttonRandomTouched));
   CCMenu* pMenu = CCMenu::create(randomBtn, NULL);
   pMenu->setPosition(BTN_RANDOM_POS);
-  this->addChild(pMenu, 1);
+  this->addChild(pMenu, GR_BACKGROUND);
 }
 
 void ChooseMapScene::addButtonBack()
@@ -68,7 +69,7 @@ void ChooseMapScene::addButtonBack()
                                                        menu_selector(ChooseMapScene::buttonBackTouched));
   CCMenu* pMenu = CCMenu::create(backBtn, NULL);
   pMenu->setPosition(BTN_BACK_POS);
-  this->addChild(pMenu, 1);
+  this->addChild(pMenu, GR_BACKGROUND);
 }
 
 // use CCScrollLayer
@@ -97,6 +98,7 @@ void ChooseMapScene::makeSlidingMap()
 
 void ChooseMapScene::mapTouched(CCObject *pSender)
 {
+  sound::playSoundFx(SFX_CHOOSE_MAP);
   CCMenuItemImage* mapSelected = (CCMenuItemImage*)pSender;
   mMapTouchedID = mapSelected->getTag();
   CCLog("map %i choosed", mMapTouchedID);
@@ -108,6 +110,7 @@ void ChooseMapScene::mapTouched(CCObject *pSender)
 void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button random touched");
+  sound::playSoundFx(SFX_RANDOM_MAP);
   srand (time(NULL));
   int withIndex = ((int)random())%NUMBER_MAPS+1;
   CCLog("r = %i", withIndex);
@@ -117,7 +120,7 @@ void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button back touched");
-  CCScene* chooCharacterScene = CCTransitionCrossFade::create(SCENE_TRANSITION_TIME, ChooseCharacterScene::scene());
-  CCDirector::sharedDirector()->replaceScene(chooCharacterScene);
-
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseCharacterScene::scene());
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }

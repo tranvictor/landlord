@@ -9,6 +9,9 @@
 #include "WinScene.h"
 #include "ChooseMapScence.h"
 #include "GameManager.h"
+#include "Sound.h"
+#include "Constant.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -20,7 +23,9 @@ bool WinScene::init()
   }
 
   screenSize = CCDirector::sharedDirector()->getWinSize();
-
+  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
+  sound::playBackgroundMusic(MUSIC_WON);
+  
   addBackground();
   addMask();
   addButtonShare();
@@ -86,17 +91,14 @@ void WinScene::buttonShareTouched(cocos2d::CCObject *pSender)
 void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button replay touched");
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
-  CCDirector::sharedDirector()->runWithScene(newScene);
+  CCDirector::sharedDirector()->replaceScene(newScene);
 
 }
 
 void WinScene::appearWinner()
 {
-  // Get from manager
-//  int arr[2] = {GameManager::getPlayerOneID(), GameManager::getPlayerTwoID()};
-//  srand (time(NULL));
-//  int i = arr[rand()%2];
   int winnerID;
   if (GameManager::getWinPlayer() == PLAYER_ONE)
   {

@@ -12,6 +12,8 @@
 #include "Tree.h"
 #include "Axe.h"
 #include "Stone.h"
+#include "Sound.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -40,6 +42,8 @@ bool PlayScene::init()
   {
     return false;
   }
+  
+  CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(0.5f);
   
   mScreenSize = CCDirector::sharedDirector()->getWinSize();
   setTouchEnabled(true);
@@ -209,6 +213,9 @@ void PlayScene::addScoreLbn()
 void PlayScene::pauseButtonTouched()
 {
   CCLog("paused touched");
+  // TODO
+  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
+  sound::playSoundFx(SFX_CONGRATULATION);
   CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 }
@@ -271,6 +278,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     
     if (!mIsScrolling && sp && sp->boundingBox().containsPoint(mBeginLocationToMap))
     {
+      sound::playSoundFx(SFX_TOUCH_TILE);
       mCurTile = i;
       if (mTileInfoVector.at(mCurTile)->getHasTree())
       {
@@ -281,7 +289,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
       }
       else if (mTileInfoVector.at(mCurTile)->getHasStone())
       {
-        //  doing nothing
+        sound::playSoundFx(SFX_UHOH);
       }
       else
       {
@@ -294,6 +302,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 
 void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
 {
+  sound::playSoundFx(SFX_TOUCH_POP);
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
   CCSprite *edge = CCSprite::create("Images/Game/Object/edge.png");
@@ -347,7 +356,9 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       }
       if (mTileInfoVector.at(i)->getHasAxe())
       {
+        sound::playSoundFx(SFX_PICKUP_AXE);
         GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
+        CCLog("axe collected");
       }
     }
   }
@@ -717,6 +728,7 @@ void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite
 
 void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
 {
+  sound::playSoundFx(SFX_TOUCH_POP);
   CCMenuItemSprite* pop = (CCMenuItemSprite*)pSender;
   pop->setVisible(false);
   mIsAxePopVisible = false;
@@ -744,6 +756,7 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
 
 void PlayScene::removeTree()
 {
+  sound::playSoundFx(SFX_CUT_TREE);
   for (int i = 0; i < mTreesArr->count(); i++)
   {
     CCSprite* tree = (CCSprite*) mTreesArr->objectAtIndex(i);
@@ -771,6 +784,7 @@ void PlayScene::setupRemindLayer()
 
 void PlayScene::onResume()
 {
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   mReminder->setVisible(false);
   setCooldownTime(100.0);
   CCDirector::sharedDirector()->resume();
@@ -779,7 +793,7 @@ void PlayScene::onResume()
 void PlayScene::cooldown()
 {
   float now = getCooldownTime();
-  CCLog("%f", now);
+//  CCLog("%f", now);
   setCooldownTime(now - 0.3);
   if (now <= 0)
   {
