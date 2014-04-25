@@ -11,6 +11,7 @@
 #include "Sound.h"
 #include "GameManager.h"
 #include "Constant.h"
+#include "LoadingScene.h"
 
 USING_NS_CC;
 
@@ -34,8 +35,9 @@ bool SettingScene::init()
   screenSize = CCDirector::sharedDirector()->getWinSize();
   
   addBackground();
-  addSoundFxButton();
   addMusicButton();
+  addSoundFxButton();
+  addFogModeButton();
   addTreeModeButton();
   addBackButton();
   
@@ -46,22 +48,22 @@ bool SettingScene::init()
 void SettingScene::addBackground()
 {
   CCSprite* background = CCSprite::create(
-                                 "Images/Game/Background/BG-setting.png");
+                                 "Images/Game/Background/optionBg.png");
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   
-  this->addChild(background, 0);
+  this->addChild(background, GR_BACKGROUND);
 }
 
 void SettingScene::addSoundFxButton()
 {
   CCMenuItem* uncheckedBtn = CCMenuItemImage::create(
-                                            "Images/Game/UI/buttonUncheck.png",
-                                            "Images/Game/UI/buttonChecked.png",
+                                            "Images/Game/UI/sfxButton1.png",
+                                            "Images/Game/UI/sfxButton2.png",
                                             NULL,
                                             NULL);
   CCMenuItem* checkedBtn = CCMenuItemImage::create(
-                                            "Images/Game/UI/buttonChecked.png",
-                                            "Images/Game/UI/buttonUncheck.png",
+                                            "Images/Game/UI/sfxButton2.png",
+                                            "Images/Game/UI/sfxButton1.png",
                                             NULL,
                                             NULL);
   
@@ -88,19 +90,19 @@ void SettingScene::addSoundFxButton()
   soundFx->addChild(soundFxToggle);
   soundFx->setPosition(BTN_SOUND);
   
-  this->addChild(soundFx, 1);
+  this->addChild(soundFx, GR_FOREGROUND);
 }
 
 void SettingScene::addMusicButton()
 {
   CCMenuItem* uncheckedBtn = CCMenuItemImage::create(
-                                            "Images/Game/UI/buttonUncheck.png",
-                                            "Images/Game/UI/buttonChecked.png",
+                                            "Images/Game/UI/soundButton2.png",
+                                            "Images/Game/UI/soundButton1.png",
                                             NULL,
                                             NULL);
   CCMenuItem* checkedBtn = CCMenuItemImage::create(
-                                            "Images/Game/UI/buttonChecked.png",
-                                            "Images/Game/UI/buttonUncheck.png",
+                                            "Images/Game/UI/soundButton1.png",
+                                            "Images/Game/UI/soundButton2.png",
                                             NULL,
                                             NULL);
   
@@ -125,19 +127,55 @@ void SettingScene::addMusicButton()
   music->addChild(musicToggle);
   music->setPosition(BTN_MUSIC);
   
-  this->addChild(music, 2);
+  this->addChild(music, GR_MIDDLEGROUND);
 }
 
 void SettingScene::addTreeModeButton()
 {
   CCMenuItem* uncheckedBtn = CCMenuItemImage::create(
-                                            "Images/Game/UI/buttonUncheck.png",
-                                            "Images/Game/UI/buttonChecked.png",
+                                                     "Images/Game/UI/treModeButton2.png",
+                                                     "Images/Game/UI/treModeButton1.png",
+                                                     NULL,
+                                                     NULL);
+  CCMenuItem* checkedBtn = CCMenuItemImage::create(
+                                                   "Images/Game/UI/treModeButton1.png",
+                                                   "Images/Game/UI/treModeButton2.png",
+                                                   NULL,
+                                                   NULL);
+  
+  CCMenuItem* state1 = CCMenuItem::create();
+  CCMenuItem* state2 = CCMenuItem::create();
+  
+  if(GameManager::getTreeModeState()){
+    state1 = checkedBtn;
+    state2 = uncheckedBtn;
+  } else
+  {
+    state1 = uncheckedBtn;
+    state2 = checkedBtn;
+  }
+  
+  CCMenuItemToggle* treeToggle = CCMenuItemToggle::createWithTarget(this,
+                                                                    menu_selector(SettingScene::treeModeTouched),
+                                                                    state1,
+                                                                    state2,
+                                                                    NULL);
+  CCMenu* tree = CCMenu::create();
+  tree->addChild(treeToggle);
+  tree->setPosition(BTN_TREE);
+  this->addChild(tree, GR_FOREGROUND);
+}
+
+void SettingScene::addFogModeButton()
+{
+  CCMenuItem* uncheckedBtn = CCMenuItemImage::create(
+                                            "Images/Game/UI/fogButton2.png",
+                                            "Images/Game/UI/fogButton1.png",
                                             NULL,
                                             NULL);
   CCMenuItem* checkedBtn = CCMenuItemImage::create(
-                                            "Images/Game/UI/buttonChecked.png",
-                                            "Images/Game/UI/buttonUncheck.png",
+                                            "Images/Game/UI/fogButton1.png",
+                                            "Images/Game/UI/fogButton2.png",
                                             NULL,
                                             NULL);
   
@@ -153,21 +191,20 @@ void SettingScene::addTreeModeButton()
     state2 = checkedBtn;
   }
   
-  CCMenuItemToggle* treeToggle = CCMenuItemToggle::createWithTarget(this,
-                                   menu_selector(SettingScene::treeModeTouched),
+  CCMenuItemToggle* fogToggle = CCMenuItemToggle::createWithTarget(this,
+                                   menu_selector(SettingScene::fogModeTouched),
                                                                     state1,
                                                                     state2,
                                                                     NULL);
-  CCMenu* tree = CCMenu::create();
-  tree->addChild(treeToggle);
-  tree->setPosition(BTN_TREE);
-  
-  this->addChild(tree, 2);
+  CCMenu* fog = CCMenu::create();
+  fog->addChild(fogToggle);
+  fog->setPosition(BTN_FOG_POS);
+  this->addChild(fog, GR_MIDDLEGROUND);
 }
 
 void SettingScene::addBackButton()
 {
-  CCSprite *backBtn = CCSprite::create("Images/Game/UI/buttonBack.png");
+  CCSprite *backBtn = CCSprite::create("Images/Game/UI/backButton.png");
   
   CCMenuItem *back = CCMenuItemSprite::create(backBtn,
                                               backBtn,
@@ -177,7 +214,7 @@ void SettingScene::addBackButton()
   CCMenu *backButton = CCMenu::create();
   backButton->addChild(back);
   
-  backButton->setPosition(BTN_BACK);
+  backButton->setPosition(SETTING_BTN_BACK);
   
   this->addChild(backButton, 3);
 }
@@ -206,13 +243,20 @@ void SettingScene::treeModeTouched(CCObject *pSender)
   GameManager::setTreeModeState();
 }
 
+void SettingScene::fogModeTouched(CCObject *pSender)
+{
+  CCLog("Fog Touched");
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
+  GameManager::setFogModeState();
+}
+
 void SettingScene::backButtonTouched(CCObject *pSender)
 {
   CCLog("Back Button Touched");
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   
   //Set Scene Transition
-  CCScene* newScene = CCTransitionSlideInL::create(0.5, StartScene::scene());
+  CCScene* newScene = CCTransitionSlideInR::create(0.5, LoadingScene::scene());
   
   CCDirector::sharedDirector()->replaceScene(newScene);
   //CCDirector::sharedDirector()->popScene();

@@ -29,6 +29,14 @@ USING_NS_CC;
 #define DISTANCE_BETWEEN_MAPS   444
 #define GREEN_DOT_Y             419
 
+//SettingScene
+#define BTN_SOUND               ccp(678.832, 640 - 303.004)
+
+#define BTN_MUSIC               ccp(600.6, 640 - 142.398)
+#define BTN_FOG_POS             ccp(859.227, 640 - 126.151)
+#define BTN_TREE                ccp(964.836, 640 - 263.52)
+#define SETTING_BTN_BACK        ccp(1049.105, 640 - 558.245)
+
 // PlayScene
 #define BTN_PAUSE_POS           ccp(320, 158.27)
 #define MAP_POS                 ccp(320.5, 657.338)

@@ -15,6 +15,7 @@ private:
   static bool musicState;
   static bool soundState;
   static bool treeModeState;
+  static bool fogModeState;
   static int  playerOneID;
   static int  playerTwoID;
   static int  mapIDTouched;
@@ -40,6 +41,9 @@ public:
   
   static bool getTreeModeState();
   static void setTreeModeState();
+  
+  static bool getFogModeState();
+  static void setFogModeState();
   
   static void setPlayerOneID(int ID);
   static int  getPlayerOneID();
