@@ -16,7 +16,7 @@ void sound::playBackgroundMusic()
 {
   if(music && !CocosDenshion::SimpleAudioEngine::sharedEngine()->isBackgroundMusicPlaying())
   {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Sound/background.wav", true);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Sound/Music/background.wav", true);
   }
 }
 
@@ -24,7 +24,7 @@ void sound::playSoundFx()
 {
   if(soundFx)
   {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("Sound/tick.wav");
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("Sound/SFX/tick.wav");
   }
 }
 
