@@ -27,6 +27,8 @@ bool LoadingScene::init()
     return false;
   }
   
+  sound::playBackgroundMusic(MUSIC_BACKGROUND);
+  
   addItems();
   
   return true;
@@ -89,7 +91,7 @@ void LoadingScene::addItems()
   for (int i = -1; i <= NUMBER_CLOUDS; i++)
   {
     CCSprite* cloud = CCSprite::create("Images/Game/Object/cloud.png");
-    cloud->setPosition(LANDLORD_POS+ ccp((landlord->getContentSize().width/2-40)*i, i*2));
+    cloud->setPosition(LANDLORD_POS+ ccp((landlord->getContentSize().width/2 - 40)*i, i * 2));
 //    cloud->runAction(<#cocos2d::CCAction *action#>)
 //    cloud->setColor(ccRED);
     this->addChild(cloud, 100);

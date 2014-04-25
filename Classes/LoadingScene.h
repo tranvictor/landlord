@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "Constant.h"
+#include "Sound.h"
 
 class LoadingScene : public cocos2d::CCLayer
 {
