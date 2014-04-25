@@ -34,8 +34,6 @@ void sound::toggleMusic()
   if(!music)
   {
     CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
-  } else{
-    sound::playBackgroundMusic();
   }
 }
 

@@ -194,6 +194,7 @@ void SettingScene::musicTouched(CCObject *pSender)
   CCLog("music Touched");
   sound::playSoundFx();
   sound::toggleMusic();
+  sound::playBackgroundMusic();
   GameManager::setMusicState();
 }
 
