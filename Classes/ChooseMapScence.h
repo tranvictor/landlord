@@ -22,7 +22,6 @@ class ChooseMapScene : public cocos2d::CCLayer
 {
 private:
   cocos2d::CCSize   mScreenSize;
-  cocos2d::CCArray* mMapArr;
   int               mMapTouchedID;
   CCScrollLayer*    mSlidingMap;
   
@@ -30,6 +29,8 @@ public:
   virtual bool init();
   static cocos2d::CCScene* scene();
   CREATE_FUNC(ChooseMapScene);
+  
+  CC_SYNTHESIZE(CCArray*, mMapArr, MapArr);
   
   void addBackground();
   void addButtonRandom();

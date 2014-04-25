@@ -11,6 +11,7 @@
 #include "SettingScene.h"
 #include "Sound.h"
 #include "ChooseCharacterScene.h"
+#include "Constant.h"
 
 USING_NS_CC;
 
@@ -33,7 +34,7 @@ bool StartScene::init()
   }
   
   mScreenSize = CCDirector::sharedDirector()->getWinSize();
-  sound::playBackgroundMusic();
+  sound::playBackgroundMusic(MUSIC_BACKGROUND);
   
   addBackground();
   addPlayButton();
@@ -50,7 +51,7 @@ void StartScene::addBackground()
   
   background->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   
-  this->addChild(background, 0);
+  this->addChild(background, 0, START_BG_TAG);
   
   //CCSprite *background = CCSprite::create("CloudAnimation/Mainscene-Background-blanksky.png");
   
@@ -73,14 +74,15 @@ void StartScene::addPlayButton()
   CCSprite *play = CCSprite::create("Images/Game/UI/buttonPlay.png");
   
   CCMenuItemSprite *playBtn = CCMenuItemSprite::create(play, play, this,
-                                                         menu_selector(StartScene::playButtonTouched));
+                                  menu_selector(StartScene::playButtonTouched));
+    
 //  playBtn->setPosition(BTN_PLAY);
   
   CCMenu *playMenu = CCMenu::create(playBtn, NULL);
   
   playMenu->setPosition(BTN_PLAY);
   
-  this->addChild(playMenu,1);
+  this->addChild(playMenu, 1, BTN_PLAY_TAG);
 }
 
 void StartScene::addSettingsButton()
@@ -89,26 +91,22 @@ void StartScene::addSettingsButton()
   
   CCMenuItemSprite *settingBtn = CCMenuItemSprite::create(settings,settings,
                                                           this,
-                                                          menu_selector(StartScene::settingsButtonTouched));
+                              menu_selector(StartScene::settingsButtonTouched));
 //  settingBtn->setPosition(BTN_SETTINGS);
   
   CCMenu *settingMenu = CCMenu::create(settingBtn, NULL);
   
   settingMenu->setPosition(BTN_SETTINGS);
   
-  this->addChild(settingMenu, 2);
+  this->addChild(settingMenu, 2, BTN_SETTINGS_TAG);
 }
   
 
-
 void StartScene::playButtonTouched(CCObject *pSender)
 {
-  CCLOG("Play button touched");
-  sound::playSoundFx();
-  CCScene* chooseCharacterScene = CCTransitionCrossFade::create(0.5, ChooseCharacterScene::scene());
-  //  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
-  
-  
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
+  CCScene* newScene = CCTransitionCrossFade::create(0.5,
+                                                ChooseCharacterScene::scene());
   CCDirector::sharedDirector()->replaceScene(chooseCharacterScene);
 }
 
@@ -116,14 +114,11 @@ void StartScene::settingsButtonTouched(CCObject *pSender)
 {
   CCLOG("Settings button touched");
   
-  sound::playSoundFx();
-//  CCDirector::sharedDirector()->replaceScene(SettingScene::scene());
-  //CCDirector::sharedDirector()->pushScene(SettingScene::scene());
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   
   // Set Transtion Scene
-//  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
-  CCScene* settingScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
-//  CCScene* newScene = CCTransitionCrossFade::create(0.5, SettingScene::scene());
+
+  CCScene* newScene = CCTransitionSlideInL::create(0.5, SettingScene::scene());
   
   
   CCDirector::sharedDirector()->replaceScene(settingScene);

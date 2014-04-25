@@ -17,10 +17,10 @@ class TileInfo
 private:
   
 public:
-  CC_SYNTHESIZE(eEdgeStatus, mEdgeTopSts, EdgeTopSts);
-  CC_SYNTHESIZE(eEdgeStatus, mEdgeBottomSts, EdgeBottomSts);
-  CC_SYNTHESIZE(eEdgeStatus, mEdgeLeftSts, EdgeLeftSts);
-  CC_SYNTHESIZE(eEdgeStatus, mEdgeRightSts, EdgeRightSts);
+  CC_SYNTHESIZE(eEdgeStatus, mEdgeTopStatus, EdgeTopStatus);
+  CC_SYNTHESIZE(eEdgeStatus, mEdgeBottomStatus, EdgeBottomStatus);
+  CC_SYNTHESIZE(eEdgeStatus, mEdgeLeftStatus, EdgeLeftStatus);
+  CC_SYNTHESIZE(eEdgeStatus, mEdgeRightStatus, EdgeRightStatus);
   
   CC_SYNTHESIZE(bool, mHasTopPop, HasTopPop);
   CC_SYNTHESIZE(bool, mHasBottomPop, HasBottomPop);

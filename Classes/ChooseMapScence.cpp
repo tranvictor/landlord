@@ -101,11 +101,9 @@ void ChooseMapScene::mapTouched(CCObject *pSender)
   mMapTouchedID = mapSelected->getTag();
   CCLog("map %i choosed", mMapTouchedID);
   GameManager::setMapIDTouched(mMapTouchedID);
-  CCScene* playScene = CCTransitionCrossFade::create(SCENE_TRANSITION_TIME, PlayScene::scene());
-  CCDirector::sharedDirector()->replaceScene(playScene);
-
+  CCScene* newScene = CCTransitionCrossFade::create(0.5, PlayScene::scene());
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }
-
 
 void ChooseMapScene::buttonRandomTouched(cocos2d::CCObject *pSender)
 {

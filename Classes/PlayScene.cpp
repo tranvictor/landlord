@@ -61,7 +61,11 @@ bool PlayScene::init()
   addAxes();
   addStones();
   
+  setCooldownTime(100.0);
+  setupRemindLayer();
+  
   schedule(schedule_selector(PlayScene::update));
+  schedule(schedule_selector(PlayScene::cooldown));
   
   return true;
 }
@@ -144,7 +148,7 @@ void PlayScene::makeMapScroll()
         TileInfo *tileInfo = new TileInfo();
         tileInfo->setTile(tile);
         tileInfo->setGID(PAIR_FUNC(i, j));
-        CCLog("gid %d", PAIR_FUNC(i, j));
+//        CCLog("gid %d", PAIR_FUNC(i, j));
         mTileInfoVector.push_back(tileInfo);
         
         if (j > 0 && mMapLayer->tileAt(ccp(i, j-1)))
@@ -219,6 +223,7 @@ void PlayScene::addFrameImg()
 bool PlayScene::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
   mIsScrolling = false;
+  setCooldownTime(100.0);
   
   mBeginLocation = pTouch->getLocation();
   mBeginLocation = this->convertToNodeSpace(mBeginLocation);
@@ -282,6 +287,7 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
       {
         appearPops(tileInfo, sp);
       }
+      schedule(schedule_selector(PlayScene::cooldown));
     }
   }
 }
@@ -445,14 +451,14 @@ void PlayScene::addBottomEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
   
   mTileMap->addChild(pEdge, GR_FOREGROUND);
-  pTileInfo->setEdgeBottomSts(STS_NOT_AVAILABLE);
+  pTileInfo->setEdgeBottomStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
     if (mTileInfoVector.at(i)->getGID() == pTileInfo->getGIDTileDown())
     {
       mTileInfoVector.at(i)->setHasTopPop(true);
-      mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
+      mTileInfoVector.at(i)->setEdgeTopStatus(STS_NOT_AVAILABLE);
       mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
     }
   }
@@ -466,13 +472,13 @@ void PlayScene::addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width/2, tileSprite->getPositionY() + tileSprite->getContentSize().height));
   
   mTileMap->addChild(pEdge, GR_FOREGROUND);
-  pTileInfo->setEdgeTopSts(STS_NOT_AVAILABLE);
+  pTileInfo->setEdgeTopStatus(STS_NOT_AVAILABLE);
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
     if (mTileInfoVector.at(i)->getGID() == pTileInfo->getGIDTileUp())
     {
       mTileInfoVector.at(i)->setHasBottomPop(true);
-      mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
+      mTileInfoVector.at(i)->setEdgeBottomStatus(STS_NOT_AVAILABLE);
       mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
     }
   }
@@ -487,14 +493,14 @@ void PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setPosition(ccp(tileSprite->getPositionX(), tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
   
   mTileMap->addChild(pEdge, GR_FOREGROUND);
-  pTileInfo->setEdgeLeftSts(STS_NOT_AVAILABLE);
+  pTileInfo->setEdgeLeftStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
     if (mTileInfoVector.at(i)->getGID() == pTileInfo->getGIDTileLeft())
     {
       mTileInfoVector.at(i)->setHasRightPop(true);
-      mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
+      mTileInfoVector.at(i)->setEdgeRightStatus(STS_NOT_AVAILABLE);
       mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
     }
   }
@@ -509,14 +515,14 @@ void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width, tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
   
   mTileMap->addChild(pEdge, GR_FOREGROUND);
-  pTileInfo->setEdgeRightSts(STS_NOT_AVAILABLE);
+  pTileInfo->setEdgeRightStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
     if (mTileInfoVector.at(i)->getGID() == pTileInfo->getGIDTileRight())
     {
       mTileInfoVector.at(i)->setHasLeftPop(true);
-      mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
+      mTileInfoVector.at(i)->setEdgeLeftStatus(STS_NOT_AVAILABLE);
       mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
     }
   }
@@ -524,19 +530,19 @@ void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
 
 void PlayScene::appearPops(TileInfo* pTileInfo, cocos2d::CCSprite *pSp)
 {
-  if (pTileInfo->getEdgeBottomSts() == STS_AVAILABLE && !pTileInfo->getHasBottomPop())
+  if (pTileInfo->getEdgeBottomStatus() == STS_AVAILABLE && !pTileInfo->getHasBottomPop())
   {
     appearBottomPop(pTileInfo, pSp);
   }
-  if (pTileInfo->getEdgeTopSts() == STS_AVAILABLE && !pTileInfo->getHasTopPop())
+  if (pTileInfo->getEdgeTopStatus() == STS_AVAILABLE && !pTileInfo->getHasTopPop())
   {
     appearTopPop(pTileInfo, pSp);
   }
-  if (pTileInfo->getEdgeLeftSts() == STS_AVAILABLE && !pTileInfo->getHasLeftPop())
+  if (pTileInfo->getEdgeLeftStatus() == STS_AVAILABLE && !pTileInfo->getHasLeftPop())
   {
     appearLeftPop(pTileInfo, pSp);
   }
-  if (pTileInfo->getEdgeRightSts() == STS_AVAILABLE && !pTileInfo->getHasRightPop())
+  if (pTileInfo->getEdgeRightStatus() == STS_AVAILABLE && !pTileInfo->getHasRightPop())
   {
     appearRightPop(pTileInfo, pSp);
   }
@@ -671,28 +677,28 @@ void PlayScene::addStones()
           mTileInfoVector.at(indexOfTileToAddStone)->getGIDTileLeft())
       {
         mTileInfoVector.at(i)->setHasRightPop(true);
-        mTileInfoVector.at(i)->setEdgeRightSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setEdgeRightStatus(STS_NOT_AVAILABLE);
         mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
       }
       else if (mTileInfoVector.at(i)->getGID() ==
                mTileInfoVector.at(indexOfTileToAddStone)->getGIDTileRight())
       {
         mTileInfoVector.at(i)->setHasLeftPop(true);
-        mTileInfoVector.at(i)->setEdgeLeftSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setEdgeLeftStatus(STS_NOT_AVAILABLE);
         mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
       }
       else if (mTileInfoVector.at(i)->getGID() ==
                mTileInfoVector.at(indexOfTileToAddStone)->getGIDTileUp())
       {
         mTileInfoVector.at(i)->setHasBottomPop(true);
-        mTileInfoVector.at(i)->setEdgeBottomSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setEdgeBottomStatus(STS_NOT_AVAILABLE);
         mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
       }
       else if (mTileInfoVector.at(i)->getGID() ==
                mTileInfoVector.at(indexOfTileToAddStone)->getGIDTileDown())
       {
         mTileInfoVector.at(i)->setHasTopPop(true);
-        mTileInfoVector.at(i)->setEdgeTopSts(STS_NOT_AVAILABLE);
+        mTileInfoVector.at(i)->setEdgeTopStatus(STS_NOT_AVAILABLE);
         mTileInfoVector.at(i)->setNumberEdgeAvailale(mTileInfoVector.at(i)->getNumberEdgeAvailale()-1);
       }
     }
@@ -746,5 +752,38 @@ void PlayScene::removeTree()
       tree->setVisible(false);
       mTreesArr->removeObjectAtIndex(i);
     }
+  }
+}
+
+void PlayScene::setupRemindLayer()
+{
+  mReminder = CCLayer::create();
+  CCSprite* btn = CCSprite::create("Images/Game/UI/buttonPlay.png");
+  CCMenuItemSprite* item = CCMenuItemSprite::create(btn, btn, this, menu_selector(PlayScene::onResume));
+  CCPoint centerPos = ccp(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2);
+  item->setPosition(centerPos);
+  CCMenu* menu = CCMenu::create(item, NULL);
+  mReminder->addChild(menu);
+  mReminder->setVisible(false);
+  menu->setPosition(CCPointZero);
+  this->addChild(mReminder);
+}
+
+void PlayScene::onResume()
+{
+  mReminder->setVisible(false);
+  setCooldownTime(100.0);
+  CCDirector::sharedDirector()->resume();
+}
+
+void PlayScene::cooldown()
+{
+  float now = getCooldownTime();
+  CCLog("%f", now);
+  setCooldownTime(now - 0.3);
+  if (now <= 0)
+  {
+    mReminder->setVisible(true);
+    CCDirector::sharedDirector()->pause();
   }
 }

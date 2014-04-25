@@ -12,19 +12,19 @@
 bool sound::music = true;
 bool sound::soundFx = true;
 
-void sound::playBackgroundMusic()
+void sound::playBackgroundMusic(const char* pFileName)
 {
   if(music && !CocosDenshion::SimpleAudioEngine::sharedEngine()->isBackgroundMusicPlaying())
   {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Sound/background.wav", true);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic(pFileName, true);
   }
 }
 
-void sound::playSoundFx()
+void sound::playSoundFx(const char* pFileName)
 {
   if(soundFx)
   {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("Sound/tick.wav");
+      CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(pFileName);
   }
 }
 
@@ -34,12 +34,20 @@ void sound::toggleMusic()
   if(!music)
   {
     CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
-  } else{
-    sound::playBackgroundMusic();
   }
 }
 
 void sound::toggleSoundFx()
 {
   soundFx = !soundFx;
+}
+
+bool sound::getMusicState()
+{
+  return music;
+}
+
+bool sound::getSoundFxState()
+{
+  return soundFx;
 }

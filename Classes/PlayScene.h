@@ -95,6 +95,12 @@ public:
   
   CCPoint getBound();
   
+  CC_SYNTHESIZE(float, mCooldownTime, CooldownTime);
+  CC_SYNTHESIZE(cocos2d::CCLayer*, mReminder, Reminder);
+  void onResume();
+  void setupRemindLayer();
+  void cooldown();
+  
   virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
   virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
   virtual void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
