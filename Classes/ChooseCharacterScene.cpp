@@ -11,6 +11,7 @@
 #include "StartScene.h"
 #include "ChooseMapScence.h"
 #include "GameManager.h"
+#include "Sound.h"
 
 USING_NS_CC;
 
@@ -208,6 +209,7 @@ void ChooseCharacterScene::addBackButton()
 void ChooseCharacterScene::buttonBackTouched(CCObject *pSender)
 {
   CCLOG("Button back touched");
+  sound::playSoundFx();
   CCScene* newScene = CCTransitionCrossFade::create(0.5, StartScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 }

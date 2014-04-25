@@ -16,7 +16,7 @@ void sound::playBackgroundMusic()
 {
   if(music && !CocosDenshion::SimpleAudioEngine::sharedEngine()->isBackgroundMusicPlaying())
   {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Sound/Music/Music_InGame.wav", true);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("Sound/Music/Music_InGame.mp3", true);
   }
 }
 
@@ -24,7 +24,7 @@ void sound::playSoundFx()
 {
   if(soundFx)
   {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("Sound/SFX/ui-button-tap.aac");
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("Sound/SFX/tick.wav");
   }
 }
 

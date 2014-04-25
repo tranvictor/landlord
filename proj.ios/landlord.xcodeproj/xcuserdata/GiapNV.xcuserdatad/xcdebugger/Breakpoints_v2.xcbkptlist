@@ -144,11 +144,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/ChooseCharacterScene.cpp"
-            timestampString = "415298008.660795"
+            timestampString = "420107285.77899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "ChooseCharacterScene::characterTouched(CCObject *pSender)"
             landmarkType = "5">
             <Locations>
@@ -498,11 +498,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/ChooseCharacterScene.cpp"
-            timestampString = "420080860.736647"
+            timestampString = "420107285.77899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "ChooseCharacterScene::characterTouched(CCObject *pSender)"
             landmarkType = "5">
          </BreakpointContent>
