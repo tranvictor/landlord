@@ -19,6 +19,7 @@
 #include "ChooseCharacterScene.h"
 #include "StartScene.h"
 #include "CCScrollView.h"
+#include "LoadingScene.h"
 
 class ChooseMapScene : public cocos2d::CCLayer
 {

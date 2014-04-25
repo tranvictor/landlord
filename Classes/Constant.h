@@ -14,6 +14,7 @@
 USING_NS_CC;
 //  the gap between dot of indicator
 #define GAP_BETWEEN_DOT 37.78f
+#define SCENE_TRANSITION_TIME 0.5f
 
 #define SCREEN_SIZE             CCDirector::sharedDirector()->getWinSize()
 #define CENTER_POS              ccp(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)
@@ -43,6 +44,7 @@ USING_NS_CC;
 #define LBN_SCORE_PLAYER2_POS   ccp(531.229, 37.093)
 #define NUMBER_EDGE_AVAILABLE   4
 #define PAIR_FUNC(a,b)          (int)(0.5*(a+b)*(a+b+1)+b)  // return the unique number from a, b
+#define RANDOM_NUMBER_OF_TREES  rand() % 3 + 4
 
 // ChooseCharacterScene
 #define NUMBER_CHARACTERS       8
@@ -77,6 +79,19 @@ USING_NS_CC;
 #define SFX_PICKUP_AXE          "Sound/SFX/sfx-pickup-axe.aac"
 #define SFX_UHOH                "Sound/SFX/sfx-uhoh.wav"
 #define SFX_CUT_TREE            "Sound/SFX/sfx-cut-tree.aac"
+
+// Loading Scene
+#define MYST_POS                ISLAND_POS + ccp(0, 20)
+#define LANDLORD_POS            ISLAND_POS + ccp(0, 90)
+#define SUN_POS                 LANDLORD_POS
+#define ISLAND_POS              CENTER_POS //ccp(561.459,	1136 - 660.725)
+#define INITIAL_SUN_SCALE       0.3f
+#define TIME_TO_SUN_MOVE        2.0f
+#define FINAL_SUN_SCALE         1.0f
+#define TIME_TO_ROTATE_SUN      1.0f
+#define DELTA_ANGLE             30
+#define TIME_TO_MYST_FADE_IN_OUT 4.0f
+#define NUMBER_CLOUDS           1
 
 enum eGround
 {

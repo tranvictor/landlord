@@ -193,7 +193,7 @@ void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
   CCLog("%d", mState);
   if (mState == 0)
   {
-    CCScene* newScene = CCTransitionCrossFade::create(0.5, StartScene::scene());
+    CCScene* newScene = CCTransitionCrossFade::create(0.5, LoadingScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
   else if (mState == 1)

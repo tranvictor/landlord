@@ -12,6 +12,7 @@
 #include "Sound.h"
 #include "ChooseCharacterScene.h"
 #include "Constant.h"
+#include "ChooseMapScence.h"
 
 USING_NS_CC;
 
@@ -107,7 +108,7 @@ void StartScene::playButtonTouched(CCObject *pSender)
   CCLOG("Play button touched");
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   CCScene* newScene = CCTransitionCrossFade::create(0.5,
-                                                ChooseCharacterScene::scene());
+                                                ChooseMapScene::scene());
   
   CCDirector::sharedDirector()->replaceScene(newScene);
 }
@@ -120,7 +121,6 @@ void StartScene::settingsButtonTouched(CCObject *pSender)
   
   // Set Transtion Scene
   CCScene* newScene = CCTransitionSlideInL::create(0.5, SettingScene::scene());
-  
   
   CCDirector::sharedDirector()->replaceScene(newScene);
 }
