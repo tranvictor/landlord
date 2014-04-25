@@ -28,8 +28,13 @@ bool LoadingScene::init()
   }
   
   addItems();
+  addPlayButton();
   
   return true;
+}
+
+void LoadingScene::addPlayButton(){
+    CCSprite* playButton = CCSprite::create("");
 }
 
 void LoadingScene::addItems()

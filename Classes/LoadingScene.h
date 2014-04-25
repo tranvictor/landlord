@@ -22,6 +22,7 @@ public:
   static cocos2d::CCScene* scene();
   
   void addItems();
+  void addPlayButton();
   
   CREATE_FUNC(LoadingScene);
 };
