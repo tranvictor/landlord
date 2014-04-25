@@ -24,7 +24,7 @@ void sound::playSoundFx(const char* pFileName)
 {
   if(soundFx)
   {
-      CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(pFileName);
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(pFileName);
   }
 }
 
