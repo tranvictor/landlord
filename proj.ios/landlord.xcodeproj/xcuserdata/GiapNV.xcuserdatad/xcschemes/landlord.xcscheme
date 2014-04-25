@@ -55,23 +55,6 @@
                BlueprintName = "landlordTests"
                ReferencedContainer = "container:landlord.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "ChooseCharacterScene_Tests/testButtonBackTouched">
-               </Test>
-               <Test
-                  Identifier = "ChooseCharacterScene_Tests/testChooseCharactersAndChangeScene">
-               </Test>
-               <Test
-                  Identifier = "ChooseMapScene_Test/testMapTouched">
-               </Test>
-               <Test
-                  Identifier = "StartScene_Test/testPlayButtonTouched">
-               </Test>
-               <Test
-                  Identifier = "StartScene_Test/testSettingButtonTouched">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
