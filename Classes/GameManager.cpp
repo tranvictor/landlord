@@ -15,6 +15,7 @@ USING_NS_CC;
 bool GameManager::musicState = true;
 bool GameManager::soundState = true;
 bool GameManager::treeModeState = true;
+bool GameManager::fogModeState = true;
 int  GameManager::playerOneID = -1;
 int  GameManager::playerTwoID = -1;
 int  GameManager::mapIDTouched = -1;
@@ -60,6 +61,16 @@ bool GameManager::getTreeModeState()
 void GameManager::setTreeModeState()
 {
   treeModeState = !treeModeState;
+}
+
+bool GameManager::getFogModeState()
+{
+  return fogModeState;
+}
+
+void GameManager::setFogModeState()
+{
+  fogModeState = !fogModeState;
 }
 
 void GameManager::setPlayerOneID(int pID)

@@ -49,7 +49,7 @@ bool PlayScene::init()
   setTouchEnabled(true);
   
   GameManager::initPlayersInfo();
-//  addPlayGroud();
+  addPlayGroud();
   makeMapScroll();
 //  tilesArr->retain();
 //  addFrameImg();
@@ -76,7 +76,7 @@ bool PlayScene::init()
 
 void PlayScene::addPauseButton()
 {
-  CCSprite* btn = CCSprite::create("Images/Game/UI/button-pause.png");
+  CCSprite* btn = CCSprite::create("Images/Game/UI/pauseButton-02.png");
   CCMenuItemSprite* btnPause = CCMenuItemSprite::create(btn, btn, this, menu_selector(PlayScene::pauseButtonTouched));
   CCMenu* menu = CCMenu::create(btnPause, NULL);
   menu->setPosition(BTN_PAUSE_POS);
@@ -85,7 +85,7 @@ void PlayScene::addPauseButton()
 
 void PlayScene::addPlayGroud()
 {
-  CCSprite *ground = CCSprite::create("Images/Game/Background/BG-play.png");
+  CCSprite *ground = CCSprite::create("Images/Game/Background/gradientPlayScene.png");
   ground->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   addChild(ground);
 }
@@ -128,12 +128,12 @@ void PlayScene::addPlayerTwoShadow()
 
 void PlayScene::makeMapScroll()
 {
-  mTileMap = CCTMXTiledMap::create("Images/Map/map01.tmx");
+  mTileMap = CCTMXTiledMap::create(CCString::createWithFormat("Images/Map/map%d.tmx", GameManager::getMapIDTouched())->getCString());
 
   this->addChild(mTileMap);
 
   mTileMap->setPosition(ccp(0, 0));
-  mMapLayer = mTileMap->layerNamed("map01");
+  mMapLayer = mTileMap->layerNamed("tile");
   
   CCSize s = mMapLayer->getLayerSize();
   CCSprite* tile = CCSprite::create();
@@ -181,29 +181,31 @@ void PlayScene::makeMapScroll()
 
 void PlayScene::addScoreLbn()
 {
-  CCSprite* scoreP1 = CCSprite::create("Images/Game/UI/scoreP1.png");
-  scoreP1->setPosition(LBN_SCORE_PLAYER1_POS);
+  CCSprite* scoreBoardPlayscene = CCSprite::create("Images/Game/Background/scoreBoardPlayscene.png");
+  scoreBoardPlayscene->setPosition(CENTER_POS);
+//  CCSprite* scoreP1 = CCSprite::create("Images/Game/UI/scoreP1.png");
+//  scoreP1->setPosition(LBN_SCORE_PLAYER1_POS);
   mLbnScorePlayer1 = CCLabelTTF::create("0", "ordin", 50);
   mLbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer1->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
   mLbnScorePlayer1->setColor(ccBLUE);
-  mLbnScorePlayer1->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
-  scoreP1->addChild(mLbnScorePlayer1);
-  this->addChild(scoreP1, GR_FOREGROUND);
+  mLbnScorePlayer1->setPosition(ccp(PLAYER_ONE_POS.x, 40));
+  scoreBoardPlayscene->addChild(mLbnScorePlayer1);
+//  this->addChild  (scoreBoardPlayscene, GR_FOREGROUND);
   
   // demo counting player1 score
   sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(true));
   mLbnScorePlayer1->setString(mScoreBuffer);
   
-  CCSprite* scoreP2 = CCSprite::create("Images/Game/UI/scoreP2.png");
-  scoreP2->setPosition(LBN_SCORE_PLAYER2_POS);
+//  CCSprite* scoreP2 = CCSprite::create("Images/Game/UI/scoreP2.png");
+//  scoreP2->setPosition(LBN_SCORE_PLAYER2_POS);
   mLbnScorePlayer2 = CCLabelTTF::create("0", "ordin", 50);
   mLbnScorePlayer2->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer2->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
   mLbnScorePlayer2->setColor(ccRED);
-  mLbnScorePlayer2->setPosition(ccp(scoreP1->getPositionX(), scoreP1->getPositionY()));
-  scoreP2->addChild(mLbnScorePlayer2);
-  this->addChild(scoreP2, GR_FOREGROUND);
+  mLbnScorePlayer2->setPosition(ccp(PLAYER_TWO_POS.x, 40));
+  scoreBoardPlayscene->addChild(mLbnScorePlayer2);
+  this->addChild(scoreBoardPlayscene, GR_FOREGROUND);
   
   // demo counting player2 score
   sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(false));

@@ -179,9 +179,9 @@ CCLayer* ChooseMapScene::createChooseMapLayer()
     mapLayer->addChild(map, GR_FOREGROUND, i);
     mapArr->addObject(mapLayer);
   }
-  CCScrollLayerHorizontal* slideMap = CCScrollLayerHorizontal::nodeWithLayers(mapArr, 0);
+  mSlideMap = CCScrollLayerHorizontal::nodeWithLayers(mapArr, 0);
 
-  chooseMapLayer->addChild(slideMap, GR_FOREGROUND, TAG_SLIDE_MAP);
+  chooseMapLayer->addChild(mSlideMap, GR_FOREGROUND, TAG_SLIDE_MAP);
   
   return chooseMapLayer;
 }
@@ -210,8 +210,8 @@ void ChooseMapScene::buttonForwardTouched(cocos2d::CCObject *pSender)
   mState++;
   if (mState == 3)
   {
-//    int id = mChooseMapLayer->getChildByTag(TAG_SLIDE_MAP)->getChildByTag(i)
-//    GameManager::setMapIDTouched();
+    int id = mSlideMap->getCurrentScreen();
+    GameManager::setMapIDTouched(id + 1);
     CCScene* newScene = CCTransitionCrossFade::create(0.5, PlayScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
@@ -224,7 +224,6 @@ void ChooseMapScene::buttonForwardTouched(cocos2d::CCObject *pSender)
 
 ChooseMapScene::~ChooseMapScene()
 {
-//  mArr->release(); /
 }
 
 CCAction* ChooseMapScene::changePage(cocos2d::CCPoint pPos)

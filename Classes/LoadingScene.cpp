@@ -35,7 +35,7 @@ bool LoadingScene::init()
   addItems();
   addPlayButton();
   addSettingButton();
-  
+  sound::playBackgroundMusic(MUSIC_BACKGROUND);
   return true;
 }
 

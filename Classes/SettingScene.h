@@ -9,13 +9,6 @@
 #ifndef landlord_SettingScene_h
 #define landlord_SettingScene_h
 
-//CONSTANT
-
-#define BTN_SOUND ccp(120, 268)
-#define BTN_MUSIC ccp(120, 371.02)
-#define BTN_TREE ccp(120, 168)
-#define BTN_BACK ccp(565, 68)
-
 #include "cocos2d.h"
 
 class SettingScene : public cocos2d::CCLayer
@@ -32,11 +25,13 @@ public:
   void addMusicButton();
   void addTreeModeButton();
   void addBackButton();
+  void addFogModeButton();
   
   void soundFxTouched(cocos2d::CCObject *pSender);
   void musicTouched(cocos2d::CCObject *pSender);
   void treeModeTouched(cocos2d::CCObject *pSender);
   void backButtonTouched(cocos2d::CCObject *pSender);
+  void fogModeTouched(cocos2d::CCObject *pSender);
   
   CREATE_FUNC(SettingScene);
 };

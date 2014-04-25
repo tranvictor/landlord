@@ -34,6 +34,7 @@ private:
   CCScrollLayerHorizontal* mSlideCharacter1;
   CCScrollLayerHorizontal* mSlideCharacter2;
   CCSprite*         mVs;
+  CCScrollLayerHorizontal* mSlideMap;
   
 public:
   virtual bool init();

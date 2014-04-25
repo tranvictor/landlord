@@ -34,12 +34,20 @@ USING_NS_CC;
 #define CHARACTER_RIGHT_LAYER_POS ccp(796.894, 320.977)
 #define VS_POS                  ccp(561.163, 345.206)
 
+//SettingScene
+#define BTN_SOUND               ccp(678.832, 640 - 303.004)
+
+#define BTN_MUSIC               ccp(600.6, 640 - 142.398)
+#define BTN_FOG_POS             ccp(859.227, 640 - 126.151)
+#define BTN_TREE                ccp(964.836, 640 - 263.52)
+#define SETTING_BTN_BACK        ccp(1049.105, 640 - 558.245)
+
 // PlayScene
-#define BTN_PAUSE_POS           ccp(320, 158.27)
+#define BTN_PAUSE_POS           ccp(1044.559, 144.997)
 
 #define MAP_POS                 ccp(320.5, 657.338)
-#define PLAYER_ONE_POS          ccp(97.192, 142.551)
-#define PLAYER_TWO_POS          ccp(543.762, 142.551)
+#define PLAYER_ONE_POS          ccp(104.592,	494.027)
+#define PLAYER_TWO_POS          ccp(1032.333,	494.027)
 #define LBN_SCORE_PLAYER1_POS   ccp(109.114, 37.093)
 #define LBN_SCORE_PLAYER2_POS   ccp(531.229, 37.093)
 #define NUMBER_EDGE_AVAILABLE   4
@@ -61,10 +69,11 @@ USING_NS_CC;
 #define INDICATOR_POS_Y         86.738
 
 // WinScene
-#define BTN_REPLAY_POS          ccp(84, 80)
-#define BTN_SHARE_POS           ccp(330, 236)
-#define WINNER_START_POS        ccp(320, 654-400)
-#define WINNER_POS              ccp(320, 654)
+#define BTN_REPLAY_POS          ccp(703.386,	640 - 574.864)
+#define BTN_SHARE_POS           ccp(568.5, 640 - 553.149)
+#define WINNER_START_POS        ccp(562, 200)
+#define WINNER_POS              ccp(562, 640 - 281)
+#define BTN_MENU_POS            ccp(423.185,	640 - 574.865)
 
 // Sound
 #define SFX_BUTTON_TOUCH        "Sound/SFX/ui-button-tap.aac"

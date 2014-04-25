@@ -23,7 +23,7 @@ public:
   CREATE_FUNC(WinScene);
   
   void addBackground();
-  void addMask();
+  void addMenu();
   void addButtonShare();
   void buttonShareTouched(cocos2d::CCObject* pSender);
   void addButtonReplay();
