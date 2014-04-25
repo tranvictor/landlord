@@ -16,6 +16,7 @@ USING_NS_CC;
 #define GAP_BETWEEN_DOT 37.78f
 
 #define SCREEN_SIZE             CCDirector::sharedDirector()->getWinSize()
+#define CENTER_POS              ccp(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)
 // ChooseMapScene
 #define BTN_RANDOM_POS          ccp(320, 245)
 #define BTN_BACK_POS            ccp(49, 46)
@@ -57,11 +58,22 @@ USING_NS_CC;
 #define WINNER_START_POS        ccp(320, 654-400)
 #define WINNER_POS              ccp(320, 654)
 
+// Sound
+#define SFX_BUTTON_TOUCH        "Sound/SFX/ui-button-tap.aac"
+#define MUSIC_BACKGROUND        "Sound/Music/Music_InGame.wav"
+
 enum eGround
 {
   GR_BACKGROUND,
   GR_MIDDLEGROUND,
   GR_FOREGROUND
+};
+
+enum eStartSceneTag
+{
+  BTN_SETTINGS_TAG,
+  START_BG_TAG,
+  BTN_PLAY_TAG
 };
 
 enum eTag
@@ -87,6 +99,20 @@ enum eCurrentPlayer
 {
   PLAYER_ONE = 1,
   PLAYER_TWO = 2,
+};
+
+enum eChooseCharacterSceneTags
+{
+  CHOOSECHARACTER_BG_TAG,
+  CHOOSECHARACTER_BACKBTN_TAG,
+};
+
+enum eWinSceneTags
+{
+  WIN_BG_TAG,
+  WIN_MASK_TAG,
+  WIN_SHAREBTN_TAG,
+  WIN_REPLAYBTN_TAG,
 };
 
 #endif

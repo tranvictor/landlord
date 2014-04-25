@@ -15,9 +15,9 @@ USING_NS_CC;
 bool GameManager::musicState = true;
 bool GameManager::soundState = true;
 bool GameManager::treeModeState = true;
-int  GameManager::playerOneID = 1;
-int  GameManager::playerTwoID = 1;
-int  GameManager::mapIDTouched = 1;
+int  GameManager::playerOneID = -1;
+int  GameManager::playerTwoID = -1;
+int  GameManager::mapIDTouched = -1;
 
 int  GameManager::player1Score;
 int  GameManager::player2Score;
@@ -62,9 +62,9 @@ void GameManager::setTreeModeState()
   treeModeState = !treeModeState;
 }
 
-void GameManager::setPlayerOneID(int ID)
+void GameManager::setPlayerOneID(int pID)
 {
-  playerOneID = ID;
+  playerOneID = pID;
 }
 
 int GameManager::getPlayerOneID()
@@ -72,9 +72,9 @@ int GameManager::getPlayerOneID()
   return playerOneID;
 }
 
-void GameManager::setPlayerTwoID(int ID)
+void GameManager::setPlayerTwoID(int pID)
 {
-  playerTwoID = ID;
+  playerTwoID = pID;
 }
 
 int GameManager::getPlayerTwoID()
@@ -83,9 +83,9 @@ int GameManager::getPlayerTwoID()
 }
 
 
-void GameManager::setMapIDTouched(int ID)
+void GameManager::setMapIDTouched(int pID)
 {
-  mapIDTouched = ID;
+  mapIDTouched = pID;
 }
 
 int GameManager::getMapIDTouched()
@@ -101,9 +101,9 @@ void GameManager::initPlayersInfo()
   currentPlayer = PLAYER_ONE;
 }
 
-void GameManager::increaseScore(int currentPlayer)
+void GameManager::increaseScore(int pCurrentPlayer)
 {
-  if (currentPlayer == PLAYER_ONE)
+  if (pCurrentPlayer == PLAYER_ONE)
   {
     player1Score++;
   }
@@ -118,9 +118,9 @@ int GameManager::getCurrentPlayer()
   return currentPlayer;
 }
 
-int GameManager::getPlayerScore(int currentPlayer)
+int GameManager::getPlayerScore(int pCurrentPlayer)
 {
-  if (currentPlayer == PLAYER_ONE)
+  if (pCurrentPlayer == PLAYER_ONE)
   {
     return player1Score;
   }
@@ -147,9 +147,9 @@ void GameManager::changeCurrentPlayer()
   }
 }
 
-void GameManager::setWinPlayer(int _currentPlayer)
+void GameManager::setWinPlayer(int pCurrentPlayer)
 {
-  winPlayer = _currentPlayer;
+  winPlayer = pCurrentPlayer;
 }
 
 void GameManager::setNumOfTrees(int pNumOfTrees)

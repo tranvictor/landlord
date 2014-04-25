@@ -10,7 +10,7 @@
 
 TileInfo::TileInfo()
 {
-  mEdgeTopSts = mEdgeBottomSts = mEdgeLeftSts = mEdgeRightSts = STS_AVAILABLE;
+  mEdgeTopStatus = mEdgeBottomStatus = mEdgeLeftStatus = mEdgeRightStatus = STS_AVAILABLE;
   mNumberEdgeAvailale = NUMBER_EDGE_AVAILABLE;
   mHasBottomPop = mHasLeftPop = mHasRightPop = mHasTopPop = false;
   mHasEdgeTouched = false;
