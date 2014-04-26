@@ -45,12 +45,12 @@ WinScene *win;
   STAssertTrue(((CCSprite*)obj)->getPosition().equals(CCPoint(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)), @"background is center of the screen");
 }
 
-- (void) testAddMask
-{
-  CCObject *obj = win->getChildByTag(WIN_MASK_TAG);
-  STAssertTrue(obj != NULL, @"mask added");
-  STAssertTrue(((CCSprite*)obj)->getPosition().equals(CCPoint(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)), @"mask is center of the screen");
-}
+//- (void) testAddMask
+//{
+//  CCObject *obj = win->getChildByTag(WIN_MASK_TAG);
+//  STAssertTrue(obj != NULL, @"mask added");
+//  STAssertTrue(((CCSprite*)obj)->getPosition().equals(CCPoint(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2)), @"mask is center of the screen");
+//}
 
 - (void) testAddButtonShare
 {

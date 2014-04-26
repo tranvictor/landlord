@@ -41,8 +41,8 @@ ChooseMapScene *chooseMap;
   STAssertTrue(chooseMap != NULL, @"choosemap should not be null");
 }
 
-- (void)testMapTouched
+- (void)testbackTouched
 {
-  // TODO
+
 }
 @end

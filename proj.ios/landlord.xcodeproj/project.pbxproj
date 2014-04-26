@@ -245,6 +245,12 @@
 		7A3CB353190AF5A900074D3F /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB351190AF5A900074D3F /* GameManager.cpp */; };
 		7A3CB356190AF5B200074D3F /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB354190AF5B200074D3F /* Sound.cpp */; };
 		7A3CB359190AF5BA00074D3F /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB357190AF5BA00074D3F /* AppDelegate.cpp */; };
+		7A3CB360190B055C00074D3F /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB333190AF52B00074D3F /* StartScene.cpp */; };
+		7A3CB361190B056100074D3F /* ChooseCharacterScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB336190AF53C00074D3F /* ChooseCharacterScene.cpp */; };
+		7A3CB363190B057100074D3F /* WinScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB33C190AF55200074D3F /* WinScene.cpp */; };
+		7A3CB364190B057700074D3F /* SettingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB33F190AF55B00074D3F /* SettingScene.cpp */; };
+		7A3CB365190B058200074D3F /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB351190AF5A900074D3F /* GameManager.cpp */; };
+		7A3CB366190B058700074D3F /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB354190AF5B200074D3F /* Sound.cpp */; };
 		7A3D1EE51901284100B6469A /* landlordTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A3D1EE31901284100B6469A /* landlordTests-Info.plist */; };
 		7A3D1EE81901285900B6469A /* GameManager_Tests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EE61901285900B6469A /* GameManager_Tests.mm */; };
 		7A3D1EE91901285900B6469A /* StartScene_Test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D1EE71901285900B6469A /* StartScene_Test.mm */; };
@@ -305,16 +311,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0610AE3618E40E1A000BD558 /* Tree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tree.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Tree.cpp"; sourceTree = "<absolute>"; };
-		0610AE3718E40E1A000BD558 /* Tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tree.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Tree.h"; sourceTree = "<absolute>"; };
-		0610AE3918E40E44000BD558 /* Axe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Axe.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Axe.cpp"; sourceTree = "<absolute>"; };
-		0610AE3A18E40E44000BD558 /* Axe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Axe.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Axe.h"; sourceTree = "<absolute>"; };
-		0667816118E70FDB00024600 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Stone.cpp"; sourceTree = "<absolute>"; };
-		0667816218E70FDB00024600 /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Stone.h"; sourceTree = "<absolute>"; };
 		06B770B318FC213C0063D66F /* landlordTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = landlordTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B770B418FC213C0063D66F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseCharacterScene.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/ChooseCharacterScene.cpp"; sourceTree = "<absolute>"; };
-		06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseCharacterScene.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/ChooseCharacterScene.h"; sourceTree = "<absolute>"; };
 		15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = ../../../cocos2dx/proj.ios/cocos2dx.xcodeproj; sourceTree = "<group>"; };
 		15A3D8891682F7D5002FB0C5 /* Box2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box2D.h; sourceTree = "<group>"; };
 		15A3D88B1682F7D5002FB0C5 /* b2BroadPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = b2BroadPhase.cpp; sourceTree = "<group>"; };
@@ -631,10 +629,6 @@
 		1AC3624516D4A1E8000847F2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = SOURCE_ROOT; };
 		1AC3624616D4A1E8000847F2 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = SOURCE_ROOT; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
-		1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/AppDelegate.cpp"; sourceTree = "<absolute>"; };
-		1AFAF8B416D35DE700DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/AppDelegate.h"; sourceTree = "<absolute>"; };
-		1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/HelloWorldScene.cpp"; sourceTree = "<absolute>"; };
-		1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/HelloWorldScene.h"; sourceTree = "<absolute>"; };
 		1AFCDA8016D4A25900906EA6 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = SOURCE_ROOT; };
 		1AFCDA8116D4A25900906EA6 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = SOURCE_ROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -769,24 +763,12 @@
 		379BB99417F03F3700829B88 /* SceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneReader.h; sourceTree = "<group>"; };
 		46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITouchGroup.cpp; sourceTree = "<group>"; };
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
-		660DE50A18BBC22F00079508 /* CloudAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CloudAnimation.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/CloudAnimation.h"; sourceTree = "<absolute>"; };
-		660DE50C18BBC24700079508 /* CloudAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CloudAnimation.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/CloudAnimation.cpp"; sourceTree = "<absolute>"; };
-		6616F87218BA515100F695A3 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sound.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Sound.h"; sourceTree = "<absolute>"; };
-		66199A9618BA969300A45A99 /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sound.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Sound.cpp"; sourceTree = "<absolute>"; };
-		661B811F18B3E22C00578534 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/StartScene.h"; sourceTree = "<absolute>"; };
-		661B812018B3E5AD00578534 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/StartScene.cpp"; sourceTree = "<absolute>"; };
-		6692F13418BB4E3200068D35 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameManager.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/GameManager.h"; sourceTree = "<absolute>"; };
-		6692F13518BB4E4400068D35 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/GameManager.cpp"; sourceTree = "<absolute>"; };
-		66EB9FF518B65370000A1CEB /* SettingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SettingScene.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/classes/SettingScene.cpp"; sourceTree = "<absolute>"; };
-		66EB9FF618B65370000A1CEB /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingScene.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/classes/SettingScene.h"; sourceTree = "<absolute>"; };
 		7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCScrollLayer.cpp; sourceTree = "<group>"; };
 		7A0B9E0018B93FC80004A419 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
 		7A15E7A118EE4AA900F3AC93 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		7A15E7A218EE4AA900F3AC93 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		7A15E7A418EE4AA900F3AC93 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		7A15E7A618EE4AA900F3AC93 /* iphone-5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "iphone-5"; sourceTree = "<group>"; };
-		7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileInfo.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/TileInfo.cpp"; sourceTree = "<absolute>"; };
-		7A18DB7018CD91F100C95A32 /* TileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileInfo.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/TileInfo.h"; sourceTree = "<absolute>"; };
 		7A37684B18F6A547005082ED /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoadingScene.cpp; path = ../Classes/LoadingScene.cpp; sourceTree = "<group>"; };
 		7A37684C18F6A547005082ED /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingScene.h; path = ../Classes/LoadingScene.h; sourceTree = "<group>"; };
 		7A3CB330190AF51700074D3F /* TileInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileInfo.cpp; path = ../Classes/TileInfo.cpp; sourceTree = "<group>"; };
@@ -826,16 +808,10 @@
 		7A4091B5190273A30003A7B0 /* Sound_Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Sound_Tests.mm; path = landlordTests/Sound_Tests.mm; sourceTree = SOURCE_ROOT; };
 		7A4091B6190273A30003A7B0 /* WinScene_Tests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = WinScene_Tests.mm; path = landlordTests/WinScene_Tests.mm; sourceTree = SOURCE_ROOT; };
 		7A4091D719027F1D0003A7B0 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
-		7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinScene.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/WinScene.cpp"; sourceTree = "<absolute>"; };
-		7A94DC8318BDBB2A0071CDD5 /* WinScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinScene.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/WinScene.h"; sourceTree = "<absolute>"; };
 		7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLayerPanZoom.cpp; sourceTree = "<group>"; };
 		7A9B5CE318C0A45900C739FD /* CCLayerPanZoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLayerPanZoom.h; sourceTree = "<group>"; };
-		7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayScene.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/PlayScene.cpp"; sourceTree = "<absolute>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		7AA0CCD018BB9C380097A90B /* PlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayScene.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/PlayScene.h"; sourceTree = "<absolute>"; };
 		7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SlidingMenu.cpp; sourceTree = "<group>"; };
 		7AA1ADFC18B3F79A00A5C58C /* SlidingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenu.h; sourceTree = "<group>"; };
-		7AA1AE2218B40DF000A5C58C /* Maps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Maps.cpp; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Maps.cpp"; sourceTree = "<absolute>"; };
-		7AA1AE2318B40DF000A5C58C /* Maps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Maps.h; path = "/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Maps.h"; sourceTree = "<absolute>"; };
 		7AB0FF9318C8DCD000AA51D7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7AB41F7918B3DE6200F5177C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = ../Classes/Constant.h; sourceTree = "<group>"; };
 		7AB5C460190A7C890034CBFD /* ChooseMapScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScence.cpp; path = ../Classes/ChooseMapScence.cpp; sourceTree = "<group>"; };
@@ -1883,6 +1859,15 @@
 			path = ../Resources;
 			sourceTree = "<group>";
 		};
+		7A3CB367190B059300074D3F /* BounceButton */ = {
+			isa = PBXGroup;
+			children = (
+				2ED73650190A87A5002AEF3A /* BounceButton.h */,
+				2E92E2D4190A788700001F10 /* BounceButton.cpp */,
+			);
+			name = BounceButton;
+			sourceTree = "<group>";
+		};
 		7AA1ADFA18B3F76100A5C58C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1901,8 +1886,6 @@
 		7AFB24291908280600A40219 /* SharedClass */ = {
 			isa = PBXGroup;
 			children = (
-				2ED73650190A87A5002AEF3A /* BounceButton.h */,
-				2E92E2D4190A788700001F10 /* BounceButton.cpp */,
 				7AFB2433190829E200A40219 /* GameManager */,
 				7AFB24301908293100A40219 /* SoundControl */,
 			);
@@ -1914,8 +1897,6 @@
 			children = (
 				7A3CB357190AF5BA00074D3F /* AppDelegate.cpp */,
 				7A3CB358190AF5BA00074D3F /* AppDelegate.h */,
-				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
-				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -1935,6 +1916,7 @@
 		7AFB242E1908287700A40219 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				7A3CB367190B059300074D3F /* BounceButton */,
 				7AFB243719082A4000A40219 /* Axe */,
 				7AFB243619082A3800A40219 /* Stone */,
 				7AFB243519082A2B00A40219 /* Tree */,
@@ -1962,8 +1944,6 @@
 			children = (
 				7A3CB354190AF5B200074D3F /* Sound.cpp */,
 				7A3CB355190AF5B200074D3F /* Sound.h */,
-				6616F87218BA515100F695A3 /* Sound.h */,
-				66199A9618BA969300A45A99 /* Sound.cpp */,
 			);
 			name = SoundControl;
 			sourceTree = "<group>";
@@ -1973,10 +1953,6 @@
 			children = (
 				7A3CB330190AF51700074D3F /* TileInfo.cpp */,
 				7A3CB331190AF51700074D3F /* TileInfo.h */,
-				7AA1AE2218B40DF000A5C58C /* Maps.cpp */,
-				7AA1AE2318B40DF000A5C58C /* Maps.h */,
-				7A18DB6F18CD91F100C95A32 /* TileInfo.cpp */,
-				7A18DB7018CD91F100C95A32 /* TileInfo.h */,
 			);
 			name = Maps;
 			sourceTree = "<group>";
@@ -1994,8 +1970,6 @@
 			children = (
 				7A3CB351190AF5A900074D3F /* GameManager.cpp */,
 				7A3CB352190AF5A900074D3F /* GameManager.h */,
-				6692F13418BB4E3200068D35 /* GameManager.h */,
-				6692F13518BB4E4400068D35 /* GameManager.cpp */,
 			);
 			name = GameManager;
 			sourceTree = "<group>";
@@ -2005,8 +1979,6 @@
 			children = (
 				7A3CB34E190AF5A300074D3F /* CloudAnimation.cpp */,
 				7A3CB34F190AF5A300074D3F /* CloudAnimation.h */,
-				660DE50A18BBC22F00079508 /* CloudAnimation.h */,
-				660DE50C18BBC24700079508 /* CloudAnimation.cpp */,
 			);
 			name = Cloud;
 			sourceTree = "<group>";
@@ -2016,8 +1988,6 @@
 			children = (
 				7A3CB34B190AF58D00074D3F /* Tree.cpp */,
 				7A3CB34C190AF58D00074D3F /* Tree.h */,
-				0610AE3618E40E1A000BD558 /* Tree.cpp */,
-				0610AE3718E40E1A000BD558 /* Tree.h */,
 			);
 			name = Tree;
 			sourceTree = "<group>";
@@ -2027,8 +1997,6 @@
 			children = (
 				7A3CB348190AF57800074D3F /* stone.cpp */,
 				7A3CB349190AF57800074D3F /* stone.h */,
-				0667816118E70FDB00024600 /* Stone.cpp */,
-				0667816218E70FDB00024600 /* Stone.h */,
 			);
 			name = Stone;
 			sourceTree = "<group>";
@@ -2038,8 +2006,6 @@
 			children = (
 				7A3CB345190AF57000074D3F /* Axe.cpp */,
 				7A3CB346190AF57000074D3F /* Axe.h */,
-				0610AE3918E40E44000BD558 /* Axe.cpp */,
-				0610AE3A18E40E44000BD558 /* Axe.h */,
 			);
 			name = Axe;
 			sourceTree = "<group>";
@@ -2049,8 +2015,6 @@
 			children = (
 				7A3CB342190AF56600074D3F /* HelloWorldScene.cpp */,
 				7A3CB343190AF56600074D3F /* HelloWorldScene.h */,
-				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
-				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 			);
 			name = HelloWorld;
 			sourceTree = "<group>";
@@ -2069,8 +2033,6 @@
 			children = (
 				7A3CB336190AF53C00074D3F /* ChooseCharacterScene.cpp */,
 				7A3CB337190AF53C00074D3F /* ChooseCharacterScene.h */,
-				06C2EC8618BD8C8D00917282 /* ChooseCharacterScene.cpp */,
-				06C2EC8718BD8C8D00917282 /* ChooseCharacterScene.h */,
 			);
 			name = ChooseCharacter;
 			sourceTree = "<group>";
@@ -2080,8 +2042,6 @@
 			children = (
 				7A3CB33F190AF55B00074D3F /* SettingScene.cpp */,
 				7A3CB340190AF55B00074D3F /* SettingScene.h */,
-				66EB9FF518B65370000A1CEB /* SettingScene.cpp */,
-				66EB9FF618B65370000A1CEB /* SettingScene.h */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -2091,8 +2051,6 @@
 			children = (
 				7A3CB33C190AF55200074D3F /* WinScene.cpp */,
 				7A3CB33D190AF55200074D3F /* WinScene.h */,
-				7A94DC8218BDBB2A0071CDD5 /* WinScene.cpp */,
-				7A94DC8318BDBB2A0071CDD5 /* WinScene.h */,
 			);
 			name = Win;
 			sourceTree = "<group>";
@@ -2102,8 +2060,6 @@
 			children = (
 				7A3CB339190AF54800074D3F /* PlayScene.cpp */,
 				7A3CB33A190AF54800074D3F /* PlayScene.h */,
-				7AA0CCCF18BB9C380097A90B /* PlayScene.cpp */,
-				7AA0CCD018BB9C380097A90B /* PlayScene.h */,
 			);
 			name = Play;
 			sourceTree = "<group>";
@@ -2113,8 +2069,6 @@
 			children = (
 				7A3CB333190AF52B00074D3F /* StartScene.cpp */,
 				7A3CB334190AF52B00074D3F /* StartScene.h */,
-				661B811F18B3E22C00578534 /* StartScene.h */,
-				661B812018B3E5AD00578534 /* StartScene.cpp */,
 			);
 			name = Start;
 			sourceTree = "<group>";
@@ -2269,11 +2223,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A4091B9190273A30003A7B0 /* WinScene_Tests.mm in Sources */,
+				7A3CB361190B056100074D3F /* ChooseCharacterScene.cpp in Sources */,
 				7A4091B7190273A30003A7B0 /* ChooseCharacterScene_Tests.mm in Sources */,
 				7A4091B8190273A30003A7B0 /* Sound_Tests.mm in Sources */,
+				7A3CB360190B055C00074D3F /* StartScene.cpp in Sources */,
 				7A3D1EE81901285900B6469A /* GameManager_Tests.mm in Sources */,
 				7ABE0A2D1903288800693F28 /* SettingScene_Test.mm in Sources */,
 				7A3D1EE91901285900B6469A /* StartScene_Test.mm in Sources */,
+				7A3CB364190B057700074D3F /* SettingScene.cpp in Sources */,
+				7A3CB365190B058200074D3F /* GameManager.cpp in Sources */,
+				7A3CB366190B058700074D3F /* Sound.cpp in Sources */,
+				7A3CB363190B057100074D3F /* WinScene.cpp in Sources */,
 				7A114D1219096BC000D4566D /* ChooseMapScene_Test.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 #include "ChooseMapScence.h"
+#include "BounceButton.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -85,13 +86,13 @@ void ChooseMapScene::addSlidingLayers()
   this->addChild(mChooseCharacterLayer, GR_FOREGROUND);
   this->addChild(mChooseMapLayer);
 
-  mVs = CCSprite::create("Images/Game/UI/vsIcon-04.png");
+  mVs = BounceButton::create("Images/Game/UI/vsIcon-04.png");
   mVs->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
-  mVs->setPosition(VS_POS);
+  mVs->setPosition(ccp(0, 0));
 //  mChooseCharacterLayer->addChild(mVs, GR_FOREGROUND);
   
   CCMenu* menu = CCMenu::create(CCMenuItemSprite::create(mVs, mVs, this, menu_selector(ChooseMapScene::randomCharacter)), NULL);
-//  menu->setPosition(0, 0);
+  menu->setPosition(VS_POS);
   
   mChooseCharacterLayer->addChild(menu);
 }
