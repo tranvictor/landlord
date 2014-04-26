@@ -43,7 +43,7 @@ CCScene* ChooseMapScene::scene()
 
 void ChooseMapScene::addBackground()
 {
-  CCSprite *background = CCSprite::create("Images/Game/Background/chooseBg-01.png");
+  CCSprite *background = CCSprite::create("Images/Game/Background/chooseBg.png");
   background->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
 }
