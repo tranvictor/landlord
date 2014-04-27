@@ -44,6 +44,7 @@ public:
   CC_SYNTHESIZE(cocos2d::CCArray*, mArr, Arr);
   CC_SYNTHESIZE(cocos2d::CCArray*, mCharacterArr, CharacterArr);
   CC_SYNTHESIZE(cocos2d::CCArray*, mMapArr, MapArr);
+  CC_SYNTHESIZE(float, mCooldownTime, CooldownTime);
   
   void addBackground();
   
@@ -63,9 +64,7 @@ public:
   ~ChooseMapScene();
   CCAction* changePage(cocos2d::CCPoint pPos);
   void randomCharacter(cocos2d::CCObject *pSender);
-  void ccTouchBegin(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
-  
-  void registerWithTouchDispatcher();
+  void cooldown();
 };
 
 

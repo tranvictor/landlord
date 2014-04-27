@@ -43,7 +43,7 @@ CCScene* ChooseMapScene::scene()
 
 void ChooseMapScene::addBackground()
 {
-  CCSprite *background = CCSprite::create("Images/Game/Background/chooseBg-01.png");
+  CCSprite *background = CCSprite::create("Images/Game/Background/chooseBg.png");
   background->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   this->addChild(background, GR_BACKGROUND);
 }
@@ -81,7 +81,15 @@ void ChooseMapScene::addSlidingLayers()
   mChooseMapLayer = createChooseMapLayer();
   mChooseMapLayer->setPosition(SCREEN_SIZE.width, 0);
   
-  randomCharacter(NULL);
+  srand(time(NULL));
+  int charater1 = rand() % NUMBER_CHARACTERS + 1;
+  int charater2;
+  while (charater2 == charater1)
+    charater2 = rand() % NUMBER_CHARACTERS + 1;
+  mSlideCharacter1->selectPage(charater1 - 1);
+  mSlideCharacter2->selectPage(charater2 - 1);
+  GameManager::setPlayerOneID(charater1);
+  GameManager::setPlayerTwoID(charater2);
   
   this->addChild(mChooseCharacterLayer, GR_FOREGROUND);
   this->addChild(mChooseMapLayer);
@@ -97,20 +105,15 @@ void ChooseMapScene::addSlidingLayers()
   mChooseCharacterLayer->addChild(menu);
 }
 
-void ChooseMapScene::ccTouchBegin(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+void ChooseMapScene::cooldown()
 {
-  CCLog("xx");
-  
-  if (mVs->boundingBox().containsPoint(pTouch->getLocation()))
+  float now = getCooldownTime();
+  //  CCLog("%f", now);
+  setCooldownTime(now - 0.3);
+  if (now <= 0)
   {
-    sound::playSoundFx(SFX_TOUCH_TILE);
-    randomCharacter(NULL);
+    CCDirector::sharedDirector()->pause();
   }
-}
-
-void ChooseMapScene::registerWithTouchDispatcher()
-{
-  CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
 }
 
 void ChooseMapScene::randomCharacter(cocos2d::CCObject *pSender)

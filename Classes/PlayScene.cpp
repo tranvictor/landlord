@@ -61,9 +61,13 @@ bool PlayScene::init()
   addPlayerTwoShadow();
   addScoreLbn();
   
-  addTrees();
-  addAxes();
-  addStones();
+  if (GameManager::getTreeModeState())
+  {
+    CCLog("%d", GameManager::getTreeModeState());
+    addTrees();
+    addAxes();
+    addStones();
+  }
   
   setCooldownTime(100.0);
   setupRemindLayer();
@@ -80,14 +84,21 @@ void PlayScene::addPauseButton()
   CCMenuItemSprite* btnPause = CCMenuItemSprite::create(btn, btn, this, menu_selector(PlayScene::pauseButtonTouched));
   CCMenu* menu = CCMenu::create(btnPause, NULL);
   menu->setPosition(BTN_PAUSE_POS);
-  addChild(menu);
+  addChild(menu, GR_FOREGROUND);
 }
 
 void PlayScene::addPlayGroud()
 {
   CCSprite *ground = CCSprite::create("Images/Game/Background/gradientPlayScene.png");
   ground->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
-  addChild(ground);
+  addChild(ground, GR_FOREGROUND);
+}
+
+void PlayScene::addBackground()
+{
+  CCLayerColor* background = CCLayerColor::create(ccc4(46, 107, 229, 255));
+  background->setPosition(CCPointZero);
+  addChild(background, GR_BACKGROUND);
 }
 
 void PlayScene::addPlayerOne()
@@ -97,7 +108,7 @@ void PlayScene::addPlayerOne()
   CCSprite *playerOne = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i.png", mPlayerOneTag))->getCString());
   playerOne->setScale(0.8f);
   playerOne->setPosition(PLAYER_ONE_POS);
-  this->addChild(playerOne, GR_MIDDLEGROUND);
+  this->addChild(playerOne, GR_FOREGROUND);
 }
 
 void PlayScene::addPlayerOneShadow()
@@ -105,7 +116,7 @@ void PlayScene::addPlayerOneShadow()
   mPlayerOneShadow = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i-blue.png", mPlayerOneTag))->getCString());
   mPlayerOneShadow->setScale(0.8f);
   mPlayerOneShadow->setPosition(PLAYER_ONE_POS);
-  this->addChild(mPlayerOneShadow, GR_BACKGROUND);
+  this->addChild(mPlayerOneShadow, GR_MIDDLEGROUND);
 }
 
 void PlayScene::addPlayerTwo()
@@ -114,7 +125,7 @@ void PlayScene::addPlayerTwo()
   CCSprite *playerTwo = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i.png", mPlayerTwoTag))->getCString());
   playerTwo->setScale(0.8f);
   playerTwo->setPosition(PLAYER_TWO_POS);
-  this->addChild(playerTwo, GR_MIDDLEGROUND);
+  this->addChild(playerTwo, GR_FOREGROUND);
 }
 
 void PlayScene::addPlayerTwoShadow()
@@ -122,7 +133,7 @@ void PlayScene::addPlayerTwoShadow()
   mPlayerTwoShadow = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i-red.png", mPlayerTwoTag))->getCString());
   mPlayerTwoShadow->setScale(0.8f);
   mPlayerTwoShadow->setPosition(PLAYER_TWO_POS);
-  this->addChild(mPlayerTwoShadow, GR_BACKGROUND);
+  this->addChild(mPlayerTwoShadow, GR_MIDDLEGROUND);
   mPlayerTwoShadow->setVisible(false);
 }
 
@@ -130,7 +141,7 @@ void PlayScene::makeMapScroll()
 {
   mTileMap = CCTMXTiledMap::create(CCString::createWithFormat("Images/Map/map%d.tmx", GameManager::getMapIDTouched())->getCString());
 
-  this->addChild(mTileMap);
+  this->addChild(mTileMap, GR_MIDDLEGROUND);
 
   mTileMap->setPosition(ccp(0, 0));
   mMapLayer = mTileMap->layerNamed("tile");

@@ -59,6 +59,7 @@ public:
   
   void addPauseButton();
   void addPlayGroud();
+  void addBackground();
   void addPlayerOne();
   void addPlayerOneShadow();
   void addPlayerTwo();

@@ -47,7 +47,7 @@ void BounceButton::update(float dt)
   if (bouncing)
   {
     counter += dt;
-    CCLog("update");
+//    CCLog("update");
     this->setScaleX((sin(counter*10) + 1)/2.0 * 0.1 + 1);
     this->setScaleY((cos(counter*10) + 1)/2.0 * 0.1 + 1);
     if (counter > M_PI*500){
