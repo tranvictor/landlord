@@ -261,7 +261,7 @@
 		7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */; };
 		7AB0FF9418C8DCD000AA51D7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB0FF9318C8DCD000AA51D7 /* Default-568h@2x.png */; };
 		7AB5C462190A7C890034CBFD /* ChooseMapScence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5C460190A7C890034CBFD /* ChooseMapScence.cpp */; };
-		7AB5C46B190A98410034CBFD /* CCScrollLayerHorizontal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5C469190A98410034CBFD /* CCScrollLayerHorizontal.cpp */; };
+		7AB5C46B190A98410034CBFD /* CCScrollLayerVertical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5C469190A98410034CBFD /* CCScrollLayerVertical.cpp */; };
 		7ABE0A2D1903288800693F28 /* SettingScene_Test.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ABE0A2C1903288800693F28 /* SettingScene_Test.mm */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -816,8 +816,8 @@
 		7AB41F7918B3DE6200F5177C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = ../Classes/Constant.h; sourceTree = "<group>"; };
 		7AB5C460190A7C890034CBFD /* ChooseMapScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScence.cpp; path = ../Classes/ChooseMapScence.cpp; sourceTree = "<group>"; };
 		7AB5C461190A7C890034CBFD /* ChooseMapScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseMapScence.h; path = ../Classes/ChooseMapScence.h; sourceTree = "<group>"; };
-		7AB5C469190A98410034CBFD /* CCScrollLayerHorizontal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCScrollLayerHorizontal.cpp; path = ../Classes/CCScrollLayerHorizontal.cpp; sourceTree = "<group>"; };
-		7AB5C46A190A98410034CBFD /* CCScrollLayerHorizontal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCScrollLayerHorizontal.h; path = ../Classes/CCScrollLayerHorizontal.h; sourceTree = "<group>"; };
+		7AB5C469190A98410034CBFD /* CCScrollLayerVertical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCScrollLayerVertical.cpp; path = ../Classes/CCScrollLayerVertical.cpp; sourceTree = "<group>"; };
+		7AB5C46A190A98410034CBFD /* CCScrollLayerVertical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCScrollLayerVertical.h; path = ../Classes/CCScrollLayerVertical.h; sourceTree = "<group>"; };
 		7ABE08501902B30400693F28 /* libUnitTest++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUnitTest++.a"; path = "../../../../../../../Users/GiapNV/Downloads/UnitTest++/libUnitTest++.a"; sourceTree = "<group>"; };
 		7ABE09AC1902E81900693F28 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		7ABE0A2C1903288800693F28 /* SettingScene_Test.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SettingScene_Test.mm; path = landlordTests/SettingScene_Test.mm; sourceTree = SOURCE_ROOT; };
@@ -1871,8 +1871,8 @@
 		7AA1ADFA18B3F76100A5C58C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7AB5C469190A98410034CBFD /* CCScrollLayerHorizontal.cpp */,
-				7AB5C46A190A98410034CBFD /* CCScrollLayerHorizontal.h */,
+				7AB5C469190A98410034CBFD /* CCScrollLayerVertical.cpp */,
+				7AB5C46A190A98410034CBFD /* CCScrollLayerVertical.h */,
 				7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */,
 				7A9B5CE318C0A45900C739FD /* CCLayerPanZoom.h */,
 				7A0B9DFF18B93FC80004A419 /* CCScrollLayer.cpp */,
@@ -2274,7 +2274,7 @@
 				15A3D9171682F7D5002FB0C5 /* b2ChainAndCircleContact.cpp in Sources */,
 				15A3D9181682F7D5002FB0C5 /* b2ChainAndPolygonContact.cpp in Sources */,
 				375BD5111868454E0024609E /* CCActionManager.cpp in Sources */,
-				7AB5C46B190A98410034CBFD /* CCScrollLayerHorizontal.cpp in Sources */,
+				7AB5C46B190A98410034CBFD /* CCScrollLayerVertical.cpp in Sources */,
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
 				15A3D91B1682F7D5002FB0C5 /* b2ContactSolver.cpp in Sources */,

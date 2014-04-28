@@ -22,7 +22,7 @@ private:
   CCScrollLayer*  mSlidingCharacterLayer;
 
   int             mCharacterTouchedID;
-  int             mPlayer = 0;
+  int             mPlayer;// = 0;
   int             mCharacterChoseByPlayer1;
 
 public:

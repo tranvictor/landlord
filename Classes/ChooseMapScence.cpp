@@ -160,9 +160,9 @@ CCLayer* ChooseMapScene::createChooseCharaterLayer()
     characterArr2->addObject(characterLayer);
   }
   
-  mSlideCharacter1 = CCScrollLayerHorizontal::nodeWithLayers(characterArr1, 0);
+  mSlideCharacter1 = CCScrollLayerVertical::nodeWithLayers(characterArr1, 0);
 
-  mSlideCharacter2 = CCScrollLayerHorizontal::nodeWithLayers(characterArr2, 0);
+  mSlideCharacter2 = CCScrollLayerVertical::nodeWithLayers(characterArr2, 0);
   
   chooseCharacterLayer->addChild(mSlideCharacter1, GR_FOREGROUND);
   chooseCharacterLayer->addChild(mSlideCharacter2, GR_FOREGROUND);
@@ -183,7 +183,7 @@ CCLayer* ChooseMapScene::createChooseMapLayer()
     mapLayer->addChild(map, GR_FOREGROUND, i);
     mapArr->addObject(mapLayer);
   }
-  mSlideMap = CCScrollLayerHorizontal::nodeWithLayers(mapArr, 0);
+  mSlideMap = CCScrollLayerVertical::nodeWithLayers(mapArr, 0);
 
   chooseMapLayer->addChild(mSlideMap, GR_FOREGROUND, TAG_SLIDE_MAP);
   

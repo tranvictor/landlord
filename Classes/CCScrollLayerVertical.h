@@ -1,6 +1,6 @@
-#ifndef __CCScrollLayerHorizontal__
-#define __CCScrollLayerHorizontal__
-//  CCScrollLayerHorizontal.h
+#ifndef __CCScrollLayerVertical__
+#define __CCScrollLayerVertical__
+//  CCScrollLayerVertical.h
 //
 //  Copyright 2010 DK101
 //  http://dk101.net/2010/11/30/implementing-page-scrolling-in-cocos2d/
@@ -30,7 +30,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-// Original source: https://github.com/cocos2d/cocos2d-iphone-extensions/tree/master/Extensions/CCScrollLayerHorizontal 
+// Original source: https://github.com/cocos2d/cocos2d-iphone-extensions/tree/master/Extensions/CCScrollLayerVertical 
 // Last updated: October 1, 2011
 
 // Last modified by Giap Nguyen on Feb 22, 2014
@@ -39,20 +39,20 @@
 
 //namespace cocos2d {
 
-class CCScrollLayerHorizontal;
+class CCScrollLayerVertical;
 
-	class CCScrollLayerHorizontalDelegate
+	class CCScrollLayerVerticalDelegate
 	{
 	public:
 		/** Called when scroll layer begins scrolling.
 		 * Usefull to cancel CCTouchDispatcher standardDelegates.
 		 */
-		virtual void scrollLayerScrollingStarted(CCScrollLayerHorizontal* sender) {}
+		virtual void scrollLayerScrollingStarted(CCScrollLayerVertical* sender) {}
 
 		/** Called at the end of moveToPage:
 		 * Doesn't get called in selectPage:
 		 */
-		virtual void scrollLayerScrolledToPageNumber(CCScrollLayerHorizontal* sender, unsigned int page) {}
+		virtual void scrollLayerScrolledToPageNumber(CCScrollLayerVertical* sender, unsigned int page) {}
 	};
 
 	/* 
@@ -61,15 +61,15 @@ class CCScrollLayerHorizontal;
 	 Complete with the "snapping" effect. You can create screens with anything that can be added to a CCLayer.
  
 	 */ 
-class CCScrollLayerHorizontal : 	public cocos2d::CCLayer
+class CCScrollLayerVertical : 	public cocos2d::CCLayer
 	{
 	public:
-		CCScrollLayerHorizontal();
-		~CCScrollLayerHorizontal();
+		CCScrollLayerVertical();
+		~CCScrollLayerVertical();
 
-		static CCScrollLayerHorizontal* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset);
-    static CCScrollLayerHorizontal* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset, float duration, float bouncePeriod);
-    static CCScrollLayerHorizontal* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset, const char* pageSpriterameName);
+		static CCScrollLayerVertical* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset);
+    static CCScrollLayerVertical* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset, float duration, float bouncePeriod);
+    static CCScrollLayerVertical* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset, const char* pageSpriterameName);
     
 		bool initWithLayers(cocos2d::CCArray* layers, int widthOffset);
 //    bool initWithLayers(cocos2d::CCArray* layers, int widthOffset, const char * pageSpriteFrameName);
@@ -109,7 +109,7 @@ class CCScrollLayerHorizontal : 	public cocos2d::CCLayer
 		 */
 		void selectPage(unsigned int pageNumber);
 
-		CC_SYNTHESIZE(CCScrollLayerHorizontalDelegate*, m_pDelegate, Delegate);
+		CC_SYNTHESIZE(CCScrollLayerVerticalDelegate*, m_pDelegate, Delegate);
 
 		/** Calibration property. Minimum moving touch length that is enough
 		 * to cancel menu items and start scrolling a layer. 
@@ -121,7 +121,7 @@ class CCScrollLayerHorizontal : 	public cocos2d::CCLayer
 		 */
 		CC_SYNTHESIZE(float, m_fMinimumTouchLengthToChangePage, MinimumTouchLengthToChangePage);
 
-		/** If YES - when starting scrolling CCScrollLayerHorizontal will claim touches, that are 
+		/** If YES - when starting scrolling CCScrollLayerVertical will claim touches, that are 
 		 * already claimed by others targetedTouchDelegates by calling CCTouchDispatcher#touchesCancelled
 		 * Usefull to have ability to scroll with touch above menus in pages.
 		 * If NO - scrolling will start, but no touches will be cancelled.

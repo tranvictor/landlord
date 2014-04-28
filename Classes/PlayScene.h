@@ -34,7 +34,7 @@ class PlayScene : public cocos2d::CCLayer
   CCTMXTiledMap*      mTileMap;
   CCTMXLayer*         mMapLayer;
   CCTMXObjectGroup*   mTileEdges;
-  bool                mIsScrolling = false;
+  bool                mIsScrolling;/// = false;
   cocos2d::CCArray*   mEdgeArrTop;
   cocos2d::CCArray*   mEdgeArrBottom;
   cocos2d::CCArray*   mEdgeArrLeft;
@@ -42,11 +42,11 @@ class PlayScene : public cocos2d::CCLayer
   
   cocos2d::CCArray*   mPopsArr;
   cocos2d::CCArray*   mTreesArr;
-  bool                mIsAxePopVisible = false;
+  bool                mIsAxePopVisible;// = false;
   cocos2d::CCMenuItemSprite*   mAxePop;
   std::vector<TileInfo*>  mTileInfoVector;
   
-  int                 mCurTile = 0;
+  int                 mCurTile;// = 0;
 //  int                 mNumPop = NUMBER_EDGE_AVAILABLE;
   
   CCSprite*           mPlayerOneShadow;

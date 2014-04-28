@@ -19,7 +19,7 @@ class StartScene : public cocos2d::CCLayer
 {
 private:
   cocos2d::CCSize   mScreenSize;
-  float             mCloudSpeed = 3 ;
+  float             mCloudSpeed;// = 3 ;
   
   
 public:

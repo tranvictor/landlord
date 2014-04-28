@@ -104,10 +104,6 @@ USING_NS_CC;
 #define PLAY_BUTTON_POS         ccp(572.495, 640-526.133)
 #define SETTING_BUTTON_POS      ccp(105.331,640-548.252)
 
-// Sound
-#define SFX_BUTTON_TOUCH        "Sound/SFX/ui-button-tap.aac"
-#define MUSIC_BACKGROUND        "Sound/Music/Music_InGame.wav"
-
 enum eGround
 {
   GR_BACKGROUND,

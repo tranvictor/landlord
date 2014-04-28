@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 #include "CCScrollLayer.h"
-#include "CCScrollLayerHorizontal.h"
+#include "CCScrollLayerVertical.h"
 #include "Constant.h"
 #include "Sound.h"
 #include "GameManager.h"
@@ -31,10 +31,10 @@ private:
   
   cocos2d::CCLayer* mChooseCharacterLayer;
   cocos2d::CCLayer* mChooseMapLayer;
-  CCScrollLayerHorizontal* mSlideCharacter1;
-  CCScrollLayerHorizontal* mSlideCharacter2;
+  CCScrollLayerVertical* mSlideCharacter1;
+  CCScrollLayerVertical* mSlideCharacter2;
   CCSprite*         mVs;
-  CCScrollLayerHorizontal* mSlideMap;
+  CCScrollLayerVertical* mSlideMap;
   
 public:
   virtual bool init();
