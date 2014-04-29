@@ -77,7 +77,7 @@ void ChooseMapScene::addSlidingLayers()
   mChooseCharacterLayer = createChooseCharaterLayer();
   mChooseCharacterLayer->setPosition(CCPointZero);
   mChooseCharacterLayer->setTouchEnabled(true);
-  
+
   mChooseMapLayer = createChooseMapLayer();
   mChooseMapLayer->setPosition(SCREEN_SIZE.width, 0);
   
@@ -133,35 +133,29 @@ void ChooseMapScene::randomCharacter(cocos2d::CCObject *pSender)
   CCLog("%d %d", charater1, charater2);
 }
 
+CCArray* ChooseMapScene::createCharactersArray(CCPoint pPos)
+{
+  CCArray* characterArr = CCArray::createWithCapacity(NUMBER_CHARACTERS);
+  for (int i = 1; i <= NUMBER_CHARACTERS; ++i)
+  {
+    CCLayer* characterLayer = CCLayer::create();
+    
+    CCSprite* character = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", i)->getCString());
+    character->setPosition(pPos);
+    characterLayer->addChild(character, GR_FOREGROUND, i);
+    characterArr->addObject(characterLayer);
+  }
+  return characterArr;
+}
+
 CCLayer* ChooseMapScene::createChooseCharaterLayer()
 {
   CCLayer* chooseCharacterLayer = CCLayer::create();
-  CCArray* characterArr1 = CCArray::createWithCapacity(NUMBER_CHARACTERS);
-  CCArray* characterArr2 = CCArray::createWithCapacity(NUMBER_CHARACTERS);
-  for (int i = 1; i <= NUMBER_CHARACTERS; ++i)
-  {
-    CCLayer* characterLayer = CCLayer::create();
-    
-    CCSprite* character = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", i)->getCString());
-    character->setPosition(CHARACTER_RIGHT_LAYER_POS);
-    characterLayer->addChild(character, GR_FOREGROUND, i);
-//    characterLayer->setPosition(-SCREEN_SIZE.width/2, 0);
-    characterArr1->addObject(characterLayer);
-  }
-
-  for (int i = 1; i <= NUMBER_CHARACTERS; ++i)
-  {
-    CCLayer* characterLayer = CCLayer::create();
-    
-    CCSprite* character = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", i)->getCString());
-    character->setPosition(CHARACTER_LEFT_LAYER_POS);
-    characterLayer->addChild(character, GR_FOREGROUND, i);
-//    characterLayer->setPosition(SCREEN_SIZE.width/2, 0);
-    characterArr2->addObject(characterLayer);
-  }
+  CCArray* characterArr1 = createCharactersArray(CHARACTER_LEFT_LAYER_POS);
+  CCArray* characterArr2 = createCharactersArray(CHARACTER_RIGHT_LAYER_POS);
   
   mSlideCharacter1 = CCScrollLayerVertical::nodeWithLayers(characterArr1, 0);
-
+  
   mSlideCharacter2 = CCScrollLayerVertical::nodeWithLayers(characterArr2, 0);
   
   chooseCharacterLayer->addChild(mSlideCharacter1, GR_FOREGROUND);
@@ -183,7 +177,7 @@ CCLayer* ChooseMapScene::createChooseMapLayer()
     mapLayer->addChild(map, GR_FOREGROUND, i);
     mapArr->addObject(mapLayer);
   }
-  mSlideMap = CCScrollLayerVertical::nodeWithLayers(mapArr, 0);
+  mSlideMap = CCScrollLayerVertical::nodeWithLayers(mapArr,  0);
 
   chooseMapLayer->addChild(mSlideMap, GR_FOREGROUND, TAG_SLIDE_MAP);
   
@@ -194,7 +188,6 @@ void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
 {
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   mState--;
-  CCLog("%d", mState);
   if (mState == 0)
   {
     CCScene* newScene = CCTransitionCrossFade::create(0.5, LoadingScene::scene());

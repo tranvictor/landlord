@@ -121,7 +121,7 @@ void CCScrollLayer::updatePages()
   CCARRAY_FOREACH(m_pLayers, object)
   {
     CCLayer* layer = (CCLayer*)object;
-    layer->setAnchorPoint(ccp(0,0));
+    layer->setAnchorPoint(ccp(0, 0));
 //    layer->setContentSize(CCDirector::sharedDirector()->getWinSize());
     layer->setPosition(ccp((i * (m_obContentSize.width - m_fPagesWidthOffset)), 0));
     if (!layer->getParent())

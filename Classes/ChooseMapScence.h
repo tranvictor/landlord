@@ -61,6 +61,8 @@ public:
   cocos2d::CCLayer* createChooseMapLayer();
   void mapTouched(cocos2d::CCObject *pSender);
   
+  cocos2d::CCArray* createCharactersArray(cocos2d::CCPoint pPos);
+  
   ~ChooseMapScene();
   CCAction* changePage(cocos2d::CCPoint pPos);
   void randomCharacter(cocos2d::CCObject *pSender);
