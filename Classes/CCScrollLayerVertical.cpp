@@ -338,8 +338,8 @@ void CCScrollLayerVertical::cancelAndStoleTouch(CCTouch* pTouch, CCEvent* pEvent
 void CCScrollLayerVertical::ccTouchCancelled(CCTouch* pTouch, CCEvent* pEvent)
 {
   // Do not cancel touch, if this method is called from cancelAndStoleTouch:
-  if (m_bStealingTouchInProgress)
-    return;
+//  if (m_bStealingTouchInProgress)
+//    return;
   
   if (m_pScrollTouch == pTouch)
   {
@@ -357,6 +357,11 @@ bool CCScrollLayerVertical::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
   
   CCPoint touchPoint = pTouch->getLocationInView();
   touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
+  
+  CCLOG("%f", touchPoint.x);
+  
+//  if (touchPoint.x > CCDirector::sharedDirector()->getWinSize().width/2)
+//    return false;
   
   m_fStartSwipe = touchPoint.y;
   m_iState = kCCScrollLayerVerticalStateIdle;
@@ -383,7 +388,7 @@ void CCScrollLayerVertical::ccTouchMoved(CCTouch* pTouch, CCEvent* pEvent)
     m_fStartSwipe = touchPoint.y;
     
     if (m_bStealTouches)
-      cancelAndStoleTouch(pTouch, pEvent);
+//      cancelAndStoleTouch(pTouch, pEvent);
     
     if (m_pDelegate)
       m_pDelegate->scrollLayerScrollingStarted(this);
@@ -411,6 +416,9 @@ void CCScrollLayerVertical::ccTouchEnded(CCTouch* pTouch, CCEvent* pEvent)
   
   CCPoint touchPoint = pTouch->getLocationInView();
   touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
+  
+//  if (touchPoint.x > CCDirector::sharedDirector()->getWinSize().width/2)
+//    return;
   
   unsigned int selectedPage = m_uCurrentScreen;
   float delta = touchPoint.y - m_fStartSwipe;

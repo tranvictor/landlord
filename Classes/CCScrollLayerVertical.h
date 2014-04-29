@@ -67,7 +67,7 @@ class CCScrollLayerVertical : 	public cocos2d::CCLayer
 		CCScrollLayerVertical();
 		~CCScrollLayerVertical();
 
-		static CCScrollLayerVertical* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset);
+		static CCScrollLayerVertical* nodeWithLayers(cocos2d::CCArray* layers, int m_fPagesWidthOffset);
     static CCScrollLayerVertical* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset, float duration, float bouncePeriod);
     static CCScrollLayerVertical* nodeWithLayers(cocos2d::CCArray* layers, int widthOffset, const char* pageSpriterameName);
     
