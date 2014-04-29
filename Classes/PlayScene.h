@@ -110,6 +110,8 @@ public:
   CREATE_FUNC(PlayScene);
   void update(float pdT);
   
+  void changePlayer();
+  
 };
 
 #endif /* defined(__landlord__PlayScene__) */

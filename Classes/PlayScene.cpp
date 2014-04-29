@@ -204,9 +204,9 @@ void PlayScene::addScoreLbn()
   scoreBoardPlayscene->addChild(mLbnScorePlayer1);
 //  this->addChild  (scoreBoardPlayscene, GR_FOREGROUND);
   
-  // demo counting player1 score
-  sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(true));
-  mLbnScorePlayer1->setString(mScoreBuffer);
+  // counting player1 score
+//  sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(true));
+//  mLbnScorePlayer1->setString(mScoreBuffer);
   
 //  CCSprite* scoreP2 = CCSprite::create("Images/Game/UI/scoreP2.png");
 //  scoreP2->setPosition(LBN_SCORE_PLAYER2_POS);
@@ -218,9 +218,9 @@ void PlayScene::addScoreLbn()
   scoreBoardPlayscene->addChild(mLbnScorePlayer2);
   this->addChild(scoreBoardPlayscene, GR_FOREGROUND);
   
-  // demo counting player2 score
-  sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(false));
-  mLbnScorePlayer2->setString(mScoreBuffer);
+  // counting player2 score
+//  sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(false));
+//  mLbnScorePlayer2->setString(mScoreBuffer);
 }
 
 void PlayScene::pauseButtonTouched()
@@ -242,6 +242,9 @@ void PlayScene::addFrameImg()
 
 bool PlayScene::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
+  unschedule(schedule_selector(PlayScene::cooldown));
+  schedule(schedule_selector(PlayScene::cooldown));
+  
   mIsScrolling = false;
   setCooldownTime(100.0);
   
@@ -308,9 +311,36 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
       {
         appearPops(tileInfo, sp);
       }
-      schedule(schedule_selector(PlayScene::cooldown));
     }
   }
+}
+
+void PlayScene::moveMap(float offsetX, float offsetY)
+{
+  float posX = mTileMap->getPosition().x + offsetX;
+  float posY = mTileMap->getPosition().y + offsetY;
+  // uncomment it. So now, player can scroll very freelyyyyyyy
+  
+//  if (posX > 0)
+//    posX = 0;
+//  if (posX < getBound().x)
+//    posX = getBound().x;
+//  if (posY > 0)
+//    posY = 0;
+//  if (posY < getBound().y)
+//  {
+//    posY = getBound().y;
+//  }
+  mTileMap->setPosition(ccp(posX, posY));
+}
+
+CCPoint PlayScene::getBound()
+{
+  float mapWidth = mTileMap->getTileSize().width * mTileMap->getMapSize().width;
+  float mapHeight = mTileMap->getTileSize().height * mTileMap->getMapSize().height;
+  
+  // should caculate the bounding of map position
+  return ccp(mScreenSize.width - mapWidth, mScreenSize.height - mapHeight);
 }
 
 void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
@@ -323,7 +353,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   TileInfo *tileInfo = mTileInfoVector.at(mCurTile);
 
 //  CCSprite *sp = tileInfo->getTile();
-  CCLog("curTile = %d", mCurTile);
+//  CCLog("curTile = %d", mCurTile);
   
   if (pop->getTag() == TAG_EDGE_BOTTOM)
   {
@@ -342,7 +372,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     addRightEdge(tileInfo, edge);
   }
   tileInfo->setNumberEdgeAvailale(tileInfo->getNumberEdgeAvailale()-1);
-  CCLog("tileInfo->getNumberEdgeAvailale() = %d", tileInfo->getNumberEdgeAvailale());
+//  CCLog("tileInfo->getNumberEdgeAvailale() = %d", tileInfo->getNumberEdgeAvailale());
   
   CCLog("Current Player is %i", GameManager::getCurrentPlayer());
   
@@ -354,7 +384,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
     {
       GameManager::increaseScore(GameManager::getCurrentPlayer());
       checkIncreasingScore = true;
-      sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(GameManager::getCurrentPlayer()));
+//      sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(GameManager::getCurrentPlayer()));
       if (GameManager::getCurrentPlayer() == PLAYER_ONE)
       {
         mTileInfoVector.at(i)->setBelongToPlayer(1);
@@ -371,58 +401,37 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       {
         sound::playSoundFx(SFX_PICKUP_AXE);
         GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
-        CCLog("axe collected");
+        CCLog("PlayScene: axe collected.......... should have animation!!!!");
       }
     }
   }
   
   if (!checkIncreasingScore)
   {
-    if (GameManager::getCurrentPlayer() == PLAYER_ONE)
-    {
-      mPlayerOneShadow->setVisible(false);
-      mPlayerTwoShadow->setVisible(true);
-    }
-    else
-    {
-      mPlayerTwoShadow->setVisible(false);
-      mPlayerOneShadow->setVisible(true);
-    }
-    
-    GameManager::changeCurrentPlayer();
+    changePlayer();
   }
    
   removePopups();
 }
 
+void PlayScene::changePlayer()
+{
+  if (GameManager::getCurrentPlayer() == PLAYER_ONE)
+  {
+    mPlayerOneShadow->setVisible(false);
+    mPlayerTwoShadow->setVisible(true);
+  }
+  else
+  {
+    mPlayerTwoShadow->setVisible(false);
+    mPlayerOneShadow->setVisible(true);
+  }
+  
+  GameManager::changeCurrentPlayer();
+}
+
 void PlayScene::registerWithTouchDispatcher() {
   CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
-}
-
-void PlayScene::moveMap(float offsetX, float offsetY)
-{
-  float posX = mTileMap->getPosition().x + offsetX;
-  float posY = mTileMap->getPosition().y + offsetY;
-  if (posX > 0)
-    posX = 0;
-  if (posX < getBound().x)
-    posX = getBound().x;
-  if (posY > 0)
-    posY = 0;
-  if (posY < getBound().y)
-  {
-    posY = getBound().y;
-  }
-  mTileMap->setPosition(ccp(posX, posY));
-}
-
-CCPoint PlayScene::getBound()
-{
-  float mapWidth = mTileMap->getTileSize().width * mTileMap->getMapSize().width;
-  float mapHeight = mTileMap->getTileSize().height * mTileMap->getMapSize().height;
-  
-  // should caculate the bounding of map position
-  return ccp(mScreenSize.width - mapWidth, mScreenSize.height - mapHeight);
 }
 
 void PlayScene::addGlowEffect(CCSprite* sprite,
@@ -459,9 +468,32 @@ PlayScene::~PlayScene()
 
 void PlayScene::update(float pdT)
 {
-  if (GameManager::getPlayerScore(GameManager::getCurrentPlayer()) >= 30)
+  int nTileFull = GameManager::getPlayerScore(PLAYER_ONE) + GameManager::getPlayerScore(PLAYER_TWO) + GameManager::getNumOfStones();
+  if (GameManager::getNumOfAxes(GameManager::getCurrentPlayer()) == 0
+      && (nTileFull + GameManager::getNumOfTrees() == mTileInfoVector.size()))
   {
-    GameManager::setWinPlayer(GameManager::getCurrentPlayer());
+    this->changePlayer();
+    CCLOG("PlayScene: dead state.............. should have a popup to warning player!!!");
+  }
+  sprintf(mScoreBuffer,
+          "%i | %i",
+          GameManager::getPlayerScore(PLAYER_ONE),
+          GameManager::getNumOfAxes(PLAYER_ONE));
+  mLbnScorePlayer1->setString(mScoreBuffer);
+  
+  sprintf(mScoreBuffer,
+          "%i | %i",
+          GameManager::getPlayerScore(PLAYER_TWO),
+          GameManager::getNumOfAxes(PLAYER_TWO));
+  mLbnScorePlayer2->setString(mScoreBuffer);
+  
+  if (nTileFull == mTileInfoVector.size())
+  {
+    eCurrentPlayer winPlayer = GameManager::getPlayerScore(PLAYER_ONE) > GameManager::getPlayerScore(PLAYER_TWO) ? PLAYER_ONE : PLAYER_TWO;
+    
+    /// What about equal ?????
+    
+    GameManager::setWinPlayer(winPlayer);
     CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
@@ -474,7 +506,7 @@ void PlayScene::addBottomEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   
   pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
   
-  mTileMap->addChild(pEdge, GR_FOREGROUND);
+  mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeBottomStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -495,7 +527,7 @@ void PlayScene::addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   
   pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width/2, tileSprite->getPositionY() + tileSprite->getContentSize().height));
   
-  mTileMap->addChild(pEdge, GR_FOREGROUND);
+  mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeTopStatus(STS_NOT_AVAILABLE);
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
@@ -516,7 +548,7 @@ void PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setRotation(90);
   pEdge->setPosition(ccp(tileSprite->getPositionX(), tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
   
-  mTileMap->addChild(pEdge, GR_FOREGROUND);
+  mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeLeftStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -538,7 +570,7 @@ void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setRotation(90);
   pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width, tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
   
-  mTileMap->addChild(pEdge, GR_FOREGROUND);
+  mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeRightStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -621,7 +653,7 @@ void PlayScene::removePopups()
   for (int i = 0; i < mPopsArr->count(); ++i)
   {
     ((CCMenuItemSprite*)mPopsArr->objectAtIndex(i))->removeFromParent();
-    CCLog("remove %d", i);
+//    CCLog("remove %d", i);
   }
   mPopsArr->removeAllObjects();
 }
@@ -631,7 +663,7 @@ void PlayScene::addTrees()
   int numberOfTrees = RANDOM_NUMBER_OF_TREES;
   mTreesArr = CCArray::createWithCapacity(numberOfTrees);
   mTreesArr->retain();
-  CCLog("Number of Trees is %i", numberOfTrees);
+//  CCLog("Number of Trees is %i", numberOfTrees);
   GameManager::setNumOfTrees(numberOfTrees);
   srand(time(NULL));
   for (int i = 0; i < numberOfTrees; i++)
@@ -641,7 +673,7 @@ void PlayScene::addTrees()
     {
       indexOfTileToAddTree = rand() % mTileInfoVector.size();
     } while (mTileInfoVector.at(indexOfTileToAddTree)->getHasTree());
-    CCLog("Tile at %i has a tree", indexOfTileToAddTree);
+//    CCLog("Tile at %i has a tree", indexOfTileToAddTree);
     mTileInfoVector.at(indexOfTileToAddTree)->setHasTree(true);
     mTileInfoVector.at(indexOfTileToAddTree)->setHasItem(true);
     
@@ -656,7 +688,7 @@ void PlayScene::addTrees()
 void PlayScene::addAxes()
 {
   int numOfAxes = GameManager::getNumOfTrees();
-  CCLog("Number of Axes is %i", numOfAxes);
+//  CCLog("Number of Axes is %i", numOfAxes);
   GameManager::setNumOfTrees(numOfAxes);
   srand(time(NULL));
   for (int i = 0; i < numOfAxes; i++)
@@ -666,7 +698,7 @@ void PlayScene::addAxes()
     {
       indexOfTileToAddAxe = rand() % mTileInfoVector.size();
     } while (mTileInfoVector.at(indexOfTileToAddAxe)->getHasItem());
-    CCLog("Tile at %i has a axe", indexOfTileToAddAxe);
+//    CCLog("Tile at %i has a axe", indexOfTileToAddAxe);
     mTileInfoVector.at(indexOfTileToAddAxe)->setHasAxe(true);
     mTileInfoVector.at(indexOfTileToAddAxe)->setHasItem(true);
     mTileInfoVector.at(indexOfTileToAddAxe)->getTile()->setColor(ccBLACK);
@@ -676,7 +708,7 @@ void PlayScene::addAxes()
 void PlayScene::addStones()
 {
   int numOfStones = rand() % 4 + 3;
-  CCLog("Number of Axes is %i", numOfStones);
+//  CCLog("Number of Axes is %i", numOfStones);
   GameManager::setNumOfStones(numOfStones);
   srand(time(NULL));
   for (int i = 0; i < numOfStones; i++)
@@ -686,7 +718,7 @@ void PlayScene::addStones()
     {
       indexOfTileToAddStone = rand() % mTileInfoVector.size();
     } while (mTileInfoVector.at(indexOfTileToAddStone)->getHasItem());
-    CCLog("Tile at %i has a stone", indexOfTileToAddStone);
+//    CCLog("Tile at %i has a stone", indexOfTileToAddStone);
     mTileInfoVector.at(indexOfTileToAddStone)->setHasStone(true);
     mTileInfoVector.at(indexOfTileToAddStone)->setHasItem(true);
     
@@ -753,7 +785,7 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
   {
     mTileInfoVector.at(mCurTile)->setBelongToPlayer(GameManager::getCurrentPlayer());
     GameManager::increaseScore(GameManager::getCurrentPlayer());
-    sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(GameManager::getCurrentPlayer()));
+//    sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(GameManager::getCurrentPlayer()));
     if (GameManager::getCurrentPlayer() == PLAYER_ONE)
     {
       mTileInfoVector.at(mCurTile)->getTile()->setColor(ccBLUE);
@@ -779,6 +811,7 @@ void PlayScene::removeTree()
       mTreesArr->removeObjectAtIndex(i);
     }
   }
+  GameManager::setNumOfTrees(GameManager::getNumOfTrees() - 1);
 }
 
 void PlayScene::setupRemindLayer()
@@ -792,7 +825,7 @@ void PlayScene::setupRemindLayer()
   mReminder->addChild(menu);
   mReminder->setVisible(false);
   menu->setPosition(CCPointZero);
-  this->addChild(mReminder);
+  this->addChild(mReminder, GR_FOREGROUND);
 }
 
 void PlayScene::onResume()
@@ -806,7 +839,7 @@ void PlayScene::onResume()
 void PlayScene::cooldown()
 {
   float now = getCooldownTime();
-//  CCLog("%f", now);
+  CCLog("%f", now);
   setCooldownTime(now - 0.3);
   if (now <= 0)
   {
