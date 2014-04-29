@@ -196,11 +196,11 @@ void PlayScene::addScoreLbn()
   scoreBoardPlayscene->setPosition(CENTER_POS);
 //  CCSprite* scoreP1 = CCSprite::create("Images/Game/UI/scoreP1.png");
 //  scoreP1->setPosition(LBN_SCORE_PLAYER1_POS);
-  mLbnScorePlayer1 = CCLabelTTF::create("0", "ordin", 50);
+  mLbnScorePlayer1 = CCLabelTTF::create("0 | 0", "ordin", 50);
   mLbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer1->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
   mLbnScorePlayer1->setColor(ccBLUE);
-  mLbnScorePlayer1->setPosition(ccp(PLAYER_ONE_POS.x, 40));
+  mLbnScorePlayer1->setPosition(ccp(PLAYER_ONE_POS.x + 20, 35));
   scoreBoardPlayscene->addChild(mLbnScorePlayer1);
 //  this->addChild  (scoreBoardPlayscene, GR_FOREGROUND);
   
@@ -210,11 +210,11 @@ void PlayScene::addScoreLbn()
   
 //  CCSprite* scoreP2 = CCSprite::create("Images/Game/UI/scoreP2.png");
 //  scoreP2->setPosition(LBN_SCORE_PLAYER2_POS);
-  mLbnScorePlayer2 = CCLabelTTF::create("0", "ordin", 50);
+  mLbnScorePlayer2 = CCLabelTTF::create("0 | 0", "ordin", 50);
   mLbnScorePlayer2->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer2->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
   mLbnScorePlayer2->setColor(ccRED);
-  mLbnScorePlayer2->setPosition(ccp(PLAYER_TWO_POS.x, 40));
+  mLbnScorePlayer2->setPosition(ccp(PLAYER_TWO_POS.x - 20, 35));
   scoreBoardPlayscene->addChild(mLbnScorePlayer2);
   this->addChild(scoreBoardPlayscene, GR_FOREGROUND);
   
