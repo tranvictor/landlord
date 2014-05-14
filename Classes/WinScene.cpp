@@ -92,6 +92,7 @@ void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button replay touched");
   sound::playSoundFx(SFX_BUTTON_TOUCH);
+  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
   CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 

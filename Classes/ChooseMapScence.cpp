@@ -21,6 +21,8 @@ bool ChooseMapScene::init()
   }
   mState = 1;
   
+  sound::playBackgroundMusic(MUSIC_BACKGROUND);
+  
   mScreenSize = CCDirector::sharedDirector()->getWinSize();
   CCLog("%f %f", mScreenSize.width, mScreenSize.height);
   

@@ -65,7 +65,7 @@ bool PlayScene::init()
   
   if (GameManager::getTreeModeState())
   {
-    CCLog("%d", GameManager::getTreeModeState());
+//    CCLog("%d", GameManager::getTreeModeState());
     addTrees();
     addAxes();
     addStones();
@@ -194,17 +194,17 @@ void PlayScene::makeMapScroll()
 
 void PlayScene::addScoreLbn()
 {
-  CCSprite* scoreBoardPlayscene = CCSprite::create("Images/Game/Background/scoreBoardPlayscene.png");
-  scoreBoardPlayscene->setPosition(CENTER_POS);
+  CCSprite* scoreBoardPlayscene = CCSprite::create("Images/Game/UI/scorePanel.png");
+  scoreBoardPlayscene->setPosition(ccp(SCREEN_SIZE.width/2, scoreBoardPlayscene->getContentSize().height/2));
 //  CCSprite* scoreP1 = CCSprite::create("Images/Game/UI/scoreP1.png");
 //  scoreP1->setPosition(LBN_SCORE_PLAYER1_POS);
-  mLbnScorePlayer1 = CCLabelTTF::create("0 | 0", "ordin", 50);
+  mLbnScorePlayer1 = CCLabelTTF::create("  0      0", "ordin", 50);
   mLbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer1->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
   mLbnScorePlayer1->setColor(ccBLUE);
   mLbnScorePlayer1->setPosition(ccp(PLAYER_ONE_POS.x + 20, 35));
   scoreBoardPlayscene->addChild(mLbnScorePlayer1);
-//  this->addChild  (scoreBoardPlayscene, GR_FOREGROUND);
+
   
   // counting player1 score
 //  sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(true));
@@ -212,7 +212,7 @@ void PlayScene::addScoreLbn()
   
 //  CCSprite* scoreP2 = CCSprite::create("Images/Game/UI/scoreP2.png");
 //  scoreP2->setPosition(LBN_SCORE_PLAYER2_POS);
-  mLbnScorePlayer2 = CCLabelTTF::create("0 | 0", "ordin", 50);
+  mLbnScorePlayer2 = CCLabelTTF::create("0      0", "ordin", 50);
   mLbnScorePlayer2->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer2->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
   mLbnScorePlayer2->setColor(ccRED);
@@ -231,7 +231,8 @@ void PlayScene::pauseButtonTouched()
   // TODO
   CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
   sound::playSoundFx(SFX_CONGRATULATION);
-  CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
+  unscheduleUpdate();
+  CCScene* newScene = CCTransitionFade::create(0.5, WinScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
 }
 
@@ -390,13 +391,13 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
       if (GameManager::getCurrentPlayer() == PLAYER_ONE)
       {
         mTileInfoVector.at(i)->setBelongToPlayer(1);
-        mTileInfoVector.at(i)->getTile()->setColor(ccBLUE);
+        addHouse("Images/Game/Object/blueHouse.png", i);
         mLbnScorePlayer1->setString(mScoreBuffer);
       }
       else
       {
         mTileInfoVector.at(i)->setBelongToPlayer(2);
-        mTileInfoVector.at(i)->getTile()->setColor(ccRED);
+        addHouse("Images/Game/Object/redHouse.png", i);
         mLbnScorePlayer2->setString(mScoreBuffer);
       }
       if (mTileInfoVector.at(i)->getHasAxe())
@@ -404,6 +405,10 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
         sound::playSoundFx(SFX_PICKUP_AXE);
         GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
         CCLog("PlayScene: axe collected.......... should have animation!!!!");
+        if (GameManager::getCurrentPlayer() == PLAYER_ONE)
+          addAxeAnimation(mPlayerOneShadow->getPosition(), i);
+        else
+          addAxeAnimation(mPlayerTwoShadow->getPosition(), i);
       }
     }
   }
@@ -412,8 +417,43 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   {
     changePlayer();
   }
-   
   removePopups();
+}
+
+void PlayScene::addAxeAnimation(cocos2d::CCPoint pPos, int pIndex)
+{
+  CCSprite* axe = CCSprite::create("Images/Game/Object/axe.png");
+  axe->setPosition(mTileInfoVector.at(pIndex)->getTile()->getPosition()
+                   + ccp(mTileInfoVector.at(pIndex)->getTile()->getContentSize().width/2,
+                         mTileInfoVector.at(pIndex)->getTile()->getContentSize().height));
+  axe->runAction(CCSequence::create(
+                                    CCMoveBy::create(0.3f, ccp(0, 50)),
+                                    CCFadeIn::create(0.3f),
+                                    CCEaseBackOut::create(CCMoveTo::create(0.7f, pPos)),
+                                    CCFadeOut::create(0.2),
+                                    CCCallFuncN::create(this, callfuncN_selector(PlayScene::removeAxe)),
+                                    NULL));
+  mTileMap->addChild(axe, GR_FOREGROUND);
+}
+
+void PlayScene::removeAxe(cocos2d::CCObject *pSender)
+{
+  ((CCSprite*)pSender)->removeFromParent();
+}
+
+void PlayScene::addHouse(const char *pFileName, int pIndex)
+{
+  CCSprite* house = CCSprite::create(pFileName);
+  house->setPosition(mTileInfoVector.at(pIndex)->getTile()->getPosition()
+                     + ccp(mTileInfoVector.at(pIndex)->getTile()->getContentSize().width/2,
+                           mTileInfoVector.at(pIndex)->getTile()->getContentSize().height/2));
+//  house->setAnchorPoint(ccp(-0.5, -0.5));
+  house->setScale(0.2f);
+  house->runAction(CCSequence::create(
+//                                      CCMoveBy::create(0.3f, ccp(0, -20)),
+                                      CCScaleTo::create(0.2, 1.0f),
+                                      NULL));
+  mTileMap->addChild(house, GR_MIDDLEGROUND);
 }
 
 void PlayScene::changePlayer()
@@ -478,16 +518,20 @@ void PlayScene::update(float pdT)
     CCLOG("PlayScene: dead state.............. should have a popup to warning player!!!");
   }
   sprintf(mScoreBuffer,
-          "%i | %i",
+          "  %i      %i",
           GameManager::getPlayerScore(PLAYER_ONE),
           GameManager::getNumOfAxes(PLAYER_ONE));
-  mLbnScorePlayer1->setString(mScoreBuffer);
+  mLbnScorePlayer1->setString(CCString::createWithFormat("  %i      %i",
+                                               GameManager::getPlayerScore(PLAYER_ONE),
+                                               GameManager::getNumOfAxes(PLAYER_ONE))->getCString());
   
   sprintf(mScoreBuffer,
-          "%i | %i",
-          GameManager::getPlayerScore(PLAYER_TWO),
-          GameManager::getNumOfAxes(PLAYER_TWO));
-  mLbnScorePlayer2->setString(mScoreBuffer);
+          "%i      %i",
+          GameManager::getNumOfAxes(PLAYER_TWO)),
+          GameManager::getPlayerScore(PLAYER_TWO);
+  mLbnScorePlayer2->setString(CCString::createWithFormat("%i      %i",
+                                                         GameManager::getNumOfAxes(PLAYER_TWO),
+                                                         GameManager::getPlayerScore(PLAYER_TWO))->getCString());
   
   if (nTileFull == mTileInfoVector.size())
   {
@@ -703,7 +747,7 @@ void PlayScene::addAxes()
 //    CCLog("Tile at %i has a axe", indexOfTileToAddAxe);
     mTileInfoVector.at(indexOfTileToAddAxe)->setHasAxe(true);
     mTileInfoVector.at(indexOfTileToAddAxe)->setHasItem(true);
-    mTileInfoVector.at(indexOfTileToAddAxe)->getTile()->setColor(ccBLACK);
+//    mTileInfoVector.at(indexOfTileToAddAxe)->getTile()->setColor(ccBLACK);
   }
 }
 
@@ -790,12 +834,12 @@ void PlayScene::chooseAxeEnded(cocos2d::CCObject *pSender)
 //    sprintf(mScoreBuffer, "%i", GameManager::getPlayerScore(GameManager::getCurrentPlayer()));
     if (GameManager::getCurrentPlayer() == PLAYER_ONE)
     {
-      mTileInfoVector.at(mCurTile)->getTile()->setColor(ccBLUE);
+      addHouse("Images/Game/Object/blueHouse.png", mCurTile);
       mLbnScorePlayer1->setString(mScoreBuffer);
     }
     else
     {
-      mTileInfoVector.at(mCurTile)->getTile()->setColor(ccRED);
+      addHouse("Images/Game/Object/redHouse.png", mCurTile);
       mLbnScorePlayer2->setString(mScoreBuffer);
     }
   }
@@ -841,7 +885,7 @@ void PlayScene::onResume()
 void PlayScene::cooldown()
 {
   float now = getCooldownTime();
-  CCLog("%f", now);
+//  CCLog("%f", now);
   setCooldownTime(now - 0.3);
   if (now <= 0)
   {

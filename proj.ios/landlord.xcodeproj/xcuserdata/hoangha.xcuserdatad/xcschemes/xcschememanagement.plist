@@ -4,7 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+<<<<<<< HEAD
 		<key>GTests.xcscheme</key>
+=======
+		<key>OCLint.xcscheme</key>
+>>>>>>> 33c4c1ba578f26490ed484685c9533099dec33f1
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
@@ -12,7 +16,11 @@
 		<key>landlord.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>0</integer>
+=======
+			<integer>2</integer>
+>>>>>>> 33c4c1ba578f26490ed484685c9533099dec33f1
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -27,11 +35,14 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+<<<<<<< HEAD
 		<key>7A3D1EEF190133F200B6469A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+=======
+>>>>>>> 33c4c1ba578f26490ed484685c9533099dec33f1
 	</dict>
 </dict>
 </plist>

@@ -295,20 +295,6 @@
 			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
 			remoteInfo = cocos2dx;
 		};
-		7AC11DBE1907EE31001090D6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7A62C97518F2500B00282224;
-			remoteInfo = UnitTests;
-		};
-		7AC11DC01907EE31001090D6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7A62C99318F25C5200282224;
-			remoteInfo = unittests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -911,8 +897,6 @@
 			isa = PBXGroup;
 			children = (
 				15A3D8861682F7B3002FB0C5 /* libcocos2dx.a */,
-				7AC11DBF1907EE31001090D6 /* UnitTests */,
-				7AC11DC11907EE31001090D6 /* unittests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2166,20 +2150,6 @@
 			remoteRef = 15A3D8851682F7B3002FB0C5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		7AC11DBF1907EE31001090D6 /* UnitTests */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = UnitTests;
-			remoteRef = 7AC11DBE1907EE31001090D6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7AC11DC11907EE31001090D6 /* unittests */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = unittests;
-			remoteRef = 7AC11DC01907EE31001090D6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -2663,6 +2633,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7 i386";
 			};
 			name = Debug;

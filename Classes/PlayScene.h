@@ -112,6 +112,10 @@ public:
   
   void changePlayer();
   
+  void addHouse(const char* pFileName, int pIndex);
+  void addAxeAnimation(cocos2d::CCPoint pPos, int pIndex);
+  void removeAxe(cocos2d::CCObject* pSender);
+  
 };
 
 #endif /* defined(__landlord__PlayScene__) */
