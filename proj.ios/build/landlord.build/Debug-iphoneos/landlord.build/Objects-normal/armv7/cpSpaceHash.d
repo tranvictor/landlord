@@ -1,0 +1,25 @@
+dependencies: \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/external/chipmunk/src/cpSpaceHash.c \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/chipmunk_private.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/chipmunk.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/chipmunk_types.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/cpVect.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/cpBB.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/cpSpatialIndex.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/cpBody.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/cpShape.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/cpPolyShape.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/cpArbiter.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpConstraint.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpPinJoint.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpSlideJoint.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpPivotJoint.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpGrooveJoint.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpDampedSpring.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpDampedRotarySpring.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpRotaryLimitJoint.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpRatchetJoint.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpGearJoint.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/constraints/cpSimpleMotor.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.ios/../../../external/chipmunk/include/chipmunk/cpSpace.h \
+  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/external/chipmunk/src/prime.h

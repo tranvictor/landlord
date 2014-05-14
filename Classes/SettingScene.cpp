@@ -67,10 +67,11 @@ void SettingScene::addSoundFxButton()
                                             NULL,
                                             NULL);
   
-  CCMenuItem* state1 = CCMenuItem::create();
-  CCMenuItem* state2 = CCMenuItem::create();
+  CCMenuItem* state1;// = CCMenuItem::create();
+  CCMenuItem* state2;// = CCMenuItem::create();
   
-  if(GameManager::getSoundState()){
+  if(GameManager::getSoundState())
+  {
     state1 = checkedBtn;
     state2 = uncheckedBtn;
   } else
@@ -106,10 +107,11 @@ void SettingScene::addMusicButton()
                                             NULL,
                                             NULL);
   
-  CCMenuItem* state1 = CCMenuItem::create();
-  CCMenuItem* state2 = CCMenuItem::create();
+  CCMenuItem* state1;// = CCMenuItem::create();
+  CCMenuItem* state2;// = CCMenuItem::create();
   
-  if(GameManager::getMusicState()){
+  if(GameManager::getMusicState())
+  {
     state1 = checkedBtn;
     state2 = uncheckedBtn;
   } else
@@ -143,10 +145,11 @@ void SettingScene::addTreeModeButton()
                                                    NULL,
                                                    NULL);
   
-  CCMenuItem* state1 = CCMenuItem::create();
-  CCMenuItem* state2 = CCMenuItem::create();
+  CCMenuItem* state1;// = CCMenuItem::create();
+  CCMenuItem* state2;// = CCMenuItem::create();
   
-  if(GameManager::getTreeModeState()){
+  if(GameManager::getTreeModeState())
+  {
     state1 = checkedBtn;
     state2 = uncheckedBtn;
   } else
@@ -179,10 +182,11 @@ void SettingScene::addFogModeButton()
                                             NULL,
                                             NULL);
   
-  CCMenuItem* state1 = CCMenuItem::create();
-  CCMenuItem* state2 = CCMenuItem::create();
+  CCMenuItem* state1;// = CCMenuItem::create();
+  CCMenuItem* state2;// = CCMenuItem::create();
   
-  if(GameManager::getTreeModeState()){
+  if(GameManager::getTreeModeState())
+  {
     state1 = checkedBtn;
     state2 = uncheckedBtn;
   } else

@@ -149,7 +149,7 @@ void PlayScene::makeMapScroll()
   mMapLayer = mTileMap->layerNamed("tile");
   
   CCSize s = mMapLayer->getLayerSize();
-  CCSprite* tile = CCSprite::create();
+  CCSprite* tile;// = CCSprite::create();
   mPopsArr = CCArray::createWithCapacity(NUMBER_EDGE_AVAILABLE);
   mPopsArr->retain();
 
@@ -285,8 +285,8 @@ void PlayScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
     mAxePop->setVisible(false);
   }
   
-  TileInfo *tileInfo = new TileInfo();
-  CCSprite *sp = CCSprite::create();
+  TileInfo *tileInfo;// = new TileInfo();
+  CCSprite *sp;// = CCSprite::create();
 //  CCSize s = mMapLayer->getLayerSize();
 
   for (int i = 0; i < mTileInfoVector.size(); ++i)

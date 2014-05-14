@@ -34,10 +34,10 @@ private:
   
   cocos2d::CCLayer* mChooseCharacterLayer;
   cocos2d::CCLayer* mChooseMapLayer;
-//  CCScrollLayerVertical* mSlideCharacter1;
-//  CCScrollLayerVertical* mSlideCharacter2;
-  cocos2d::extension::CCTableView* mSlideCharacter1;
-  cocos2d::extension::CCTableView* mSlideCharacter2;
+  CCScrollLayerVertical* mSlideCharacter1;
+  CCScrollLayerVertical* mSlideCharacter2;
+//  cocos2d::extension::CCTableView* mSlideCharacter1;
+//  cocos2d::extension::CCTableView* mSlideCharacter2;
   CCSprite*         mVs;
   CCScrollLayerVertical* mSlideMap;
   

@@ -121,7 +121,7 @@ void ChooseMapScene::randomCharacter(cocos2d::CCObject *pSender)
   sound::playSoundFx(SFX_TOUCH_POP);
   srand(time(NULL));
   int charater1 = rand() % NUMBER_CHARACTERS + 1;
-  int charater2;
+  int charater2 = 0;
   while (charater2 == charater1)
     charater2 = rand() % NUMBER_CHARACTERS + 1;
 //  mSlideCharacter1->moveToPage(charater1 - 1);
@@ -139,10 +139,11 @@ CCArray* ChooseMapScene::createCharactersArray(CCPoint pPos)
   for (int i = 1; i <= NUMBER_CHARACTERS; ++i)
   {
     CCLayer* characterLayer = CCLayer::create();
-    
+
     CCSprite* character = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", i)->getCString());
     character->setPosition(pPos);
     characterLayer->addChild(character, GR_FOREGROUND, i);
+    
     characterArr->addObject(characterLayer);
   }
   return characterArr;
@@ -154,29 +155,29 @@ CCLayer* ChooseMapScene::createChooseCharaterLayer()
   CCLayer* chooseCharacterLayer = CCLayer::create();
   
   // using CCScrollLayerVertical
-//  CCArray* characterArr1 = createCharactersArray(CHARACTER_LEFT_LAYER_POS);
-//  CCArray* characterArr2 = createCharactersArray(CHARACTER_RIGHT_LAYER_POS);
-//  
-//  mSlideCharacter1 = CCScrollLayerVertical::nodeWithLayers(characterArr1, 0);
-//  
-//  mSlideCharacter2 = CCScrollLayerVertical::nodeWithLayers(characterArr2, 0);
-//
+  CCArray* characterArr1 = createCharactersArray(CHARACTER_LEFT_LAYER_POS);
+  CCArray* characterArr2 = createCharactersArray(CHARACTER_RIGHT_LAYER_POS);
   
-  // using CCTableView
-  CCTableView* mSlideCharacter1 = CCTableView::create(this, CCSizeMake(209, 534));
-  mSlideCharacter1->setDirection(kCCScrollViewDirectionVertical);
-  mSlideCharacter1->setPosition(ccp(700, 52.688));
-  mSlideCharacter1->setDelegate(this);
-  mSlideCharacter1->setVerticalFillOrder(kCCTableViewFillTopDown);
-  mSlideCharacter1->reloadData();
+  mSlideCharacter1 = CCScrollLayerVertical::nodeWithLayers(characterArr1, 0);
+  
+  mSlideCharacter2 = CCScrollLayerVertical::nodeWithLayers(characterArr2, 0);
+
+  
+//  // using CCTableView
+//  CCTableView* mSlideCharacter1 = CCTableView::create(this, CCSizeMake(209, 534));
+//  mSlideCharacter1->setDirection(kCCScrollViewDirectionVertical);
+//  mSlideCharacter1->setPosition(ccp(700, 52.688));
+//  mSlideCharacter1->setDelegate(this);
+//  mSlideCharacter1->setVerticalFillOrder(kCCTableViewFillTopDown);
+//  mSlideCharacter1->reloadData();
   chooseCharacterLayer->addChild(mSlideCharacter1, GR_FOREGROUND);
-  
-  CCTableView* mSlideCharacter2 = CCTableView::create(this, CCSizeMake(209, 534));
-  mSlideCharacter2->setDirection(kCCScrollViewDirectionVertical);
-  mSlideCharacter2->setPosition(ccp(227, 52.688));
-  mSlideCharacter2->setDelegate(this);
-  mSlideCharacter2->setVerticalFillOrder(kCCTableViewFillTopDown);
-  mSlideCharacter2->reloadData();
+//
+//  CCTableView* mSlideCharacter2 = CCTableView::create(this, CCSizeMake(209, 534));
+//  mSlideCharacter2->setDirection(kCCScrollViewDirectionVertical);
+//  mSlideCharacter2->setPosition(ccp(227, 52.688));
+//  mSlideCharacter2->setDelegate(this);
+//  mSlideCharacter2->setVerticalFillOrder(kCCTableViewFillTopDown);
+//  mSlideCharacter2->reloadData();
   chooseCharacterLayer->addChild(mSlideCharacter2, GR_FOREGROUND);
   
   return chooseCharacterLayer;
@@ -264,6 +265,10 @@ void ChooseMapScene::buttonForwardTouched(cocos2d::CCObject *pSender)
   {
     int id = mSlideMap->getCurrentScreen();
     GameManager::setMapIDTouched(id + 1);
+    
+    GameManager::setPlayerOneID(mSlideCharacter1->getCurrentScreen() + 1);
+    GameManager::setPlayerTwoID(mSlideCharacter2->getCurrentScreen() + 1);
+    
     CCScene* newScene = CCTransitionCrossFade::create(0.5, PlayScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
