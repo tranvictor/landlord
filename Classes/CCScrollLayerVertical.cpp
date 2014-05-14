@@ -358,7 +358,7 @@ bool CCScrollLayerVertical::ccTouchBegan(CCTouch* pTouch, CCEvent* pEvent)
   CCPoint touchPoint = pTouch->getLocationInView();
   touchPoint = CCDirector::sharedDirector()->convertToGL(touchPoint);
   
-  CCLOG("%f", touchPoint.x);
+//  CCLOG("%f", touchPoint.x);
   
 //  if (touchPoint.x > CCDirector::sharedDirector()->getWinSize().width/2)
 //    return false;

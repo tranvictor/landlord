@@ -43,6 +43,8 @@ bool PlayScene::init()
     return false;
   }
   
+  CCLOG("PlayScene: %d %d", GameManager::getPlayerOneID(), GameManager::getPlayerTwoID());
+  
   CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(0.5f);
   
   mScreenSize = CCDirector::sharedDirector()->getWinSize();
@@ -116,7 +118,7 @@ void PlayScene::addPlayerOneShadow()
   mPlayerOneShadow = CCSprite::create((CCString::createWithFormat("Images/Game/Object/c%i-blue.png", mPlayerOneTag))->getCString());
   mPlayerOneShadow->setScale(0.8f);
   mPlayerOneShadow->setPosition(PLAYER_ONE_POS);
-  this->addChild(mPlayerOneShadow, GR_MIDDLEGROUND);
+  this->addChild(mPlayerOneShadow, GR_MIDDLEGROUND);  
 }
 
 void PlayScene::addPlayerTwo()

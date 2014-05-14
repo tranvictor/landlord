@@ -8,6 +8,7 @@
 
 #include "ChooseMapScence.h"
 #include "BounceButton.h"
+#include "CustomTableViewCell.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -81,28 +82,27 @@ void ChooseMapScene::addSlidingLayers()
   mChooseMapLayer = createChooseMapLayer();
   mChooseMapLayer->setPosition(SCREEN_SIZE.width, 0);
   
-  srand(time(NULL));
-  int charater1 = rand() % NUMBER_CHARACTERS + 1;
-  int charater2;
-  while (charater2 == charater1)
-    charater2 = rand() % NUMBER_CHARACTERS + 1;
-  mSlideCharacter1->selectPage(charater1 - 1);
-  mSlideCharacter2->selectPage(charater2 - 1);
-  GameManager::setPlayerOneID(charater1);
-  GameManager::setPlayerTwoID(charater2);
+//  srand(time(NULL));
+//  int charater1 = rand() % NUMBER_CHARACTERS + 1;
+//  int charater2;
+//  while (charater2 == charater1)
+//    charater2 = rand() % NUMBER_CHARACTERS + 1;
+//  mSlideCharacter1->selectPage(charater1 - 1);
+//  mSlideCharacter2->selectPage(charater2 - 1);
+//  GameManager::setPlayerOneID(charater1);
+//  GameManager::setPlayerTwoID(charater2);
   
   this->addChild(mChooseCharacterLayer, GR_FOREGROUND);
   this->addChild(mChooseMapLayer);
 
   mVs = BounceButton::create("Images/Game/UI/vsIcon-04.png");
-  mVs->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
-  mVs->setPosition(ccp(0, 0));
-//  mChooseCharacterLayer->addChild(mVs, GR_FOREGROUND);
+  mVs->setPosition(VS_POS);
+  mChooseCharacterLayer->addChild(mVs, GR_FOREGROUND);
   
-  CCMenu* menu = CCMenu::create(CCMenuItemSprite::create(mVs, mVs, this, menu_selector(ChooseMapScene::randomCharacter)), NULL);
-  menu->setPosition(VS_POS);
+//  CCMenu* menu = CCMenu::create(CCMenuItemSprite::create(mVs, mVs, this, menu_selector(ChooseMapScene::randomCharacter)), NULL);
+//  menu->setPosition(VS_POS);
   
-  mChooseCharacterLayer->addChild(menu);
+//  mChooseCharacterLayer->addChild(menu);
 }
 
 void ChooseMapScene::cooldown()
@@ -124,8 +124,8 @@ void ChooseMapScene::randomCharacter(cocos2d::CCObject *pSender)
   int charater2;
   while (charater2 == charater1)
     charater2 = rand() % NUMBER_CHARACTERS + 1;
-  mSlideCharacter1->moveToPage(charater1 - 1);
-  mSlideCharacter2->moveToPage(charater2 - 1);
+//  mSlideCharacter1->moveToPage(charater1 - 1);
+//  mSlideCharacter2->moveToPage(charater2 - 1);
   
   GameManager::setPlayerOneID(charater1);
   GameManager::setPlayerTwoID(charater2);
@@ -148,21 +148,76 @@ CCArray* ChooseMapScene::createCharactersArray(CCPoint pPos)
   return characterArr;
 }
 
+// there are some magic numbers here, need transfer to Constant.h
 CCLayer* ChooseMapScene::createChooseCharaterLayer()
 {
   CCLayer* chooseCharacterLayer = CCLayer::create();
-  CCArray* characterArr1 = createCharactersArray(CHARACTER_LEFT_LAYER_POS);
-  CCArray* characterArr2 = createCharactersArray(CHARACTER_RIGHT_LAYER_POS);
   
-  mSlideCharacter1 = CCScrollLayerVertical::nodeWithLayers(characterArr1, 0);
+  // using CCScrollLayerVertical
+//  CCArray* characterArr1 = createCharactersArray(CHARACTER_LEFT_LAYER_POS);
+//  CCArray* characterArr2 = createCharactersArray(CHARACTER_RIGHT_LAYER_POS);
+//  
+//  mSlideCharacter1 = CCScrollLayerVertical::nodeWithLayers(characterArr1, 0);
+//  
+//  mSlideCharacter2 = CCScrollLayerVertical::nodeWithLayers(characterArr2, 0);
+//
   
-  mSlideCharacter2 = CCScrollLayerVertical::nodeWithLayers(characterArr2, 0);
-  
+  // using CCTableView
+  CCTableView* mSlideCharacter1 = CCTableView::create(this, CCSizeMake(209, 534));
+  mSlideCharacter1->setDirection(kCCScrollViewDirectionVertical);
+  mSlideCharacter1->setPosition(ccp(700, 52.688));
+  mSlideCharacter1->setDelegate(this);
+  mSlideCharacter1->setVerticalFillOrder(kCCTableViewFillTopDown);
+  mSlideCharacter1->reloadData();
   chooseCharacterLayer->addChild(mSlideCharacter1, GR_FOREGROUND);
+  
+  CCTableView* mSlideCharacter2 = CCTableView::create(this, CCSizeMake(209, 534));
+  mSlideCharacter2->setDirection(kCCScrollViewDirectionVertical);
+  mSlideCharacter2->setPosition(ccp(227, 52.688));
+  mSlideCharacter2->setDelegate(this);
+  mSlideCharacter2->setVerticalFillOrder(kCCTableViewFillTopDown);
+  mSlideCharacter2->reloadData();
   chooseCharacterLayer->addChild(mSlideCharacter2, GR_FOREGROUND);
   
   return chooseCharacterLayer;
 }
+
+void ChooseMapScene::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
+{
+  CCLOG("cell touched at index: %i", cell->getIdx() + 1);
+//  (cell->getChildByTag(cell->getIdx()+1))->runAction(CCMoveTo::create(0.5, ccp(100, 261.662)));
+//  cell->runAction(CCMoveTo::create(0.5, ccp(100, 261.662)));
+}
+
+CCSize ChooseMapScene::tableCellSizeForIndex(CCTableView *table, unsigned int idx)
+{
+  return CCSizeMake(100, 534);
+}
+
+CCTableViewCell* ChooseMapScene::tableCellAtIndex(CCTableView *table, unsigned int idx)
+{
+  CCTableViewCell *cell = table->cellAtIndex(idx); //table->dequeueCell();
+  if (!cell)
+  {
+    cell = new CustomTableViewCell();
+    cell->autorelease();
+    CCSprite *sprite = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", idx + 1)->getCString());
+    CCLOG("player 2 - %d", idx+1);
+    GameManager::setPlayerTwoID(idx + 1);
+
+    sprite->setPosition(ccp(100, 261.662));
+    sprite->setTag(idx+1);
+    cell->addChild(sprite);
+  }
+  
+  return cell;
+}
+
+unsigned int ChooseMapScene::numberOfCellsInTableView(CCTableView *table)
+{
+  return NUMBER_CHARACTERS;
+}
+
 
 CCLayer* ChooseMapScene::createChooseMapLayer()
 {
@@ -203,7 +258,7 @@ void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
 void ChooseMapScene::buttonForwardTouched(cocos2d::CCObject *pSender)
 {
   sound::playSoundFx(SFX_BUTTON_TOUCH);
-  CCLog("%d", mState);
+  CCLog("state: %d", mState);
   mState++;
   if (mState == 3)
   {

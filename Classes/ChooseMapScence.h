@@ -20,8 +20,11 @@
 #include "StartScene.h"
 #include "CCScrollView.h"
 #include "LoadingScene.h"
+#include "cocos-ext.h"
 
-class ChooseMapScene : public cocos2d::CCLayer
+class ChooseMapScene : public cocos2d::CCLayer,
+                       public cocos2d::extension::CCTableViewDataSource,
+                       public cocos2d::extension::CCTableViewDelegate
 {
 private:
   cocos2d::CCSize   mScreenSize;
@@ -31,8 +34,10 @@ private:
   
   cocos2d::CCLayer* mChooseCharacterLayer;
   cocos2d::CCLayer* mChooseMapLayer;
-  CCScrollLayerVertical* mSlideCharacter1;
-  CCScrollLayerVertical* mSlideCharacter2;
+//  CCScrollLayerVertical* mSlideCharacter1;
+//  CCScrollLayerVertical* mSlideCharacter2;
+  cocos2d::extension::CCTableView* mSlideCharacter1;
+  cocos2d::extension::CCTableView* mSlideCharacter2;
   CCSprite*         mVs;
   CCScrollLayerVertical* mSlideMap;
   
@@ -67,6 +72,16 @@ public:
   CCAction* changePage(cocos2d::CCPoint pPos);
   void randomCharacter(cocos2d::CCObject *pSender);
   void cooldown();
+  
+  virtual void scrollViewDidScroll(cocos2d::extension::CCScrollView* view) {}
+  virtual void scrollViewDidZoom(cocos2d::extension::CCScrollView* view) {}
+  virtual void tableCellTouched(cocos2d::extension::CCTableView* table,
+                                cocos2d::extension::CCTableViewCell* cell);
+  virtual cocos2d::CCSize tableCellSizeForIndex(cocos2d::extension::CCTableView *table,
+                                                unsigned int idx);
+  virtual cocos2d::extension::CCTableViewCell* tableCellAtIndex(cocos2d::extension::CCTableView *table,
+                                                                unsigned int idx);
+  virtual unsigned int numberOfCellsInTableView(cocos2d::extension::CCTableView *table);
 };
 
 
