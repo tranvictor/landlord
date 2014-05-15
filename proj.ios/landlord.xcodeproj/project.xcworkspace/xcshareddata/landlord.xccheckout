@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>06705BFB-2478-4937-9932-70400D8BBD56</string>
+	<string>CC95C23F-0A5F-4DF5-A30D-66A7198BF328</string>
 	<key>IDESourceControlProjectName</key>
 	<string>landlord</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CA34A59E-D3BD-4596-B4BC-04F9CB3F8E17</key>
-		<string>https://github.com/tranvictor/landlord</string>
+		<key>A43386ED-CCB9-425A-A5DB-B4475BC12DAE</key>
+		<string>ssh://github.com/tranvictor/landlord.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>proj.ios/landlord.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CA34A59E-D3BD-4596-B4BC-04F9CB3F8E17</key>
+		<key>A43386ED-CCB9-425A-A5DB-B4475BC12DAE</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/tranvictor/landlord</string>
+	<string>ssh://github.com/tranvictor/landlord.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CA34A59E-D3BD-4596-B4BC-04F9CB3F8E17</string>
+	<string>A43386ED-CCB9-425A-A5DB-B4475BC12DAE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CA34A59E-D3BD-4596-B4BC-04F9CB3F8E17</string>
+			<string>A43386ED-CCB9-425A-A5DB-B4475BC12DAE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>landlord</string>
 		</dict>
