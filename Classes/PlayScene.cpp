@@ -136,7 +136,7 @@ void PlayScene::makeMapScroll()
   mMapLayer = mTileMap->layerNamed("map01");
   
   CCSize s = mMapLayer->getLayerSize();
-  CCSprite* tile = CCSprite::create();
+  CCSprite* tile;
   mPopsArr = CCArray::createWithCapacity(NUMBER_EDGE_AVAILABLE);
   mPopsArr->retain();
 
