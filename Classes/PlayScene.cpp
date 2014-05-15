@@ -473,7 +473,7 @@ void PlayScene::changePlayer()
 }
 
 void PlayScene::registerWithTouchDispatcher() {
-  CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+  CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, -1, false);
 }
 
 void PlayScene::addGlowEffect(CCSprite* sprite,
@@ -657,7 +657,9 @@ void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSpr
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_BOTTOM);
-  edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2, pTileSprite->getPositionY() - pop->getContentSize().height/2));
+  edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2,
+                           pTileSprite->getPositionY()));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, -pTileSprite->getContentSize().height/2)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
@@ -668,7 +670,9 @@ void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_TOP);
-  edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2, pTileSprite->getPositionY() + pTileSprite->getContentSize().height + pop->getContentSize().height/2));
+  edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2,
+                           pTileSprite->getPositionY() + pTileSprite->getContentSize().height));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, pop->getContentSize().height/2)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
@@ -679,7 +683,9 @@ void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprit
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_LEFT);
-  edgePop->setPosition(ccp(pTileSprite->getPositionX() - pop->getContentSize().width/2, pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
+  edgePop->setPosition(ccp(pTileSprite->getPositionX(),
+                           pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(- pop->getContentSize().width/2, 0)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
@@ -690,7 +696,9 @@ void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSpri
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_RIGHT);
-  edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width + pop->getContentSize().width/2, pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
+  edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width,
+                           pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(pop->getContentSize().width/2, 0)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
@@ -812,7 +820,8 @@ void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite
   CCSprite* pop = CCSprite::create("Images/Game/Object/axe.png");
   mAxePop = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
   CCMenu *axePop = CCMenu::create(mAxePop, NULL);
-  axePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2, pTileSprite->getPositionY() + pTileSprite->getContentSize().height + pop->getContentSize().height/2));
+  axePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2,
+                          pTileSprite->getPositionY() + pTileSprite->getContentSize().height + pop->getContentSize().height/2));
   mTileMap->addChild(axePop, GR_FOREGROUND);
   mIsAxePopVisible = true;
 }
