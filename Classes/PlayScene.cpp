@@ -456,11 +456,11 @@ void PlayScene::addHouse(const char *pFileName, int pIndex)
   CCSprite* house = CCSprite::create(pFileName);
   house->setPosition(mTileInfoVector.at(pIndex)->getTile()->getPosition()
                      + ccp(mTileInfoVector.at(pIndex)->getTile()->getContentSize().width/2,
-                           mTileInfoVector.at(pIndex)->getTile()->getContentSize().height/2));
+                           mTileInfoVector.at(pIndex)->getTile()->getContentSize().height/2 + 20));
 //  house->setAnchorPoint(ccp(-0.5, -0.5));
   house->setScale(0.2f);
   house->runAction(CCSequence::create(
-//                                      CCMoveBy::create(0.3f, ccp(0, -20)),
+//                                    CCMoveBy::create(0.3f, ccp(0, -20)),
                                       CCScaleTo::create(0.2, 1.0f),
                                       NULL));
   mTileMap->addChild(house, GR_MIDDLEGROUND);
