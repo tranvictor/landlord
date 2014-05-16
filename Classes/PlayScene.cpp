@@ -51,7 +51,7 @@ bool PlayScene::init()
   setTouchEnabled(true);
   
   GameManager::initPlayersInfo();
-  addPlayGroud();
+//  addPlayGroud();
   makeMapScroll();
 //  tilesArr->retain();
 //  addFrameImg();
@@ -83,7 +83,11 @@ bool PlayScene::init()
 void PlayScene::addPauseButton()
 {
   CCSprite* btn = CCSprite::create("Images/Game/UI/pauseButton-02.png");
-  CCMenuItemSprite* btnPause = CCMenuItemSprite::create(btn, btn, this, menu_selector(PlayScene::pauseButtonTouched));
+  CCMenuItemSprite* btnPause =
+    CCMenuItemSprite::create(btn,
+                             btn,
+                             this,
+                             menu_selector(PlayScene::pauseButtonTouched));
   CCMenu* menu = CCMenu::create(btnPause, NULL);
   menu->setPosition(BTN_PAUSE_POS);
   addChild(menu, GR_FOREGROUND);
@@ -141,7 +145,8 @@ void PlayScene::addPlayerTwoShadow()
 
 void PlayScene::makeMapScroll()
 {
-  mTileMap = CCTMXTiledMap::create(CCString::createWithFormat("Images/Map/map%d.tmx", GameManager::getMapIDTouched())->getCString());
+  mTileMap = CCTMXTiledMap::create(CCString::createWithFormat("Images/Map/map%d.tmx",
+                                                              GameManager::getMapIDTouched())->getCString());
 
   this->addChild(mTileMap, GR_MIDDLEGROUND);
 
@@ -195,7 +200,8 @@ void PlayScene::makeMapScroll()
 void PlayScene::addScoreLbn()
 {
   CCSprite* scoreBoardPlayscene = CCSprite::create("Images/Game/UI/scorePanel.png");
-  scoreBoardPlayscene->setPosition(ccp(SCREEN_SIZE.width/2, scoreBoardPlayscene->getContentSize().height/2));
+  scoreBoardPlayscene->setPosition(ccp(SCREEN_SIZE.width/2,
+                                       scoreBoardPlayscene->getContentSize().height/2));
 //  CCSprite* scoreP1 = CCSprite::create("Images/Game/UI/scoreP1.png");
 //  scoreP1->setPosition(LBN_SCORE_PLAYER1_POS);
   mLbnScorePlayer1 = CCLabelTTF::create("  0      0", "ordin", 50);
@@ -383,7 +389,10 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
-    if (mTileInfoVector.at(i)->getNumberEdgeAvailale() == 0 && mTileInfoVector.at(i)->getBelongToPlayer() == 0 && mTileInfoVector.at(i)->getHasTree() == false && mTileInfoVector.at(i)->getHasStone() == false)
+    if (mTileInfoVector.at(i)->getNumberEdgeAvailale() == 0
+        && mTileInfoVector.at(i)->getBelongToPlayer() == 0
+        && mTileInfoVector.at(i)->getHasTree() == false
+        && mTileInfoVector.at(i)->getHasStone() == false)
     {
       GameManager::increaseScore(GameManager::getCurrentPlayer());
       checkIncreasingScore = true;
@@ -426,13 +435,14 @@ void PlayScene::addAxeAnimation(cocos2d::CCPoint pPos, int pIndex)
   axe->setPosition(mTileInfoVector.at(pIndex)->getTile()->getPosition()
                    + ccp(mTileInfoVector.at(pIndex)->getTile()->getContentSize().width/2,
                          mTileInfoVector.at(pIndex)->getTile()->getContentSize().height));
-  axe->runAction(CCSequence::create(
-                                    CCMoveBy::create(0.3f, ccp(0, 50)),
-                                    CCFadeIn::create(0.3f),
-                                    CCEaseBackOut::create(CCMoveTo::create(0.7f, pPos)),
-                                    CCFadeOut::create(0.2),
-                                    CCCallFuncN::create(this, callfuncN_selector(PlayScene::removeAxe)),
-                                    NULL));
+  axe->runAction(
+   CCSequence::create(
+    CCMoveBy::create(0.3f, ccp(0, 50)),
+    CCFadeIn::create(0.3f),
+    CCEaseBackOut::create(CCMoveTo::create(0.7f, pPos)),
+    CCFadeOut::create(0.2),
+    CCCallFuncN::create(this, callfuncN_selector(PlayScene::removeAxe)),
+    NULL));
   mTileMap->addChild(axe, GR_FOREGROUND);
 }
 
@@ -510,7 +520,9 @@ PlayScene::~PlayScene()
 
 void PlayScene::update(float pdT)
 {
-  int nTileFull = GameManager::getPlayerScore(PLAYER_ONE) + GameManager::getPlayerScore(PLAYER_TWO) + GameManager::getNumOfStones();
+  int nTileFull = GameManager::getPlayerScore(PLAYER_ONE)
+                  + GameManager::getPlayerScore(PLAYER_TWO)
+                  + GameManager::getNumOfStones();
   if (GameManager::getNumOfAxes(GameManager::getCurrentPlayer()) == 0
       && (nTileFull + GameManager::getNumOfTrees() == mTileInfoVector.size()))
   {
@@ -521,21 +533,24 @@ void PlayScene::update(float pdT)
           "  %i      %i",
           GameManager::getPlayerScore(PLAYER_ONE),
           GameManager::getNumOfAxes(PLAYER_ONE));
-  mLbnScorePlayer1->setString(CCString::createWithFormat("  %i      %i",
-                                               GameManager::getPlayerScore(PLAYER_ONE),
-                                               GameManager::getNumOfAxes(PLAYER_ONE))->getCString());
+  mLbnScorePlayer1->setString(
+    CCString::createWithFormat("  %i      %i",
+                               GameManager::getPlayerScore(PLAYER_ONE),
+                               GameManager::getNumOfAxes(PLAYER_ONE))->getCString());
   
   sprintf(mScoreBuffer,
           "%i      %i",
           GameManager::getNumOfAxes(PLAYER_TWO)),
           GameManager::getPlayerScore(PLAYER_TWO);
-  mLbnScorePlayer2->setString(CCString::createWithFormat("%i      %i",
-                                                         GameManager::getNumOfAxes(PLAYER_TWO),
-                                                         GameManager::getPlayerScore(PLAYER_TWO))->getCString());
+  mLbnScorePlayer2->setString(
+    CCString::createWithFormat("%i      %i",
+                               GameManager::getNumOfAxes(PLAYER_TWO),
+                               GameManager::getPlayerScore(PLAYER_TWO))->getCString());
   
   if (nTileFull == mTileInfoVector.size())
   {
-    eCurrentPlayer winPlayer = GameManager::getPlayerScore(PLAYER_ONE) > GameManager::getPlayerScore(PLAYER_TWO) ? PLAYER_ONE : PLAYER_TWO;
+    eCurrentPlayer winPlayer =
+      GameManager::getPlayerScore(PLAYER_ONE) > GameManager::getPlayerScore(PLAYER_TWO) ? PLAYER_ONE : PLAYER_TWO;
     
     /// What about equal ?????
     
@@ -571,7 +586,8 @@ void PlayScene::addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   CCSprite *tileSprite = pTileInfo->getTile();
   pTileInfo->setHasTopPop(true);
   
-  pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width/2, tileSprite->getPositionY() + tileSprite->getContentSize().height));
+  pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width/2,
+                         tileSprite->getPositionY() + tileSprite->getContentSize().height));
   
   mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeTopStatus(STS_NOT_AVAILABLE);
@@ -592,7 +608,8 @@ void PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pTileInfo->setHasLeftPop(true);
   
   pEdge->setRotation(90);
-  pEdge->setPosition(ccp(tileSprite->getPositionX(), tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
+  pEdge->setPosition(ccp(tileSprite->getPositionX(),
+                         tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
   
   mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeLeftStatus(STS_NOT_AVAILABLE);
@@ -614,7 +631,8 @@ void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pTileInfo->setHasRightPop(true);
   
   pEdge->setRotation(90);
-  pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width, tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
+  pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width,
+                         tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
   
   mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeRightStatus(STS_NOT_AVAILABLE);
@@ -653,7 +671,11 @@ void PlayScene::appearPops(TileInfo* pTileInfo, cocos2d::CCSprite *pSp)
 void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
   CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
-  CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
+  CCMenuItemSprite* item =
+    CCMenuItemSprite::create(pop,
+                             pop,
+                             this,
+                             menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_BOTTOM);
@@ -666,7 +688,11 @@ void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSpr
 void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
   CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
-  CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
+  CCMenuItemSprite* item =
+    CCMenuItemSprite::create(pop,
+                             pop,
+                             this,
+                             menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_TOP);
@@ -679,7 +705,11 @@ void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite
 void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
   CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
-  CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
+  CCMenuItemSprite* item =
+    CCMenuItemSprite::create(pop,
+                             pop,
+                             this,
+                             menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_LEFT);
@@ -692,7 +722,11 @@ void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprit
 void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
   CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
-  CCMenuItemSprite* item = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseEdgeEnded));
+  CCMenuItemSprite* item =
+    CCMenuItemSprite::create(pop,
+                             pop,
+                             this,
+                             menu_selector(PlayScene::chooseEdgeEnded));
   mPopsArr->addObject(item);
   CCMenu *edgePop = CCMenu::create(item, NULL);
   item->setTag(TAG_EDGE_RIGHT);
@@ -734,7 +768,11 @@ void PlayScene::addTrees()
     CCSprite* tree = CCSprite::create("Images/Game/Object/tree.png");
     mTreesArr->addObject(tree);
     tree->setTag(indexOfTileToAddTree);
-    tree->setPosition(ccp(mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getPositionX() + mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getContentSize().width/2, mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getPositionY() + mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getContentSize().height/2 + tree->getContentSize().height/4));
+    tree->setPosition(ccp(mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getPositionX()
+                          + mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getContentSize().width/2,
+                          mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getPositionY()
+                          + mTileInfoVector.at(indexOfTileToAddTree)->getTile()->getContentSize().height/2
+                          + tree->getContentSize().height/4));
     mTileMap->addChild(tree, GR_FOREGROUND);
   }
 }
@@ -778,7 +816,10 @@ void PlayScene::addStones()
     
     CCSprite* stone = CCSprite::create("Images/Game/Object/stone.png");
     stone->setTag(indexOfTileToAddStone);
-    stone->setPosition(ccp(mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getPositionX() + mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getContentSize().width/2, mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getPositionY() + mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getContentSize().height/2));
+    stone->setPosition(ccp(mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getPositionX()
+                           + mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getContentSize().width/2,
+                           mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getPositionY()
+                           + mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getContentSize().height/2));
     mTileMap->addChild(stone, GR_FOREGROUND);
     
     for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -820,8 +861,11 @@ void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite
   CCSprite* pop = CCSprite::create("Images/Game/Object/axe.png");
   mAxePop = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
   CCMenu *axePop = CCMenu::create(mAxePop, NULL);
-  axePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2,
-                          pTileSprite->getPositionY() + pTileSprite->getContentSize().height + pop->getContentSize().height/2));
+  axePop->setPosition(ccp(pTileSprite->getPositionX()
+                          + pTileSprite->getContentSize().width/2,
+                          pTileSprite->getPositionY()
+                          + pTileSprite->getContentSize().height
+                          + pop->getContentSize().height/2));
   mTileMap->addChild(axePop, GR_FOREGROUND);
   mIsAxePopVisible = true;
 }
@@ -873,7 +917,11 @@ void PlayScene::setupRemindLayer()
 {
   mReminder = CCLayer::create();
   CCSprite* btn = CCSprite::create("Images/Game/UI/buttonPlay.png");
-  CCMenuItemSprite* item = CCMenuItemSprite::create(btn, btn, this, menu_selector(PlayScene::onResume));
+  CCMenuItemSprite* item =
+    CCMenuItemSprite::create(btn,
+                             btn,
+                             this,
+                             menu_selector(PlayScene::onResume));
   CCPoint centerPos = ccp(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2);
   item->setPosition(centerPos);
   CCMenu* menu = CCMenu::create(item, NULL);

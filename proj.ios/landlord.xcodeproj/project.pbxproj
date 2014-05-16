@@ -802,7 +802,7 @@
 		7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SlidingMenu.cpp; sourceTree = "<group>"; };
 		7AA1ADFC18B3F79A00A5C58C /* SlidingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenu.h; sourceTree = "<group>"; };
 		7AB0FF9318C8DCD000AA51D7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		7AB41F7918B3DE6200F5177C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = ../Classes/Constant.h; sourceTree = "<group>"; };
+		7AB41F7918B3DE6200F5177C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = "/Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Constant.h"; sourceTree = "<absolute>"; };
 		7AB5C460190A7C890034CBFD /* ChooseMapScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScence.cpp; path = ../Classes/ChooseMapScence.cpp; sourceTree = "<group>"; };
 		7AB5C461190A7C890034CBFD /* ChooseMapScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseMapScence.h; path = ../Classes/ChooseMapScence.h; sourceTree = "<group>"; };
 		7AB5C469190A98410034CBFD /* CCScrollLayerVertical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCScrollLayerVertical.cpp; path = ../Classes/CCScrollLayerVertical.cpp; sourceTree = "<group>"; };
@@ -1373,9 +1373,6 @@
 				7AFB242D1908286400A40219 /* Game */,
 				7AFB242C1908285400A40219 /* AppDelegate */,
 				7AA1ADFA18B3F76100A5C58C /* Supporting Files */,
-				7AB41F7918B3DE6200F5177C /* Constant.h */,
-				7A37684B18F6A547005082ED /* LoadingScene.cpp */,
-				7A37684C18F6A547005082ED /* LoadingScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2056,6 +2053,8 @@
 		7AFB243E19082AA500A40219 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				7A37684B18F6A547005082ED /* LoadingScene.cpp */,
+				7A37684C18F6A547005082ED /* LoadingScene.h */,
 				7A3CB333190AF52B00074D3F /* StartScene.cpp */,
 				7A3CB334190AF52B00074D3F /* StartScene.h */,
 			);

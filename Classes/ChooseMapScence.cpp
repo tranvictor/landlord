@@ -54,10 +54,11 @@ void ChooseMapScene::addBackground()
 void ChooseMapScene::addButtonBack()
 {
   CCSprite *back = CCSprite::create("Images/Game/UI/leftNavigator.png");
-  CCMenuItemSprite *backBtn = CCMenuItemSprite::create(back,
-                                                       back,
-                                                       this,
-                                                       menu_selector(ChooseMapScene::buttonBackTouched));
+  CCMenuItemSprite *backBtn =
+    CCMenuItemSprite::create(back,
+                             back,
+                             this,
+                             menu_selector(ChooseMapScene::buttonBackTouched));
   CCMenu* pMenu = CCMenu::create(backBtn, NULL);
   pMenu->setPosition(BTN_BACK_POS);
   this->addChild(pMenu, GR_BACKGROUND);

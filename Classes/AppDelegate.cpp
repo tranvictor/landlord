@@ -46,7 +46,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //  }
   
   searchPaths.push_back("iphone-5");
-  pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionNoBorder);
+  pEGLView->setDesignResolutionSize(designResolutionSize.width,
+                                    designResolutionSize.height,
+                                    kResolutionNoBorder);
   
   CCFileUtils::sharedFileUtils()->setSearchPaths(searchPaths);
   
