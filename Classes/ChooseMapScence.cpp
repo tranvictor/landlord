@@ -249,11 +249,11 @@ void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
   mState--;
   if (mState == 0)
   {
-    CCScene* newScene = CCTransitionCrossFade::create(0.5, LoadingScene::scene());
-    CCDirector::sharedDirector()->replaceScene(newScene);
+    CREATE_MENU_ITEM(ChooseMapScene, LoadingScene, CCTransitionCrossFade);
   }
   else if (mState == 1)
   {
+    CREATE_MENU_ITEM_NO_CHANGE_SCENE();
     mChooseMapLayer->runAction(changePage(ccp(SCREEN_SIZE.width, 0)));
     mChooseCharacterLayer->runAction(changePage(CCPointZero));
   }
@@ -272,11 +272,11 @@ void ChooseMapScene::buttonForwardTouched(cocos2d::CCObject *pSender)
     GameManager::setPlayerOneID(mSlideCharacter1->getCurrentScreen() + 1);
     GameManager::setPlayerTwoID(mSlideCharacter2->getCurrentScreen() + 1);
     
-    CCScene* newScene = CCTransitionCrossFade::create(0.5, PlayScene::scene());
-    CCDirector::sharedDirector()->replaceScene(newScene);
+    CREATE_MENU_ITEM(ChooseMapScene, PlayScene, CCTransitionCrossFade);
   }
   else if (mState == 2)
   {
+    CREATE_MENU_ITEM_NO_CHANGE_SCENE();
     mChooseMapLayer->runAction(changePage(CCPointZero));
     mChooseCharacterLayer->runAction(changePage(ccp(-SCREEN_SIZE.width, 0)));
   }
@@ -299,3 +299,7 @@ CCAction* ChooseMapScene::changePage(cocos2d::CCPoint pPos)
   return changePage;
 }
 
+void ChooseMapScene::changeScene(cocos2d::CCObject *pData)
+{
+  CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
+}

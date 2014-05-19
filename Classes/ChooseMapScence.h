@@ -82,6 +82,8 @@ public:
   virtual cocos2d::extension::CCTableViewCell* tableCellAtIndex(cocos2d::extension::CCTableView *table,
                                                                 unsigned int idx);
   virtual unsigned int numberOfCellsInTableView(cocos2d::extension::CCTableView *table);
+  
+  void changeScene(cocos2d::CCObject* pData);
 };
 
 

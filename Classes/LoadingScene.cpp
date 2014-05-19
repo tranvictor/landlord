@@ -65,20 +65,21 @@ void LoadingScene::addSettingButton()
   this->addChild(settingMenu);
 }
 
-void LoadingScene::playButtonTouched()
+void LoadingScene::playButtonTouched(CCObject* pSender)
 {
+  CREATE_MENU_ITEM(LoadingScene, ChooseMapScene, CCTransitionCrossFade);
   sound::playSoundFx(SFX_BUTTON_TOUCH);
-  CCScene* newScene = CCTransitionCrossFade::create(0.5,
-                                                    ChooseMapScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
 }
 
-void LoadingScene::settingButtonTouched()
+void LoadingScene::settingButtonTouched(CCObject* pSender)
 {
+  CREATE_MENU_ITEM(LoadingScene, SettingScene, CCTransitionSlideInL);
   sound::playSoundFx(SFX_BUTTON_TOUCH);
-  // Set Transtion Scene
-  CCScene* newScene = CCTransitionSlideInL::create(0.5, SettingScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
+}
+
+void LoadingScene::changeScene(cocos2d::CCObject* pData)
+{
+  CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
 }
 
 void LoadingScene::addItems()

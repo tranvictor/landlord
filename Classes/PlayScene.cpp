@@ -231,15 +231,16 @@ void PlayScene::addScoreLbn()
 //  mLbnScorePlayer2->setString(mScoreBuffer);
 }
 
-void PlayScene::pauseButtonTouched()
+void PlayScene::pauseButtonTouched(CCObject* pSender)
 {
   CCLog("paused touched");
   // TODO
+  CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
   CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
   sound::playSoundFx(SFX_CONGRATULATION);
   unscheduleUpdate();
-  CCScene* newScene = CCTransitionFade::create(0.5, WinScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
+//  CCScene* newScene = CCTransitionFade::create(0.5, WinScene::scene());
+//  CCDirector::sharedDirector()->replaceScene(newScene);
 }
 
 void PlayScene::addFrameImg()
@@ -949,4 +950,9 @@ void PlayScene::cooldown()
     mReminder->setVisible(true);
     CCDirector::sharedDirector()->pause();
   }
+}
+
+void PlayScene::changeScene(cocos2d::CCObject *pData)
+{
+  CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
 }

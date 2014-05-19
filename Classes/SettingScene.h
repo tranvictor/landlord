@@ -32,7 +32,7 @@ public:
   void treeModeTouched(cocos2d::CCObject *pSender);
   void backButtonTouched(cocos2d::CCObject *pSender);
   void fogModeTouched(cocos2d::CCObject *pSender);
-  
+  void changeScene(cocos2d::CCObject* pData);
   CREATE_FUNC(SettingScene);
 };
 

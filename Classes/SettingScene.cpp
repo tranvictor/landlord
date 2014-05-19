@@ -269,10 +269,11 @@ void SettingScene::fogModeTouched(CCObject *pSender)
 void SettingScene::backButtonTouched(CCObject *pSender)
 {
   CCLog("Back Button Touched");
+  CREATE_MENU_ITEM(SettingScene, LoadingScene, CCTransitionSlideInR);
   sound::playSoundFx(SFX_BUTTON_TOUCH);
-  
-  //Set Scene Transition
-  CCScene* newScene = CCTransitionSlideInR::create(0.5, LoadingScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
-  //CCDirector::sharedDirector()->popScene();
+}
+
+void SettingScene::changeScene(cocos2d::CCObject *pData)
+{
+  CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
 }
