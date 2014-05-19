@@ -88,16 +88,15 @@ void WinScene::addButtonReplay()
 void WinScene::buttonShareTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button share touched");
+  CREATE_MENU_ITEM_NO_CHANGE_SCENE();
 }
 
 void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button replay touched");
+  CREATE_MENU_ITEM(WinScene, ChooseMapScene, CCTransitionCrossFade);
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
-  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
-
 }
 
 void WinScene::appearWinner()
@@ -121,4 +120,9 @@ void WinScene::appearWinner()
   winner->runAction(act1);
 
   addChild(winner, GR_BACKGROUND);
+}
+
+void WinScene::changeScene(cocos2d::CCObject *pData)
+{
+  CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
 }

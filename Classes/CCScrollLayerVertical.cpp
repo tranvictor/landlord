@@ -126,7 +126,7 @@ void CCScrollLayerVertical::updatePages()
     layer->setContentSize(CCDirector::sharedDirector()->getWinSize());
     layer->setPosition(ccp(0, (i * (m_obContentSize.height - m_fPagesWidthOffset))));
     if (!layer->getParent())
-      addChild(layer);
+      addChild(layer, i);
     i++;
   }
 }

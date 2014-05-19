@@ -26,9 +26,9 @@ public:
   void addItems();
   void addPlayButton();
   void addSettingButton();
-  void playButtonTouched();
-  void settingButtonTouched();
-  
+  void playButtonTouched(cocos2d::CCObject* pSender);
+  void settingButtonTouched(cocos2d::CCObject* pSender);
+  void changeScene(cocos2d::CCObject* pData);
   CREATE_FUNC(LoadingScene);
 };
 

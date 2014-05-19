@@ -30,6 +30,7 @@ public:
   void buttonReplayTouched(cocos2d::CCObject* pSender);
   
   void appearWinner();
+  void changeScene(cocos2d::CCObject* pData);
 };
 
 

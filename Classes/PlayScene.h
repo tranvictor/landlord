@@ -68,7 +68,7 @@ public:
   void addFrameImg();
   
   void makeMapScroll();
-  void pauseButtonTouched();
+  void pauseButtonTouched(cocos2d::CCObject* pSender);
   void moveMap(float pOffsetX, float pOffsetY);
   void addGlowEffect(CCSprite *pSprite,
                      const ccColor3B& pColour,
@@ -116,6 +116,7 @@ public:
   void addAxeAnimation(cocos2d::CCPoint pPos, int pIndex);
   void removeAxe(cocos2d::CCObject* pSender);
   
+  void changeScene(cocos2d::CCObject* pData);
 };
 
 #endif /* defined(__landlord__PlayScene__) */
