@@ -31,6 +31,7 @@ bool ChooseMapScene::init()
   addButtonBack();
   addButtonForward();
   mChooseCharacterLayer->addChild(mSymbolicCharacter);
+  GameManager::setIsInPlayScene(false);
   
   return true;
 }

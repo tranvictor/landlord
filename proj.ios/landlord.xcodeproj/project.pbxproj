@@ -134,8 +134,6 @@
 		15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A3DA8B1682F8A6002FB0C5 /* CocosDenshion.m */; };
 		15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15A3DA8C1682F8A6002FB0C5 /* SimpleAudioEngine.mm */; };
 		15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A3DA8E1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m */; };
-		170194FE192A745A001409F7 /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 170194CF192A745A001409F7 /* GUIReader.cpp */; };
-		170194FF192A745A001409F7 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 170194D1192A745A001409F7 /* SceneReader.cpp */; };
 		1A27573F1697CF2B00504026 /* CCEditBoxImplAndroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A27573D1697CF2B00504026 /* CCEditBoxImplAndroid.cpp */; };
 		1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F3B43175E05DA00049216 /* Animation.cpp */; };
 		1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F3B45175E05DA00049216 /* AnimationState.cpp */; };
@@ -201,7 +199,6 @@
 		379BB9AD17F03F3700829B88 /* CCComAttribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB93517F03F3700829B88 /* CCComAttribute.cpp */; };
 		379BB9AE17F03F3700829B88 /* CCComAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB93717F03F3700829B88 /* CCComAudio.cpp */; };
 		379BB9AF17F03F3700829B88 /* CCComController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB93917F03F3700829B88 /* CCComController.cpp */; };
-		379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB93B17F03F3700829B88 /* CCComRender.cpp */; };
 		379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB93D17F03F3700829B88 /* CCInputDelegate.cpp */; };
 		379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB94417F03F3700829B88 /* UIWidget.cpp */; };
 		379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB94717F03F3700829B88 /* UILayout.cpp */; };
@@ -2466,7 +2463,6 @@
 				7A3CB353190AF5A900074D3F /* GameManager.cpp in Sources */,
 				15A3D9AA1682F7F9002FB0C5 /* cpShape.c in Sources */,
 				15A3D9AB1682F7F9002FB0C5 /* cpSpace.c in Sources */,
-				170194FF192A745A001409F7 /* SceneReader.cpp in Sources */,
 				15A3D9AC1682F7F9002FB0C5 /* cpSpaceComponent.c in Sources */,
 				15A3D9AD1682F7F9002FB0C5 /* cpSpaceHash.c in Sources */,
 				15A3D9AE1682F7F9002FB0C5 /* cpSpaceQuery.c in Sources */,
@@ -2572,7 +2568,6 @@
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,
 				379BB99C17F03F3700829B88 /* CCTween.cpp in Sources */,
 				379BB99D17F03F3700829B88 /* CCArmature.cpp in Sources */,
-				170194FE192A745A001409F7 /* GUIReader.cpp in Sources */,
 				379BB99E17F03F3700829B88 /* CCBone.cpp in Sources */,
 				379BB99F17F03F3700829B88 /* CCDatas.cpp in Sources */,
 				379BB9A017F03F3700829B88 /* CCBatchNode.cpp in Sources */,
@@ -2592,7 +2587,6 @@
 				379BB9AD17F03F3700829B88 /* CCComAttribute.cpp in Sources */,
 				379BB9AE17F03F3700829B88 /* CCComAudio.cpp in Sources */,
 				379BB9AF17F03F3700829B88 /* CCComController.cpp in Sources */,
-				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
