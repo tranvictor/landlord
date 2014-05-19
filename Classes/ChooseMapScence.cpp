@@ -46,13 +46,13 @@ CCScene* ChooseMapScene::scene()
 
 void ChooseMapScene::addBackground()
 {
-  mBackground = CCSprite::create("Images/Game/Background/background_palax.png");
+  mBackground = CCSprite::create("Images/Game/Background/background_palax_enhanced.png");
   mBackground->setPosition(ccp(mBackground->getContentSize().width/2, mScreenSize.height/2));
   this->addChild(mBackground, GR_BACKGROUND);
   
   mTransparentBox = CCSprite::create("Images/Game/Background/transparent_box.png");
   mTransparentBox->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
-  this->addChild(mTransparentBox, GR_MIDDLEGROUND);
+  this->addChild(mTransparentBox, GR_FOREGROUND);
 }
 
 void ChooseMapScene::addButtonBack()

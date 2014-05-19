@@ -954,7 +954,7 @@ CCLayer* PlayScene::setupRemindLayer(const char* pFileName,
   menu->setPosition(CCPointZero);
   this->addChild(Reminder, GR_FOREGROUND);
   
-  CCLabelTTF* label = CCLabelTTF::create(pContent, "Marker Felt", 48);
+  CCLabelTTF* label = CCLabelTTF::create(pContent, "fonts/Marker Felt.ttf", 48);
   label->setHorizontalAlignment(kCCTextAlignmentLeft);
   label->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
   label->setColor(pColor);
@@ -1003,7 +1003,7 @@ void PlayScene::changeScene(cocos2d::CCObject *pData)
 CCSprite* PlayScene::createTurnIndicator(CCPoint pPos)
 {
   CCSprite* turnIndicator = CCSprite::create("Images/Game/Object/turn_idicator.png");
-  turnIndicator->setPosition(pPos + ccp(0, 160));
+  turnIndicator->setPosition(pPos + ccp(0, 180));
   turnIndicator->runAction(CCFlipX::create(true));
   turnIndicator->setVisible(false);
   this->addChild(turnIndicator, GR_FOREGROUND, TAG_TURN_INDICATOR);
