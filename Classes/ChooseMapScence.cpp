@@ -110,10 +110,28 @@ void ChooseMapScene::switchCharacterSilde(cocos2d::CCObject *pSender)
   mSlideCharacter2->setTouchEnabled(!mSlideCharacter2->isTouchEnabled());
   if (mSlideCharacter1->isTouchEnabled())
   {
+    this->removeChildByTag(SYMBOLIC_CHARACTER_TAG);
+    mSymbolicCharacter = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", mSlideCharacter2->getCurrentScreen() + 1)->getCString());
+    mSymbolicCharacter->setOpacity(100);
+    mSymbolicCharacter->setPosition(CHARACTER_RIGHT_LAYER_POS);
+    mSymbolicCharacter->setTag(SYMBOLIC_CHARACTER_TAG);
+    this->addChild(mSymbolicCharacter);
+    
+    mSlideCharacter1->setVisible(true);
+    mSlideCharacter2->setVisible(false);
     addCharacterAura(mSlideCharacter1->getCurrentScreen() + 1, CHARACTER_LEFT_LAYER_POS);
   }
   else
   {
+    this->removeChildByTag(SYMBOLIC_CHARACTER_TAG);
+    mSymbolicCharacter = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", mSlideCharacter1->getCurrentScreen() + 1)->getCString());
+    mSymbolicCharacter->setOpacity(100);
+    mSymbolicCharacter->setPosition(CHARACTER_LEFT_LAYER_POS);
+    mSymbolicCharacter->setTag(SYMBOLIC_CHARACTER_TAG);
+    this->addChild(mSymbolicCharacter);
+    
+    mSlideCharacter1->setVisible(false);
+    mSlideCharacter2->setVisible(true);
     addCharacterAura(mSlideCharacter2->getCurrentScreen() + 1, CHARACTER_RIGHT_LAYER_POS);
   }
 }
@@ -181,9 +199,16 @@ CCLayer* ChooseMapScene::createChooseCharaterLayer()
   mSlideCharacter2 = CCScrollLayerVertical::nodeWithLayers(characterArr2, 0);
   mSlideCharacter2->setTouchEnabled(false);
   mSlideCharacter2->selectPage(rand() % NUMBER_CHARACTERS);
+  mSlideCharacter2->setVisible(false);
+  
+  mSymbolicCharacter = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", mSlideCharacter2->getCurrentScreen() + 1)->getCString());
+  mSymbolicCharacter->setPosition(CHARACTER_RIGHT_LAYER_POS);
+  mSymbolicCharacter->setOpacity(100);
+  mSymbolicCharacter->setTag(SYMBOLIC_CHARACTER_TAG);
   
   chooseCharacterLayer->addChild(mSlideCharacter1, GR_FOREGROUND);
   chooseCharacterLayer->addChild(mSlideCharacter2, GR_FOREGROUND);
+  this->addChild(mSymbolicCharacter);
   
   return chooseCharacterLayer;
 }
