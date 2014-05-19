@@ -33,6 +33,7 @@ USING_NS_CC;
 #define CHARACTER_LEFT_LAYER_POS ccp(339.106, 320.977)
 #define CHARACTER_RIGHT_LAYER_POS ccp(796.894, 320.977)
 #define VS_POS                  ccp(561.163, 345.206)
+#define SYMBOLIC_CHARACTER_TAG  10
 
 //SettingScene
 #define BTN_SOUND               ccp(678.832, 640 - 303.004)

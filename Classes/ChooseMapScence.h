@@ -31,6 +31,7 @@ private:
   int mState;
   CCSprite*         mBackground;
   CCSprite*         mTransparentBox;
+  CCSprite*         mSymbolicCharacter;
   
   cocos2d::CCLayer* mChooseCharacterLayer;
   cocos2d::CCLayer* mChooseMapLayer;
