@@ -30,6 +30,7 @@ private:
   CCScrollLayer*    mSlidingMap;
   int mState;
   CCSprite*         mBackground;
+  CCSprite*         mTransparentBox;
   
   cocos2d::CCLayer* mChooseCharacterLayer;
   cocos2d::CCLayer* mChooseMapLayer;

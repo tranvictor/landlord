@@ -136,20 +136,6 @@
 		15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A3DA8E1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m */; };
 		1700E6EE1929B321008A504A /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E6EA1929B321008A504A /* GUIReader.cpp */; };
 		1700E6EF1929B321008A504A /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E6EC1929B321008A504A /* SceneReader.cpp */; };
-		1700E71B1929B32B008A504A /* ButtonReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E6F21929B32B008A504A /* ButtonReader.cpp */; };
-		1700E71C1929B32B008A504A /* CheckBoxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E6F51929B32B008A504A /* CheckBoxReader.cpp */; };
-		1700E71D1929B32B008A504A /* ImageViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E6F81929B32B008A504A /* ImageViewReader.cpp */; };
-		1700E71E1929B32B008A504A /* LabelAtlasReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E6FB1929B32B008A504A /* LabelAtlasReader.cpp */; };
-		1700E71F1929B32B008A504A /* LabelBMFontReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E6FE1929B32B008A504A /* LabelBMFontReader.cpp */; };
-		1700E7201929B32B008A504A /* LabelReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E7011929B32B008A504A /* LabelReader.cpp */; };
-		1700E7211929B32B008A504A /* LayoutReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E7041929B32B008A504A /* LayoutReader.cpp */; };
-		1700E7221929B32B008A504A /* ListViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E7071929B32B008A504A /* ListViewReader.cpp */; };
-		1700E7231929B32B008A504A /* LoadingBarReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E70A1929B32B008A504A /* LoadingBarReader.cpp */; };
-		1700E7241929B32B008A504A /* PageViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E70D1929B32B008A504A /* PageViewReader.cpp */; };
-		1700E7251929B32B008A504A /* ScrollViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E7101929B32B008A504A /* ScrollViewReader.cpp */; };
-		1700E7261929B32B008A504A /* SliderReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E7131929B32B008A504A /* SliderReader.cpp */; };
-		1700E7271929B32B008A504A /* TextFieldReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E7161929B32B008A504A /* TextFieldReader.cpp */; };
-		1700E7281929B32B008A504A /* WidgetReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E7181929B32B008A504A /* WidgetReader.cpp */; };
 		1A27573F1697CF2B00504026 /* CCEditBoxImplAndroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A27573D1697CF2B00504026 /* CCEditBoxImplAndroid.cpp */; };
 		1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F3B43175E05DA00049216 /* Animation.cpp */; };
 		1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F3B45175E05DA00049216 /* AnimationState.cpp */; };
@@ -669,6 +655,7 @@
 		1D6058910D05DD3D006BFB54 /* landlord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = landlord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2E52C567192A14EF008098DD /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = ../Classes/Constant.h; sourceTree = "<group>"; };
 		2E92E2D4190A788700001F10 /* BounceButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BounceButton.cpp; path = ../Classes/BounceButton.cpp; sourceTree = "<group>"; };
 		2ED73650190A87A5002AEF3A /* BounceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BounceButton.h; path = ../Classes/BounceButton.h; sourceTree = "<group>"; };
 		373B911F18788FB000198F86 /* CCComBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCComBase.h; sourceTree = "<group>"; };
@@ -845,7 +832,6 @@
 		7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SlidingMenu.cpp; sourceTree = "<group>"; };
 		7AA1ADFC18B3F79A00A5C58C /* SlidingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenu.h; sourceTree = "<group>"; };
 		7AB0FF9318C8DCD000AA51D7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		7AB41F7918B3DE6200F5177C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = "/Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Constant.h"; sourceTree = "<absolute>"; };
 		7AB5C460190A7C890034CBFD /* ChooseMapScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScence.cpp; path = ../Classes/ChooseMapScence.cpp; sourceTree = "<group>"; };
 		7AB5C461190A7C890034CBFD /* ChooseMapScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseMapScence.h; path = ../Classes/ChooseMapScence.h; sourceTree = "<group>"; };
 		7AB5C469190A98410034CBFD /* CCScrollLayerVertical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCScrollLayerVertical.cpp; path = ../Classes/CCScrollLayerVertical.cpp; sourceTree = "<group>"; };
@@ -2130,7 +2116,7 @@
 		7AFB2432190829C400A40219 /* GameConstants */ = {
 			isa = PBXGroup;
 			children = (
-				7AB41F7918B3DE6200F5177C /* Constant.h */,
+				2E52C567192A14EF008098DD /* Constant.h */,
 			);
 			name = GameConstants;
 			sourceTree = "<group>";
@@ -2457,7 +2443,6 @@
 				15A3D9971682F7F9002FB0C5 /* cpConstraint.c in Sources */,
 				15A3D9981682F7F9002FB0C5 /* cpDampedRotarySpring.c in Sources */,
 				7A3CB33E190AF55200074D3F /* WinScene.cpp in Sources */,
-				1700E7261929B32B008A504A /* SliderReader.cpp in Sources */,
 				7A3CB338190AF53C00074D3F /* ChooseCharacterScene.cpp in Sources */,
 				15A3D9991682F7F9002FB0C5 /* cpDampedSpring.c in Sources */,
 				15A3D99A1682F7F9002FB0C5 /* cpGearJoint.c in Sources */,
@@ -2478,8 +2463,6 @@
 				15A3D9A51682F7F9002FB0C5 /* cpBBTree.c in Sources */,
 				15A3D9A61682F7F9002FB0C5 /* cpBody.c in Sources */,
 				15A3D9A71682F7F9002FB0C5 /* cpCollision.c in Sources */,
-				1700E71C1929B32B008A504A /* CheckBoxReader.cpp in Sources */,
-				1700E7251929B32B008A504A /* ScrollViewReader.cpp in Sources */,
 				15A3D9A81682F7F9002FB0C5 /* cpHashSet.c in Sources */,
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
 				7A3CB353190AF5A900074D3F /* GameManager.cpp in Sources */,
@@ -2489,7 +2472,6 @@
 				15A3D9AC1682F7F9002FB0C5 /* cpSpaceComponent.c in Sources */,
 				15A3D9AD1682F7F9002FB0C5 /* cpSpaceHash.c in Sources */,
 				1700E6EF1929B321008A504A /* SceneReader.cpp in Sources */,
-				1700E7271929B32B008A504A /* TextFieldReader.cpp in Sources */,
 				15A3D9AE1682F7F9002FB0C5 /* cpSpaceQuery.c in Sources */,
 				15A3D9AF1682F7F9002FB0C5 /* cpSpaceStep.c in Sources */,
 				15A3D9B01682F7F9002FB0C5 /* cpSpatialIndex.c in Sources */,
@@ -2497,7 +2479,6 @@
 				15A3D9B21682F7F9002FB0C5 /* cpVect.c in Sources */,
 				15A3DA311682F826002FB0C5 /* CCBAnimationManager.cpp in Sources */,
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
-				1700E7241929B32B008A504A /* PageViewReader.cpp in Sources */,
 				15A3DA331682F826002FB0C5 /* CCBKeyframe.cpp in Sources */,
 				15A3DA341682F826002FB0C5 /* CCBReader.cpp in Sources */,
 				15A3DA351682F826002FB0C5 /* CCBSequence.cpp in Sources */,
@@ -2529,7 +2510,6 @@
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
-				1700E71E1929B32B008A504A /* LabelAtlasReader.cpp in Sources */,
 				15A3DA4D1682F826002FB0C5 /* CCControlPotentiometer.cpp in Sources */,
 				15A3DA4E1682F826002FB0C5 /* CCControlSaturationBrightnessPicker.cpp in Sources */,
 				15A3DA4F1682F826002FB0C5 /* CCControlSlider.cpp in Sources */,
@@ -2557,7 +2537,6 @@
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				1A27573F1697CF2B00504026 /* CCEditBoxImplAndroid.cpp in Sources */,
-				1700E71F1929B32B008A504A /* LabelBMFontReader.cpp in Sources */,
 				7A3CB34D190AF58D00074D3F /* Tree.cpp in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
@@ -2565,7 +2544,6 @@
 				1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */,
 				7A3CB33B190AF54800074D3F /* PlayScene.cpp in Sources */,
 				7AB5C462190A7C890034CBFD /* ChooseMapScence.cpp in Sources */,
-				1700E71B1929B32B008A504A /* ButtonReader.cpp in Sources */,
 				7A3CB332190AF51700074D3F /* TileInfo.cpp in Sources */,
 				1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */,
 				1A8F3B70175E05DA00049216 /* AnimationStateData.cpp in Sources */,
@@ -2574,7 +2552,6 @@
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
 				1A8F3B74175E05DA00049216 /* AttachmentLoader.cpp in Sources */,
 				1A8F3B75175E05DA00049216 /* Bone.cpp in Sources */,
-				1700E71D1929B32B008A504A /* ImageViewReader.cpp in Sources */,
 				1A8F3B76175E05DA00049216 /* BoneData.cpp in Sources */,
 				1A8F3B77175E05DA00049216 /* CCSkeleton.cpp in Sources */,
 				1A8F3B78175E05DA00049216 /* CCSkeletonAnimation.cpp in Sources */,
@@ -2588,14 +2565,12 @@
 				1A8F3B7E175E05DA00049216 /* SkeletonJson.cpp in Sources */,
 				7A9B5CE418C0A45900C739FD /* CCLayerPanZoom.cpp in Sources */,
 				1A8F3B7F175E05DA00049216 /* Skin.cpp in Sources */,
-				1700E7281929B32B008A504A /* WidgetReader.cpp in Sources */,
 				1A8F3B80175E05DA00049216 /* Slot.cpp in Sources */,
 				1A8F3B81175E05DA00049216 /* SlotData.cpp in Sources */,
 				1A8F3B82175E05DA00049216 /* spine-cocos2dx.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
 				375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */,
 				1A9CE8781765A12C000E3062 /* AssetsManager.cpp in Sources */,
-				1700E7231929B32B008A504A /* LoadingBarReader.cpp in Sources */,
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,
 				379BB99C17F03F3700829B88 /* CCTween.cpp in Sources */,
@@ -2613,7 +2588,6 @@
 				379BB9A817F03F3700829B88 /* CCDataReaderHelper.cpp in Sources */,
 				379BB9A917F03F3700829B88 /* CCSpriteFrameCacheHelper.cpp in Sources */,
 				7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */,
-				1700E7201929B32B008A504A /* LabelReader.cpp in Sources */,
 				379BB9AA17F03F3700829B88 /* CCTransformHelp.cpp in Sources */,
 				379BB9AB17F03F3700829B88 /* CCTweenFunction.cpp in Sources */,
 				379BB9AC17F03F3700829B88 /* CCUtilMath.cpp in Sources */,
@@ -2621,7 +2595,6 @@
 				379BB9AE17F03F3700829B88 /* CCComAudio.cpp in Sources */,
 				379BB9AF17F03F3700829B88 /* CCComController.cpp in Sources */,
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
-				1700E7221929B32B008A504A /* ListViewReader.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
@@ -2634,7 +2607,6 @@
 				379BB9BF17F03F3700829B88 /* UIScrollView.cpp in Sources */,
 				379BB9C017F03F3700829B88 /* UIButton.cpp in Sources */,
 				375BD50E1868454E0024609E /* CCActionEaseEx.cpp in Sources */,
-				1700E7211929B32B008A504A /* LayoutReader.cpp in Sources */,
 				379BB9C117F03F3700829B88 /* UICheckBox.cpp in Sources */,
 				379BB9C217F03F3700829B88 /* UIImageView.cpp in Sources */,
 				379BB9C317F03F3700829B88 /* UILabel.cpp in Sources */,

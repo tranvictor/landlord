@@ -41,6 +41,10 @@ USING_NS_CC;
 #define BTN_FOG_POS             ccp(859.227, 640 - 126.151)
 #define BTN_TREE                ccp(964.836, 640 - 263.52)
 #define SETTING_BTN_BACK        ccp(1049.105, 640 - 558.245)
+#define FOG_ZORDER              2
+#define TREE_ZORDER             3
+#define SFX_ZORDER              4
+#define MUSIC_ZORDER            1
 
 // PlayScene
 #define BTN_PAUSE_POS           ccp(1044.559, 640 - 84.997)

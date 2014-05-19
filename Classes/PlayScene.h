@@ -98,7 +98,7 @@ public:
   
   CC_SYNTHESIZE(float, mCooldownTime, CooldownTime);
   CC_SYNTHESIZE(cocos2d::CCLayer*, mReminder, Reminder);
-  void onResume();
+  void onResume(cocos2d::CCObject* pSender);
   void setupRemindLayer();
   void cooldown();
   

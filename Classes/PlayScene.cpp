@@ -235,6 +235,7 @@ void PlayScene::pauseButtonTouched(CCObject* pSender)
   CCLog("paused touched");
   // TODO
   unscheduleUpdate();
+  unschedule(schedule_selector(PlayScene::cooldown));
   CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
   CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
   sound::playSoundFx(SFX_CONGRATULATION);
@@ -431,7 +432,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
 
 void PlayScene::addAxeAnimation(cocos2d::CCPoint pPos, int pIndex)
 {
-  CCSprite* axe = CCSprite::create("Images/Game/Object/axe.png");
+  CCSprite* axe = CCSprite::create("Images/Game/Object/axe-02.png");
   axe->setPosition(mTileInfoVector.at(pIndex)->getTile()->getPosition()
                    + ccp(mTileInfoVector.at(pIndex)->getTile()->getContentSize().width/2,
                          mTileInfoVector.at(pIndex)->getTile()->getContentSize().height));
@@ -552,6 +553,7 @@ void PlayScene::update(float pdT)
     eCurrentPlayer winPlayer =
       GameManager::getPlayerScore(PLAYER_ONE) > GameManager::getPlayerScore(PLAYER_TWO) ? PLAYER_ONE : PLAYER_TWO;
     unscheduleUpdate();
+    unschedule(schedule_selector(PlayScene::cooldown));
     GameManager::setWinPlayer(winPlayer);
     CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
@@ -866,7 +868,7 @@ void PlayScene::addStones()
 
 void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/Object/axe.png");
+  CCSprite* pop = CCSprite::create("Images/Game/Object/axe-02.png");
   mAxePop = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
   CCMenu *axePop = CCMenu::create(mAxePop, NULL);
   axePop->setPosition(ccp(pTileSprite->getPositionX()
@@ -924,7 +926,7 @@ void PlayScene::removeTree()
 void PlayScene::setupRemindLayer()
 {
   mReminder = CCLayer::create();
-  CCSprite* btn = CCSprite::create("Images/Game/UI/buttonPlay.png");
+  CCSprite* btn = CCSprite::create("Images/Game/Object/bubble.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(btn,
                              btn,
@@ -937,9 +939,11 @@ void PlayScene::setupRemindLayer()
   mReminder->setVisible(false);
   menu->setPosition(CCPointZero);
   this->addChild(mReminder, GR_FOREGROUND);
+  
+  
 }
 
-void PlayScene::onResume()
+void PlayScene::onResume(cocos2d::CCObject* pSender)
 {
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   mReminder->setVisible(false);
