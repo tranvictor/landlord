@@ -541,8 +541,8 @@ void PlayScene::update(float pdT)
   
   sprintf(mScoreBuffer,
           "%i      %i",
-          GameManager::getNumOfAxes(PLAYER_TWO)),
-          GameManager::getPlayerScore(PLAYER_TWO);
+          GameManager::getNumOfAxes(PLAYER_TWO),
+          GameManager::getPlayerScore(PLAYER_TWO));
   mLbnScorePlayer2->setString(
     CCString::createWithFormat("%i      %i",
                                GameManager::getNumOfAxes(PLAYER_TWO),
