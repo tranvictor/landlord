@@ -52,7 +52,7 @@ class PlayScene : public cocos2d::CCLayer
   CCSprite*           mPlayerOneShadow;
   CCSprite*           mPlayerTwoShadow;
   
-  CCLayer*            mPauseLayer;
+  CCLayer*            mPausedLayer;
   
 public:
   virtual bool init();
@@ -120,7 +120,10 @@ public:
   
   void changeScene(cocos2d::CCObject* pData);
   
-  void addPauseLayer();
+  void addPausedLayer();
+  void resumeButtonTouched();
+  void optionButtonTouched();
+  void replayButtonTouched();
 };
 
 #endif /* defined(__landlord__PlayScene__) */

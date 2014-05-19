@@ -62,7 +62,7 @@ bool PlayScene::init()
   addPlayerTwo();
   addPlayerTwoShadow();
   addScoreLbn();
-  addPauseLayer();
+  addPausedLayer();
   
   if (GameManager::getTreeModeState())
   {
@@ -969,10 +969,56 @@ void PlayScene::changeScene(cocos2d::CCObject *pData)
   CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
 }
 
-void PlayScene::addPauseLayer()
+void PlayScene::addPausedLayer()
 {
-//  mPauseLayer = CCLayer::create();
-//  CCSprite* pauseTitle = CCSprite::create("Images/Game/UI/pause_title.png");
-//  pauseTitle->setPosition(PAUSE_TITLE_POS);
-//  
+  mPausedLayer = CCLayer::create();
+  CCSprite* pausedTitle = CCSprite::create("Images/Game/UI/paused_title.png");
+  pausedTitle->setPosition(PAUSED_TITLE_POS);
+  mPausedLayer->addChild(pausedTitle);
+  
+  CCSprite* btn = CCSprite::create("Images/Game/UI/paused_resume.png");
+  CCMenuItemSprite* paused =
+  CCMenuItemSprite::create(btn,
+                           btn,
+                           this,
+                           menu_selector(PlayScene::resumeButtonTouched));
+  CCMenu* menu = CCMenu::create(paused, NULL);
+  menu->setPosition(PAUSED_RESUME_POS);
+  mPausedLayer->addChild(menu);
+  
+  btn = CCSprite::create("Images/Game/UI/paused_option.png");
+  paused = CCMenuItemSprite::create(btn,
+                           btn,
+                           this,
+                           menu_selector(PlayScene::optionButtonTouched));
+  menu = CCMenu::create(paused, NULL);
+  menu->setPosition(PAUSED_OPTION_POS);
+  mPausedLayer->addChild(menu);
+  
+  btn = CCSprite::create("Images/Game/UI/paused_replay.png");
+  paused = CCMenuItemSprite::create(btn,
+                                    btn,
+                                    this,
+                                    menu_selector(PlayScene::replayButtonTouched));
+  menu = CCMenu::create(paused, NULL);
+  menu->setPosition(PAUSED_REPLAY_POS);
+  mPausedLayer->addChild(menu);
+  
+//  mPausedLayer->setVisible(false);
+  this->addChild(mPausedLayer, 6);
+}
+
+void PlayScene::resumeButtonTouched()
+{
+  
+}
+
+void PlayScene::optionButtonTouched()
+{
+  
+}
+
+void PlayScene::replayButtonTouched()
+{
+  
 }

@@ -59,11 +59,11 @@ USING_NS_CC;
 #define PAIR_FUNC(a,b)          (int)(0.5*(a+b)*(a+b+1)+b)  // return the unique number from a, b
 #define RANDOM_NUMBER_OF_TREES  rand() % 3 + 4
 
-// PauseLayer
-#define PAUSE_TITLE_POS         ccp(568, 134.117)
-#define PAUSE_RESUME_POS        ccp(568, 134.117 - 25)
-#define PAUSE_OPTION_POS        ccp(568, 134.117 - 50)
-#define PAUSE_REPLAY_POS        ccp(568, 134.117 - 75)
+// PausedLayer
+#define PAUSED_TITLE_POS         ccp(568, 640 - 134.117)
+#define PAUSED_RESUME_POS        ccp(568, 640 - 219.117)
+#define PAUSED_OPTION_POS        ccp(568, 640 - 329.117)
+#define PAUSED_REPLAY_POS        ccp(568, 640 - 439.117)
 
 // ChooseCharacterScene
 #define NUMBER_CHARACTERS       8
