@@ -134,8 +134,22 @@
 		15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A3DA8B1682F8A6002FB0C5 /* CocosDenshion.m */; };
 		15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15A3DA8C1682F8A6002FB0C5 /* SimpleAudioEngine.mm */; };
 		15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A3DA8E1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m */; };
-		1700E6EE1929B321008A504A /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E6EA1929B321008A504A /* GUIReader.cpp */; };
-		1700E6EF1929B321008A504A /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1700E6EC1929B321008A504A /* SceneReader.cpp */; };
+		176AF66E192A473C0004B6C9 /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF63F192A473C0004B6C9 /* GUIReader.cpp */; };
+		176AF66F192A473C0004B6C9 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF641192A473C0004B6C9 /* SceneReader.cpp */; };
+		176AF670192A473C0004B6C9 /* ButtonReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF645192A473C0004B6C9 /* ButtonReader.cpp */; };
+		176AF671192A473C0004B6C9 /* CheckBoxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF648192A473C0004B6C9 /* CheckBoxReader.cpp */; };
+		176AF672192A473C0004B6C9 /* ImageViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF64B192A473C0004B6C9 /* ImageViewReader.cpp */; };
+		176AF673192A473C0004B6C9 /* LabelAtlasReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF64E192A473C0004B6C9 /* LabelAtlasReader.cpp */; };
+		176AF674192A473C0004B6C9 /* LabelBMFontReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF651192A473C0004B6C9 /* LabelBMFontReader.cpp */; };
+		176AF675192A473C0004B6C9 /* LabelReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF654192A473C0004B6C9 /* LabelReader.cpp */; };
+		176AF676192A473C0004B6C9 /* LayoutReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF657192A473C0004B6C9 /* LayoutReader.cpp */; };
+		176AF677192A473C0004B6C9 /* ListViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF65A192A473C0004B6C9 /* ListViewReader.cpp */; };
+		176AF678192A473C0004B6C9 /* LoadingBarReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF65D192A473C0004B6C9 /* LoadingBarReader.cpp */; };
+		176AF679192A473C0004B6C9 /* PageViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF660192A473C0004B6C9 /* PageViewReader.cpp */; };
+		176AF67A192A473C0004B6C9 /* ScrollViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF663192A473C0004B6C9 /* ScrollViewReader.cpp */; };
+		176AF67B192A473C0004B6C9 /* SliderReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF666192A473C0004B6C9 /* SliderReader.cpp */; };
+		176AF67C192A473C0004B6C9 /* TextFieldReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF669192A473C0004B6C9 /* TextFieldReader.cpp */; };
+		176AF67D192A473C0004B6C9 /* WidgetReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF66B192A473C0004B6C9 /* WidgetReader.cpp */; };
 		1A27573F1697CF2B00504026 /* CCEditBoxImplAndroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A27573D1697CF2B00504026 /* CCEditBoxImplAndroid.cpp */; };
 		1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F3B43175E05DA00049216 /* Animation.cpp */; };
 		1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F3B45175E05DA00049216 /* AnimationState.cpp */; };
@@ -560,39 +574,39 @@
 		15A3DA8C1682F8A6002FB0C5 /* SimpleAudioEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimpleAudioEngine.mm; sourceTree = "<group>"; };
 		15A3DA8D1682F8A6002FB0C5 /* SimpleAudioEngine_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine_objc.h; sourceTree = "<group>"; };
 		15A3DA8E1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine_objc.m; sourceTree = "<group>"; };
-		1700E6EA1929B321008A504A /* GUIReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIReader.cpp; sourceTree = "<group>"; };
-		1700E6EB1929B321008A504A /* GUIReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIReader.h; sourceTree = "<group>"; };
-		1700E6EC1929B321008A504A /* SceneReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneReader.cpp; sourceTree = "<group>"; };
-		1700E6ED1929B321008A504A /* SceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneReader.h; sourceTree = "<group>"; };
-		1700E6F21929B32B008A504A /* ButtonReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonReader.cpp; sourceTree = "<group>"; };
-		1700E6F31929B32B008A504A /* ButtonReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonReader.h; sourceTree = "<group>"; };
-		1700E6F51929B32B008A504A /* CheckBoxReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckBoxReader.cpp; sourceTree = "<group>"; };
-		1700E6F61929B32B008A504A /* CheckBoxReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxReader.h; sourceTree = "<group>"; };
-		1700E6F81929B32B008A504A /* ImageViewReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageViewReader.cpp; sourceTree = "<group>"; };
-		1700E6F91929B32B008A504A /* ImageViewReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewReader.h; sourceTree = "<group>"; };
-		1700E6FB1929B32B008A504A /* LabelAtlasReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelAtlasReader.cpp; sourceTree = "<group>"; };
-		1700E6FC1929B32B008A504A /* LabelAtlasReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelAtlasReader.h; sourceTree = "<group>"; };
-		1700E6FE1929B32B008A504A /* LabelBMFontReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelBMFontReader.cpp; sourceTree = "<group>"; };
-		1700E6FF1929B32B008A504A /* LabelBMFontReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelBMFontReader.h; sourceTree = "<group>"; };
-		1700E7011929B32B008A504A /* LabelReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelReader.cpp; sourceTree = "<group>"; };
-		1700E7021929B32B008A504A /* LabelReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelReader.h; sourceTree = "<group>"; };
-		1700E7041929B32B008A504A /* LayoutReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayoutReader.cpp; sourceTree = "<group>"; };
-		1700E7051929B32B008A504A /* LayoutReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutReader.h; sourceTree = "<group>"; };
-		1700E7071929B32B008A504A /* ListViewReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ListViewReader.cpp; sourceTree = "<group>"; };
-		1700E7081929B32B008A504A /* ListViewReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewReader.h; sourceTree = "<group>"; };
-		1700E70A1929B32B008A504A /* LoadingBarReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingBarReader.cpp; sourceTree = "<group>"; };
-		1700E70B1929B32B008A504A /* LoadingBarReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingBarReader.h; sourceTree = "<group>"; };
-		1700E70D1929B32B008A504A /* PageViewReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PageViewReader.cpp; sourceTree = "<group>"; };
-		1700E70E1929B32B008A504A /* PageViewReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewReader.h; sourceTree = "<group>"; };
-		1700E7101929B32B008A504A /* ScrollViewReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScrollViewReader.cpp; sourceTree = "<group>"; };
-		1700E7111929B32B008A504A /* ScrollViewReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewReader.h; sourceTree = "<group>"; };
-		1700E7131929B32B008A504A /* SliderReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SliderReader.cpp; sourceTree = "<group>"; };
-		1700E7141929B32B008A504A /* SliderReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderReader.h; sourceTree = "<group>"; };
-		1700E7161929B32B008A504A /* TextFieldReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextFieldReader.cpp; sourceTree = "<group>"; };
-		1700E7171929B32B008A504A /* TextFieldReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldReader.h; sourceTree = "<group>"; };
-		1700E7181929B32B008A504A /* WidgetReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WidgetReader.cpp; sourceTree = "<group>"; };
-		1700E7191929B32B008A504A /* WidgetReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetReader.h; sourceTree = "<group>"; };
-		1700E71A1929B32B008A504A /* WidgetReaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetReaderProtocol.h; sourceTree = "<group>"; };
+		176AF63F192A473C0004B6C9 /* GUIReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIReader.cpp; sourceTree = "<group>"; };
+		176AF640192A473C0004B6C9 /* GUIReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIReader.h; sourceTree = "<group>"; };
+		176AF641192A473C0004B6C9 /* SceneReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneReader.cpp; sourceTree = "<group>"; };
+		176AF642192A473C0004B6C9 /* SceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneReader.h; sourceTree = "<group>"; };
+		176AF645192A473C0004B6C9 /* ButtonReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonReader.cpp; sourceTree = "<group>"; };
+		176AF646192A473C0004B6C9 /* ButtonReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonReader.h; sourceTree = "<group>"; };
+		176AF648192A473C0004B6C9 /* CheckBoxReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckBoxReader.cpp; sourceTree = "<group>"; };
+		176AF649192A473C0004B6C9 /* CheckBoxReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxReader.h; sourceTree = "<group>"; };
+		176AF64B192A473C0004B6C9 /* ImageViewReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageViewReader.cpp; sourceTree = "<group>"; };
+		176AF64C192A473C0004B6C9 /* ImageViewReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewReader.h; sourceTree = "<group>"; };
+		176AF64E192A473C0004B6C9 /* LabelAtlasReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelAtlasReader.cpp; sourceTree = "<group>"; };
+		176AF64F192A473C0004B6C9 /* LabelAtlasReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelAtlasReader.h; sourceTree = "<group>"; };
+		176AF651192A473C0004B6C9 /* LabelBMFontReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelBMFontReader.cpp; sourceTree = "<group>"; };
+		176AF652192A473C0004B6C9 /* LabelBMFontReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelBMFontReader.h; sourceTree = "<group>"; };
+		176AF654192A473C0004B6C9 /* LabelReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LabelReader.cpp; sourceTree = "<group>"; };
+		176AF655192A473C0004B6C9 /* LabelReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelReader.h; sourceTree = "<group>"; };
+		176AF657192A473C0004B6C9 /* LayoutReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayoutReader.cpp; sourceTree = "<group>"; };
+		176AF658192A473C0004B6C9 /* LayoutReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutReader.h; sourceTree = "<group>"; };
+		176AF65A192A473C0004B6C9 /* ListViewReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ListViewReader.cpp; sourceTree = "<group>"; };
+		176AF65B192A473C0004B6C9 /* ListViewReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewReader.h; sourceTree = "<group>"; };
+		176AF65D192A473C0004B6C9 /* LoadingBarReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingBarReader.cpp; sourceTree = "<group>"; };
+		176AF65E192A473C0004B6C9 /* LoadingBarReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingBarReader.h; sourceTree = "<group>"; };
+		176AF660192A473C0004B6C9 /* PageViewReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PageViewReader.cpp; sourceTree = "<group>"; };
+		176AF661192A473C0004B6C9 /* PageViewReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewReader.h; sourceTree = "<group>"; };
+		176AF663192A473C0004B6C9 /* ScrollViewReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScrollViewReader.cpp; sourceTree = "<group>"; };
+		176AF664192A473C0004B6C9 /* ScrollViewReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewReader.h; sourceTree = "<group>"; };
+		176AF666192A473C0004B6C9 /* SliderReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SliderReader.cpp; sourceTree = "<group>"; };
+		176AF667192A473C0004B6C9 /* SliderReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderReader.h; sourceTree = "<group>"; };
+		176AF669192A473C0004B6C9 /* TextFieldReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextFieldReader.cpp; sourceTree = "<group>"; };
+		176AF66A192A473C0004B6C9 /* TextFieldReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldReader.h; sourceTree = "<group>"; };
+		176AF66B192A473C0004B6C9 /* WidgetReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WidgetReader.cpp; sourceTree = "<group>"; };
+		176AF66C192A473C0004B6C9 /* WidgetReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetReader.h; sourceTree = "<group>"; };
+		176AF66D192A473C0004B6C9 /* WidgetReaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetReaderProtocol.h; sourceTree = "<group>"; };
 		1A27573D1697CF2B00504026 /* CCEditBoxImplAndroid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCEditBoxImplAndroid.cpp; sourceTree = "<group>"; };
 		1A27573E1697CF2B00504026 /* CCEditBoxImplAndroid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEditBoxImplAndroid.h; sourceTree = "<group>"; };
 		1A8F3B43175E05DA00049216 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
@@ -1407,142 +1421,142 @@
 			path = ../classes;
 			sourceTree = "<group>";
 		};
-		1700E6F01929B32B008A504A /* WidgetReader */ = {
+		176AF643192A473C0004B6C9 /* WidgetReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E6F11929B32B008A504A /* ButtonReader */,
-				1700E6F41929B32B008A504A /* CheckBoxReader */,
-				1700E6F71929B32B008A504A /* ImageViewReader */,
-				1700E6FA1929B32B008A504A /* LabelAtlasReader */,
-				1700E6FD1929B32B008A504A /* LabelBMFontReader */,
-				1700E7001929B32B008A504A /* LabelReader */,
-				1700E7031929B32B008A504A /* LayoutReader */,
-				1700E7061929B32B008A504A /* ListViewReader */,
-				1700E7091929B32B008A504A /* LoadingBarReader */,
-				1700E70C1929B32B008A504A /* PageViewReader */,
-				1700E70F1929B32B008A504A /* ScrollViewReader */,
-				1700E7121929B32B008A504A /* SliderReader */,
-				1700E7151929B32B008A504A /* TextFieldReader */,
-				1700E7181929B32B008A504A /* WidgetReader.cpp */,
-				1700E7191929B32B008A504A /* WidgetReader.h */,
-				1700E71A1929B32B008A504A /* WidgetReaderProtocol.h */,
+				176AF644192A473C0004B6C9 /* ButtonReader */,
+				176AF647192A473C0004B6C9 /* CheckBoxReader */,
+				176AF64A192A473C0004B6C9 /* ImageViewReader */,
+				176AF64D192A473C0004B6C9 /* LabelAtlasReader */,
+				176AF650192A473C0004B6C9 /* LabelBMFontReader */,
+				176AF653192A473C0004B6C9 /* LabelReader */,
+				176AF656192A473C0004B6C9 /* LayoutReader */,
+				176AF659192A473C0004B6C9 /* ListViewReader */,
+				176AF65C192A473C0004B6C9 /* LoadingBarReader */,
+				176AF65F192A473C0004B6C9 /* PageViewReader */,
+				176AF662192A473C0004B6C9 /* ScrollViewReader */,
+				176AF665192A473C0004B6C9 /* SliderReader */,
+				176AF668192A473C0004B6C9 /* TextFieldReader */,
+				176AF66B192A473C0004B6C9 /* WidgetReader.cpp */,
+				176AF66C192A473C0004B6C9 /* WidgetReader.h */,
+				176AF66D192A473C0004B6C9 /* WidgetReaderProtocol.h */,
 			);
 			path = WidgetReader;
 			sourceTree = "<group>";
 		};
-		1700E6F11929B32B008A504A /* ButtonReader */ = {
+		176AF644192A473C0004B6C9 /* ButtonReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E6F21929B32B008A504A /* ButtonReader.cpp */,
-				1700E6F31929B32B008A504A /* ButtonReader.h */,
+				176AF645192A473C0004B6C9 /* ButtonReader.cpp */,
+				176AF646192A473C0004B6C9 /* ButtonReader.h */,
 			);
 			path = ButtonReader;
 			sourceTree = "<group>";
 		};
-		1700E6F41929B32B008A504A /* CheckBoxReader */ = {
+		176AF647192A473C0004B6C9 /* CheckBoxReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E6F51929B32B008A504A /* CheckBoxReader.cpp */,
-				1700E6F61929B32B008A504A /* CheckBoxReader.h */,
+				176AF648192A473C0004B6C9 /* CheckBoxReader.cpp */,
+				176AF649192A473C0004B6C9 /* CheckBoxReader.h */,
 			);
 			path = CheckBoxReader;
 			sourceTree = "<group>";
 		};
-		1700E6F71929B32B008A504A /* ImageViewReader */ = {
+		176AF64A192A473C0004B6C9 /* ImageViewReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E6F81929B32B008A504A /* ImageViewReader.cpp */,
-				1700E6F91929B32B008A504A /* ImageViewReader.h */,
+				176AF64B192A473C0004B6C9 /* ImageViewReader.cpp */,
+				176AF64C192A473C0004B6C9 /* ImageViewReader.h */,
 			);
 			path = ImageViewReader;
 			sourceTree = "<group>";
 		};
-		1700E6FA1929B32B008A504A /* LabelAtlasReader */ = {
+		176AF64D192A473C0004B6C9 /* LabelAtlasReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E6FB1929B32B008A504A /* LabelAtlasReader.cpp */,
-				1700E6FC1929B32B008A504A /* LabelAtlasReader.h */,
+				176AF64E192A473C0004B6C9 /* LabelAtlasReader.cpp */,
+				176AF64F192A473C0004B6C9 /* LabelAtlasReader.h */,
 			);
 			path = LabelAtlasReader;
 			sourceTree = "<group>";
 		};
-		1700E6FD1929B32B008A504A /* LabelBMFontReader */ = {
+		176AF650192A473C0004B6C9 /* LabelBMFontReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E6FE1929B32B008A504A /* LabelBMFontReader.cpp */,
-				1700E6FF1929B32B008A504A /* LabelBMFontReader.h */,
+				176AF651192A473C0004B6C9 /* LabelBMFontReader.cpp */,
+				176AF652192A473C0004B6C9 /* LabelBMFontReader.h */,
 			);
 			path = LabelBMFontReader;
 			sourceTree = "<group>";
 		};
-		1700E7001929B32B008A504A /* LabelReader */ = {
+		176AF653192A473C0004B6C9 /* LabelReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E7011929B32B008A504A /* LabelReader.cpp */,
-				1700E7021929B32B008A504A /* LabelReader.h */,
+				176AF654192A473C0004B6C9 /* LabelReader.cpp */,
+				176AF655192A473C0004B6C9 /* LabelReader.h */,
 			);
 			path = LabelReader;
 			sourceTree = "<group>";
 		};
-		1700E7031929B32B008A504A /* LayoutReader */ = {
+		176AF656192A473C0004B6C9 /* LayoutReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E7041929B32B008A504A /* LayoutReader.cpp */,
-				1700E7051929B32B008A504A /* LayoutReader.h */,
+				176AF657192A473C0004B6C9 /* LayoutReader.cpp */,
+				176AF658192A473C0004B6C9 /* LayoutReader.h */,
 			);
 			path = LayoutReader;
 			sourceTree = "<group>";
 		};
-		1700E7061929B32B008A504A /* ListViewReader */ = {
+		176AF659192A473C0004B6C9 /* ListViewReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E7071929B32B008A504A /* ListViewReader.cpp */,
-				1700E7081929B32B008A504A /* ListViewReader.h */,
+				176AF65A192A473C0004B6C9 /* ListViewReader.cpp */,
+				176AF65B192A473C0004B6C9 /* ListViewReader.h */,
 			);
 			path = ListViewReader;
 			sourceTree = "<group>";
 		};
-		1700E7091929B32B008A504A /* LoadingBarReader */ = {
+		176AF65C192A473C0004B6C9 /* LoadingBarReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E70A1929B32B008A504A /* LoadingBarReader.cpp */,
-				1700E70B1929B32B008A504A /* LoadingBarReader.h */,
+				176AF65D192A473C0004B6C9 /* LoadingBarReader.cpp */,
+				176AF65E192A473C0004B6C9 /* LoadingBarReader.h */,
 			);
 			path = LoadingBarReader;
 			sourceTree = "<group>";
 		};
-		1700E70C1929B32B008A504A /* PageViewReader */ = {
+		176AF65F192A473C0004B6C9 /* PageViewReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E70D1929B32B008A504A /* PageViewReader.cpp */,
-				1700E70E1929B32B008A504A /* PageViewReader.h */,
+				176AF660192A473C0004B6C9 /* PageViewReader.cpp */,
+				176AF661192A473C0004B6C9 /* PageViewReader.h */,
 			);
 			path = PageViewReader;
 			sourceTree = "<group>";
 		};
-		1700E70F1929B32B008A504A /* ScrollViewReader */ = {
+		176AF662192A473C0004B6C9 /* ScrollViewReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E7101929B32B008A504A /* ScrollViewReader.cpp */,
-				1700E7111929B32B008A504A /* ScrollViewReader.h */,
+				176AF663192A473C0004B6C9 /* ScrollViewReader.cpp */,
+				176AF664192A473C0004B6C9 /* ScrollViewReader.h */,
 			);
 			path = ScrollViewReader;
 			sourceTree = "<group>";
 		};
-		1700E7121929B32B008A504A /* SliderReader */ = {
+		176AF665192A473C0004B6C9 /* SliderReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E7131929B32B008A504A /* SliderReader.cpp */,
-				1700E7141929B32B008A504A /* SliderReader.h */,
+				176AF666192A473C0004B6C9 /* SliderReader.cpp */,
+				176AF667192A473C0004B6C9 /* SliderReader.h */,
 			);
 			path = SliderReader;
 			sourceTree = "<group>";
 		};
-		1700E7151929B32B008A504A /* TextFieldReader */ = {
+		176AF668192A473C0004B6C9 /* TextFieldReader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E7161929B32B008A504A /* TextFieldReader.cpp */,
-				1700E7171929B32B008A504A /* TextFieldReader.h */,
+				176AF669192A473C0004B6C9 /* TextFieldReader.cpp */,
+				176AF66A192A473C0004B6C9 /* TextFieldReader.h */,
 			);
 			path = TextFieldReader;
 			sourceTree = "<group>";
@@ -1978,11 +1992,11 @@
 		379BB99017F03F3700829B88 /* Reader */ = {
 			isa = PBXGroup;
 			children = (
-				1700E6F01929B32B008A504A /* WidgetReader */,
-				1700E6EA1929B321008A504A /* GUIReader.cpp */,
-				1700E6EB1929B321008A504A /* GUIReader.h */,
-				1700E6EC1929B321008A504A /* SceneReader.cpp */,
-				1700E6ED1929B321008A504A /* SceneReader.h */,
+				176AF63F192A473C0004B6C9 /* GUIReader.cpp */,
+				176AF640192A473C0004B6C9 /* GUIReader.h */,
+				176AF641192A473C0004B6C9 /* SceneReader.cpp */,
+				176AF642192A473C0004B6C9 /* SceneReader.h */,
+				176AF643192A473C0004B6C9 /* WidgetReader */,
 			);
 			path = Reader;
 			sourceTree = "<group>";
@@ -2443,6 +2457,7 @@
 				15A3D9971682F7F9002FB0C5 /* cpConstraint.c in Sources */,
 				15A3D9981682F7F9002FB0C5 /* cpDampedRotarySpring.c in Sources */,
 				7A3CB33E190AF55200074D3F /* WinScene.cpp in Sources */,
+				176AF67B192A473C0004B6C9 /* SliderReader.cpp in Sources */,
 				7A3CB338190AF53C00074D3F /* ChooseCharacterScene.cpp in Sources */,
 				15A3D9991682F7F9002FB0C5 /* cpDampedSpring.c in Sources */,
 				15A3D99A1682F7F9002FB0C5 /* cpGearJoint.c in Sources */,
@@ -2463,15 +2478,18 @@
 				15A3D9A51682F7F9002FB0C5 /* cpBBTree.c in Sources */,
 				15A3D9A61682F7F9002FB0C5 /* cpBody.c in Sources */,
 				15A3D9A71682F7F9002FB0C5 /* cpCollision.c in Sources */,
+				176AF671192A473C0004B6C9 /* CheckBoxReader.cpp in Sources */,
+				176AF67A192A473C0004B6C9 /* ScrollViewReader.cpp in Sources */,
 				15A3D9A81682F7F9002FB0C5 /* cpHashSet.c in Sources */,
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
 				7A3CB353190AF5A900074D3F /* GameManager.cpp in Sources */,
-				1700E6EE1929B321008A504A /* GUIReader.cpp in Sources */,
+				176AF66E192A473C0004B6C9 /* GUIReader.cpp in Sources */,
 				15A3D9AA1682F7F9002FB0C5 /* cpShape.c in Sources */,
 				15A3D9AB1682F7F9002FB0C5 /* cpSpace.c in Sources */,
 				15A3D9AC1682F7F9002FB0C5 /* cpSpaceComponent.c in Sources */,
 				15A3D9AD1682F7F9002FB0C5 /* cpSpaceHash.c in Sources */,
-				1700E6EF1929B321008A504A /* SceneReader.cpp in Sources */,
+				176AF66F192A473C0004B6C9 /* SceneReader.cpp in Sources */,
+				176AF67C192A473C0004B6C9 /* TextFieldReader.cpp in Sources */,
 				15A3D9AE1682F7F9002FB0C5 /* cpSpaceQuery.c in Sources */,
 				15A3D9AF1682F7F9002FB0C5 /* cpSpaceStep.c in Sources */,
 				15A3D9B01682F7F9002FB0C5 /* cpSpatialIndex.c in Sources */,
@@ -2479,6 +2497,7 @@
 				15A3D9B21682F7F9002FB0C5 /* cpVect.c in Sources */,
 				15A3DA311682F826002FB0C5 /* CCBAnimationManager.cpp in Sources */,
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
+				176AF679192A473C0004B6C9 /* PageViewReader.cpp in Sources */,
 				15A3DA331682F826002FB0C5 /* CCBKeyframe.cpp in Sources */,
 				15A3DA341682F826002FB0C5 /* CCBReader.cpp in Sources */,
 				15A3DA351682F826002FB0C5 /* CCBSequence.cpp in Sources */,
@@ -2510,6 +2529,7 @@
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
+				176AF673192A473C0004B6C9 /* LabelAtlasReader.cpp in Sources */,
 				15A3DA4D1682F826002FB0C5 /* CCControlPotentiometer.cpp in Sources */,
 				15A3DA4E1682F826002FB0C5 /* CCControlSaturationBrightnessPicker.cpp in Sources */,
 				15A3DA4F1682F826002FB0C5 /* CCControlSlider.cpp in Sources */,
@@ -2537,6 +2557,7 @@
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				1A27573F1697CF2B00504026 /* CCEditBoxImplAndroid.cpp in Sources */,
+				176AF674192A473C0004B6C9 /* LabelBMFontReader.cpp in Sources */,
 				7A3CB34D190AF58D00074D3F /* Tree.cpp in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
@@ -2544,6 +2565,7 @@
 				1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */,
 				7A3CB33B190AF54800074D3F /* PlayScene.cpp in Sources */,
 				7AB5C462190A7C890034CBFD /* ChooseMapScence.cpp in Sources */,
+				176AF670192A473C0004B6C9 /* ButtonReader.cpp in Sources */,
 				7A3CB332190AF51700074D3F /* TileInfo.cpp in Sources */,
 				1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */,
 				1A8F3B70175E05DA00049216 /* AnimationStateData.cpp in Sources */,
@@ -2552,6 +2574,7 @@
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
 				1A8F3B74175E05DA00049216 /* AttachmentLoader.cpp in Sources */,
 				1A8F3B75175E05DA00049216 /* Bone.cpp in Sources */,
+				176AF672192A473C0004B6C9 /* ImageViewReader.cpp in Sources */,
 				1A8F3B76175E05DA00049216 /* BoneData.cpp in Sources */,
 				1A8F3B77175E05DA00049216 /* CCSkeleton.cpp in Sources */,
 				1A8F3B78175E05DA00049216 /* CCSkeletonAnimation.cpp in Sources */,
@@ -2565,12 +2588,14 @@
 				1A8F3B7E175E05DA00049216 /* SkeletonJson.cpp in Sources */,
 				7A9B5CE418C0A45900C739FD /* CCLayerPanZoom.cpp in Sources */,
 				1A8F3B7F175E05DA00049216 /* Skin.cpp in Sources */,
+				176AF67D192A473C0004B6C9 /* WidgetReader.cpp in Sources */,
 				1A8F3B80175E05DA00049216 /* Slot.cpp in Sources */,
 				1A8F3B81175E05DA00049216 /* SlotData.cpp in Sources */,
 				1A8F3B82175E05DA00049216 /* spine-cocos2dx.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
 				375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */,
 				1A9CE8781765A12C000E3062 /* AssetsManager.cpp in Sources */,
+				176AF678192A473C0004B6C9 /* LoadingBarReader.cpp in Sources */,
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,
 				379BB99C17F03F3700829B88 /* CCTween.cpp in Sources */,
@@ -2588,6 +2613,7 @@
 				379BB9A817F03F3700829B88 /* CCDataReaderHelper.cpp in Sources */,
 				379BB9A917F03F3700829B88 /* CCSpriteFrameCacheHelper.cpp in Sources */,
 				7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */,
+				176AF675192A473C0004B6C9 /* LabelReader.cpp in Sources */,
 				379BB9AA17F03F3700829B88 /* CCTransformHelp.cpp in Sources */,
 				379BB9AB17F03F3700829B88 /* CCTweenFunction.cpp in Sources */,
 				379BB9AC17F03F3700829B88 /* CCUtilMath.cpp in Sources */,
@@ -2595,6 +2621,7 @@
 				379BB9AE17F03F3700829B88 /* CCComAudio.cpp in Sources */,
 				379BB9AF17F03F3700829B88 /* CCComController.cpp in Sources */,
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
+				176AF677192A473C0004B6C9 /* ListViewReader.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
@@ -2607,6 +2634,7 @@
 				379BB9BF17F03F3700829B88 /* UIScrollView.cpp in Sources */,
 				379BB9C017F03F3700829B88 /* UIButton.cpp in Sources */,
 				375BD50E1868454E0024609E /* CCActionEaseEx.cpp in Sources */,
+				176AF676192A473C0004B6C9 /* LayoutReader.cpp in Sources */,
 				379BB9C117F03F3700829B88 /* UICheckBox.cpp in Sources */,
 				379BB9C217F03F3700829B88 /* UIImageView.cpp in Sources */,
 				379BB9C317F03F3700829B88 /* UILabel.cpp in Sources */,
