@@ -431,7 +431,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
 
 void PlayScene::addAxeAnimation(cocos2d::CCPoint pPos, int pIndex)
 {
-  CCSprite* axe = CCSprite::create("Images/Game/Object/axe.png");
+  CCSprite* axe = CCSprite::create("Images/Game/Object/axe-02.png");
   axe->setPosition(mTileInfoVector.at(pIndex)->getTile()->getPosition()
                    + ccp(mTileInfoVector.at(pIndex)->getTile()->getContentSize().width/2,
                          mTileInfoVector.at(pIndex)->getTile()->getContentSize().height));
@@ -866,7 +866,7 @@ void PlayScene::addStones()
 
 void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/Object/axe.png");
+  CCSprite* pop = CCSprite::create("Images/Game/Object/axe-02.png");
   mAxePop = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
   CCMenu *axePop = CCMenu::create(mAxePop, NULL);
   axePop->setPosition(ccp(pTileSprite->getPositionX()
