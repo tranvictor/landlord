@@ -67,6 +67,7 @@ bool PlayScene::init()
   addPlayerTwo();
 //  addPlayerTwoShadow();
   addScoreLbn();
+  addPauseLayer();
   
   if (GameManager::getTreeModeState())
   {
@@ -77,9 +78,9 @@ bool PlayScene::init()
   }
   
   setCooldownTime(100.0);
-  const char* quote = "MY GRANDMA\nIS A QUICK-\nTHINKER THAN\nYOU!";
-  mRemindLayerLeft = setupRemindLayer("Images/Game/Object/bubble_blue.png", PLAYER_ONE_POS + ccp(320, 200), quote, ccc3(46, 107, 229));
-  mRemindLayerRight = setupRemindLayer("Images/Game/Object/bubble_red.png", PLAYER_TWO_POS + ccp(-320, 200), quote, ccc3(221, 34, 34));
+  srand(time(NULL));
+  mRemindLayerLeft = setupRemindLayer("Images/Game/Object/bubble_blue.png", PLAYER_ONE_POS + ccp(320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), ccc3(46, 107, 229));
+  mRemindLayerRight = setupRemindLayer("Images/Game/Object/bubble_red.png", PLAYER_TWO_POS + ccp(-320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), ccc3(221, 34, 34));
   
   schedule(schedule_selector(PlayScene::update));
   schedule(schedule_selector(PlayScene::cooldown));
@@ -1007,4 +1008,12 @@ CCSprite* PlayScene::createTurnIndicator(CCPoint pPos)
   turnIndicator->setVisible(false);
   this->addChild(turnIndicator, GR_FOREGROUND, TAG_TURN_INDICATOR);
   return turnIndicator;
+}
+
+void PlayScene::addPauseLayer()
+{
+//  mPauseLayer = CCLayer::create();
+//  CCSprite* pauseTitle = CCSprite::create("Images/Game/UI/pause_title.png");
+//  pauseTitle->setPosition(PAUSE_TITLE_POS);
+//
 }

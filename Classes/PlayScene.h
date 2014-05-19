@@ -16,6 +16,11 @@
 #include "TileInfo.h"
 #include "GameManager.h"
 
+const std::string quote[] = {"MY GRANDMA\nIS A QUICK-\nTHINKER THAN\nYOU!",
+                             "WHAT TOOK\nYOU SO LONG?",
+                             "CÍMON...\nWE DONT HAVE\n ALL DAY",
+                             "TIK TOK...\nTIK TOK" };
+
 class PlayScene : public cocos2d::CCLayer
 {
   int                 mPlayerOneTag, mPlayerTwoTag;
@@ -55,6 +60,8 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCSprite*  mTurnIndicatorRight;
   cocos2d::CCLayer*   mRemindLayerLeft;
   cocos2d::CCLayer*   mRemindLayerRight;
+  
+  CCLayer*            mPauseLayer;
   
 public:
   virtual bool init();
@@ -125,6 +132,7 @@ public:
   
   void changeScene(cocos2d::CCObject* pData);
   cocos2d::CCSprite* createTurnIndicator(cocos2d::CCPoint pPos);
+  void addPauseLayer();
 };
 
 #endif /* defined(__landlord__PlayScene__) */
