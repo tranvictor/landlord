@@ -59,13 +59,15 @@ void ChooseCharacterScene::addCharacter()
     for (int j = 1; j <= NUMBER_CHARACTERS_PER_SCENE; ++j)
     {
       int characterID = j + NUMBER_CHARACTERS_PER_SCENE*(i - 1);
-      CCString* characterName = (CCString::createWithFormat("Images/Game/Object/c%i.png", characterID));
+      CCString* characterName = (CCString::createWithFormat("Images/Game/Object/c%i.png",
+                                                            characterID));
       CCSprite* character = CCSprite::create(characterName->getCString());
 
-      CCMenuItemSprite* characterItem = CCMenuItemSprite::create(character,
-                                                                 character,
-                                                                 this,
-                                                                 menu_selector(ChooseCharacterScene::characterTouched));
+      CCMenuItemSprite* characterItem =
+        CCMenuItemSprite::create(character,
+                                 character,
+                                 this,
+                                 menu_selector(ChooseCharacterScene::characterTouched));
       characterItem->setTag(characterID);
       CCMenu* menu = CCMenu::create(characterItem, NULL);
       switch (characterID) {
@@ -103,8 +105,11 @@ void ChooseCharacterScene::addCharacter()
   }
   mCharacterArr->retain();
 
-  mSlidingCharacterLayer = CCScrollLayer::nodeWithLayers(mCharacterArr, 0, "Images/Game/UI/greendot-08.png");
-  mSlidingCharacterLayer->setPagesIndicatorPosition(ccp(mScreenSize.width/2, INDICATOR_POS_Y));
+  mSlidingCharacterLayer = CCScrollLayer::nodeWithLayers(mCharacterArr,
+                                                         0,
+                                                         "Images/Game/UI/greendot-08.png");
+  mSlidingCharacterLayer->setPagesIndicatorPosition(ccp(mScreenSize.width/2,
+                                                        INDICATOR_POS_Y));
   this->addChild(mSlidingCharacterLayer, GR_FOREGROUND);
 }
 
@@ -122,14 +127,16 @@ void ChooseCharacterScene::characterTouched(CCObject *pSender)
   if (mPlayer == 1)
   {
     mCharacterChoseByPlayer1 = mCharacterTouchedID;
-    characterName = CCString::createWithFormat("Images/Game/Object/c%i-blue.png", mCharacterTouchedID);
+    characterName = CCString::createWithFormat("Images/Game/Object/c%i-blue.png",
+                                               mCharacterTouchedID);
     checkValid = true;
     GameManager::setPlayerOneID(mCharacterTouchedID);
     CCLOG("Player 1 had chose character %i", GameManager::getPlayerOneID());
   }
   else if (mPlayer == 2 && mCharacterTouchedID != mCharacterChoseByPlayer1)
   {
-    characterName = CCString::createWithFormat("Images/Game/Object/c%i-red.png", mCharacterTouchedID);
+    characterName = CCString::createWithFormat("Images/Game/Object/c%i-red.png",
+                                               mCharacterTouchedID);
     checkValid = true;
     GameManager::setPlayerTwoID(mCharacterTouchedID);
     CCLOG("Player 2 had chose character %i", mCharacterTouchedID);
@@ -184,7 +191,8 @@ void ChooseCharacterScene::characterTouched(CCObject *pSender)
       layerIndex--;
     }
     CCLog("layerId = %d", layerIndex);
-    ((CCLayer*)mCharacterArr->objectAtIndex(layerIndex))->addChild(character, GR_MIDDLEGROUND);
+    ((CCLayer*)mCharacterArr->objectAtIndex(layerIndex))->addChild(character,
+                                                                   GR_MIDDLEGROUND);
   }
 
   if (mPlayer == 2)
@@ -198,10 +206,11 @@ void ChooseCharacterScene::characterTouched(CCObject *pSender)
 void ChooseCharacterScene::addBackButton()
 {
   CCSprite* back = CCSprite::create("Images/Game/UI/button-back.png");
-  CCMenuItemSprite *backBtn = CCMenuItemSprite::create(back,
-                                                       back,
-                                                       this,
-                                                       menu_selector(ChooseCharacterScene::buttonBackTouched));
+  CCMenuItemSprite *backBtn =
+    CCMenuItemSprite::create(back,
+                             back,
+                             this,
+                             menu_selector(ChooseCharacterScene::buttonBackTouched));
   CCMenu* pMenu = CCMenu::create(backBtn, NULL);
   pMenu->setPosition(BTN_BACK);
   this->addChild(pMenu, GR_MIDDLEGROUND, CHOOSECHARACTER_BACKBTN_TAG);

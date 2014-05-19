@@ -20,6 +20,7 @@
 #include "StartScene.h"
 #include "CCScrollView.h"
 #include "LoadingScene.h"
+#include "cocos-ext.h"
 
 class ChooseMapScene : public cocos2d::CCLayer
 {
@@ -28,11 +29,14 @@ private:
   int               mMapTouchedID;
   CCScrollLayer*    mSlidingMap;
   int mState;
+  CCSprite*         mBackground;
   
   cocos2d::CCLayer* mChooseCharacterLayer;
   cocos2d::CCLayer* mChooseMapLayer;
   CCScrollLayerVertical* mSlideCharacter1;
   CCScrollLayerVertical* mSlideCharacter2;
+//  cocos2d::extension::CCTableView* mSlideCharacter1;
+//  cocos2d::extension::CCTableView* mSlideCharacter2;
   CCSprite*         mVs;
   CCScrollLayerVertical* mSlideMap;
   
@@ -65,8 +69,12 @@ public:
   
   ~ChooseMapScene();
   CCAction* changePage(cocos2d::CCPoint pPos);
-  void randomCharacter(cocos2d::CCObject *pSender);
   void cooldown();
+  void switchCharacterSilde(cocos2d::CCObject *pSender);
+  
+  void changeScene(cocos2d::CCObject* pData);
+  void addCharacterAura(int pCurrentCharater, cocos2d::CCPoint pPos);
+  void removeCharacterAura(cocos2d::CCObject* pSender);
 };
 
 

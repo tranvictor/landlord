@@ -7,6 +7,7 @@
 #include "WinScene.h"
 #include "SettingScene.h"
 #include "LoadingScene.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -27,7 +28,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	
   // turn on display FPS
   pDirector->setDisplayStats(true);
-//  CCSize designResolutionSize = cocos2d::CCSizeMake(480, 320);
+  CCSize designResolutionSize = cocos2d::CCSizeMake(1136, 640);
   std::vector<std::string> searchPaths;
   
 //  if (pDirector->getWinSize().height == 960)
@@ -45,7 +46,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //  }
   
   searchPaths.push_back("iphone-5");
-//  pEGLView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, kResolutionNoBorder);
+  pEGLView->setDesignResolutionSize(designResolutionSize.width,
+                                    designResolutionSize.height,
+                                    kResolutionNoBorder);
   
   CCFileUtils::sharedFileUtils()->setSearchPaths(searchPaths);
   
@@ -68,7 +71,7 @@ void AppDelegate::applicationDidEnterBackground() {
     CCDirector::sharedDirector()->stopAnimation();
 
     // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+     CocosDenshion::SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
@@ -76,5 +79,5 @@ void AppDelegate::applicationWillEnterForeground() {
     CCDirector::sharedDirector()->startAnimation();
 
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+     CocosDenshion::SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }

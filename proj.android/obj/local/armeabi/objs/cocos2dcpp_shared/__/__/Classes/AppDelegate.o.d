@@ -204,10 +204,9 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AppDelegate.o: \
  /Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../cocos2dx/support/component/CCComponent.h \
  /Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../cocos2dx/support/component/CCComponentContainer.h \
  jni/../../Classes/HelloWorldScene.h jni/../../Classes/ChooseMapScence.h \
- jni/../../Classes/CCScrollLayer.h \
- jni/../../Classes/CCScrollLayerVertical.h jni/../../Classes/Constant.h \
- jni/../../Classes/Sound.h jni/../../Classes/GameManager.h \
- jni/../../Classes/PlayScene.h \
+ jni/../../Classes/Constant.h jni/../../Classes/Maps.h \
+ jni/../../Classes/SlidingMenu.h jni/../../Classes/CCScrollLayer.h \
+ jni/../../Classes/StartScene.h jni/../../Classes/PlayScene.h \
  /Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/cocos-ext.h \
  /Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/ExtensionMacros.h \
  /Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/CCBReader/CCBFileLoader.h \
@@ -443,10 +442,8 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AppDelegate.o: \
  /Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
  jni/../../Classes/CCLayerPanZoom.h jni/../../Classes/TileInfo.h \
- jni/../../Classes/ChooseCharacterScene.h jni/../../Classes/StartScene.h \
- /Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/GUI/CCScrollView/CCScrollView.h \
- jni/../../Classes/LoadingScene.h jni/../../Classes/WinScene.h \
- jni/../../Classes/SettingScene.h
+ jni/../../Classes/GameManager.h jni/../../Classes/ChooseCharacterScene.h \
+ jni/../../Classes/WinScene.h jni/../../Classes/SettingScene.h
 
 jni/../../Classes/AppDelegate.h:
 
@@ -860,15 +857,15 @@ jni/../../Classes/HelloWorldScene.h:
 
 jni/../../Classes/ChooseMapScence.h:
 
-jni/../../Classes/CCScrollLayer.h:
-
-jni/../../Classes/CCScrollLayerVertical.h:
-
 jni/../../Classes/Constant.h:
 
-jni/../../Classes/Sound.h:
+jni/../../Classes/Maps.h:
 
-jni/../../Classes/GameManager.h:
+jni/../../Classes/SlidingMenu.h:
+
+jni/../../Classes/CCScrollLayer.h:
+
+jni/../../Classes/StartScene.h:
 
 jni/../../Classes/PlayScene.h:
 
@@ -1344,13 +1341,9 @@ jni/../../Classes/CCLayerPanZoom.h:
 
 jni/../../Classes/TileInfo.h:
 
+jni/../../Classes/GameManager.h:
+
 jni/../../Classes/ChooseCharacterScene.h:
-
-jni/../../Classes/StartScene.h:
-
-/Users/hoangha/Desktop/Enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/GUI/CCScrollView/CCScrollView.h:
-
-jni/../../Classes/LoadingScene.h:
 
 jni/../../Classes/WinScene.h:
 

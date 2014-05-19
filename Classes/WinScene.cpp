@@ -62,10 +62,11 @@ void WinScene::addMenu()
 void WinScene::addButtonShare()
 {
   CCSprite *share = CCSprite::create("Images/Game/UI/fbButton.png");
-  CCMenuItemSprite *shareBtn = CCMenuItemSprite::create(share,
-                                                        share,
-                                                        this,
-                                                        menu_selector(WinScene::buttonShareTouched));
+  CCMenuItemSprite *shareBtn =
+    CCMenuItemSprite::create(share,
+                             share,
+                             this,
+                             menu_selector(WinScene::buttonShareTouched));
   CCMenu* pMenu = CCMenu::create(shareBtn, NULL);
   pMenu->setPosition(BTN_SHARE_POS);
   this->addChild(pMenu, GR_FOREGROUND, WIN_SHAREBTN_TAG);
@@ -74,10 +75,11 @@ void WinScene::addButtonShare()
 void WinScene::addButtonReplay()
 {
   CCSprite *replay = CCSprite::create("Images/Game/UI/ReplayButton.png");
-  CCMenuItemSprite *replayBtn = CCMenuItemSprite::create(replay,
-                                                         replay,
-                                                         this,
-                                                         menu_selector(WinScene::buttonReplayTouched));
+  CCMenuItemSprite *replayBtn =
+    CCMenuItemSprite::create(replay,
+                             replay,
+                             this,
+                             menu_selector(WinScene::buttonReplayTouched));
   CCMenu* pMenu = CCMenu::create(replayBtn, NULL);
   pMenu->setPosition(BTN_REPLAY_POS);
   this->addChild(pMenu, GR_FOREGROUND, WIN_REPLAYBTN_TAG);
@@ -86,15 +88,15 @@ void WinScene::addButtonReplay()
 void WinScene::buttonShareTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button share touched");
+  CREATE_MENU_ITEM_NO_CHANGE_SCENE();
 }
 
 void WinScene::buttonReplayTouched(cocos2d::CCObject *pSender)
 {
   CCLog("button replay touched");
+  CREATE_MENU_ITEM(WinScene, ChooseMapScene, CCTransitionCrossFade);
   sound::playSoundFx(SFX_BUTTON_TOUCH);
-  CCScene* newScene = CCTransitionCrossFade::create(0.5, ChooseMapScene::scene());
-  CCDirector::sharedDirector()->replaceScene(newScene);
-
+  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
 }
 
 void WinScene::appearWinner()
@@ -108,7 +110,8 @@ void WinScene::appearWinner()
   {
     winnerID = GameManager::getPlayerTwoID();
   }
-  CCString *winnerName = CCString::createWithFormat("Images/Game/Object/c%i.png", winnerID);
+  CCString *winnerName = CCString::createWithFormat("Images/Game/Object/c%i.png",
+                                                    winnerID);
   CCSprite *winner = CCSprite::create(winnerName->getCString());
 
   winner->setPosition(WINNER_START_POS);
@@ -117,4 +120,9 @@ void WinScene::appearWinner()
   winner->runAction(act1);
 
   addChild(winner, GR_BACKGROUND);
+}
+
+void WinScene::changeScene(cocos2d::CCObject *pData)
+{
+  CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
 }

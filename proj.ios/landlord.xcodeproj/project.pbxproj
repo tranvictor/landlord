@@ -230,6 +230,7 @@
 		7A15E7A918EE4AA900F3AC93 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A218EE4AA900F3AC93 /* CloseSelected.png */; };
 		7A15E7AB18EE4AA900F3AC93 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A418EE4AA900F3AC93 /* HelloWorld.png */; };
 		7A15E7AD18EE4AA900F3AC93 /* iphone-5 in Resources */ = {isa = PBXBuildFile; fileRef = 7A15E7A618EE4AA900F3AC93 /* iphone-5 */; };
+		7A21C0461918C3AE00F7DBA9 /* CustomTableViewCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A21C0421918C3AE00F7DBA9 /* CustomTableViewCell.cpp */; };
 		7A37684D18F6A547005082ED /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A37684B18F6A547005082ED /* LoadingScene.cpp */; };
 		7A3CB332190AF51700074D3F /* TileInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB330190AF51700074D3F /* TileInfo.cpp */; };
 		7A3CB335190AF52B00074D3F /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A3CB333190AF52B00074D3F /* StartScene.cpp */; };
@@ -293,20 +294,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
 			remoteInfo = cocos2dx;
-		};
-		7AC11DBE1907EE31001090D6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7A62C97518F2500B00282224;
-			remoteInfo = UnitTests;
-		};
-		7AC11DC01907EE31001090D6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 15A3D87E1682F7B3002FB0C5 /* cocos2dx.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7A62C99318F25C5200282224;
-			remoteInfo = unittests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -769,6 +756,8 @@
 		7A15E7A218EE4AA900F3AC93 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		7A15E7A418EE4AA900F3AC93 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		7A15E7A618EE4AA900F3AC93 /* iphone-5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "iphone-5"; sourceTree = "<group>"; };
+		7A21C0421918C3AE00F7DBA9 /* CustomTableViewCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomTableViewCell.cpp; sourceTree = "<group>"; };
+		7A21C0431918C3AE00F7DBA9 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		7A37684B18F6A547005082ED /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoadingScene.cpp; path = ../Classes/LoadingScene.cpp; sourceTree = "<group>"; };
 		7A37684C18F6A547005082ED /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingScene.h; path = ../Classes/LoadingScene.h; sourceTree = "<group>"; };
 		7A3CB330190AF51700074D3F /* TileInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileInfo.cpp; path = ../Classes/TileInfo.cpp; sourceTree = "<group>"; };
@@ -813,7 +802,7 @@
 		7AA1ADFB18B3F79A00A5C58C /* SlidingMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SlidingMenu.cpp; sourceTree = "<group>"; };
 		7AA1ADFC18B3F79A00A5C58C /* SlidingMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingMenu.h; sourceTree = "<group>"; };
 		7AB0FF9318C8DCD000AA51D7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		7AB41F7918B3DE6200F5177C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = ../Classes/Constant.h; sourceTree = "<group>"; };
+		7AB41F7918B3DE6200F5177C /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = "/Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/Classes/Constant.h"; sourceTree = "<absolute>"; };
 		7AB5C460190A7C890034CBFD /* ChooseMapScence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChooseMapScence.cpp; path = ../Classes/ChooseMapScence.cpp; sourceTree = "<group>"; };
 		7AB5C461190A7C890034CBFD /* ChooseMapScence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseMapScence.h; path = ../Classes/ChooseMapScence.h; sourceTree = "<group>"; };
 		7AB5C469190A98410034CBFD /* CCScrollLayerVertical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCScrollLayerVertical.cpp; path = ../Classes/CCScrollLayerVertical.cpp; sourceTree = "<group>"; };
@@ -908,8 +897,6 @@
 			isa = PBXGroup;
 			children = (
 				15A3D8861682F7B3002FB0C5 /* libcocos2dx.a */,
-				7AC11DBF1907EE31001090D6 /* UnitTests */,
-				7AC11DC11907EE31001090D6 /* unittests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1386,9 +1373,6 @@
 				7AFB242D1908286400A40219 /* Game */,
 				7AFB242C1908285400A40219 /* AppDelegate */,
 				7AA1ADFA18B3F76100A5C58C /* Supporting Files */,
-				7AB41F7918B3DE6200F5177C /* Constant.h */,
-				7A37684B18F6A547005082ED /* LoadingScene.cpp */,
-				7A37684C18F6A547005082ED /* LoadingScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1871,6 +1855,8 @@
 		7AA1ADFA18B3F76100A5C58C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7A21C0421918C3AE00F7DBA9 /* CustomTableViewCell.cpp */,
+				7A21C0431918C3AE00F7DBA9 /* CustomTableViewCell.h */,
 				7AB5C469190A98410034CBFD /* CCScrollLayerVertical.cpp */,
 				7AB5C46A190A98410034CBFD /* CCScrollLayerVertical.h */,
 				7A9B5CE218C0A45900C739FD /* CCLayerPanZoom.cpp */,
@@ -2067,6 +2053,8 @@
 		7AFB243E19082AA500A40219 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				7A37684B18F6A547005082ED /* LoadingScene.cpp */,
+				7A37684C18F6A547005082ED /* LoadingScene.h */,
 				7A3CB333190AF52B00074D3F /* StartScene.cpp */,
 				7A3CB334190AF52B00074D3F /* StartScene.h */,
 			);
@@ -2159,20 +2147,6 @@
 			fileType = archive.ar;
 			path = libcocos2dx.a;
 			remoteRef = 15A3D8851682F7B3002FB0C5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7AC11DBF1907EE31001090D6 /* UnitTests */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = UnitTests;
-			remoteRef = 7AC11DBE1907EE31001090D6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7AC11DC11907EE31001090D6 /* unittests */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = unittests;
-			remoteRef = 7AC11DC01907EE31001090D6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -2276,6 +2250,7 @@
 				375BD5111868454E0024609E /* CCActionManager.cpp in Sources */,
 				7AB5C46B190A98410034CBFD /* CCScrollLayerVertical.cpp in Sources */,
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
+				7A21C0461918C3AE00F7DBA9 /* CustomTableViewCell.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
 				15A3D91B1682F7D5002FB0C5 /* b2ContactSolver.cpp in Sources */,
 				15A3D91C1682F7D5002FB0C5 /* b2EdgeAndCircleContact.cpp in Sources */,
@@ -2657,6 +2632,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv6 armv7 i386";
 			};
 			name = Debug;

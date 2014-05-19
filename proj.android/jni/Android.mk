@@ -11,7 +11,7 @@ CLASSES_FILES   := $(CLASSES_FILES:$(LOCAL_PATH)/%=%)
 
 LOCAL_SRC_FILES := hellocpp/main.cpp
 LOCAL_SRC_FILES += $(CLASSES_FILES)                  
-                   
+
 LOCAL_LDLIBS    := -llog -lGLESv2
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

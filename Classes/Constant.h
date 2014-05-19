@@ -104,6 +104,25 @@ USING_NS_CC;
 #define PLAY_BUTTON_POS         ccp(572.495, 640-526.133)
 #define SETTING_BUTTON_POS      ccp(105.331,640-548.252)
 
+#define CREATE_MENU_ITEM(from, to, transition) \
+                                ((CCMenuItemSprite*)pSender)->runAction( \
+                                  CCSequence::create( \
+                                                      CCScaleTo::create(0.1, 1.15f), \
+                                                      CCDelayTime::create(0.05f), \
+                                                      CCScaleTo::create(0.1, 1.0f), \
+                                                      CCDelayTime::create(0.05f), \
+                                                      CCCallFuncO::create(this, \
+                                                                          callfuncO_selector(from::changeScene), \
+                                                                          transition::create(0.5f, to::scene())), \
+                                                      NULL))
+#define CREATE_MENU_ITEM_NO_CHANGE_SCENE() \
+                              ((CCMenuItemSprite*)pSender)->runAction( \
+                                  CCSequence::create( \
+                                                      CCScaleTo::create(0.1, 1.15f), \
+                                                      CCDelayTime::create(0.05f), \
+                                                      CCScaleTo::create(0.1, 1.0f), \
+                                                      NULL))
+
 enum eGround
 {
   GR_BACKGROUND,
