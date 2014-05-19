@@ -83,28 +83,9 @@ void ChooseMapScene::addSlidingLayers()
   mChooseMapLayer = createChooseMapLayer();
   mChooseMapLayer->setPosition(SCREEN_SIZE.width, 0);
   
-//  srand(time(NULL));
-//  int charater1 = rand() % NUMBER_CHARACTERS + 1;
-//  int charater2;
-//  while (charater2 == charater1)
-//    charater2 = rand() % NUMBER_CHARACTERS + 1;
-//  mSlideCharacter1->selectPage(charater1 - 1);
-//  mSlideCharacter2->selectPage(charater2 - 1);
-//  GameManager::setPlayerOneID(charater1);
-//  GameManager::setPlayerTwoID(charater2);
-  
   this->addChild(mChooseCharacterLayer, GR_FOREGROUND);
   this->addChild(mChooseMapLayer);
 
-//  mVs = BounceButton::create("Images/Game/UI/vsIcon-04.png");
-//  mVs->setPosition(VS_POS);
-//  mChooseCharacterLayer->addChild(mVs, GR_FOREGROUND);
-  
-//  CCMenu* menu = CCMenu::create(CCMenuItemSprite::create(mVs,
-//                                                         mVs,
-//                                                         this,
-//                                                         menu_selector(ChooseMapScene::switchCharacterSilde)),
-//                                NULL);
   mVs = BounceButton::create("Images/Game/UI/vsIcon-04.png");
   CCMenuItemSprite *backBtn = CCMenuItemSprite::create(mVs,
                                                        mVs,
@@ -151,29 +132,11 @@ void ChooseMapScene::removeCharacterAura(cocos2d::CCObject *pSender)
 void ChooseMapScene::cooldown()
 {
   float now = getCooldownTime();
-  //  CCLog("%f", now);
   setCooldownTime(now - 0.3);
   if (now <= 0)
   {
     CCDirector::sharedDirector()->pause();
   }
-}
-
-void ChooseMapScene::randomCharacter(cocos2d::CCObject *pSender)
-{
-  sound::playSoundFx(SFX_TOUCH_POP);
-  srand(time(NULL));
-  int charater1 = rand() % NUMBER_CHARACTERS + 1;
-  int charater2 = 0;
-  while (charater2 == charater1)
-    charater2 = rand() % NUMBER_CHARACTERS + 1;
-//  mSlideCharacter1->moveToPage(charater1 - 1);
-//  mSlideCharacter2->moveToPage(charater2 - 1);
-  
-  GameManager::setPlayerOneID(charater1);
-  GameManager::setPlayerTwoID(charater2);
-  CCLog("%d %d", GameManager::getPlayerOneID(), GameManager::getPlayerTwoID());
-  CCLog("%d %d", charater1, charater2);
 }
 
 CCArray* ChooseMapScene::createCharactersArray(CCPoint pPos)

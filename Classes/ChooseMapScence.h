@@ -71,7 +71,6 @@ public:
   
   ~ChooseMapScene();
   CCAction* changePage(cocos2d::CCPoint pPos);
-  void randomCharacter(cocos2d::CCObject *pSender);
   void cooldown();
   void switchCharacterSilde(cocos2d::CCObject *pSender);
   
