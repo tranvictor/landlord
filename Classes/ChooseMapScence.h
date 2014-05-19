@@ -31,6 +31,7 @@ private:
   int               mMapTouchedID;
   CCScrollLayer*    mSlidingMap;
   int mState;
+  CCSprite*         mBackground;
   
   cocos2d::CCLayer* mChooseCharacterLayer;
   cocos2d::CCLayer* mChooseMapLayer;
@@ -72,6 +73,7 @@ public:
   CCAction* changePage(cocos2d::CCPoint pPos);
   void randomCharacter(cocos2d::CCObject *pSender);
   void cooldown();
+  void switchCharacterSilde(cocos2d::CCObject *pSender);
   
   virtual void scrollViewDidScroll(cocos2d::extension::CCScrollView* view) {}
   virtual void scrollViewDidZoom(cocos2d::extension::CCScrollView* view) {}
@@ -84,6 +86,8 @@ public:
   virtual unsigned int numberOfCellsInTableView(cocos2d::extension::CCTableView *table);
   
   void changeScene(cocos2d::CCObject* pData);
+  void addCharacterAura(int pCurrentCharater, cocos2d::CCPoint pPos);
+  void removeCharacterAura(cocos2d::CCObject* pSender);
 };
 
 
