@@ -58,9 +58,14 @@ bool PlayScene::init()
   addPauseButton();
   
   addPlayerOne();
-  addPlayerOneShadow();
+//  addPlayerOneShadow();
+  mTurnIndicatorLeft = createTurnIndicator(PLAYER_ONE_POS);
+  mTurnIndicatorLeft->setVisible(true);
+  
+  mTurnIndicatorRight = createTurnIndicator(PLAYER_TWO_POS);
+  
   addPlayerTwo();
-  addPlayerTwoShadow();
+//  addPlayerTwoShadow();
   addScoreLbn();
   addPausedLayer();
   GameManager::setIsInPlayScene(true);
@@ -74,7 +79,9 @@ bool PlayScene::init()
   }
   
   setCooldownTime(100.0);
-  setupRemindLayer();
+  srand(time(NULL));
+  mRemindLayerLeft = setupRemindLayer("Images/Game/Object/bubble_blue.png", PLAYER_ONE_POS + ccp(320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), ccc3(46, 107, 229));
+  mRemindLayerRight = setupRemindLayer("Images/Game/Object/bubble_red.png", PLAYER_TWO_POS + ccp(-320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), ccc3(221, 34, 34));
   
   schedule(schedule_selector(PlayScene::update));
   schedule(schedule_selector(PlayScene::cooldown));
@@ -420,9 +427,9 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
         GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
         CCLog("PlayScene: axe collected.......... should have animation!!!!");
         if (GameManager::getCurrentPlayer() == PLAYER_ONE)
-          addAxeAnimation(mPlayerOneShadow->getPosition(), i);
+          addAxeAnimation(PLAYER_ONE_POS, i);
         else
-          addAxeAnimation(mPlayerTwoShadow->getPosition(), i);
+          addAxeAnimation(PLAYER_ONE_POS, i);
       }
     }
   }
@@ -473,17 +480,21 @@ void PlayScene::addHouse(const char *pFileName, int pIndex)
 
 void PlayScene::changePlayer()
 {
-  if (GameManager::getCurrentPlayer() == PLAYER_ONE)
-  {
-    mPlayerOneShadow->setVisible(false);
-    mPlayerTwoShadow->setVisible(true);
-  }
-  else
-  {
-    mPlayerTwoShadow->setVisible(false);
-    mPlayerOneShadow->setVisible(true);
-  }
-  
+//  if (GameManager::getCurrentPlayer() == PLAYER_ONE)
+//  {
+////    mPlayerOneShadow->setVisible(false);
+////    mPlayerTwoShadow->setVisible(true);
+//    mTurnIndicatorLeft->setVisible(true);
+//    
+//  }
+//  else
+//  {
+////    mPlayerTwoShadow->setVisible(false);
+////    mPlayerOneShadow->setVisible(true);
+//    addTurnIndicator(PLAYER_TWO_POS);
+//  }
+  mTurnIndicatorLeft->setVisible(!mTurnIndicatorLeft->isVisible());
+  mTurnIndicatorRight->setVisible(!mTurnIndicatorRight->isVisible());
   GameManager::changeCurrentPlayer();
 }
 
@@ -927,30 +938,40 @@ void PlayScene::removeTree()
   GameManager::setNumOfTrees(GameManager::getNumOfTrees() - 1);
 }
 
-void PlayScene::setupRemindLayer()
+CCLayer* PlayScene::setupRemindLayer(const char* pFileName,
+                                 cocos2d::CCPoint pPos,
+                                 const char* pContent,
+                                 cocos2d::ccColor3B pColor)
 {
-  mReminder = CCLayer::create();
-  CCSprite* btn = CCSprite::create("Images/Game/Object/bubble.png");
+  CCLayer* Reminder = CCLayer::create();
+  CCSprite* btn = CCSprite::create(pFileName);
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(btn,
                              btn,
                              this,
                              menu_selector(PlayScene::onResume));
-  CCPoint centerPos = ccp(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2);
-  item->setPosition(centerPos);
+  item->setPosition(pPos);
   CCMenu* menu = CCMenu::create(item, NULL);
-  mReminder->addChild(menu);
-  mReminder->setVisible(false);
+  Reminder->addChild(menu);
+  Reminder->setVisible(false);
   menu->setPosition(CCPointZero);
-  this->addChild(mReminder, GR_FOREGROUND);
+  this->addChild(Reminder, GR_FOREGROUND);
   
-  
+  CCLabelTTF* label = CCLabelTTF::create(pContent, "Marker Felt", 48);
+  label->setHorizontalAlignment(kCCTextAlignmentLeft);
+  label->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
+  label->setColor(pColor);
+  label->setPosition(pPos + ccp(0, 35));
+  Reminder->addChild(label, GR_FOREGROUND);
+  return Reminder;
 }
 
 void PlayScene::onResume(cocos2d::CCObject* pSender)
 {
   sound::playSoundFx(SFX_BUTTON_TOUCH);
-  mReminder->setVisible(false);
+//  mReminder->setVisible(false);
+  mRemindLayerLeft->setVisible(false);
+  mRemindLayerRight->setVisible(false);
   setCooldownTime(100.0);
   CCDirector::sharedDirector()->resume();
 }
@@ -962,7 +983,17 @@ void PlayScene::cooldown()
   setCooldownTime(now - 0.3);
   if (now <= 0)
   {
-    mReminder->setVisible(true);
+//    mReminder->setVisible(true);
+    if (GameManager::getCurrentPlayer() == PLAYER_ONE)
+    {
+      mRemindLayerRight->setVisible(true);
+      mRemindLayerLeft->setVisible(false);
+    }
+    else
+    {
+      mRemindLayerRight->setVisible(false);
+      mRemindLayerLeft->setVisible(true);
+    }
     CCDirector::sharedDirector()->pause();
   }
 }
@@ -1032,4 +1063,14 @@ void PlayScene::replayButtonTouched()
   unschedule(schedule_selector(PlayScene::cooldown));
   CCScene* newScene = CCTransitionFade::create(0.5, ChooseMapScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
+}
+
+CCSprite* PlayScene::createTurnIndicator(CCPoint pPos)
+{
+  CCSprite* turnIndicator = CCSprite::create("Images/Game/Object/turn_idicator.png");
+  turnIndicator->setPosition(pPos + ccp(0, 160));
+  turnIndicator->runAction(CCFlipX::create(true));
+  turnIndicator->setVisible(false);
+  this->addChild(turnIndicator, GR_FOREGROUND, TAG_TURN_INDICATOR);
+  return turnIndicator;
 }
