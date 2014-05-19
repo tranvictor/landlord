@@ -62,6 +62,7 @@ bool PlayScene::init()
   addPlayerTwo();
   addPlayerTwoShadow();
   addScoreLbn();
+  addPauseLayer();
   
   if (GameManager::getTreeModeState())
   {
@@ -966,4 +967,12 @@ void PlayScene::cooldown()
 void PlayScene::changeScene(cocos2d::CCObject *pData)
 {
   CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
+}
+
+void PlayScene::addPauseLayer()
+{
+//  mPauseLayer = CCLayer::create();
+//  CCSprite* pauseTitle = CCSprite::create("Images/Game/UI/pause_title.png");
+//  pauseTitle->setPosition(PAUSE_TITLE_POS);
+//  
 }

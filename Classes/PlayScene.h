@@ -52,6 +52,8 @@ class PlayScene : public cocos2d::CCLayer
   CCSprite*           mPlayerOneShadow;
   CCSprite*           mPlayerTwoShadow;
   
+  CCLayer*            mPauseLayer;
+  
 public:
   virtual bool init();
   static cocos2d::CCScene* scene();
@@ -117,6 +119,8 @@ public:
   void removeAxe(cocos2d::CCObject* pSender);
   
   void changeScene(cocos2d::CCObject* pData);
+  
+  void addPauseLayer();
 };
 
 #endif /* defined(__landlord__PlayScene__) */

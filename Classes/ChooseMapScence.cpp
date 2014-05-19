@@ -30,7 +30,8 @@ bool ChooseMapScene::init()
   addSlidingLayers();
   addButtonBack();
   addButtonForward();
-
+  mChooseCharacterLayer->addChild(mSymbolicCharacter);
+  
   return true;
 }
 
@@ -110,12 +111,12 @@ void ChooseMapScene::switchCharacterSilde(cocos2d::CCObject *pSender)
   mSlideCharacter2->setTouchEnabled(!mSlideCharacter2->isTouchEnabled());
   if (mSlideCharacter1->isTouchEnabled())
   {
-    this->removeChildByTag(SYMBOLIC_CHARACTER_TAG);
+    mChooseCharacterLayer->removeChildByTag(SYMBOLIC_CHARACTER_TAG);
     mSymbolicCharacter = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", mSlideCharacter2->getCurrentScreen() + 1)->getCString());
     mSymbolicCharacter->setOpacity(100);
     mSymbolicCharacter->setPosition(CHARACTER_RIGHT_LAYER_POS);
     mSymbolicCharacter->setTag(SYMBOLIC_CHARACTER_TAG);
-    this->addChild(mSymbolicCharacter);
+    mChooseCharacterLayer->addChild(mSymbolicCharacter);
     
     mSlideCharacter1->setVisible(true);
     mSlideCharacter2->setVisible(false);
@@ -123,12 +124,12 @@ void ChooseMapScene::switchCharacterSilde(cocos2d::CCObject *pSender)
   }
   else
   {
-    this->removeChildByTag(SYMBOLIC_CHARACTER_TAG);
+    mChooseCharacterLayer->removeChildByTag(SYMBOLIC_CHARACTER_TAG);
     mSymbolicCharacter = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", mSlideCharacter1->getCurrentScreen() + 1)->getCString());
     mSymbolicCharacter->setOpacity(100);
     mSymbolicCharacter->setPosition(CHARACTER_LEFT_LAYER_POS);
     mSymbolicCharacter->setTag(SYMBOLIC_CHARACTER_TAG);
-    this->addChild(mSymbolicCharacter);
+    mChooseCharacterLayer->addChild(mSymbolicCharacter);
     
     mSlideCharacter1->setVisible(false);
     mSlideCharacter2->setVisible(true);
@@ -208,7 +209,6 @@ CCLayer* ChooseMapScene::createChooseCharaterLayer()
   
   chooseCharacterLayer->addChild(mSlideCharacter1, GR_FOREGROUND);
   chooseCharacterLayer->addChild(mSlideCharacter2, GR_FOREGROUND);
-  this->addChild(mSymbolicCharacter);
   
   return chooseCharacterLayer;
 }
@@ -235,6 +235,7 @@ CCLayer* ChooseMapScene::createChooseMapLayer()
 
 void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
 {
+  mSymbolicCharacter->setVisible(true);
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   mState--;
   if (mState == 0)
@@ -253,6 +254,7 @@ void ChooseMapScene::buttonBackTouched(cocos2d::CCObject *pSender)
 
 void ChooseMapScene::buttonForwardTouched(cocos2d::CCObject *pSender)
 {
+  mSymbolicCharacter->setVisible(false);
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   CCLog("state: %d", mState);
   mState++;
