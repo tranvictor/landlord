@@ -924,7 +924,7 @@ void PlayScene::removeTree()
 void PlayScene::setupRemindLayer()
 {
   mReminder = CCLayer::create();
-  CCSprite* btn = CCSprite::create("Images/Game/UI/buttonPlay.png");
+  CCSprite* btn = CCSprite::create("Images/Game/Object/bubble.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(btn,
                              btn,
@@ -937,6 +937,8 @@ void PlayScene::setupRemindLayer()
   mReminder->setVisible(false);
   menu->setPosition(CCPointZero);
   this->addChild(mReminder, GR_FOREGROUND);
+  
+  
 }
 
 void PlayScene::onResume()
