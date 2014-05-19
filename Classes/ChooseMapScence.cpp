@@ -172,62 +172,11 @@ CCLayer* ChooseMapScene::createChooseCharaterLayer()
   mSlideCharacter2->setTouchEnabled(false);
   mSlideCharacter2->selectPage(rand() % NUMBER_CHARACTERS);
   
-//  // using CCTableView
-//  CCTableView* mSlideCharacter1 = CCTableView::create(this, CCSizeMake(209, 534));
-//  mSlideCharacter1->setDirection(kCCScrollViewDirectionVertical);
-//  mSlideCharacter1->setPosition(ccp(700, 52.688));
-//  mSlideCharacter1->setDelegate(this);
-//  mSlideCharacter1->setVerticalFillOrder(kCCTableViewFillTopDown);
-//  mSlideCharacter1->reloadData();
   chooseCharacterLayer->addChild(mSlideCharacter1, GR_FOREGROUND);
-//
-//  CCTableView* mSlideCharacter2 = CCTableView::create(this, CCSizeMake(209, 534));
-//  mSlideCharacter2->setDirection(kCCScrollViewDirectionVertical);
-//  mSlideCharacter2->setPosition(ccp(227, 52.688));
-//  mSlideCharacter2->setDelegate(this);
-//  mSlideCharacter2->setVerticalFillOrder(kCCTableViewFillTopDown);
-//  mSlideCharacter2->reloadData();
   chooseCharacterLayer->addChild(mSlideCharacter2, GR_FOREGROUND);
   
   return chooseCharacterLayer;
 }
-
-void ChooseMapScene::tableCellTouched(CCTableView* table, CCTableViewCell* cell)
-{
-  CCLOG("cell touched at index: %i", cell->getIdx() + 1);
-//  (cell->getChildByTag(cell->getIdx()+1))->runAction(CCMoveTo::create(0.5, ccp(100, 261.662)));
-//  cell->runAction(CCMoveTo::create(0.5, ccp(100, 261.662)));
-}
-
-CCSize ChooseMapScene::tableCellSizeForIndex(CCTableView *table, unsigned int idx)
-{
-  return CCSizeMake(100, 534);
-}
-
-CCTableViewCell* ChooseMapScene::tableCellAtIndex(CCTableView *table, unsigned int idx)
-{
-  CCTableViewCell *cell = table->cellAtIndex(idx); //table->dequeueCell();
-  if (!cell)
-  {
-    cell = new CustomTableViewCell();
-    cell->autorelease();
-    CCSprite *sprite = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", idx + 1)->getCString());
-    CCLOG("player 2 - %d", idx+1);
-    GameManager::setPlayerTwoID(idx + 1);
-
-    sprite->setPosition(ccp(100, 261.662));
-    sprite->setTag(idx+1);
-    cell->addChild(sprite);
-  }
-  
-  return cell;
-}
-
-unsigned int ChooseMapScene::numberOfCellsInTableView(CCTableView *table)
-{
-  return NUMBER_CHARACTERS;
-}
-
 
 CCLayer* ChooseMapScene::createChooseMapLayer()
 {
