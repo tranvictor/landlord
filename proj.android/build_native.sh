@@ -1,4 +1,4 @@
-APPNAME="landlord"
+APPNAME="supermagical-x"
 
 # options
 
@@ -29,7 +29,6 @@ esac
 done
 
 # paths
-NDK_ROOT="/Users/hoangha/Desktop/Enigma/android-ndk-r9d"
 
 if [ -z "${NDK_ROOT+aaa}" ];then
 echo "please define NDK_ROOT"

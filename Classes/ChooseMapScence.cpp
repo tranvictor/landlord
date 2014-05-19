@@ -117,6 +117,7 @@ void ChooseMapScene::switchCharacterSilde(cocos2d::CCObject *pSender)
     addCharacterAura(mSlideCharacter2->getCurrentScreen() + 1, CHARACTER_RIGHT_LAYER_POS);
   }
 }
+
 void ChooseMapScene::addCharacterAura(int pCurrentCharater, cocos2d::CCPoint pPos)
 {
   CCSprite* character = CCSprite::create(CCString::createWithFormat("Images/Game/Object/c%i.png", pCurrentCharater)->getCString());
@@ -126,12 +127,16 @@ void ChooseMapScene::addCharacterAura(int pCurrentCharater, cocos2d::CCPoint pPo
                                           CCCallFunc::create(this, callfunc_selector(ChooseMapScene::removeCharacterAura)),
                                           NULL));
   character->setPosition(pPos);
-  mChooseCharacterLayer->addChild(character);
+  this->addChild(character);
 }
 
 void ChooseMapScene::removeCharacterAura(cocos2d::CCObject *pSender)
 {
-  ((CCSprite*)pSender)->removeFromParent();
+  // TODO
+  // just set visible because a bug on android with removeFromParent functions
+  CCSprite* character = ((CCSprite*)pSender);
+  this->removeChild(character, true);
+  character->setVisible(false);
 }
 
 void ChooseMapScene::cooldown()
