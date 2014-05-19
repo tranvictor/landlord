@@ -236,6 +236,7 @@ void PlayScene::pauseButtonTouched(CCObject* pSender)
   CCLog("paused touched");
   // TODO
   unscheduleUpdate();
+  unschedule(schedule_selector(PlayScene::cooldown));
   CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
   CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
   sound::playSoundFx(SFX_CONGRATULATION);
@@ -554,7 +555,9 @@ void PlayScene::update(float pdT)
       GameManager::getPlayerScore(PLAYER_ONE) > GameManager::getPlayerScore(PLAYER_TWO) ? PLAYER_ONE : PLAYER_TWO;
     
     /// What about equal ?????
+    
     unscheduleUpdate();
+    unschedule(schedule_selector(PlayScene::cooldown));
     GameManager::setWinPlayer(winPlayer);
     CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
@@ -939,7 +942,7 @@ void PlayScene::setupRemindLayer()
   this->addChild(mReminder, GR_FOREGROUND);
 }
 
-void PlayScene::onResume()
+void PlayScene::onResume(cocos2d::CCObject* pSender)
 {
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   mReminder->setVisible(false);
