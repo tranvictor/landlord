@@ -51,6 +51,8 @@ class PlayScene : public cocos2d::CCLayer
   
   CCSprite*           mPlayerOneShadow;
   CCSprite*           mPlayerTwoShadow;
+  CCSprite*           mTurnIndicatorLeft;
+  CCSprite*           mTurnIndicatorRight;
   
 public:
   virtual bool init();
@@ -117,6 +119,7 @@ public:
   void removeAxe(cocos2d::CCObject* pSender);
   
   void changeScene(cocos2d::CCObject* pData);
+  cocos2d::CCSprite* createTurnIndicator(cocos2d::CCPoint pPos);
 };
 
 #endif /* defined(__landlord__PlayScene__) */

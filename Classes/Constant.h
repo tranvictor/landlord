@@ -185,4 +185,6 @@ enum eSLideMap
   TAG_SLIDE_MAP
 };
 
+#define TAG_TURN_INDICATOR  1
+
 #endif

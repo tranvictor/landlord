@@ -58,9 +58,14 @@ bool PlayScene::init()
   addPauseButton();
   
   addPlayerOne();
-  addPlayerOneShadow();
+//  addPlayerOneShadow();
+  mTurnIndicatorLeft = createTurnIndicator(PLAYER_ONE_POS);
+  mTurnIndicatorLeft->setVisible(true);
+  
+  mTurnIndicatorRight = createTurnIndicator(PLAYER_TWO_POS);
+  
   addPlayerTwo();
-  addPlayerTwoShadow();
+//  addPlayerTwoShadow();
   addScoreLbn();
   
   if (GameManager::getTreeModeState())
@@ -416,9 +421,9 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
         GameManager::increaseNumOfAxes(GameManager::getCurrentPlayer());
         CCLog("PlayScene: axe collected.......... should have animation!!!!");
         if (GameManager::getCurrentPlayer() == PLAYER_ONE)
-          addAxeAnimation(mPlayerOneShadow->getPosition(), i);
+          addAxeAnimation(PLAYER_ONE_POS, i);
         else
-          addAxeAnimation(mPlayerTwoShadow->getPosition(), i);
+          addAxeAnimation(PLAYER_ONE_POS, i);
       }
     }
   }
@@ -469,17 +474,21 @@ void PlayScene::addHouse(const char *pFileName, int pIndex)
 
 void PlayScene::changePlayer()
 {
-  if (GameManager::getCurrentPlayer() == PLAYER_ONE)
-  {
-    mPlayerOneShadow->setVisible(false);
-    mPlayerTwoShadow->setVisible(true);
-  }
-  else
-  {
-    mPlayerTwoShadow->setVisible(false);
-    mPlayerOneShadow->setVisible(true);
-  }
-  
+//  if (GameManager::getCurrentPlayer() == PLAYER_ONE)
+//  {
+////    mPlayerOneShadow->setVisible(false);
+////    mPlayerTwoShadow->setVisible(true);
+//    mTurnIndicatorLeft->setVisible(true);
+//    
+//  }
+//  else
+//  {
+////    mPlayerTwoShadow->setVisible(false);
+////    mPlayerOneShadow->setVisible(true);
+//    addTurnIndicator(PLAYER_TWO_POS);
+//  }
+  mTurnIndicatorLeft->setVisible(!mTurnIndicatorLeft->isVisible());
+  mTurnIndicatorRight->setVisible(!mTurnIndicatorRight->isVisible());
   GameManager::changeCurrentPlayer();
 }
 
@@ -926,7 +935,7 @@ void PlayScene::removeTree()
 void PlayScene::setupRemindLayer()
 {
   mReminder = CCLayer::create();
-  CCSprite* btn = CCSprite::create("Images/Game/UI/buttonPlay.png");
+  CCSprite* btn = CCSprite::create("Images/Game/Object/bubble.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(btn,
                              btn,
@@ -964,4 +973,14 @@ void PlayScene::cooldown()
 void PlayScene::changeScene(cocos2d::CCObject *pData)
 {
   CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
+}
+
+CCSprite* PlayScene::createTurnIndicator(CCPoint pPos)
+{
+  CCSprite* turnIndicator = CCSprite::create("Images/Game/Object/turn_idicator.png");
+  turnIndicator->setPosition(pPos + ccp(0, 160));
+  turnIndicator->runAction(CCFlipX::create(true));
+  turnIndicator->setVisible(false);
+  this->addChild(turnIndicator, GR_FOREGROUND, TAG_TURN_INDICATOR);
+  return turnIndicator;
 }
