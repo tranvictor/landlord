@@ -49,10 +49,12 @@ class PlayScene : public cocos2d::CCLayer
   int                 mCurTile;// = 0;
 //  int                 mNumPop = NUMBER_EDGE_AVAILABLE;
   
-  CCSprite*           mPlayerOneShadow;
-  CCSprite*           mPlayerTwoShadow;
-  CCSprite*           mTurnIndicatorLeft;
-  CCSprite*           mTurnIndicatorRight;
+  cocos2d::CCSprite*  mPlayerOneShadow;
+  cocos2d::CCSprite*  mPlayerTwoShadow;
+  cocos2d::CCSprite*  mTurnIndicatorLeft;
+  cocos2d::CCSprite*  mTurnIndicatorRight;
+  cocos2d::CCLayer*   mRemindLayerLeft;
+  cocos2d::CCLayer*   mRemindLayerRight;
   
 public:
   virtual bool init();
@@ -101,7 +103,10 @@ public:
   CC_SYNTHESIZE(float, mCooldownTime, CooldownTime);
   CC_SYNTHESIZE(cocos2d::CCLayer*, mReminder, Reminder);
   void onResume(cocos2d::CCObject* pSender);
-  void setupRemindLayer();
+  cocos2d::CCLayer* setupRemindLayer(const char* pFileName,
+                                      cocos2d::CCPoint pPos,
+                                      const char* pContent,
+                                      cocos2d::ccColor3B pColor);
   void cooldown();
   
   virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);

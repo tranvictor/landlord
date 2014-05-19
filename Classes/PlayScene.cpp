@@ -77,7 +77,9 @@ bool PlayScene::init()
   }
   
   setCooldownTime(100.0);
-  setupRemindLayer();
+  const char* quote = "MY GRANDMA\nIS A QUICK-\nTHINKER THAN\nYOU!";
+  mRemindLayerLeft = setupRemindLayer("Images/Game/Object/bubble_blue.png", PLAYER_ONE_POS + ccp(320, 200), quote, ccc3(46, 107, 229));
+  mRemindLayerRight = setupRemindLayer("Images/Game/Object/bubble_red.png", PLAYER_TWO_POS + ccp(-320, 200), quote, ccc3(221, 34, 34));
   
   schedule(schedule_selector(PlayScene::update));
   schedule(schedule_selector(PlayScene::cooldown));
@@ -932,28 +934,40 @@ void PlayScene::removeTree()
   GameManager::setNumOfTrees(GameManager::getNumOfTrees() - 1);
 }
 
-void PlayScene::setupRemindLayer()
+CCLayer* PlayScene::setupRemindLayer(const char* pFileName,
+                                 cocos2d::CCPoint pPos,
+                                 const char* pContent,
+                                 cocos2d::ccColor3B pColor)
 {
-  mReminder = CCLayer::create();
-  CCSprite* btn = CCSprite::create("Images/Game/Object/bubble.png");
+  CCLayer* Reminder = CCLayer::create();
+  CCSprite* btn = CCSprite::create(pFileName);
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(btn,
                              btn,
                              this,
                              menu_selector(PlayScene::onResume));
-  CCPoint centerPos = ccp(SCREEN_SIZE.width/2, SCREEN_SIZE.height/2);
-  item->setPosition(centerPos);
+  item->setPosition(pPos);
   CCMenu* menu = CCMenu::create(item, NULL);
-  mReminder->addChild(menu);
-  mReminder->setVisible(false);
+  Reminder->addChild(menu);
+  Reminder->setVisible(false);
   menu->setPosition(CCPointZero);
-  this->addChild(mReminder, GR_FOREGROUND);
+  this->addChild(Reminder, GR_FOREGROUND);
+  
+  CCLabelTTF* label = CCLabelTTF::create(pContent, "Marker Felt", 48);
+  label->setHorizontalAlignment(kCCTextAlignmentLeft);
+  label->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
+  label->setColor(pColor);
+  label->setPosition(pPos + ccp(0, 35));
+  Reminder->addChild(label, GR_FOREGROUND);
+  return Reminder;
 }
 
 void PlayScene::onResume(cocos2d::CCObject* pSender)
 {
   sound::playSoundFx(SFX_BUTTON_TOUCH);
-  mReminder->setVisible(false);
+//  mReminder->setVisible(false);
+  mRemindLayerLeft->setVisible(false);
+  mRemindLayerRight->setVisible(false);
   setCooldownTime(100.0);
   CCDirector::sharedDirector()->resume();
 }
@@ -965,7 +979,17 @@ void PlayScene::cooldown()
   setCooldownTime(now - 0.3);
   if (now <= 0)
   {
-    mReminder->setVisible(true);
+//    mReminder->setVisible(true);
+    if (GameManager::getCurrentPlayer() == PLAYER_ONE)
+    {
+      mRemindLayerRight->setVisible(true);
+      mRemindLayerLeft->setVisible(false);
+    }
+    else
+    {
+      mRemindLayerRight->setVisible(false);
+      mRemindLayerLeft->setVisible(true);
+    }
     CCDirector::sharedDirector()->pause();
   }
 }

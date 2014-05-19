@@ -136,20 +136,6 @@
 		15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A3DA8E1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m */; };
 		176AF66E192A473C0004B6C9 /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF63F192A473C0004B6C9 /* GUIReader.cpp */; };
 		176AF66F192A473C0004B6C9 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF641192A473C0004B6C9 /* SceneReader.cpp */; };
-		176AF670192A473C0004B6C9 /* ButtonReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF645192A473C0004B6C9 /* ButtonReader.cpp */; };
-		176AF671192A473C0004B6C9 /* CheckBoxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF648192A473C0004B6C9 /* CheckBoxReader.cpp */; };
-		176AF672192A473C0004B6C9 /* ImageViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF64B192A473C0004B6C9 /* ImageViewReader.cpp */; };
-		176AF673192A473C0004B6C9 /* LabelAtlasReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF64E192A473C0004B6C9 /* LabelAtlasReader.cpp */; };
-		176AF674192A473C0004B6C9 /* LabelBMFontReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF651192A473C0004B6C9 /* LabelBMFontReader.cpp */; };
-		176AF675192A473C0004B6C9 /* LabelReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF654192A473C0004B6C9 /* LabelReader.cpp */; };
-		176AF676192A473C0004B6C9 /* LayoutReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF657192A473C0004B6C9 /* LayoutReader.cpp */; };
-		176AF677192A473C0004B6C9 /* ListViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF65A192A473C0004B6C9 /* ListViewReader.cpp */; };
-		176AF678192A473C0004B6C9 /* LoadingBarReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF65D192A473C0004B6C9 /* LoadingBarReader.cpp */; };
-		176AF679192A473C0004B6C9 /* PageViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF660192A473C0004B6C9 /* PageViewReader.cpp */; };
-		176AF67A192A473C0004B6C9 /* ScrollViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF663192A473C0004B6C9 /* ScrollViewReader.cpp */; };
-		176AF67B192A473C0004B6C9 /* SliderReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF666192A473C0004B6C9 /* SliderReader.cpp */; };
-		176AF67C192A473C0004B6C9 /* TextFieldReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF669192A473C0004B6C9 /* TextFieldReader.cpp */; };
-		176AF67D192A473C0004B6C9 /* WidgetReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 176AF66B192A473C0004B6C9 /* WidgetReader.cpp */; };
 		1A27573F1697CF2B00504026 /* CCEditBoxImplAndroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A27573D1697CF2B00504026 /* CCEditBoxImplAndroid.cpp */; };
 		1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F3B43175E05DA00049216 /* Animation.cpp */; };
 		1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A8F3B45175E05DA00049216 /* AnimationState.cpp */; };
@@ -183,7 +169,6 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2E92E2D5190A788700001F10 /* BounceButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E92E2D4190A788700001F10 /* BounceButton.cpp */; };
-		2EDAF299190A91C90090F43B /* (null) in Sources */ = {isa = PBXBuildFile; };
 		375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BB1868411B0024609E /* ObjectFactory.cpp */; };
 		375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BD1868411B0024609E /* TriggerBase.cpp */; };
 		375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BF1868411B0024609E /* TriggerMng.cpp */; };
@@ -2457,7 +2442,6 @@
 				15A3D9971682F7F9002FB0C5 /* cpConstraint.c in Sources */,
 				15A3D9981682F7F9002FB0C5 /* cpDampedRotarySpring.c in Sources */,
 				7A3CB33E190AF55200074D3F /* WinScene.cpp in Sources */,
-				176AF67B192A473C0004B6C9 /* SliderReader.cpp in Sources */,
 				7A3CB338190AF53C00074D3F /* ChooseCharacterScene.cpp in Sources */,
 				15A3D9991682F7F9002FB0C5 /* cpDampedSpring.c in Sources */,
 				15A3D99A1682F7F9002FB0C5 /* cpGearJoint.c in Sources */,
@@ -2472,14 +2456,11 @@
 				15A3D9A11682F7F9002FB0C5 /* cpSlideJoint.c in Sources */,
 				15A3D9A21682F7F9002FB0C5 /* cpArbiter.c in Sources */,
 				15A3D9A31682F7F9002FB0C5 /* cpArray.c in Sources */,
-				2EDAF299190A91C90090F43B /* (null) in Sources */,
 				15A3D9A41682F7F9002FB0C5 /* cpBB.c in Sources */,
 				7A3CB356190AF5B200074D3F /* Sound.cpp in Sources */,
 				15A3D9A51682F7F9002FB0C5 /* cpBBTree.c in Sources */,
 				15A3D9A61682F7F9002FB0C5 /* cpBody.c in Sources */,
 				15A3D9A71682F7F9002FB0C5 /* cpCollision.c in Sources */,
-				176AF671192A473C0004B6C9 /* CheckBoxReader.cpp in Sources */,
-				176AF67A192A473C0004B6C9 /* ScrollViewReader.cpp in Sources */,
 				15A3D9A81682F7F9002FB0C5 /* cpHashSet.c in Sources */,
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
 				7A3CB353190AF5A900074D3F /* GameManager.cpp in Sources */,
@@ -2489,7 +2470,6 @@
 				15A3D9AC1682F7F9002FB0C5 /* cpSpaceComponent.c in Sources */,
 				15A3D9AD1682F7F9002FB0C5 /* cpSpaceHash.c in Sources */,
 				176AF66F192A473C0004B6C9 /* SceneReader.cpp in Sources */,
-				176AF67C192A473C0004B6C9 /* TextFieldReader.cpp in Sources */,
 				15A3D9AE1682F7F9002FB0C5 /* cpSpaceQuery.c in Sources */,
 				15A3D9AF1682F7F9002FB0C5 /* cpSpaceStep.c in Sources */,
 				15A3D9B01682F7F9002FB0C5 /* cpSpatialIndex.c in Sources */,
@@ -2497,7 +2477,6 @@
 				15A3D9B21682F7F9002FB0C5 /* cpVect.c in Sources */,
 				15A3DA311682F826002FB0C5 /* CCBAnimationManager.cpp in Sources */,
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
-				176AF679192A473C0004B6C9 /* PageViewReader.cpp in Sources */,
 				15A3DA331682F826002FB0C5 /* CCBKeyframe.cpp in Sources */,
 				15A3DA341682F826002FB0C5 /* CCBReader.cpp in Sources */,
 				15A3DA351682F826002FB0C5 /* CCBSequence.cpp in Sources */,
@@ -2529,7 +2508,6 @@
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
-				176AF673192A473C0004B6C9 /* LabelAtlasReader.cpp in Sources */,
 				15A3DA4D1682F826002FB0C5 /* CCControlPotentiometer.cpp in Sources */,
 				15A3DA4E1682F826002FB0C5 /* CCControlSaturationBrightnessPicker.cpp in Sources */,
 				15A3DA4F1682F826002FB0C5 /* CCControlSlider.cpp in Sources */,
@@ -2557,7 +2535,6 @@
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				1A27573F1697CF2B00504026 /* CCEditBoxImplAndroid.cpp in Sources */,
-				176AF674192A473C0004B6C9 /* LabelBMFontReader.cpp in Sources */,
 				7A3CB34D190AF58D00074D3F /* Tree.cpp in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
@@ -2565,7 +2542,6 @@
 				1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */,
 				7A3CB33B190AF54800074D3F /* PlayScene.cpp in Sources */,
 				7AB5C462190A7C890034CBFD /* ChooseMapScence.cpp in Sources */,
-				176AF670192A473C0004B6C9 /* ButtonReader.cpp in Sources */,
 				7A3CB332190AF51700074D3F /* TileInfo.cpp in Sources */,
 				1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */,
 				1A8F3B70175E05DA00049216 /* AnimationStateData.cpp in Sources */,
@@ -2574,7 +2550,6 @@
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
 				1A8F3B74175E05DA00049216 /* AttachmentLoader.cpp in Sources */,
 				1A8F3B75175E05DA00049216 /* Bone.cpp in Sources */,
-				176AF672192A473C0004B6C9 /* ImageViewReader.cpp in Sources */,
 				1A8F3B76175E05DA00049216 /* BoneData.cpp in Sources */,
 				1A8F3B77175E05DA00049216 /* CCSkeleton.cpp in Sources */,
 				1A8F3B78175E05DA00049216 /* CCSkeletonAnimation.cpp in Sources */,
@@ -2588,14 +2563,12 @@
 				1A8F3B7E175E05DA00049216 /* SkeletonJson.cpp in Sources */,
 				7A9B5CE418C0A45900C739FD /* CCLayerPanZoom.cpp in Sources */,
 				1A8F3B7F175E05DA00049216 /* Skin.cpp in Sources */,
-				176AF67D192A473C0004B6C9 /* WidgetReader.cpp in Sources */,
 				1A8F3B80175E05DA00049216 /* Slot.cpp in Sources */,
 				1A8F3B81175E05DA00049216 /* SlotData.cpp in Sources */,
 				1A8F3B82175E05DA00049216 /* spine-cocos2dx.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
 				375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */,
 				1A9CE8781765A12C000E3062 /* AssetsManager.cpp in Sources */,
-				176AF678192A473C0004B6C9 /* LoadingBarReader.cpp in Sources */,
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,
 				379BB99C17F03F3700829B88 /* CCTween.cpp in Sources */,
@@ -2613,7 +2586,6 @@
 				379BB9A817F03F3700829B88 /* CCDataReaderHelper.cpp in Sources */,
 				379BB9A917F03F3700829B88 /* CCSpriteFrameCacheHelper.cpp in Sources */,
 				7AA1ADFD18B3F79A00A5C58C /* SlidingMenu.cpp in Sources */,
-				176AF675192A473C0004B6C9 /* LabelReader.cpp in Sources */,
 				379BB9AA17F03F3700829B88 /* CCTransformHelp.cpp in Sources */,
 				379BB9AB17F03F3700829B88 /* CCTweenFunction.cpp in Sources */,
 				379BB9AC17F03F3700829B88 /* CCUtilMath.cpp in Sources */,
@@ -2621,7 +2593,6 @@
 				379BB9AE17F03F3700829B88 /* CCComAudio.cpp in Sources */,
 				379BB9AF17F03F3700829B88 /* CCComController.cpp in Sources */,
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
-				176AF677192A473C0004B6C9 /* ListViewReader.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
@@ -2634,7 +2605,6 @@
 				379BB9BF17F03F3700829B88 /* UIScrollView.cpp in Sources */,
 				379BB9C017F03F3700829B88 /* UIButton.cpp in Sources */,
 				375BD50E1868454E0024609E /* CCActionEaseEx.cpp in Sources */,
-				176AF676192A473C0004B6C9 /* LayoutReader.cpp in Sources */,
 				379BB9C117F03F3700829B88 /* UICheckBox.cpp in Sources */,
 				379BB9C217F03F3700829B88 /* UIImageView.cpp in Sources */,
 				379BB9C317F03F3700829B88 /* UILabel.cpp in Sources */,
