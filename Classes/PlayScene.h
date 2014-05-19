@@ -15,6 +15,8 @@
 #include "CCLayerPanZoom.h"
 #include "TileInfo.h"
 #include "GameManager.h"
+#include "ChooseMapScence.h"
+#include "SettingScene.h"
 
 const std::string quote[] = {"MY GRANDMA\nIS A QUICK-\nTHINKER THAN\nYOU!",
                              "WHAT TOOK\nYOU SO LONG?",
@@ -61,7 +63,7 @@ class PlayScene : public cocos2d::CCLayer
   cocos2d::CCLayer*   mRemindLayerLeft;
   cocos2d::CCLayer*   mRemindLayerRight;
   
-  CCLayer*            mPauseLayer;
+  CCLayer*            mPausedLayer;
   
 public:
   virtual bool init();
@@ -131,8 +133,12 @@ public:
   void removeAxe(cocos2d::CCObject* pSender);
   
   void changeScene(cocos2d::CCObject* pData);
+  
+  void addPausedLayer();
+  void resumeButtonTouched();
+  void optionButtonTouched();
+  void replayButtonTouched();
   cocos2d::CCSprite* createTurnIndicator(cocos2d::CCPoint pPos);
-  void addPauseLayer();
 };
 
 #endif /* defined(__landlord__PlayScene__) */

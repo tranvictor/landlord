@@ -67,7 +67,8 @@ bool PlayScene::init()
   addPlayerTwo();
 //  addPlayerTwoShadow();
   addScoreLbn();
-  addPauseLayer();
+  addPausedLayer();
+  GameManager::setIsInPlayScene(true);
   
   if (GameManager::getTreeModeState())
   {
@@ -242,11 +243,13 @@ void PlayScene::pauseButtonTouched(CCObject* pSender)
 {
   CCLog("paused touched");
   // TODO
-  unscheduleUpdate();
-  unschedule(schedule_selector(PlayScene::cooldown));
-  CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
-  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
-  sound::playSoundFx(SFX_CONGRATULATION);
+  mPausedLayer->setVisible(true);
+  mTileMap->setVisible(false);
+//  unscheduleUpdate();
+//  unschedule(schedule_selector(PlayScene::cooldown));
+//  CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
+//  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
+//  sound::playSoundFx(SFX_CONGRATULATION);
 //  CCScene* newScene = CCTransitionFade::create(0.5, WinScene::scene());
 //  CCDirector::sharedDirector()->replaceScene(newScene);
 }
@@ -1000,6 +1003,68 @@ void PlayScene::changeScene(cocos2d::CCObject *pData)
   CCDirector::sharedDirector()->replaceScene((CCTransitionScene*)pData);
 }
 
+void PlayScene::addPausedLayer()
+{
+  mPausedLayer = CCLayer::create();
+  CCSprite* pausedTitle = CCSprite::create("Images/Game/UI/paused_title.png");
+  pausedTitle->setPosition(PAUSED_TITLE_POS);
+  mPausedLayer->addChild(pausedTitle);
+  
+  CCSprite* btn = CCSprite::create("Images/Game/UI/paused_resume.png");
+  CCMenuItemSprite* paused =
+  CCMenuItemSprite::create(btn,
+                           btn,
+                           this,
+                           menu_selector(PlayScene::resumeButtonTouched));
+  CCMenu* menu = CCMenu::create(paused, NULL);
+  menu->setPosition(PAUSED_RESUME_POS);
+  mPausedLayer->addChild(menu);
+  
+  btn = CCSprite::create("Images/Game/UI/paused_option.png");
+  paused = CCMenuItemSprite::create(btn,
+                           btn,
+                           this,
+                           menu_selector(PlayScene::optionButtonTouched));
+  menu = CCMenu::create(paused, NULL);
+  menu->setPosition(PAUSED_OPTION_POS);
+  mPausedLayer->addChild(menu);
+  
+  btn = CCSprite::create("Images/Game/UI/paused_replay.png");
+  paused = CCMenuItemSprite::create(btn,
+                                    btn,
+                                    this,
+                                    menu_selector(PlayScene::replayButtonTouched));
+  menu = CCMenu::create(paused, NULL);
+  menu->setPosition(PAUSED_REPLAY_POS);
+  mPausedLayer->addChild(menu);
+  
+  mPausedLayer->setVisible(false);
+  this->addChild(mPausedLayer, 6);
+}
+
+void PlayScene::resumeButtonTouched()
+{
+  mPausedLayer->setVisible(false);
+  mTileMap->setVisible(true);
+}
+
+void PlayScene::optionButtonTouched()
+{
+  unscheduleUpdate();
+  unschedule(schedule_selector(PlayScene::cooldown));
+  CCScene* newScene = CCTransitionFade::create(0.5, SettingScene::scene());
+//  CCDirector::sharedDirector()->replaceScene(newScene);
+  CCDirector::sharedDirector()->pushScene(newScene);
+}
+
+void PlayScene::replayButtonTouched()
+{
+  unscheduleUpdate();
+  unschedule(schedule_selector(PlayScene::cooldown));
+  CCScene* newScene = CCTransitionFade::create(0.5, ChooseMapScene::scene());
+  CCDirector::sharedDirector()->replaceScene(newScene);
+}
+
 CCSprite* PlayScene::createTurnIndicator(CCPoint pPos)
 {
   CCSprite* turnIndicator = CCSprite::create("Images/Game/Object/turn_idicator.png");
@@ -1008,12 +1073,4 @@ CCSprite* PlayScene::createTurnIndicator(CCPoint pPos)
   turnIndicator->setVisible(false);
   this->addChild(turnIndicator, GR_FOREGROUND, TAG_TURN_INDICATOR);
   return turnIndicator;
-}
-
-void PlayScene::addPauseLayer()
-{
-//  mPauseLayer = CCLayer::create();
-//  CCSprite* pauseTitle = CCSprite::create("Images/Game/UI/pause_title.png");
-//  pauseTitle->setPosition(PAUSE_TITLE_POS);
-//
 }

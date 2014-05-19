@@ -33,6 +33,8 @@ int  GameManager::nAxesOfPlayerTwo = 0;
 
 int GameManager::nStones = 0;
 
+bool GameManager::isInPlayScene = false;
+
 bool GameManager::getMusicState()
 {
   return musicState;
@@ -223,4 +225,14 @@ void GameManager::setNumOfStones(int pNumOfStones)
 int GameManager::getNumOfStones()
 {
   return nStones;
+}
+
+bool GameManager::getIsInPlayScene()
+{
+  return isInPlayScene;
+}
+
+void GameManager::setIsInPlayScene(bool pValue)
+{
+  isInPlayScene = pValue;
 }
