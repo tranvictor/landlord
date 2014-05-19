@@ -235,10 +235,10 @@ void PlayScene::pauseButtonTouched(CCObject* pSender)
 {
   CCLog("paused touched");
   // TODO
+  unscheduleUpdate();
   CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
   CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
   sound::playSoundFx(SFX_CONGRATULATION);
-  unscheduleUpdate();
 //  CCScene* newScene = CCTransitionFade::create(0.5, WinScene::scene());
 //  CCDirector::sharedDirector()->replaceScene(newScene);
 }
@@ -554,7 +554,7 @@ void PlayScene::update(float pdT)
       GameManager::getPlayerScore(PLAYER_ONE) > GameManager::getPlayerScore(PLAYER_TWO) ? PLAYER_ONE : PLAYER_TWO;
     
     /// What about equal ?????
-    
+    unscheduleUpdate();
     GameManager::setWinPlayer(winPlayer);
     CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
@@ -567,7 +567,8 @@ void PlayScene::addBottomEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pTileInfo->setHasBottomPop(true);
   
   pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
-  
+  pEdge->setScale(0.1f);
+  pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
   mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeBottomStatus(STS_NOT_AVAILABLE);
   
@@ -589,7 +590,9 @@ void PlayScene::addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   
   pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width/2,
                          tileSprite->getPositionY() + tileSprite->getContentSize().height));
-  
+  pEdge->setScale(0.1f);
+  pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
+
   mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeTopStatus(STS_NOT_AVAILABLE);
   for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -611,7 +614,9 @@ void PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setRotation(90);
   pEdge->setPosition(ccp(tileSprite->getPositionX(),
                          tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
-  
+  pEdge->setScale(0.1f);
+  pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
+
   mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeLeftStatus(STS_NOT_AVAILABLE);
   
@@ -634,7 +639,9 @@ void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setRotation(90);
   pEdge->setPosition(ccp(tileSprite->getPositionX() + tileSprite->getContentSize().width,
                          tileSprite->getPositionY() + tileSprite->getContentSize().height/2));
-  
+  pEdge->setScale(0.1f);
+  pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
+
   mTileMap->addChild(pEdge, GR_BACKGROUND);
   pTileInfo->setEdgeRightStatus(STS_NOT_AVAILABLE);
   
@@ -821,7 +828,7 @@ void PlayScene::addStones()
                            + mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getContentSize().width/2,
                            mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getPositionY()
                            + mTileInfoVector.at(indexOfTileToAddStone)->getTile()->getContentSize().height/2));
-    mTileMap->addChild(stone, GR_FOREGROUND);
+    mTileMap->addChild(stone, GR_MIDDLEGROUND);
     
     for (int i = 0; i < mTileInfoVector.size(); ++i)
     {
