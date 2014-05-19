@@ -172,7 +172,6 @@ void PlayScene::makeMapScroll()
         tileInfo->setGID(PAIR_FUNC(i, j));
 //        CCLog("gid %d", PAIR_FUNC(i, j));
         mTileInfoVector.push_back(tileInfo);
-        
         if (j > 0 && mMapLayer->tileAt(ccp(i, j-1)))
         {
           tileInfo->setGIDTileUp(PAIR_FUNC(i, j-1));
@@ -433,7 +432,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
 
 void PlayScene::addAxeAnimation(cocos2d::CCPoint pPos, int pIndex)
 {
-  CCSprite* axe = CCSprite::create("Images/Game/Object/axe.png");
+  CCSprite* axe = CCSprite::create("Images/Game/Object/axe-02.png");
   axe->setPosition(mTileInfoVector.at(pIndex)->getTile()->getPosition()
                    + ccp(mTileInfoVector.at(pIndex)->getTile()->getContentSize().width/2,
                          mTileInfoVector.at(pIndex)->getTile()->getContentSize().height));
@@ -553,9 +552,6 @@ void PlayScene::update(float pdT)
   {
     eCurrentPlayer winPlayer =
       GameManager::getPlayerScore(PLAYER_ONE) > GameManager::getPlayerScore(PLAYER_TWO) ? PLAYER_ONE : PLAYER_TWO;
-    
-    /// What about equal ?????
-    
     unscheduleUpdate();
     unschedule(schedule_selector(PlayScene::cooldown));
     GameManager::setWinPlayer(winPlayer);
@@ -811,7 +807,10 @@ void PlayScene::addAxes()
 void PlayScene::addStones()
 {
   int numOfStones = rand() % 4 + 3;
-//  CCLog("Number of Axes is %i", numOfStones);
+  if (mTileInfoVector.size() % 2 == numOfStones % 2)
+  {
+    numOfStones++;
+  }
   GameManager::setNumOfStones(numOfStones);
   srand(time(NULL));
   for (int i = 0; i < numOfStones; i++)
@@ -869,7 +868,7 @@ void PlayScene::addStones()
 
 void PlayScene::appearAxePop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/Object/axe.png");
+  CCSprite* pop = CCSprite::create("Images/Game/Object/axe-02.png");
   mAxePop = CCMenuItemSprite::create(pop, pop, this, menu_selector(PlayScene::chooseAxeEnded));
   CCMenu *axePop = CCMenu::create(mAxePop, NULL);
   axePop->setPosition(ccp(pTileSprite->getPositionX()
