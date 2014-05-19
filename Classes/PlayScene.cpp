@@ -172,7 +172,6 @@ void PlayScene::makeMapScroll()
         tileInfo->setGID(PAIR_FUNC(i, j));
 //        CCLog("gid %d", PAIR_FUNC(i, j));
         mTileInfoVector.push_back(tileInfo);
-        
         if (j > 0 && mMapLayer->tileAt(ccp(i, j-1)))
         {
           tileInfo->setGIDTileUp(PAIR_FUNC(i, j-1));
@@ -551,9 +550,6 @@ void PlayScene::update(float pdT)
   {
     eCurrentPlayer winPlayer =
       GameManager::getPlayerScore(PLAYER_ONE) > GameManager::getPlayerScore(PLAYER_TWO) ? PLAYER_ONE : PLAYER_TWO;
-    
-    /// What about equal ?????
-    
     GameManager::setWinPlayer(winPlayer);
     CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
@@ -800,7 +796,10 @@ void PlayScene::addAxes()
 void PlayScene::addStones()
 {
   int numOfStones = rand() % 4 + 3;
-//  CCLog("Number of Axes is %i", numOfStones);
+  if (mTileInfoVector.size() % 2 == numOfStones % 2)
+  {
+    numOfStones++;
+  }
   GameManager::setNumOfStones(numOfStones);
   srand(time(NULL));
   for (int i = 0; i < numOfStones; i++)
