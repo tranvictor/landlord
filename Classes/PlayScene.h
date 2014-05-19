@@ -15,6 +15,8 @@
 #include "CCLayerPanZoom.h"
 #include "TileInfo.h"
 #include "GameManager.h"
+#include "ChooseMapScence.h"
+#include "SettingScene.h"
 
 class PlayScene : public cocos2d::CCLayer
 {

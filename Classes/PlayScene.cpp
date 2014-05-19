@@ -63,6 +63,7 @@ bool PlayScene::init()
   addPlayerTwoShadow();
   addScoreLbn();
   addPausedLayer();
+  GameManager::setIsInPlayScene(true);
   
   if (GameManager::getTreeModeState())
   {
@@ -235,11 +236,13 @@ void PlayScene::pauseButtonTouched(CCObject* pSender)
 {
   CCLog("paused touched");
   // TODO
-  unscheduleUpdate();
-  unschedule(schedule_selector(PlayScene::cooldown));
-  CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
-  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
-  sound::playSoundFx(SFX_CONGRATULATION);
+  mPausedLayer->setVisible(true);
+  mTileMap->setVisible(false);
+//  unscheduleUpdate();
+//  unschedule(schedule_selector(PlayScene::cooldown));
+//  CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
+//  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
+//  sound::playSoundFx(SFX_CONGRATULATION);
 //  CCScene* newScene = CCTransitionFade::create(0.5, WinScene::scene());
 //  CCDirector::sharedDirector()->replaceScene(newScene);
 }
@@ -1004,21 +1007,29 @@ void PlayScene::addPausedLayer()
   menu->setPosition(PAUSED_REPLAY_POS);
   mPausedLayer->addChild(menu);
   
-//  mPausedLayer->setVisible(false);
+  mPausedLayer->setVisible(false);
   this->addChild(mPausedLayer, 6);
 }
 
 void PlayScene::resumeButtonTouched()
 {
-  
+  mPausedLayer->setVisible(false);
+  mTileMap->setVisible(true);
 }
 
 void PlayScene::optionButtonTouched()
 {
-  
+  unscheduleUpdate();
+  unschedule(schedule_selector(PlayScene::cooldown));
+  CCScene* newScene = CCTransitionFade::create(0.5, SettingScene::scene());
+//  CCDirector::sharedDirector()->replaceScene(newScene);
+  CCDirector::sharedDirector()->pushScene(newScene);
 }
 
 void PlayScene::replayButtonTouched()
 {
-  
+  unscheduleUpdate();
+  unschedule(schedule_selector(PlayScene::cooldown));
+  CCScene* newScene = CCTransitionFade::create(0.5, ChooseMapScene::scene());
+  CCDirector::sharedDirector()->replaceScene(newScene);
 }

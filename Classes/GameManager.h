@@ -32,6 +32,7 @@ private:
   static int  nAxesOfPlayerTwo;
   static int  nStones;
   
+  static bool isInPlayScene;
 public:
   static bool getMusicState();
   static void setMusicState();
@@ -72,6 +73,9 @@ public:
   
   static int  getNumOfStones();
   static void setNumOfStones(int pNumOfStones);
+  
+  static bool getIsInPlayScene();
+  static void setIsInPlayScene(bool pValue);
 };
 
 #endif
