@@ -93,7 +93,7 @@ void SettingScene::addSoundFxButton()
   soundFx->addChild(soundFxToggle);
   soundFx->setPosition(BTN_SOUND);
   
-  this->addChild(soundFx, GR_FOREGROUND);
+  this->addChild(soundFx, SFX_ZORDER);
 }
 
 void SettingScene::addMusicButton()
@@ -133,7 +133,7 @@ void SettingScene::addMusicButton()
   music->addChild(musicToggle);
   music->setPosition(BTN_MUSIC);
   
-  this->addChild(music, GR_MIDDLEGROUND);
+  this->addChild(music, MUSIC_ZORDER);
 }
 
 void SettingScene::addTreeModeButton()
@@ -173,7 +173,7 @@ void SettingScene::addTreeModeButton()
   CCMenu* tree = CCMenu::create();
   tree->addChild(treeToggle);
   tree->setPosition(BTN_TREE);
-  this->addChild(tree, GR_FOREGROUND);
+  this->addChild(tree, TREE_ZORDER);
 }
 
 void SettingScene::addFogModeButton()
@@ -213,7 +213,7 @@ void SettingScene::addFogModeButton()
   CCMenu* fog = CCMenu::create();
   fog->addChild(fogToggle);
   fog->setPosition(BTN_FOG_POS);
-  this->addChild(fog, GR_MIDDLEGROUND);
+  this->addChild(fog, FOG_ZORDER);
 }
 
 void SettingScene::addBackButton()
