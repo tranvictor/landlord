@@ -701,7 +701,7 @@ void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSpr
   item->setTag(TAG_EDGE_BOTTOM);
   edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2,
                            pTileSprite->getPositionY()));
-  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, -pTileSprite->getContentSize().height/2)));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, -pTileSprite->getContentSize().height/2 - 4)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
@@ -718,7 +718,7 @@ void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite
   item->setTag(TAG_EDGE_TOP);
   edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2,
                            pTileSprite->getPositionY() + pTileSprite->getContentSize().height));
-  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, pop->getContentSize().height/2)));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, pTileSprite->getContentSize().height/2)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
@@ -735,7 +735,7 @@ void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprit
   item->setTag(TAG_EDGE_LEFT);
   edgePop->setPosition(ccp(pTileSprite->getPositionX(),
                            pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
-  edgePop->runAction(CCMoveBy::create(0.05f, ccp(- pop->getContentSize().width/2, 0)));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(-pTileSprite->getContentSize().width/2 - 8, 0)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
@@ -752,7 +752,7 @@ void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSpri
   item->setTag(TAG_EDGE_RIGHT);
   edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width,
                            pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
-  edgePop->runAction(CCMoveBy::create(0.05f, ccp(pop->getContentSize().width/2, 0)));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(pTileSprite->getContentSize().width/2, 0)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
