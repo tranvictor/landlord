@@ -268,8 +268,17 @@ void SettingScene::fogModeTouched(CCObject *pSender)
 void SettingScene::backButtonTouched(CCObject *pSender)
 {
   CCLog("Back Button Touched");
-  CREATE_MENU_ITEM(SettingScene, LoadingScene, CCTransitionSlideInR);
-  sound::playSoundFx(SFX_BUTTON_TOUCH);
+  if (!GameManager::getIsInPlayScene())
+  {
+    CREATE_MENU_ITEM(SettingScene, LoadingScene, CCTransitionSlideInR);
+    sound::playSoundFx(SFX_BUTTON_TOUCH);
+  }
+  else
+  {
+    CREATE_MENU_ITEM_NO_CHANGE_SCENE();
+    sound::playSoundFx(SFX_BUTTON_TOUCH);
+    CCDirector::sharedDirector()->popScene();
+  }
 }
 
 void SettingScene::changeScene(cocos2d::CCObject *pData)
