@@ -275,6 +275,8 @@ void SettingScene::backButtonTouched(CCObject *pSender)
   }
   else
   {
+    CREATE_MENU_ITEM_NO_CHANGE_SCENE();
+    sound::playSoundFx(SFX_BUTTON_TOUCH);
     CCDirector::sharedDirector()->popScene();
   }
 }

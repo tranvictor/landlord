@@ -245,6 +245,8 @@ void PlayScene::pauseButtonTouched(CCObject* pSender)
   // TODO
   mPausedLayer->setVisible(true);
   mTileMap->setVisible(false);
+  CREATE_MENU_ITEM_NO_CHANGE_SCENE();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
 //  unscheduleUpdate();
 //  unschedule(schedule_selector(PlayScene::cooldown));
 //  CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
@@ -1042,14 +1044,18 @@ void PlayScene::addPausedLayer()
   this->addChild(mPausedLayer, 6);
 }
 
-void PlayScene::resumeButtonTouched()
+void PlayScene::resumeButtonTouched(cocos2d::CCObject* pSender)
 {
+  CREATE_MENU_ITEM_NO_CHANGE_SCENE();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   mPausedLayer->setVisible(false);
   mTileMap->setVisible(true);
 }
 
-void PlayScene::optionButtonTouched()
+void PlayScene::optionButtonTouched(cocos2d::CCObject* pSender)
 {
+  CREATE_MENU_ITEM_NO_CHANGE_SCENE();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   unscheduleUpdate();
   unschedule(schedule_selector(PlayScene::cooldown));
   CCScene* newScene = CCTransitionFade::create(0.5, SettingScene::scene());
@@ -1057,8 +1063,10 @@ void PlayScene::optionButtonTouched()
   CCDirector::sharedDirector()->pushScene(newScene);
 }
 
-void PlayScene::replayButtonTouched()
+void PlayScene::replayButtonTouched(cocos2d::CCObject* pSender)
 {
+  CREATE_MENU_ITEM_NO_CHANGE_SCENE();
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
   unscheduleUpdate();
   unschedule(schedule_selector(PlayScene::cooldown));
   CCScene* newScene = CCTransitionFade::create(0.5, ChooseMapScene::scene());

@@ -135,9 +135,9 @@ public:
   void changeScene(cocos2d::CCObject* pData);
   
   void addPausedLayer();
-  void resumeButtonTouched();
-  void optionButtonTouched();
-  void replayButtonTouched();
+  void resumeButtonTouched(cocos2d::CCObject* pSender);
+  void optionButtonTouched(cocos2d::CCObject* pSender);
+  void replayButtonTouched(cocos2d::CCObject* pSender);
   cocos2d::CCSprite* createTurnIndicator(cocos2d::CCPoint pPos);
 };
 
