@@ -51,7 +51,7 @@ void ChooseMapScene::addBackground()
   mBackground->setPosition(ccp(mBackground->getContentSize().width/2, mScreenSize.height/2));
   this->addChild(mBackground, GR_BACKGROUND);
   
-  mTransparentBox = CCSprite::create("Images/Game/Background/transparent_box.png");
+  mTransparentBox = CCSprite::create("Images/Game/Background/box.png");
   mTransparentBox->setPosition(ccp(mScreenSize.width/2, mScreenSize.height/2));
   this->addChild(mTransparentBox, GR_FOREGROUND);
 }
