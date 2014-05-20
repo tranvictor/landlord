@@ -316,7 +316,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "463"
-            endingLineNumber = "463">
+            endingLineNumber = "463"
+            landmarkName = "PlayScene::removeAxe(cocos2d::CCObject *pSender)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
