@@ -13,9 +13,12 @@ The concept:
 * 	The aim of the game is build houses and occupy the island
 
 
-
-![](https://trello-attachments.s3.amazonaws.com/52c4f6123915d4930f0201d2/5325cf3ae398bcfd72002482/1136x640/c20fd08f99a1b6fcf5adc404044c359c/iOS_Simulator_Screen_shot_Apr_30%2C_2014%2C_1.45.37_AM.png)
-
+![](https://dl.dropboxusercontent.com/s/43u8kg5s387wlli/iOS%20Simulator%20Screen%20shot%20May%2019%2C%202014%2C%204.39.36%20PM.png)
+![](https://dl.dropboxusercontent.com/s/akbvi3llkxbaezj/iOS%20Simulator%20Screen%20shot%20May%2020%2C%202014%2C%2010.50.43%20PM.png)
+![](https://dl.dropboxusercontent.com/s/zbz5qh4t9zx47c4/iOS%20Simulator%20Screen%20shot%20May%2019%2C%202014%2C%204.43.40%20PM.png)
+![](https://dl.dropboxusercontent.com/s/n5ylamuli7bmheu/iOS%20Simulator%20Screen%20shot%20May%2020%2C%202014%2C%2010.50.47%20PM.png)
+![](https://dl.dropboxusercontent.com/s/9pcwqj0auf0dbp7/iOS%20Simulator%20Screen%20shot%20May%2020%2C%202014%2C%2010.52.34%20PM.png)
+![](https://dl.dropboxusercontent.com/s/0ifie3txfuv5oxr/iOS%20Simulator%20Screen%20shot%20May%2019%2C%202014%2C%204.43.45%20PM.png)
 
 ======================
 ### HOW TO PLAY
