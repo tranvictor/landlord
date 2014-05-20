@@ -80,8 +80,8 @@ bool PlayScene::init()
   
   setCooldownTime(100.0);
   srand(time(NULL));
-  mRemindLayerLeft = setupRemindLayer("Images/Game/Object/bubble_blue.png", PLAYER_ONE_POS + ccp(320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), ccc3(46, 107, 229));
-  mRemindLayerRight = setupRemindLayer("Images/Game/Object/bubble_red.png", PLAYER_TWO_POS + ccp(-320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), ccc3(221, 34, 34));
+  mRemindLayerLeft = setupRemindLayer("Images/Game/Object/bubble_blue.png", PLAYER_ONE_POS + ccp(320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), BLUE);
+  mRemindLayerRight = setupRemindLayer("Images/Game/Object/bubble_red.png", PLAYER_TWO_POS + ccp(-320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), RED);
   
   schedule(schedule_selector(PlayScene::update));
   schedule(schedule_selector(PlayScene::cooldown));
@@ -215,7 +215,7 @@ void PlayScene::addScoreLbn()
   mLbnScorePlayer1 = CCLabelTTF::create("  0      0", "ordin", 50);
   mLbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer1->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
-  mLbnScorePlayer1->setColor(ccBLUE);
+  mLbnScorePlayer1->setColor(BLUE);
   mLbnScorePlayer1->setPosition(ccp(PLAYER_ONE_POS.x + 20, 35));
   scoreBoardPlayscene->addChild(mLbnScorePlayer1);
 
@@ -229,7 +229,7 @@ void PlayScene::addScoreLbn()
   mLbnScorePlayer2 = CCLabelTTF::create("0      0", "ordin", 50);
   mLbnScorePlayer2->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer2->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
-  mLbnScorePlayer2->setColor(ccRED);
+  mLbnScorePlayer2->setColor(RED);
   mLbnScorePlayer2->setPosition(ccp(PLAYER_TWO_POS.x - 20, 35));
   scoreBoardPlayscene->addChild(mLbnScorePlayer2);
   this->addChild(scoreBoardPlayscene, GR_FOREGROUND);
@@ -581,7 +581,7 @@ void PlayScene::addBottomEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
   pEdge->setScale(0.1f);
   pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
-  mTileMap->addChild(pEdge, GR_BACKGROUND);
+  mTileMap->addChild(pEdge, GR_MIDDLEGROUND);
   pTileInfo->setEdgeBottomStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -605,7 +605,7 @@ void PlayScene::addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setScale(0.1f);
   pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
 
-  mTileMap->addChild(pEdge, GR_BACKGROUND);
+  mTileMap->addChild(pEdge, GR_MIDDLEGROUND);
   pTileInfo->setEdgeTopStatus(STS_NOT_AVAILABLE);
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
@@ -629,7 +629,7 @@ void PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setScale(0.1f);
   pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
 
-  mTileMap->addChild(pEdge, GR_BACKGROUND);
+  mTileMap->addChild(pEdge, GR_MIDDLEGROUND);
   pTileInfo->setEdgeLeftStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -654,7 +654,7 @@ void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setScale(0.1f);
   pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
 
-  mTileMap->addChild(pEdge, GR_BACKGROUND);
+  mTileMap->addChild(pEdge, GR_MIDDLEGROUND);
   pTileInfo->setEdgeRightStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
