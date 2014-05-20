@@ -243,15 +243,12 @@ void PlayScene::pauseButtonTouched(CCObject* pSender)
 {
   CCLog("paused touched");
   // TODO
+  CCDirector::sharedDirector()->pause();
+  mRemindLayerLeft->setVisible(false);
+  mRemindLayerRight->setVisible(false);
   mPausedLayer->setVisible(true);
   mTileMap->setVisible(false);
-//  unscheduleUpdate();
-//  unschedule(schedule_selector(PlayScene::cooldown));
-//  CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
-//  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
-//  sound::playSoundFx(SFX_CONGRATULATION);
-//  CCScene* newScene = CCTransitionFade::create(0.5, WinScene::scene());
-//  CCDirector::sharedDirector()->replaceScene(newScene);
+  unschedule(schedule_selector(PlayScene::cooldown));
 }
 
 void PlayScene::addFrameImg()
@@ -1046,6 +1043,10 @@ void PlayScene::resumeButtonTouched()
 {
   mPausedLayer->setVisible(false);
   mTileMap->setVisible(true);
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
+  setCooldownTime(100.0);
+  schedule(schedule_selector(PlayScene::cooldown));
+  CCDirector::sharedDirector()->resume();
 }
 
 void PlayScene::optionButtonTouched()
