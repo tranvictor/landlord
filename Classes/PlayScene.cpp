@@ -690,7 +690,7 @@ void PlayScene::appearPops(TileInfo* pTileInfo, cocos2d::CCSprite *pSp)
 
 void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/pointer_bottom.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(pop,
                              pop,
@@ -707,7 +707,7 @@ void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSpr
 
 void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/pointer_top.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(pop,
                              pop,
@@ -724,7 +724,7 @@ void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite
 
 void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/pointer_left.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(pop,
                              pop,
@@ -741,7 +741,7 @@ void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprit
 
 void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/pointer_right.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(pop,
                              pop,
