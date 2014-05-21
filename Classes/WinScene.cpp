@@ -49,6 +49,10 @@ void WinScene::addBackground()
   CCSprite *background = CCSprite::create("Images/Game/Background/winBg.png");
   background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
   this->addChild(background, GR_FOREGROUND, WIN_BG_TAG);
+  
+  CCSprite* behindWiner = CCSprite::create("Images/Game/Background/box.png");
+  behindWiner->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+  this->addChild(behindWiner, -1);
 }
 
 void WinScene::addMenu()
