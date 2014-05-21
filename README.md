@@ -19,6 +19,8 @@ The concept:
 ![](https://dl.dropboxusercontent.com/s/n5ylamuli7bmheu/iOS%20Simulator%20Screen%20shot%20May%2020%2C%202014%2C%2010.50.47%20PM.png)
 ![](https://dl.dropboxusercontent.com/s/9pcwqj0auf0dbp7/iOS%20Simulator%20Screen%20shot%20May%2020%2C%202014%2C%2010.52.34%20PM.png)
 ![](https://dl.dropboxusercontent.com/s/0ifie3txfuv5oxr/iOS%20Simulator%20Screen%20shot%20May%2019%2C%202014%2C%204.43.45%20PM.png)
+####Landlord V0.1 release trailer
+<iframe width="500" height="500" src="http://www.youtube.com/embed/i4WRKbYuUeA" frameborder="0" allowfullscreen></iframe>
 
 ======================
 ### HOW TO PLAY
