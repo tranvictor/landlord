@@ -133,6 +133,8 @@ USING_NS_CC;
                                                       CCDelayTime::create(0.05f), \
                                                       CCScaleTo::create(0.1, 1.0f), \
                                                       NULL))
+#define BLUE                 ccc3(46, 107, 229)
+#define RED                  ccc3(221, 34, 34)
 
 enum eGround
 {

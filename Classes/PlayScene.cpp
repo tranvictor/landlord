@@ -80,8 +80,8 @@ bool PlayScene::init()
   
   setCooldownTime(100.0);
   srand(time(NULL));
-  mRemindLayerLeft = setupRemindLayer("Images/Game/Object/bubble_blue.png", PLAYER_ONE_POS + ccp(320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), ccc3(46, 107, 229));
-  mRemindLayerRight = setupRemindLayer("Images/Game/Object/bubble_red.png", PLAYER_TWO_POS + ccp(-320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), ccc3(221, 34, 34));
+  mRemindLayerLeft = setupRemindLayer("Images/Game/Object/bubble_blue.png", PLAYER_ONE_POS + ccp(320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), BLUE);
+  mRemindLayerRight = setupRemindLayer("Images/Game/Object/bubble_red.png", PLAYER_TWO_POS + ccp(-320, 200), quote[rand() % (sizeof(quote)/sizeof(quote[0]))].c_str(), RED);
   
   schedule(schedule_selector(PlayScene::update));
   schedule(schedule_selector(PlayScene::cooldown));
@@ -215,7 +215,7 @@ void PlayScene::addScoreLbn()
   mLbnScorePlayer1 = CCLabelTTF::create("  0      0", "ordin", 50);
   mLbnScorePlayer1->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer1->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
-  mLbnScorePlayer1->setColor(ccBLUE);
+  mLbnScorePlayer1->setColor(BLUE);
   mLbnScorePlayer1->setPosition(ccp(PLAYER_ONE_POS.x + 20, 35));
   scoreBoardPlayscene->addChild(mLbnScorePlayer1);
 
@@ -229,7 +229,7 @@ void PlayScene::addScoreLbn()
   mLbnScorePlayer2 = CCLabelTTF::create("0      0", "ordin", 50);
   mLbnScorePlayer2->setHorizontalAlignment(kCCTextAlignmentCenter);
   mLbnScorePlayer2->setVerticalAlignment(kCCVerticalTextAlignmentCenter);
-  mLbnScorePlayer2->setColor(ccRED);
+  mLbnScorePlayer2->setColor(RED);
   mLbnScorePlayer2->setPosition(ccp(PLAYER_TWO_POS.x - 20, 35));
   scoreBoardPlayscene->addChild(mLbnScorePlayer2);
   this->addChild(scoreBoardPlayscene, GR_FOREGROUND);
@@ -243,17 +243,13 @@ void PlayScene::pauseButtonTouched(CCObject* pSender)
 {
   CCLog("paused touched");
   // TODO
+  CCDirector::sharedDirector()->pause();
+  mRemindLayerLeft->setVisible(false);
+  mRemindLayerRight->setVisible(false);
   mPausedLayer->setVisible(true);
   mTileMap->setVisible(false);
-  CREATE_MENU_ITEM_NO_CHANGE_SCENE();
+  unschedule(schedule_selector(PlayScene::cooldown));
   sound::playSoundFx(SFX_BUTTON_TOUCH);
-//  unscheduleUpdate();
-//  unschedule(schedule_selector(PlayScene::cooldown));
-//  CREATE_MENU_ITEM(PlayScene, WinScene, CCTransitionFade);
-//  CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
-//  sound::playSoundFx(SFX_CONGRATULATION);
-//  CCScene* newScene = CCTransitionFade::create(0.5, WinScene::scene());
-//  CCDirector::sharedDirector()->replaceScene(newScene);
 }
 
 void PlayScene::addFrameImg()
@@ -431,7 +427,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
         if (GameManager::getCurrentPlayer() == PLAYER_ONE)
           addAxeAnimation(PLAYER_ONE_POS, i);
         else
-          addAxeAnimation(PLAYER_ONE_POS, i);
+          addAxeAnimation(PLAYER_TWO_POS, i);
       }
     }
   }
@@ -575,6 +571,7 @@ void PlayScene::update(float pdT)
     CCScene* newScene = CCTransitionCrossFade::create(0.5, WinScene::scene());
     CCDirector::sharedDirector()->replaceScene(newScene);
   }
+
 }
 
 void PlayScene::addBottomEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
@@ -585,7 +582,7 @@ void PlayScene::addBottomEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setPosition(ccp(sp->getPositionX() + sp->getContentSize().width/2, sp->getPositionY()));
   pEdge->setScale(0.1f);
   pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
-  mTileMap->addChild(pEdge, GR_BACKGROUND);
+  mTileMap->addChild(pEdge, GR_MIDDLEGROUND);
   pTileInfo->setEdgeBottomStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -609,7 +606,7 @@ void PlayScene::addTopEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setScale(0.1f);
   pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
 
-  mTileMap->addChild(pEdge, GR_BACKGROUND);
+  mTileMap->addChild(pEdge, GR_MIDDLEGROUND);
   pTileInfo->setEdgeTopStatus(STS_NOT_AVAILABLE);
   for (int i = 0; i < mTileInfoVector.size(); ++i)
   {
@@ -633,7 +630,7 @@ void PlayScene::addLeftEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setScale(0.1f);
   pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
 
-  mTileMap->addChild(pEdge, GR_BACKGROUND);
+  mTileMap->addChild(pEdge, GR_MIDDLEGROUND);
   pTileInfo->setEdgeLeftStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -658,7 +655,7 @@ void PlayScene::addRightEdge(TileInfo *pTileInfo, cocos2d::CCSprite *pEdge)
   pEdge->setScale(0.1f);
   pEdge->runAction(CCScaleTo::create(0.1, 1.2f));
 
-  mTileMap->addChild(pEdge, GR_BACKGROUND);
+  mTileMap->addChild(pEdge, GR_MIDDLEGROUND);
   pTileInfo->setEdgeRightStatus(STS_NOT_AVAILABLE);
   
   for (int i = 0; i < mTileInfoVector.size(); ++i)
@@ -694,7 +691,7 @@ void PlayScene::appearPops(TileInfo* pTileInfo, cocos2d::CCSprite *pSp)
 
 void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/pointer_bottom.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(pop,
                              pop,
@@ -705,13 +702,13 @@ void PlayScene::appearBottomPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSpr
   item->setTag(TAG_EDGE_BOTTOM);
   edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2,
                            pTileSprite->getPositionY()));
-  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, -pTileSprite->getContentSize().height/2)));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, -pTileSprite->getContentSize().height/2 - 4)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
 void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/pointer_top.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(pop,
                              pop,
@@ -722,13 +719,13 @@ void PlayScene::appearTopPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite
   item->setTag(TAG_EDGE_TOP);
   edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width/2,
                            pTileSprite->getPositionY() + pTileSprite->getContentSize().height));
-  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, pop->getContentSize().height/2)));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(0, pTileSprite->getContentSize().height/2)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
 void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/pointer_left.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(pop,
                              pop,
@@ -739,13 +736,13 @@ void PlayScene::appearLeftPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprit
   item->setTag(TAG_EDGE_LEFT);
   edgePop->setPosition(ccp(pTileSprite->getPositionX(),
                            pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
-  edgePop->runAction(CCMoveBy::create(0.05f, ccp(- pop->getContentSize().width/2, 0)));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(-pTileSprite->getContentSize().width/2 - 8, 0)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
 void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSprite)
 {
-  CCSprite* pop = CCSprite::create("Images/Game/UI/button-pause.png");
+  CCSprite* pop = CCSprite::create("Images/Game/UI/pointer_right.png");
   CCMenuItemSprite* item =
     CCMenuItemSprite::create(pop,
                              pop,
@@ -756,7 +753,7 @@ void PlayScene::appearRightPop(TileInfo *pTileInfo, cocos2d::CCSprite *pTileSpri
   item->setTag(TAG_EDGE_RIGHT);
   edgePop->setPosition(ccp(pTileSprite->getPositionX() + pTileSprite->getContentSize().width,
                            pTileSprite->getPositionY() + pTileSprite->getContentSize().height/2));
-  edgePop->runAction(CCMoveBy::create(0.05f, ccp(pop->getContentSize().width/2, 0)));
+  edgePop->runAction(CCMoveBy::create(0.05f, ccp(pTileSprite->getContentSize().width/2, 0)));
   mTileMap->addChild(edgePop, GR_FOREGROUND);
 }
 
@@ -1050,6 +1047,10 @@ void PlayScene::resumeButtonTouched(cocos2d::CCObject* pSender)
   sound::playSoundFx(SFX_BUTTON_TOUCH);
   mPausedLayer->setVisible(false);
   mTileMap->setVisible(true);
+  sound::playSoundFx(SFX_BUTTON_TOUCH);
+  setCooldownTime(100.0);
+  schedule(schedule_selector(PlayScene::cooldown));
+  CCDirector::sharedDirector()->resume();
 }
 
 void PlayScene::optionButtonTouched(cocos2d::CCObject* pSender)
@@ -1059,8 +1060,8 @@ void PlayScene::optionButtonTouched(cocos2d::CCObject* pSender)
   unscheduleUpdate();
   unschedule(schedule_selector(PlayScene::cooldown));
   CCScene* newScene = CCTransitionFade::create(0.5, SettingScene::scene());
-//  CCDirector::sharedDirector()->replaceScene(newScene);
   CCDirector::sharedDirector()->pushScene(newScene);
+  CCDirector::sharedDirector()->resume();
 }
 
 void PlayScene::replayButtonTouched(cocos2d::CCObject* pSender)
@@ -1071,6 +1072,7 @@ void PlayScene::replayButtonTouched(cocos2d::CCObject* pSender)
   unschedule(schedule_selector(PlayScene::cooldown));
   CCScene* newScene = CCTransitionFade::create(0.5, ChooseMapScene::scene());
   CCDirector::sharedDirector()->replaceScene(newScene);
+  CCDirector::sharedDirector()->resume();
 }
 
 CCSprite* PlayScene::createTurnIndicator(CCPoint pPos)

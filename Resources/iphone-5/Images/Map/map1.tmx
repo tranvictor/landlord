@@ -8,14 +8,14 @@
    </properties>
   </tile>
  </tileset>
- <layer name="tile" width="8" height="8">
-  <data encoding="base64" compression="zlib">
-   eJxjYCAeiEMxPjlsatDl0NUQkidkPjHuwwUAGV8CKQ==
-  </data>
- </layer>
  <layer name="border" width="8" height="8">
   <data encoding="base64" compression="zlib">
    eJxjYIAAJiBmhmIWBlTADcQ8SHw+IObHIYeuRhSLHAxIEiEvD8QKWOSUgFgZykZXA5LTQVOvBcTaUIwsBwDZ6AKO
+  </data>
+ </layer>
+ <layer name="tile" width="8" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAeiEMxPjlsatDl0NUQkidkPjHuwwUAGV8CKQ==
   </data>
  </layer>
 </map>

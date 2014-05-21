@@ -439,9 +439,14 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/PlayScene.o: \
  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
  jni/../../Classes/CCLayerPanZoom.h jni/../../Classes/TileInfo.h \
- jni/../../Classes/GameManager.h jni/../../Classes/WinScene.h \
- jni/../../Classes/Tree.h jni/../../Classes/Axe.h \
- jni/../../Classes/Stone.h jni/../../Classes/Sound.h \
+ jni/../../Classes/GameManager.h jni/../../Classes/ChooseMapScence.h \
+ jni/../../Classes/CCScrollLayer.h \
+ jni/../../Classes/CCScrollLayerVertical.h jni/../../Classes/Sound.h \
+ jni/../../Classes/ChooseCharacterScene.h jni/../../Classes/StartScene.h \
+ /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/GUI/CCScrollView/CCScrollView.h \
+ jni/../../Classes/LoadingScene.h jni/../../Classes/SettingScene.h \
+ jni/../../Classes/WinScene.h jni/../../Classes/Tree.h \
+ jni/../../Classes/Axe.h jni/../../Classes/Stone.h \
  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h \
  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../CocosDenshion/android/../include/Export.h
 
@@ -1329,6 +1334,24 @@ jni/../../Classes/TileInfo.h:
 
 jni/../../Classes/GameManager.h:
 
+jni/../../Classes/ChooseMapScence.h:
+
+jni/../../Classes/CCScrollLayer.h:
+
+jni/../../Classes/CCScrollLayerVertical.h:
+
+jni/../../Classes/Sound.h:
+
+jni/../../Classes/ChooseCharacterScene.h:
+
+jni/../../Classes/StartScene.h:
+
+/Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/GUI/CCScrollView/CCScrollView.h:
+
+jni/../../Classes/LoadingScene.h:
+
+jni/../../Classes/SettingScene.h:
+
 jni/../../Classes/WinScene.h:
 
 jni/../../Classes/Tree.h:
@@ -1336,8 +1359,6 @@ jni/../../Classes/Tree.h:
 jni/../../Classes/Axe.h:
 
 jni/../../Classes/Stone.h:
-
-jni/../../Classes/Sound.h:
 
 /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../CocosDenshion/android/../include/SimpleAudioEngine.h:
 
