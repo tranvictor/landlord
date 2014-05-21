@@ -21,6 +21,7 @@ The concept:
 ![](https://dl.dropboxusercontent.com/s/0ifie3txfuv5oxr/iOS%20Simulator%20Screen%20shot%20May%2019%2C%202014%2C%204.43.45%20PM.png)
 ####Landlord V0.1 release trailer
 <iframe width="500" height="500" src="http://www.youtube.com/embed/i4WRKbYuUeA" frameborder="0" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=i4WRKbYuUeA&feature=youtu.be
 
 ======================
 ### HOW TO PLAY
