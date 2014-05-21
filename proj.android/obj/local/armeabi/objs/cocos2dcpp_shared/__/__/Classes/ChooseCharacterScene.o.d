@@ -443,6 +443,7 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/ChooseCharacterScene.o: \
  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/spine/CCSkeleton.h \
  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/spine/CCSkeletonAnimation.h \
  jni/../../Classes/CCLayerPanZoom.h jni/../../Classes/TileInfo.h \
+ jni/../../Classes/SettingScene.h \
  /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/GUI/CCScrollView/CCScrollView.h \
  jni/../../Classes/LoadingScene.h
 
@@ -1341,6 +1342,8 @@ jni/../../Classes/PlayScene.h:
 jni/../../Classes/CCLayerPanZoom.h:
 
 jni/../../Classes/TileInfo.h:
+
+jni/../../Classes/SettingScene.h:
 
 /Volumes/Working/game/enigma/cocos2d-x-2.2.2/projects/landlord/proj.android/../../../extensions/GUI/CCScrollView/CCScrollView.h:
 

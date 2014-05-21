@@ -427,7 +427,7 @@ void PlayScene::chooseEdgeEnded(cocos2d::CCObject *pSender)
         if (GameManager::getCurrentPlayer() == PLAYER_ONE)
           addAxeAnimation(PLAYER_ONE_POS, i);
         else
-          addAxeAnimation(PLAYER_ONE_POS, i);
+          addAxeAnimation(PLAYER_TWO_POS, i);
       }
     }
   }
